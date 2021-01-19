@@ -10,7 +10,4 @@ class SingUp: UIViewController {
         continue_button.layer.cornerRadius = 5
     }
     
-
-
-
 }

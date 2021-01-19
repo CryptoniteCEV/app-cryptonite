@@ -13,11 +13,14 @@
 		390DAF4125B707810056BFD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF3F25B707810056BFD5 /* Main.storyboard */; };
 		390DAF4325B707850056BFD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF4225B707850056BFD5 /* Assets.xcassets */; };
 		390DAF4625B707850056BFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */; };
-		390DAF5125B707850056BFD5 /* CryptoniteCevTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF5025B707850056BFD5 /* CryptoniteCevTests.swift */; };
-		390DAF5C25B707850056BFD5 /* CryptoniteCevUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF5B25B707850056BFD5 /* CryptoniteCevUITests.swift */; };
 		390DAF6A25B70BAD0056BFD5 /* UnderlinedtextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6925B70BAD0056BFD5 /* UnderlinedtextField.swift */; };
 		390DAF7025B724720056BFD5 /* SingUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6F25B724720056BFD5 /* SingUp.swift */; };
 		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
+		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
+		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
+		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
+		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
+		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +50,15 @@
 		390DAF4525B707850056BFD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		390DAF4725B707850056BFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		390DAF4C25B707850056BFD5 /* CryptoniteCevTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoniteCevTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		390DAF5025B707850056BFD5 /* CryptoniteCevTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoniteCevTests.swift; sourceTree = "<group>"; };
-		390DAF5225B707850056BFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		390DAF5725B707850056BFD5 /* CryptoniteCevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoniteCevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		390DAF5B25B707850056BFD5 /* CryptoniteCevUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoniteCevUITests.swift; sourceTree = "<group>"; };
-		390DAF5D25B707850056BFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		390DAF6925B70BAD0056BFD5 /* UnderlinedtextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedtextField.swift; sourceTree = "<group>"; };
 		390DAF6F25B724720056BFD5 /* SingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUp.swift; sourceTree = "<group>"; };
 		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
+		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				390DAF3825B707810056BFD5 /* CryptoniteCev */,
-				390DAF4F25B707850056BFD5 /* CryptoniteCevTests */,
-				390DAF5A25B707850056BFD5 /* CryptoniteCevUITests */,
 				390DAF3725B707810056BFD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,26 +117,69 @@
 				390DAF6925B70BAD0056BFD5 /* UnderlinedtextField.swift */,
 				390DAF6F25B724720056BFD5 /* SingUp.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
+				531657E725B7921F0040417F /* Constants */,
+				531657E825B7926A0040417F /* Storyboards */,
+				531657E625B790390040417F /* Helpers */,
+				531657E525B78F7E0040417F /* Controllers */,
+				531657E325B78F5C0040417F /* Models */,
 			);
 			path = CryptoniteCev;
 			sourceTree = "<group>";
 		};
-		390DAF4F25B707850056BFD5 /* CryptoniteCevTests */ = {
+		531657E325B78F5C0040417F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				390DAF5025B707850056BFD5 /* CryptoniteCevTests.swift */,
-				390DAF5225B707850056BFD5 /* Info.plist */,
+				531657F325B7975A0040417F /* Score.swift */,
+				531657F125B797510040417F /* Wallet.swift */,
+				531657EF25B7973F0040417F /* Coin.swift */,
+				531657ED25B7972D0040417F /* Trade.swift */,
+				531657EB25B7970B0040417F /* User.swift */,
 			);
-			path = CryptoniteCevTests;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		390DAF5A25B707850056BFD5 /* CryptoniteCevUITests */ = {
+		531657E525B78F7E0040417F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				390DAF5B25B707850056BFD5 /* CryptoniteCevUITests.swift */,
-				390DAF5D25B707850056BFD5 /* Info.plist */,
+				531657EA25B795C30040417F /* Logic */,
+				531657E925B795870040417F /* ViewLogic */,
 			);
-			path = CryptoniteCevUITests;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		531657E625B790390040417F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		531657E725B7921F0040417F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		531657E825B7926A0040417F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		531657E925B795870040417F /* ViewLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewLogic;
+			sourceTree = "<group>";
+		};
+		531657EA25B795C30040417F /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,12 +313,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531657F225B797510040417F /* Wallet.swift in Sources */,
+				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* ViewController.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SingUp.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedtextField.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
+				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				531657F425B7975A0040417F /* Score.swift in Sources */,
+				531657EC25B7970B0040417F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				390DAF5125B707850056BFD5 /* CryptoniteCevTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				390DAF5C25B707850056BFD5 /* CryptoniteCevUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
