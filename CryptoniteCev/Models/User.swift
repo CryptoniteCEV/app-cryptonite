@@ -33,7 +33,9 @@ class User{
         self._score = score
     }
     
-    
+    /**
+     Devuelve info del usuario orientada a ser mostrada en el perfil
+     */
     public func getProfileInfo()->[String:Any]{
         return ["username":_username,"email":_email,"name":_name,"surname":_surname,"dateOfBirth":_dateOfBirth]
     }
