@@ -2,7 +2,7 @@
 
 import UIKit
 
-class UnderlinedtextField: UITextField {
+class UnderlinedTextField: UITextField {
 
     private let underline = CALayer()
         

@@ -1,7 +1,7 @@
 
 import UIKit
 
-class SingUp: UIViewController {
+class SignUpController: UIViewController {
 
     @IBOutlet weak var continue_button: UIButton!
     override func viewDidLoad() {
