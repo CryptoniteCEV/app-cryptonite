@@ -107,20 +107,11 @@
 		390DAF3825B707810056BFD5 /* CryptoniteCev */ = {
 			isa = PBXGroup;
 			children = (
-				390DAF3925B707810056BFD5 /* AppDelegate.swift */,
-				390DAF3B25B707810056BFD5 /* SceneDelegate.swift */,
-				390DAF3D25B707810056BFD5 /* LogInController.swift */,
-				390DAF3F25B707810056BFD5 /* Main.storyboard */,
-				390DAF4225B707850056BFD5 /* Assets.xcassets */,
-				390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */,
 				390DAF4725B707850056BFD5 /* Info.plist */,
-				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
-				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
-				3966791F25B7606500334585 /* CompleteViewController.swift */,
+				5393E88625B8BD7000C647FD /* SupportFiles */,
 				5393E88325B8AE4300C647FD /* Constants */,
 				5393E88225B8AE4200C647FD /* Controllers */,
 				5393E88425B8AE4300C647FD /* Helpers */,
-				5393E88525B8AE4300C647FD /* Storyboard */,
 				5393E88125B8AE4200C647FD /* Views */,
 				5393E88025B8AD9E00C647FD /* Models */,
 			);
@@ -142,6 +133,9 @@
 		5393E88125B8AE4200C647FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				390DAF3D25B707810056BFD5 /* LogInController.swift */,
+				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
+				3966791F25B7606500334585 /* CompleteViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,15 +157,21 @@
 		5393E88425B8AE4300C647FD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		5393E88525B8AE4300C647FD /* Storyboard */ = {
+		5393E88625B8BD7000C647FD /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				390DAF3925B707810056BFD5 /* AppDelegate.swift */,
+				390DAF3B25B707810056BFD5 /* SceneDelegate.swift */,
+				390DAF4225B707850056BFD5 /* Assets.xcassets */,
+				390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */,
+				390DAF3F25B707810056BFD5 /* Main.storyboard */,
 			);
-			path = Storyboard;
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
