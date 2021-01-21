@@ -24,26 +24,27 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+              
+        view.overrideUserInterfaceStyle = .dark
         
-        images.append(#imageLiteral(resourceName: "logoTransparente"))
         images.append(#imageLiteral(resourceName: "stockProfilePic"))
-        images.append(#imageLiteral(resourceName: "sinnginWireframe"))
         images.append(#imageLiteral(resourceName: "istockphoto-1142003969-612x612"))
-        images.append(#imageLiteral(resourceName: "360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn"))
         images.append(#imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"))
+        images.append(#imageLiteral(resourceName: "360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn"))
+        images.append(#imageLiteral(resourceName: "logoTransparente"))
+        images.append(#imageLiteral(resourceName: "mainScreen"))
         
         CircleCell.images = images
-    
+        
         
         view.addSubview(collectionView)
-        //collectionView.backgroundColor = .nonedd
+        collectionView.backgroundColor = .none
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
-
     }
 
 }
@@ -61,6 +62,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         return cell
     }
 }
+
+
 
 func getImages(images: [UIImage]) -> [UIImage] {
     

@@ -22,6 +22,7 @@ class CircleCell: UICollectionViewCell {
         circularButton.clipsToBounds = true
         circularButton.layer.cornerRadius = 0.8 * circularButton.bounds.size.width
         circularButton.setImage(images?[CircleCell.index], for: .normal)
+        circularButton.imageView?.contentMode = .scaleAspectFill
         circularButton.layer.borderColor = #colorLiteral(red: 0, green: 0.7529411765, blue: 0.4549019608, alpha: 1)
         circularButton.layer.borderWidth = 3
         
