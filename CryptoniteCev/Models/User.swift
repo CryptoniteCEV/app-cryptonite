@@ -2,7 +2,7 @@
 import Foundation;
 import UIKit;
 
-class User : Decodable{
+class User : Encodable, Decodable{
     
     private let _username:String
     private let _email:String
