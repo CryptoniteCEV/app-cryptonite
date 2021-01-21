@@ -15,5 +15,7 @@ class LogInController: UIViewController {
         
         
     }
+    @IBAction func goToSignUp(_ sender: Any) {
+    }
 }
 
