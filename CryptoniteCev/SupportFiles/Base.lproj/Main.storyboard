@@ -150,7 +150,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-767" y="53"/>
+            <point key="canvasLocation" x="-749" y="-24"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="hfi-YM-nuH">
@@ -373,7 +373,7 @@ CEVtYWlsA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIq-jr-l3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="-637"/>
+            <point key="canvasLocation" x="1167" y="-24"/>
         </scene>
     </scenes>
     <resources>
