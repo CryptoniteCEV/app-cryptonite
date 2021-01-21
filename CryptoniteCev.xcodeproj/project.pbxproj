@@ -22,11 +22,17 @@
 		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
+<<<<<<< HEAD
 		5393E88925B8E94700C647FD /* UserRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* UserRequests.swift */; };
 		5393E88B25B8EA8A00C647FD /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* URLs.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
+=======
+		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
+		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
+		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
+>>>>>>> MainScreenFix
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +74,7 @@
 		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		5393E88825B8E94700C647FD /* UserRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequests.swift; sourceTree = "<group>"; };
 		5393E88A25B8EA8A00C647FD /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -77,6 +84,11 @@
 		80D39659803FFD78A6FD3592 /* Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCevTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
+>>>>>>> MainScreenFix
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +170,7 @@
 				5393E88625B8BD7000C647FD /* SupportFiles */,
 				5393E88325B8AE4300C647FD /* Constants */,
 				5393E88225B8AE4200C647FD /* Controllers */,
+				5393E88025B8AD9E00C647FD /* Models */,
 				5393E88425B8AE4300C647FD /* Helpers */,
 				5393E88125B8AE4200C647FD /* Views */,
 				5393E88025B8AD9E00C647FD /* Models */,
@@ -181,8 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				390DAF3D25B707810056BFD5 /* LogInController.swift */,
+				7F944AA825B9AF3D00A9854E /* MainScreenController.swift */,
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
+				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
+				F8C139C425B9E27C008F92B6 /* CircleCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,11 +491,17 @@
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
+<<<<<<< HEAD
 				5393E88925B8E94700C647FD /* UserRequests.swift in Sources */,
+=======
+				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
+>>>>>>> MainScreenFix
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
+				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
+				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
 				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
