@@ -10,15 +10,9 @@ class User : Decodable{
     private var _surname:String
     private let _dateOfBirth:Date
     private var _profilePic:String
-    private let _wallet:Wallet
-    
-    private var _followers:[User]
-    private var _followings:[User]
-    
-    private let _score:Score
 
     
-    init(username:String, email:String, name:String, surname:String, dateOfBirth:Date, profilePic:String, wallet: Wallet, score:Score){
+    init(username:String, email:String, name:String, surname:String, dateOfBirth:Date, profilePic:String){
         
         self._username = username
         self._email = email
@@ -26,10 +20,6 @@ class User : Decodable{
         self._surname = surname
         self._dateOfBirth = dateOfBirth
         self._profilePic = profilePic
-        self._wallet = wallet
-        self._followers = []
-        self._followings = []
-        self._score = score
     }
     
     /**
@@ -79,36 +69,6 @@ class User : Decodable{
         }
         set {
             self._profilePic = newValue
-        }
-    }
-    
-    public var wallet: Wallet {
-        get {
-            return self._wallet;
-        }
-    }
-    
-    public var followers: [User] {
-        get {
-            return self._followers;
-        }
-        set{
-            self._followers = newValue;
-        }
-    }
-    
-    public var following: [User] {
-        get {
-            return self._followings;
-        }
-        set{
-            self._followings = newValue;
-        }
-    }
-    
-    public var score: Score {
-        get {
-            return self._score;
         }
     }
     

@@ -24,6 +24,7 @@
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
 		5393E88925B8E94700C647FD /* UserRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* UserRequests.swift */; };
 		5393E88B25B8EA8A00C647FD /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* URLs.swift */; };
+		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		5393E88825B8E94700C647FD /* UserRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequests.swift; sourceTree = "<group>"; };
 		5393E88A25B8EA8A00C647FD /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev_CryptoniteCevUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 		5393E88225B8AE4200C647FD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53E9E27225BA071D00B78B17 /* MainController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
 			);
