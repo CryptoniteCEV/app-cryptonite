@@ -2,14 +2,16 @@
 import Foundation;
 import UIKit;
 
-class Wallet{
+class Wallet : Decodable{
     
     private var _coins:[Coin]
     private var _quantities:[Int]
+    private var _dollars:Float
     
-    init(coins:[Coin], quantities:[Int]){
+    init(coins:[Coin], quantities:[Int], dollars:Float){
         self._coins = coins
         self._quantities = quantities
+        self._dollars = dollars
     }
     
     public var coins: [Coin] {
@@ -26,6 +28,15 @@ class Wallet{
         }
         set {
             self._quantities = newValue
+        }
+    }
+    
+    public var dollars: Float {
+        get {
+            return self._dollars;
+        }
+        set {
+            self._dollars = newValue
         }
     }
 }

@@ -1,0 +1,35 @@
+import Foundation
+
+class URLs {
+    
+    //User´s Petitions
+    static let register:String = "/register"
+    static let login:String = "/login"
+    static let restorePassword:String = "/generateNewPassword"
+    static let updatePassword:String = "/updatePassword"
+    static let getProfileInfo:String = "/getProfileInfo"
+    static let updateProfile:String = "/updateProfile"
+    static let getFollowerInfo:String = "/getFollowerInfo"
+    static let followUser:String = "/followUser"
+    static let getFollowings:String = "/getFollowings"
+    static let updateExperience:String = "/updateExperience"
+    static let updateLevel:String = "/updateLevel"
+    static let getFollowers:String = "/getFollowers"
+    static let trade:String = "/tradeCoin"
+    
+    //Score´s petitions
+    static let getScores:String = "/getScores"
+    
+    //Trading´s petitions
+    static let getTradingHistory:String = "/deposit"
+    
+    //Deposit´s petitions
+    static let getWalletInfo:String = "/getWalletInfo"
+    static let deposit:String = "/deposit"
+    
+    //Currency´s petitions
+    static let getCoinsList:String = "/getCoinList"
+    static let setNewCurrency:String = "/setNewCurrency"
+    
+}
+

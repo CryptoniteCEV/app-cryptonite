@@ -1,6 +1,6 @@
 import Foundation
 
-class Score{
+class Score : Decodable{
     
     private var _level:Int
     private var _experience:Int

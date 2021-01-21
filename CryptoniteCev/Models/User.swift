@@ -2,15 +2,14 @@
 import Foundation;
 import UIKit;
 
-class User{
+class User : Decodable{
     
     private let _username:String
     private let _email:String
     private var _name:String
     private var _surname:String
     private let _dateOfBirth:Date
-    private var _profilePic:UIImage
-    
+    private var _profilePic:String
     private let _wallet:Wallet
     
     private var _followers:[User]
@@ -19,7 +18,7 @@ class User{
     private let _score:Score
 
     
-    init(username:String, email:String, name:String, surname:String, dateOfBirth:Date, profilePic:UIImage, wallet: Wallet, score:Score){
+    init(username:String, email:String, name:String, surname:String, dateOfBirth:Date, profilePic:String, wallet: Wallet, score:Score){
         
         self._username = username
         self._email = email
@@ -74,7 +73,7 @@ class User{
         }
     }
     
-    public var profilePic: UIImage {
+    public var profilePic: String {
         get {
             return self._profilePic;
         }

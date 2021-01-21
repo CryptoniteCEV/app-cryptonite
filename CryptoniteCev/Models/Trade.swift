@@ -2,7 +2,7 @@
 import Foundation;
 import UIKit;
 
-class Trade{
+class Trade : Decodable{
     
     private let _id:String
     private let _quantity:Int
