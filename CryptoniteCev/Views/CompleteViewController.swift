@@ -5,13 +5,14 @@ import UIKit
 class CompleteViewController: UIViewController {
 
     
+    @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var date_picker: UITextField!
     let date = UIDatePicker()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        finishButton.layer.cornerRadius = 5
       createDatePicker()
     }
     

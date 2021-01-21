@@ -12,7 +12,8 @@ class UnderlinedTextField: UITextField {
             
         // Borramos los horrorosos bordes que tienen los UITextField por defecto.
         let lineWidth: CGFloat = 1.0
-        underline.borderColor = UIColor.darkGray.cgColor
+        
+        underline.borderColor = UIColor.lightGray.cgColor
         underline.frame = CGRect(
             x: 0,
             y: frame.size.height - lineWidth,
