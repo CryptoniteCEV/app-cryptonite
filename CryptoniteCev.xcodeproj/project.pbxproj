@@ -21,7 +21,6 @@
 		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
-		7F944AA725B9AC7600A9854E /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA625B9AC7600A9854E /* CircularButton.swift */; };
 		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
 		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
@@ -63,7 +62,6 @@
 		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		7F944AA625B9AC7600A9854E /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
-				7F944AA625B9AC7600A9854E /* CircularButton.swift */,
 				F8C139C425B9E27C008F92B6 /* CircleCell.swift */,
 			);
 			path = Helpers;
@@ -328,7 +325,6 @@
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
-				7F944AA725B9AC7600A9854E /* CircularButton.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
