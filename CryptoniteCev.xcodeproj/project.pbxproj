@@ -21,6 +21,8 @@
 		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
+		7F944AA725B9AC7600A9854E /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA625B9AC7600A9854E /* CircularButton.swift */; };
+		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		7F944AA625B9AC7600A9854E /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +115,9 @@
 				5393E88625B8BD7000C647FD /* SupportFiles */,
 				5393E88325B8AE4300C647FD /* Constants */,
 				5393E88225B8AE4200C647FD /* Controllers */,
+				5393E88025B8AD9E00C647FD /* Models */,
 				5393E88425B8AE4300C647FD /* Helpers */,
 				5393E88125B8AE4200C647FD /* Views */,
-				5393E88025B8AD9E00C647FD /* Models */,
 			);
 			path = CryptoniteCev;
 			sourceTree = "<group>";
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				390DAF3D25B707810056BFD5 /* LogInController.swift */,
+				7F944AA825B9AF3D00A9854E /* MainScreenController.swift */,
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
 			);
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
+				7F944AA625B9AC7600A9854E /* CircularButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -313,6 +319,8 @@
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
+				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
+				7F944AA725B9AC7600A9854E /* CircularButton.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
