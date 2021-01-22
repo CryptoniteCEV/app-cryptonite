@@ -2,24 +2,24 @@
 import Foundation;
 import UIKit;
 
-class Wallet : Decodable{
+class Wallet : Decodable, Encodable{
     
-    private var _coins:[Coin]
+    private var _idsCoin:[Int]
     private var _quantities:[Int]
     private var _dollars:Float
     
-    init(coins:[Coin], quantities:[Int], dollars:Float){
-        self._coins = coins
+    init(idsCoins:[Int], quantities:[Int], dollars:Float){
+        self._idsCoin = idsCoins
         self._quantities = quantities
         self._dollars = dollars
     }
     
-    public var coins: [Coin] {
+    public var coins: [Int] {
         get {
-            return self._coins;
+            return self._idsCoin;
         }
         set {
-            self._coins = newValue
+            self._idsCoin = newValue
         }
     }
     public var quantities: [Int] {
