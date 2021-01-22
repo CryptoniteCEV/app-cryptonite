@@ -41,17 +41,18 @@ class MainScreenController: UIViewController {
         collectionView.backgroundColor = .none
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
+         
     }
 
 }
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/4.5, height: collectionView.frame.width/4.5)
+        return CGSize(width: collectionView.frame.width/5, height: collectionView.frame.width/5)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count

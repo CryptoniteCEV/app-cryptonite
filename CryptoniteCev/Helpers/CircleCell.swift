@@ -25,32 +25,38 @@ class CircleCell: UICollectionViewCell {
         circularButton.imageView?.contentMode = .scaleAspectFill
         circularButton.layer.borderColor = #colorLiteral(red: 0, green: 0.7529411765, blue: 0.4549019608, alpha: 1)
         circularButton.layer.borderWidth = 3
-        
+       // circularButton.addTarget(circularButton, action: #selector(thumbsUpButtonPressed), for: .touchUpInside)
         
         return circularButton
     }()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
         //if CircleCell.images != nil {
             
-            contentView.addSubview(bg)
-            
-            bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-            bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-            bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            
-            CircleCell.index += 1
+        contentView.addSubview(bg)
+        
+        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        CircleCell.index += 1
+        
+        bg.addTarget(self, action: #selector(thumbsUpButtonPressed), for: .touchUpInside)
         //}
-        
-        
-
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func thumbsUpButtonPressed(sender: UIButton){
+        sender.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        print (sender.description)
     }
 }
