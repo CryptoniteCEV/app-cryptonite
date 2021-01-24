@@ -9,6 +9,7 @@
 import UIKit
 
 var images : [UIImage] = []
+var imageSelected : UIImage?
 
 
 class MainScreenController: UIViewController {
@@ -22,6 +23,9 @@ class MainScreenController: UIViewController {
         return cv
     }()
 
+    
+    @IBOutlet var Asdf: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
               
@@ -38,6 +42,7 @@ class MainScreenController: UIViewController {
         
         
         view.addSubview(collectionView)
+        
         collectionView.backgroundColor = .none
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -47,7 +52,19 @@ class MainScreenController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
          
     }
-
+    
+    func setImage(image: UIImage){
+        
+        imageSelected = image
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           
+        if (segue.identifier == "stories") {
+            let storiesController = segue.destination as! StoriesController
+            storiesController.storieImage = imageSelected
+        }
+    }    
 }
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -60,14 +77,22 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
+        cell.button.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
+        setImage(image: sender.image(for: .normal)!)
+        self.performSegue(withIdentifier: "stories", sender: nil)
     }
 }
 
 
 
-func getImages(images: [UIImage]) -> [UIImage] {
+
+func getImages(image: UIImage) -> UIImage {
     
-    return images
+    return image
 }
+
 

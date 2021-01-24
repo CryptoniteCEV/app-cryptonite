@@ -30,6 +30,7 @@
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
+		F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0847125BDFE7900287C60 /* StoriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCevTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
+		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
 				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
+				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
 				5393E88925B8E94700C647FD /* UserRequests.swift in Sources */,
 				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
+				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
