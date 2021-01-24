@@ -23,7 +23,7 @@
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
 		5393E88925B8E94700C647FD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Requests.swift */; };
-		5393E88B25B8EA8A00C647FD /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* URLs.swift */; };
+		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */; };
@@ -70,7 +70,7 @@
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		5393E88825B8E94700C647FD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
-		5393E88A25B8EA8A00C647FD /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		5393E88A25B8EA8A00C647FD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		5393E88325B8AE4300C647FD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				5393E88A25B8EA8A00C647FD /* URLs.swift */,
+				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
 				7F7411CC25BB08EF009D8D6C /* Keys.swift */,
 			);
 			path = Constants;
@@ -474,7 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				531657F225B797510040417F /* Wallet.swift in Sources */,
-				5393E88B25B8EA8A00C647FD /* URLs.swift in Sources */,
+				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,

@@ -1,6 +1,8 @@
 import Foundation
 
-class URLs {
+class Endpoints {
+    
+    static let baseUrl = "http://192.168.1.40/Laravel/api-cryptonite/public/api/users"
     
     //User´s Petitions
     enum User {
@@ -17,6 +19,7 @@ class URLs {
         static let updateLevel:String = "/updateLevel"
         static let getFollowers:String = "/getFollowers"
         static let trade:String = "/tradeCoin"
+        static let all:String = "/all"
     }
     //Score´s petitions
     enum Score {
