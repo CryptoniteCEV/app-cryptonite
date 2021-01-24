@@ -8,6 +8,7 @@ class SignUpController: UIViewController {
         super.viewDidLoad()
 
         continue_button.layer.cornerRadius = 5
+        
     }
     
 }
