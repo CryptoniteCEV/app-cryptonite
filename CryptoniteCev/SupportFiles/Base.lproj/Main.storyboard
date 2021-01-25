@@ -163,20 +163,12 @@ CEZvcmdvdCBwYXNzd29yZD8
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ns-BeS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeU-xz-xnl">
-                                <rect key="frame" x="0.0" y="164" width="414" height="698"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SGP-ns-BeS" firstAttribute="top" secondItem="sJ2-F2-0tn" secondAttribute="top" id="0Hc-bH-kQx"/>
-                            <constraint firstItem="SeU-xz-xnl" firstAttribute="leading" secondItem="0yA-4i-lQx" secondAttribute="leading" id="0eC-CC-5ia"/>
                             <constraint firstItem="0yA-4i-lQx" firstAttribute="bottom" secondItem="SGP-ns-BeS" secondAttribute="bottom" id="5qQ-oK-QOn"/>
-                            <constraint firstItem="0yA-4i-lQx" firstAttribute="bottom" secondItem="SeU-xz-xnl" secondAttribute="bottom" id="8Yw-VX-IM5"/>
                             <constraint firstItem="SGP-ns-BeS" firstAttribute="leading" secondItem="sJ2-F2-0tn" secondAttribute="leading" id="J4M-MK-h1T"/>
-                            <constraint firstItem="SeU-xz-xnl" firstAttribute="top" secondItem="0yA-4i-lQx" secondAttribute="top" constant="120" id="RDf-Bm-45s"/>
-                            <constraint firstItem="0yA-4i-lQx" firstAttribute="trailing" secondItem="SeU-xz-xnl" secondAttribute="trailing" id="Rah-gP-gRe"/>
                             <constraint firstAttribute="trailing" secondItem="SGP-ns-BeS" secondAttribute="trailing" id="ycl-ev-Ub3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0yA-4i-lQx"/>
@@ -187,7 +179,6 @@ CEZvcmdvdCBwYXNzd29yZD8
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="Asdf" destination="SeU-xz-xnl" id="FvC-wh-sKq"/>
                         <segue destination="grX-AG-6vv" kind="show" identifier="stories" id="w1g-rT-Sh6"/>
                     </connections>
                 </viewController>
@@ -223,7 +214,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="699"/>
+            <point key="canvasLocation" x="168" y="702"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="hfi-YM-nuH">

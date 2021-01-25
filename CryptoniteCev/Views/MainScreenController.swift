@@ -22,9 +22,6 @@ class MainScreenController: UIViewController {
         cv.register(CircleCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
-
-    
-    @IBOutlet var Asdf: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
