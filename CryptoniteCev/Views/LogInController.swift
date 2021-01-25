@@ -13,9 +13,8 @@ class LogInController: UIViewController {
 
     @IBAction func validation(_ sender: Any) {
         
-        let service = Service()
-        //service.getUsers()
-        service.postUsers()
+        //Service.getUsers()
+        Service.shared.postUsers()
     }
 }
 

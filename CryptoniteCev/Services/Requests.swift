@@ -4,6 +4,10 @@ import Alamofire
 
 class Service {
     
+    static let shared = Service()
+    
+    private init() {}
+    
     func getUsers() {
         
         AF.request(Endpoints.baseUrl+Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in

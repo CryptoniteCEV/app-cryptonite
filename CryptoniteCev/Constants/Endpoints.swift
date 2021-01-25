@@ -2,6 +2,10 @@ import Foundation
 
 class Endpoints {
     
+    private init() {}
+    
+    let shared = Endpoints()
+    
     static let baseUrl = "http://192.168.1.40/Laravel/api-cryptonite/public/api/users"
     
     //User´s Petitions
