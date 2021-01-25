@@ -3,7 +3,7 @@
 import Foundation;
 import UIKit;
 
-class Coin{
+class Coin : Decodable, Encodable{
     
     private var _name:String
     private var _price:Int

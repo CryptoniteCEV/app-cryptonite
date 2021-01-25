@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jLg-54-Uzd">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ASR-P2-KX9">
+>>>>>>> f2d107900e6dce4f5be2cf5d368a93131188c2ad
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -112,8 +116,12 @@ CEZvcmdvdCBwYXNzd29yZD8
                                             <color key="titleColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+<<<<<<< HEAD
                                             <action selector="goToSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zoj-27-cLF"/>
                                             <segue destination="OhZ-Zf-S06" kind="show" id="Fmu-VX-LTf"/>
+=======
+                                            <segue destination="OhZ-Zf-S06" kind="show" identifier="" id="Fmu-VX-LTf"/>
+>>>>>>> f2d107900e6dce4f5be2cf5d368a93131188c2ad
                                         </connections>
                                     </button>
                                 </subviews>
@@ -154,7 +162,75 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-323" y="-87"/>
+=======
+            <point key="canvasLocation" x="-749" y="-24"/>
+        </scene>
+        <!--Main Screen Controller-->
+        <scene sceneID="sdR-cf-Aeg">
+            <objects>
+                <viewController id="ASR-P2-KX9" customClass="MainScreenController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sJ2-F2-0tn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ns-BeS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SGP-ns-BeS" firstAttribute="top" secondItem="sJ2-F2-0tn" secondAttribute="top" id="0Hc-bH-kQx"/>
+                            <constraint firstItem="0yA-4i-lQx" firstAttribute="bottom" secondItem="SGP-ns-BeS" secondAttribute="bottom" id="5qQ-oK-QOn"/>
+                            <constraint firstItem="SGP-ns-BeS" firstAttribute="leading" secondItem="sJ2-F2-0tn" secondAttribute="leading" id="J4M-MK-h1T"/>
+                            <constraint firstAttribute="trailing" secondItem="SGP-ns-BeS" secondAttribute="trailing" id="ycl-ev-Ub3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0yA-4i-lQx"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SGP-ns-BeS"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <segue destination="grX-AG-6vv" kind="show" identifier="stories" id="w1g-rT-Sh6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759.4202898550725" y="702.45535714285711"/>
+        </scene>
+        <!--Stories Controller-->
+        <scene sceneID="71Q-VG-htQ">
+            <objects>
+                <viewController id="grX-AG-6vv" customClass="StoriesController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yGX-YP-XZg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTransparente" translatesAutoresizingMaskIntoConstraints="NO" id="gBJ-FU-tHq">
+                                <rect key="frame" x="87" y="167" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8RN-RV-6tR" firstAttribute="trailing" secondItem="gBJ-FU-tHq" secondAttribute="trailing" constant="87" id="0rj-Ms-y13"/>
+                            <constraint firstItem="gBJ-FU-tHq" firstAttribute="top" secondItem="8RN-RV-6tR" secondAttribute="top" constant="167" id="R8i-UO-rCW"/>
+                            <constraint firstItem="8RN-RV-6tR" firstAttribute="bottom" secondItem="gBJ-FU-tHq" secondAttribute="bottom" constant="513" id="vPC-yW-BBR"/>
+                            <constraint firstItem="gBJ-FU-tHq" firstAttribute="leading" secondItem="8RN-RV-6tR" secondAttribute="leading" constant="87" id="wUb-Jm-qBw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8RN-RV-6tR"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oel-iV-Lwm"/>
+                    <connections>
+                        <outlet property="imageView" destination="gBJ-FU-tHq" id="dwZ-Tm-rkb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="702"/>
+>>>>>>> f2d107900e6dce4f5be2cf5d368a93131188c2ad
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="hfi-YM-nuH">
@@ -391,6 +467,7 @@ CEVtYWlsA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIq-jr-l3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1200" y="-87"/>
         </scene>
         <!--Navigation Controller-->
@@ -461,10 +538,14 @@ CEVtYWlsA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kR-86-bTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1219" y="-1047"/>
+=======
+            <point key="canvasLocation" x="1167" y="-24"/>
+>>>>>>> f2d107900e6dce4f5be2cf5d368a93131188c2ad
         </scene>
     </scenes>
     <resources>
         <image name="logoTransparente" width="626" height="664"/>
+        <image name="mainScreen" width="156" height="349"/>
         <image name="singUp" width="249" height="518"/>
         <image name="sinnginWireframe" width="243" height="503"/>
     </resources>

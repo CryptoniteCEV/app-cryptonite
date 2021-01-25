@@ -2,15 +2,15 @@
 import Foundation;
 import UIKit;
 
-class Trade{
+class Trade : Decodable, Encodable{
     
     private let _id:String
     private let _quantity:Int
-    private let _coin:Coin
+    private let _idCoin:Int
     
-    init(id:String, coin:Coin, quantity:Int){
+    init(id:String, idCoin:Int, quantity:Int){
         self._id = id
-        self._coin = coin
+        self._idCoin = idCoin
         self._quantity = quantity
     }
     
@@ -24,9 +24,9 @@ class Trade{
             return self._quantity;
         }
     }
-    public var coins: Coin {
+    public var coins: Int {
         get {
-            return self._coin;
+            return self._idCoin;
         }
     }
     

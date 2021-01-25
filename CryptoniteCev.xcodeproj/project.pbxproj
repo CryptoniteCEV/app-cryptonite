@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003584EFCE48AF5358D2BC29 /* Pods_CryptoniteCevTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */; };
 		390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3925B707810056BFD5 /* AppDelegate.swift */; };
 		390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3B25B707810056BFD5 /* SceneDelegate.swift */; };
 		390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3D25B707810056BFD5 /* LogInController.swift */; };
@@ -21,6 +22,16 @@
 		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
+		5393E88925B8E94700C647FD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Requests.swift */; };
+		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
+		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
+		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
+		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
+		86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */; };
+		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
+		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
+		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
+		F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0847125BDFE7900287C60 /* StoriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0828DEB589E277D14A826CA9 /* Pods-CryptoniteCev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev.release.xcconfig"; sourceTree = "<group>"; };
+		1941D147B46E4CBE8BCD7A77 /* Pods-CryptoniteCevTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C093780580469B7052A4061 /* Pods-CryptoniteCev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev.debug.xcconfig"; sourceTree = "<group>"; };
 		390DAF3625B707810056BFD5 /* CryptoniteCev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoniteCev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		390DAF3925B707810056BFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		390DAF3B25B707810056BFD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +73,20 @@
 		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		5393E88825B8E94700C647FD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		5393E88A25B8EA8A00C647FD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
+		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev_CryptoniteCevUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D39659803FFD78A6FD3592 /* Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCevTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
+		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003584EFCE48AF5358D2BC29 /* Pods_CryptoniteCevTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,17 +110,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3225A07E08043E47C4F61A4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */,
+				7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */,
+				EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		36D4D45D2AF03A60E494BFFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C093780580469B7052A4061 /* Pods-CryptoniteCev.debug.xcconfig */,
+				0828DEB589E277D14A826CA9 /* Pods-CryptoniteCev.release.xcconfig */,
+				80D39659803FFD78A6FD3592 /* Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig */,
+				69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */,
+				1941D147B46E4CBE8BCD7A77 /* Pods-CryptoniteCevTests.debug.xcconfig */,
+				5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		390DAF2D25B707810056BFD5 = {
 			isa = PBXGroup;
 			children = (
 				390DAF3825B707810056BFD5 /* CryptoniteCev */,
 				390DAF3725B707810056BFD5 /* Products */,
+				36D4D45D2AF03A60E494BFFD /* Pods */,
+				3225A07E08043E47C4F61A4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +163,7 @@
 		390DAF3825B707810056BFD5 /* CryptoniteCev */ = {
 			isa = PBXGroup;
 			children = (
+				5393E88725B8D57400C647FD /* Services */,
 				390DAF4725B707850056BFD5 /* Info.plist */,
 				5393E88625B8BD7000C647FD /* SupportFiles */,
 				5393E88325B8AE4300C647FD /* Constants */,
@@ -134,8 +191,11 @@
 			isa = PBXGroup;
 			children = (
 				390DAF3D25B707810056BFD5 /* LogInController.swift */,
+				7F944AA825B9AF3D00A9854E /* MainScreenController.swift */,
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
+				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
+				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +203,7 @@
 		5393E88225B8AE4200C647FD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53E9E27225BA071D00B78B17 /* MainController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +211,8 @@
 		5393E88325B8AE4300C647FD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
+				7F7411CC25BB08EF009D8D6C /* Keys.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -158,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */,
+				F8C139C425B9E27C008F92B6 /* CircleCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -174,6 +238,14 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		5393E88725B8D57400C647FD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5393E88825B8E94700C647FD /* Requests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 390DAF6025B707850056BFD5 /* Build configuration list for PBXNativeTarget "CryptoniteCev" */;
 			buildPhases = (
+				DEA28CC366180420D0C620B2 /* [CP] Check Pods Manifest.lock */,
 				390DAF3225B707810056BFD5 /* Sources */,
 				390DAF3325B707810056BFD5 /* Frameworks */,
 				390DAF3425B707810056BFD5 /* Resources */,
+				B7DFC9B8A186E9138E001BFD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 390DAF6325B707850056BFD5 /* Build configuration list for PBXNativeTarget "CryptoniteCevTests" */;
 			buildPhases = (
+				B7952D9298671194CF902808 /* [CP] Check Pods Manifest.lock */,
 				390DAF4825B707850056BFD5 /* Sources */,
 				390DAF4925B707850056BFD5 /* Frameworks */,
 				390DAF4A25B707850056BFD5 /* Resources */,
@@ -216,9 +291,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 390DAF6625B707850056BFD5 /* Build configuration list for PBXNativeTarget "CryptoniteCevUITests" */;
 			buildPhases = (
+				1B1E278319B225F362B1B528 /* [CP] Check Pods Manifest.lock */,
 				390DAF5325B707850056BFD5 /* Sources */,
 				390DAF5425B707850056BFD5 /* Frameworks */,
 				390DAF5525B707850056BFD5 /* Resources */,
+				8C1703AE8F377B83B64C3F12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,20 +377,131 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B1E278319B225F362B1B528 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoniteCev-CryptoniteCevUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C1703AE8F377B83B64C3F12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7952D9298671194CF902808 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoniteCevTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7DFC9B8A186E9138E001BFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA28CC366180420D0C620B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoniteCev-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		390DAF3225B707810056BFD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				531657F225B797510040417F /* Wallet.swift in Sources */,
+				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
+				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
+				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
+				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
+				5393E88925B8E94700C647FD /* Requests.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
+				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
+				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
 			);
@@ -484,6 +672,7 @@
 		};
 		390DAF6125B707850056BFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C093780580469B7052A4061 /* Pods-CryptoniteCev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -501,6 +690,7 @@
 		};
 		390DAF6225B707850056BFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0828DEB589E277D14A826CA9 /* Pods-CryptoniteCev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -518,6 +708,7 @@
 		};
 		390DAF6425B707850056BFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1941D147B46E4CBE8BCD7A77 /* Pods-CryptoniteCevTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -539,6 +730,7 @@
 		};
 		390DAF6525B707850056BFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -560,6 +752,7 @@
 		};
 		390DAF6725B707850056BFD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80D39659803FFD78A6FD3592 /* Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -579,6 +772,7 @@
 		};
 		390DAF6825B707850056BFD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
