@@ -16,6 +16,14 @@ class CompleteViewController: UIViewController {
       createDatePicker()
     }
     
+    @IBAction func goToLogInScreen(_ sender: Any) {
+        
+        navigationController?.popToRootViewController(animated: true)
+        
+        
+    }
+    
+    //crea el date picker que sale al pulsar en el text field
     func createDatePicker(){
         //toolbar
         let toolbar = UIToolbar()
@@ -29,6 +37,7 @@ class CompleteViewController: UIViewController {
         date_picker.inputView = date
         date.datePickerMode = .date
     }
+    //crea el boton de DONE para coger la fecha
     @objc func donePressed(){
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

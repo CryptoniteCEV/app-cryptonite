@@ -154,7 +154,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2501" y="-87"/>
+            <point key="canvasLocation" x="-1697" y="-87"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="bur-AZ-D2H">
@@ -367,6 +367,9 @@ CEVtYWlsA
                                                 <state key="normal" title="Log In">
                                                     <color key="titleColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="goToLogIn:" destination="OhZ-Zf-S06" eventType="touchUpInside" id="Ll7-n8-emj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -400,7 +403,7 @@ CEVtYWlsA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FzS-ca-TVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1710" y="-87"/>
+            <point key="canvasLocation" x="-1091" y="-87"/>
         </scene>
         <!--Complete View Controller-->
         <scene sceneID="EHw-Fk-ZzB">
@@ -473,6 +476,9 @@ CEVtYWlsA
                                         <state key="normal" title="Finish">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goToLogInScreen:" destination="h44-g4-uMP" eventType="touchUpInside" id="LK0-jd-s1G"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -494,12 +500,13 @@ CEVtYWlsA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIq-jr-l3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-952" y="-87"/>
+            <point key="canvasLocation" x="-439" y="-87"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3gc-fa-kj6">
             <objects>
                 <navigationController navigationBarHidden="YES" id="jLg-54-Uzd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="v5V-6a-UCL"/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="He2-z5-rw0">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -512,7 +519,7 @@ CEVtYWlsA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LvH-LT-lss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3277" y="-87"/>
+            <point key="canvasLocation" x="-2310" y="-87"/>
         </scene>
     </scenes>
     <resources>

@@ -10,5 +10,8 @@ class SignUpController: UIViewController {
         continue_button.layer.cornerRadius = 5
         
     }
+    @IBAction func goToLogIn(_ sender: Any) {
+         navigationController?.popToRootViewController(animated: true)
+    }
     
 }
