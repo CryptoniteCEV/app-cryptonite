@@ -14,7 +14,7 @@ var imageSelected : UIImage?
 
 class MainScreenController: UIViewController {
        
-    fileprivate let collectionView:UICollectionView = {
+    fileprivate let storiesView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -38,16 +38,15 @@ class MainScreenController: UIViewController {
         CircleCell.images = images
         
         
-        view.addSubview(collectionView)
+        view.addSubview(storiesView)
         
-        collectionView.backgroundColor = .none
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
-         
+        storiesView.backgroundColor = .none
+        storiesView.delegate = self
+        storiesView.dataSource = self
+        storiesView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/20).isActive = true
+        storiesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
+        storiesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
+        storiesView.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
     }
     
     func setImage(image: UIImage){
@@ -66,14 +65,14 @@ class MainScreenController: UIViewController {
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/5, height: collectionView.frame.width/5)
+        return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
+        let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
         cell.button.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
         return cell
     }
