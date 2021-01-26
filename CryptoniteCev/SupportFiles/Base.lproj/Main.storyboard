@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jLg-54-Uzd">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8tv-10-snU">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log In Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="IYY-gS-wmf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZb-ws-XNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="8tv-10-snU" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="spatial" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="D3n-ri-ITY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ld5-tN-oUN"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-2771" y="-87"/>
+        </scene>
+        <!--Log In-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LogInController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sinnginWireframe" translatesAutoresizingMaskIntoConstraints="NO" id="JeH-qB-hHy">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="AD5-Ks-JRB">
-                                <rect key="frame" x="135" y="59" width="144" height="149.5"/>
+                                <rect key="frame" x="135" y="15" width="144" height="149.33333333333334"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTransparente" translatesAutoresizingMaskIntoConstraints="NO" id="C2b-OA-nTD">
                                         <rect key="frame" x="0.0" y="0.0" width="144" height="120"/>
@@ -28,7 +52,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRYPTONITE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt1-eI-fOG">
-                                        <rect key="frame" x="0.0" y="129" width="144" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="129" width="144" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -36,22 +60,23 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Gpk-lm-9e4">
-                                <rect key="frame" x="53" y="253.5" width="308" height="343.5"/>
+                                <rect key="frame" x="53" y="209.33333333333329" width="308" height="299.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-6K-4Ki">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there! Nice to see you again." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-0r-OdJ">
-                                        <rect key="frame" x="0.0" y="58" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A13-HO-EkN">
-                                        <rect key="frame" x="0.0" y="100" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="44.333333333333371" width="308" height="20.333333333333329"/>
                                         <string key="text" base64-UTF8="YES">
 CEVtYWlsA
 </string>
@@ -60,25 +85,25 @@ CEVtYWlsA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZ0-1r-IkH" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="141.5" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="89" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY9-pr-7Io">
-                                        <rect key="frame" x="0.0" y="196.5" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="147" width="308" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="**********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-Kd-VGM" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="238.5" width="308" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="**********" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="XXO-Kd-VGM" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="191.66666666666669" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-hH-chp">
-                                        <rect key="frame" x="0.0" y="293.5" width="308" height="50"/>
+                                        <rect key="frame" x="0.0" y="249.66666666666669" width="308" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FDp-CG-izB"/>
@@ -88,13 +113,18 @@ CEVtYWlsA
                                         </state>
                                         <connections>
                                             <action selector="validation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPk-pT-0eI"/>
-                                            <segue destination="UH5-nG-GWp" kind="show" id="MXY-Uq-b4N"/>
+                                            <segue destination="UH5-nG-GWp" kind="show" id="scN-Iv-bTA"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="UbY-6K-4Ki"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-OX-JEe">
-                                <rect key="frame" x="53" y="667" width="308" height="165"/>
+                                <rect key="frame" x="53" y="579" width="308" height="165"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-Q2-3Uq">
                                         <rect key="frame" x="0.0" y="0.0" width="145" height="165"/>
@@ -113,13 +143,14 @@ CEZvcmdvdCBwYXNzd29yZD8
                                             <color key="titleColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="OhZ-Zf-S06" kind="show" id="Fmu-VX-LTf"/>
+                                            <segue destination="OhZ-Zf-S06" kind="show" id="FfL-tY-Ujc"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="tintColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AD5-Ks-JRB" secondAttribute="trailing" constant="135" id="1pf-6C-FWp"/>
                             <constraint firstItem="AD5-Ks-JRB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="135" id="B3N-JL-1KC"/>
@@ -145,8 +176,8 @@ CEZvcmdvdCBwYXNzd29yZD8
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="jXn-Hj-fkg">
-                        <barButtonItem key="backBarButtonItem" title="Log In" id="IdC-GK-qUT"/>
+                    <navigationItem key="navigationItem" title="Log In" id="jXn-Hj-fkg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="n23-b6-1jM"/>
                     </navigationItem>
                     <connections>
                         <outlet property="logInButton" destination="c4t-hH-chp" id="5bl-qM-bP3"/>
@@ -154,9 +185,9 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1697" y="-87"/>
+            <point key="canvasLocation" x="-1749" y="-87"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="bur-AZ-D2H">
             <objects>
                 <viewController id="7aG-AW-ATd" sceneMemberID="viewController">
@@ -166,7 +197,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="M1X-KX-WNF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="VpZ-hM-9Sz"/>
+                    <tabBarItem key="tabBarItem" title="" image="dollarsign.circle.fill" catalog="system" id="VpZ-hM-9Sz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQL-fp-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,14 +206,16 @@ CEZvcmdvdCBwYXNzd29yZD8
         <!--Tab Bar Controller-->
         <scene sceneID="tRA-1F-5MD">
             <objects>
-                <tabBarController id="UH5-nG-GWp" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="UH5-nG-GWp" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lfd-wT-a5p"/>
                     <value key="contentSizeForViewInPopover" type="size" width="0.0" height="0.0"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2pw-ho-WSN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="ASR-P2-KX9" kind="relationship" relationship="viewControllers" id="knl-3u-z4d"/>
@@ -191,13 +224,13 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wu-HO-7Xj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3833" y="918"/>
+            <point key="canvasLocation" x="-3301" y="810"/>
         </scene>
-        <!--Item-->
+        <!--Main Screen Controller-->
         <scene sceneID="sdR-cf-Aeg">
             <objects>
                 <viewController id="ASR-P2-KX9" customClass="MainScreenController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sJ2-F2-0tn">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="sJ2-F2-0tn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -219,7 +252,9 @@ CEZvcmdvdCBwYXNzd29yZD8
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ulr-5d-802"/>
+                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="Ulr-5d-802">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="489-do-pkL"/>
                     <connections>
                         <segue destination="grX-AG-6vv" kind="modal" identifier="stories" id="w1g-rT-Sh6"/>
@@ -227,7 +262,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3216" y="947"/>
+            <point key="canvasLocation" x="-2648" y="824"/>
         </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
@@ -257,30 +292,31 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2435" y="938"/>
+            <point key="canvasLocation" x="-1930" y="849"/>
         </scene>
-        <!--Sign Up Controller-->
+        <!--Sing Up-->
         <scene sceneID="hfi-YM-nuH">
             <objects>
                 <viewController id="OhZ-Zf-S06" customClass="SignUpController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kLU-tS-oAi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="singUp" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-9B-yME">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="T9O-rH-Zxt">
-                                <rect key="frame" x="53" y="74" width="308" height="463"/>
+                                <rect key="frame" x="53" y="30" width="308" height="419"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXM-E9-e98">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sn-mS-mTg">
-                                        <rect key="frame" x="0.0" y="64" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="20.333333333333332"/>
                                         <string key="text" base64-UTF8="YES">
 CEVtYWlsA
 </string>
@@ -289,23 +325,25 @@ CEVtYWlsA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Hp-8y-C15" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="111" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="50.666666666666657" width="308" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0I-Ic-AiW">
-                                        <rect key="frame" x="0.0" y="172" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="114.66666666666666" width="308" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yE6-2n-XNR" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="219.5" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="165.33333333333331" width="308" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O2a-Pl-uzf">
-                                        <rect key="frame" x="0.0" y="280.5" width="308" height="49"/>
+                                        <rect key="frame" x="0.0" y="229.66666666666669" width="308" height="49"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lB0-Wn-okO">
                                                 <rect key="frame" x="0.0" y="0.0" width="308" height="31"/>
@@ -316,7 +354,7 @@ CEVtYWlsA
                                                         <color key="thumbTintColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to the" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRI-LL-UTU">
-                                                        <rect key="frame" x="62" y="0.0" width="110" height="31"/>
+                                                        <rect key="frame" x="62.333333333333329" y="0.0" width="109.99999999999999" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="110" id="uMc-AC-lG4"/>
                                                         </constraints>
@@ -325,7 +363,7 @@ CEVtYWlsA
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Services" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGo-HM-DeP">
-                                                        <rect key="frame" x="185" y="0.0" width="123" height="31"/>
+                                                        <rect key="frame" x="185.33333333333334" y="0.0" width="122.66666666666666" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -341,7 +379,7 @@ CEVtYWlsA
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfP-aR-86K">
-                                        <rect key="frame" x="0.0" y="356" width="308" height="50"/>
+                                        <rect key="frame" x="0.0" y="308.66666666666669" width="308" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ec2-bo-N7X"/>
@@ -350,11 +388,11 @@ CEVtYWlsA
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="h44-g4-uMP" kind="show" id="TMJ-r2-WRc"/>
+                                            <segue destination="h44-g4-uMP" kind="show" id="XGV-8r-FZ7"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-eg-9Ag">
-                                        <rect key="frame" x="0.0" y="433" width="308" height="30"/>
+                                        <rect key="frame" x="0.0" y="389" width="308" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an Account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-Cs-N4z">
                                                 <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
@@ -374,6 +412,11 @@ CEVtYWlsA
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="eXM-E9-e98"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -394,81 +437,86 @@ CEVtYWlsA
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="47a-k4-L1F">
-                        <barButtonItem key="backBarButtonItem" title="Sign Up" id="8k4-Yv-LUw"/>
+                    <navigationItem key="navigationItem" title="Sing Up" id="47a-k4-L1F">
+                        <barButtonItem key="backBarButtonItem" title=" " id="R4g-bh-NNK"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="47a-k4-L1F" id="hH3-85-Wmx"/>
                         <outlet property="continue_button" destination="VfP-aR-86K" id="bGP-Bc-9o8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FzS-ca-TVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1091" y="-87"/>
+            <point key="canvasLocation" x="-1097" y="-87"/>
         </scene>
-        <!--Complete View Controller-->
+        <!--Complete Your Profile-->
         <scene sceneID="EHw-Fk-ZzB">
             <objects>
                 <viewController id="h44-g4-uMP" customClass="CompleteViewController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y4V-Fg-NCu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D1F-GG-EdU">
-                                <rect key="frame" x="53" y="104" width="308" height="508"/>
+                                <rect key="frame" x="53" y="60" width="308" height="464"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete your profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z7-rU-LEQ">
                                         <rect key="frame" x="0.0" y="0.0" width="308" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKt-YL-h9o">
-                                        <rect key="frame" x="0.0" y="59.5" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rny-dt-Yoe" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102.5" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="45" width="308" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyX-rz-XaG">
-                                        <rect key="frame" x="0.0" y="159" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="308" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzY-Hl-Xnc" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="202" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="148.33333333333331" width="308" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64q-wy-TG8">
-                                        <rect key="frame" x="0.0" y="259" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="207" width="308" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elz-Qe-ri3" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="302" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="252" width="308" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-Nx-BSU">
-                                        <rect key="frame" x="0.0" y="358.5" width="308" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="310.66666666666669" width="308" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Cm-dn-oNh" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="401.5" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="355.33333333333331" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIv-fX-YLz">
-                                        <rect key="frame" x="0.0" y="458" width="308" height="50"/>
+                                        <rect key="frame" x="0.0" y="414" width="308" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.75294117647058822" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="zRG-1q-d1E"/>
@@ -481,6 +529,11 @@ CEVtYWlsA
                                         </connections>
                                     </button>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="7z7-rU-LEQ"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -492,7 +545,7 @@ CEVtYWlsA
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xsu-nP-otG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="iUW-bA-kse"/>
+                    <navigationItem key="navigationItem" title="Complete Your Profile" id="iUW-bA-kse"/>
                     <connections>
                         <outlet property="date_picker" destination="9Cm-dn-oNh" id="d4Z-A4-wWJ"/>
                         <outlet property="finishButton" destination="gIv-fX-YLz" id="0e2-ZN-Kcv"/>
@@ -502,29 +555,12 @@ CEVtYWlsA
             </objects>
             <point key="canvasLocation" x="-439" y="-87"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3gc-fa-kj6">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="jLg-54-Uzd" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="v5V-6a-UCL"/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="He2-z5-rw0">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u6g-O8-WSf">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MVh-5E-3Ee"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LvH-LT-lss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2310" y="-87"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="logoTransparente" width="626" height="664"/>
         <image name="mainScreen" width="156" height="349"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="singUp" width="249" height="518"/>
         <image name="sinnginWireframe" width="243" height="503"/>
     </resources>

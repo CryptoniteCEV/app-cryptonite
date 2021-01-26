@@ -13,7 +13,7 @@ var imageSelected : UIImage?
 
 
 class MainScreenController: UIViewController {
-       
+   
     fileprivate let collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
