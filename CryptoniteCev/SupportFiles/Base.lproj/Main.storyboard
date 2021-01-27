@@ -10,7 +10,6 @@
         <!--Navigation Controller-->
         <scene sceneID="IYY-gS-wmf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rZb-ws-XNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="8tv-10-snU" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" semanticContentAttribute="spatial" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="D3n-ri-ITY">
@@ -28,6 +27,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ld5-tN-oUN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZb-ws-XNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2771" y="-87"/>
         </scene>
@@ -294,7 +294,7 @@ CEZvcmdvdCBwYXNzd29yZD8
             </objects>
             <point key="canvasLocation" x="-1930" y="849"/>
         </scene>
-        <!--Sing Up-->
+        <!--Sign Up-->
         <scene sceneID="hfi-YM-nuH">
             <objects>
                 <viewController id="OhZ-Zf-S06" customClass="SignUpController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,7 +437,7 @@ CEVtYWlsA
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Sing Up" id="47a-k4-L1F">
+                    <navigationItem key="navigationItem" title="Sign Up" id="47a-k4-L1F">
                         <barButtonItem key="backBarButtonItem" title=" " id="R4g-bh-NNK"/>
                     </navigationItem>
                     <connections>
