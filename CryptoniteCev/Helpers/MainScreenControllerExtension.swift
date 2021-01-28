@@ -84,7 +84,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if collectionView == storiesView {
             return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
         }else{
-            return CGSize(width: coinsView.frame.width/3.5, height: coinsView.frame.width/4.5)
+            return CGSize(width: coinsView.frame.width/4, height: coinsView.frame.width/2)
         }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
