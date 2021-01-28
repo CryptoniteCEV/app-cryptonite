@@ -43,9 +43,7 @@ class CircleCell: UICollectionViewCell {
     
     
     override init(frame: CGRect) {
-        super.init(frame: .zero)
-            
-        
+        super.init(frame: .zero)      
         
         contentView.addSubview(bg)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

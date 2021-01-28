@@ -22,6 +22,15 @@ fileprivate let storiesView:UICollectionView = {
     return cv
 }()
 
+fileprivate let coinsView:UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .horizontal
+    let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    cv.translatesAutoresizingMaskIntoConstraints = false
+    cv.register(CoinCell.self, forCellWithReuseIdentifier: "cell")
+    return cv
+}()
+
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func loadImages() {
@@ -45,7 +54,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         return storiesView
     }
     
-    func setConstraints(stories : UICollectionView){
+    func setStoriesConstraints(stories : UICollectionView){
         
         stories.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/20).isActive = true
         stories.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
@@ -53,19 +62,44 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
     }
     
+    func createCoinsView() -> UICollectionView {
+        coinsView.backgroundColor = .none
+        coinsView.delegate = self
+        coinsView.dataSource = self
+        
+        return coinsView
+    }
+    
+    func setCoinsConstraints(coinsCollection : UICollectionView){
+        
+        coinsCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/5).isActive = true
+        coinsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
+        coinsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
+        coinsCollection.heightAnchor.constraint(equalToConstant: view.frame.height/5).isActive = true
+    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
+        if collectionView == storiesView {
+            return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
+        }else{
+            return CGSize(width: coinsView.frame.width/3.5, height: coinsView.frame.width/4.5)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
-    }
-    
+    }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
-        cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
-        return cell
+        if collectionView == storiesView {
+            let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
+            cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
+            return cell
+        }else{
+            let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
+            return cell
+        }
+        
     }
     
     @objc func buttonTappedInCollectionViewCell(sender: UIButton) {

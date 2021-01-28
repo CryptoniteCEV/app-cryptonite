@@ -12,6 +12,7 @@ import UIKit
 class MainScreenController: UIViewController {
 
     var stories : UICollectionView?
+    var coinsCollection : UICollectionView?
 
     override func viewDidLoad() {
         
@@ -19,14 +20,17 @@ class MainScreenController: UIViewController {
         
         loadImages()
         stories = createStoriesView()
+        coinsCollection = createCoinsView()
+        
         if stories != nil {
             view.addSubview(stories!)
-            setConstraints(stories: stories!)
+            setStoriesConstraints(stories: stories!)
         }
-             
-        
+        if coinsCollection != nil {
+            view.addSubview(coinsCollection!)
+            setCoinsConstraints(coinsCollection: coinsCollection!)
+        }
     }
-    
 }
     
 
