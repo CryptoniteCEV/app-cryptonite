@@ -201,7 +201,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQL-fp-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3278" y="1611"/>
+            <point key="canvasLocation" x="-2039" y="1572"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tRA-1F-5MD">
@@ -224,7 +224,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wu-HO-7Xj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3301" y="810"/>
+            <point key="canvasLocation" x="-2771" y="784"/>
         </scene>
         <!--Main Screen Controller-->
         <scene sceneID="sdR-cf-Aeg">
@@ -262,7 +262,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2648" y="824"/>
+            <point key="canvasLocation" x="-1749" y="731"/>
         </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
@@ -292,7 +292,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1930" y="849"/>
+            <point key="canvasLocation" x="-1097" y="731"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="hfi-YM-nuH">
