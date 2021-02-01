@@ -1,11 +1,15 @@
 
 
 import UIKit
+import Foundation
 
 class CompleteViewController: UIViewController {
 
     
+    @IBOutlet weak var usernameTF: UnderlinedTextField!
+    @IBOutlet weak var nameTF: UnderlinedTextField!
     @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var surnameTF: UnderlinedTextField!
     @IBOutlet weak var date_picker: UITextField!
     let date = UIDatePicker()
 
@@ -13,7 +17,7 @@ class CompleteViewController: UIViewController {
         super.viewDidLoad()
         
         finishButton.layer.cornerRadius = 5
-      createDatePicker()
+        createDatePicker()
     }
     
     func createDatePicker(){
@@ -29,14 +33,22 @@ class CompleteViewController: UIViewController {
         date_picker.inputView = date
         date.datePickerMode = .date
     }
+    
     @objc func donePressed(){
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
         
+        date_picker.text = formatDate()
         
-        date_picker.text = formatter.string(from: date.date)
+        let user = User(username: usernameTF.text!, email: "arroba", name: nameTF.text!, surname: surnameTF.text!, profilePic: "asd", password: "1234", dateOfBirth: formatDate())
+        
         self.view.endEditing(true)
     }
+    
+    func formatDate() -> String{
+        
+        let dateString = date.date.description
+        let dateSeparated = dateString.split(separator: " ")
+        return dateSeparated.first!.description
+    }
+
     
 }

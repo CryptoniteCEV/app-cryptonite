@@ -1,5 +1,5 @@
 
-import Foundation
+/*import Foundation
 import Alamofire
 
 class Service {
@@ -13,7 +13,9 @@ class Service {
         AF.request(Endpoints.baseUrl+Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in
             guard let data = responseData.data else {return}
             
-            do{
+            print(data)
+            
+            /*do{
                 let users = try JSONDecoder().decode([User].self, from: data)
                 print("users == \(users)")
                 
@@ -23,7 +25,7 @@ class Service {
                 
             }catch{
                 print("Error decoding == \(error)")
-            }
+            }*/
         }
         
     }
@@ -70,6 +72,6 @@ class Service {
  //   For GET, HEAD, and DELETE requests, URLEncoding.default encodes the parameters as a query string and adds it to the URL, but for any other method (such as POST) the parameters get encoded as a query string and sent as the body of the HTTP request.
     
 // In order to use a query string in a POST request, you need to change your encoding argument to URLEncoding(destination: .queryString).
-
+*/
     
 

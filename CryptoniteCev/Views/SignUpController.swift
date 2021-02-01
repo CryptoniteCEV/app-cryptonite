@@ -4,6 +4,7 @@ import UIKit
 class SignUpController: UIViewController {
 
     @IBOutlet weak var continue_button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

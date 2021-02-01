@@ -8,9 +8,9 @@ class User : Encodable, Decodable{
      private var _email:String
      private var _name:String
      private var _surname:String
-     //var _dateOfBirth:String
+     private var _dateOfBirth:String
      private var _profilePic:String?
-    private var _password:String
+     private var _password:String
     
     enum CodingKeys:String, CodingKey {
         case _name = "name"
@@ -19,9 +19,10 @@ class User : Encodable, Decodable{
         case _email = "email"
         case _surname = "surname"
         case _password = "password"
+        case _dateOfBirth = "dateOfBirth"
     }
     
-    init(username:String, email:String, name:String, surname:String, profilePic:String, password:String){
+    init(username:String, email:String, name:String, surname:String, profilePic:String, password:String, dateOfBirth:String){
         
         self._username = username
         self._email = email
@@ -29,9 +30,8 @@ class User : Encodable, Decodable{
         self._surname = surname
         self._profilePic = profilePic
         self._password = password
+        self._dateOfBirth = dateOfBirth
     }
-    
-    
     
     /**
      Devuelve info del usuario orientada a ser mostrada en el perfil

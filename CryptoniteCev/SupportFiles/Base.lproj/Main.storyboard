@@ -105,6 +105,9 @@ CEZvcmdvdCBwYXNzd29yZD8
 </string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="requestPrueba:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mnr-y6-OQs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhA-cv-VLs">
                                         <rect key="frame" x="244" y="0.0" width="64" height="165"/>
@@ -490,6 +493,9 @@ CEVtYWlsA
                     <connections>
                         <outlet property="date_picker" destination="9Cm-dn-oNh" id="d4Z-A4-wWJ"/>
                         <outlet property="finishButton" destination="gIv-fX-YLz" id="0e2-ZN-Kcv"/>
+                        <outlet property="nameTF" destination="UzY-Hl-Xnc" id="PUa-3m-g4p"/>
+                        <outlet property="surnameTF" destination="elz-Qe-ri3" id="dHp-Sv-ZJ9"/>
+                        <outlet property="usernameTF" destination="Rny-dt-Yoe" id="BN1-lZ-I89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIq-jr-l3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
