@@ -12,7 +12,7 @@ class LogInController: UIViewController {
 
 
     @IBAction func validation(_ sender: Any) {
-        //navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         //Service.getUsers()
         //Service.shared.postUsers()
     }
