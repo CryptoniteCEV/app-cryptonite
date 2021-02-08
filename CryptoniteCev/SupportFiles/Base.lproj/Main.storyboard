@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8tv-10-snU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UH5-nG-GWp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="barTintColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -104,7 +104,7 @@ CEVtYWlsA
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-hH-chp">
                                         <rect key="frame" x="0.0" y="249.66666666666669" width="308" height="50"/>
-                                        <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.28627450980392155" green="0.94901960784313721" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FDp-CG-izB"/>
                                         </constraints>
@@ -149,7 +149,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.75294117650000003" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AD5-Ks-JRB" secondAttribute="trailing" constant="135" id="1pf-6C-FWp"/>
@@ -187,10 +187,10 @@ CEZvcmdvdCBwYXNzd29yZD8
             </objects>
             <point key="canvasLocation" x="-1749" y="-87"/>
         </scene>
-        <!--View Controller-->
+        <!--Wallet View Controller-->
         <scene sceneID="bur-AZ-D2H">
             <objects>
-                <viewController id="7aG-AW-ATd" sceneMemberID="viewController">
+                <viewController id="7aG-AW-ATd" customClass="WalletViewController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oJK-AN-60J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,7 +220,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ou8-p1-M50" firstAttribute="trailing" secondItem="M1X-KX-WNF" secondAttribute="trailing" id="6dY-dZ-JC7"/>
                             <constraint firstItem="1TB-ja-3Xa" firstAttribute="top" secondItem="M1X-KX-WNF" secondAttribute="top" constant="60" id="Bds-Dr-ErR"/>
@@ -250,7 +250,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                     <view key="view" contentMode="scaleToFill" id="FPk-lq-7dC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="TFa-AQ-JRn"/>
                     </view>
                 </viewController>
@@ -293,7 +293,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SGP-ns-BeS" firstAttribute="top" secondItem="sJ2-F2-0tn" secondAttribute="top" id="0Hc-bH-kQx"/>
                             <constraint firstItem="0yA-4i-lQx" firstAttribute="bottom" secondItem="SGP-ns-BeS" secondAttribute="bottom" id="5qQ-oK-QOn"/>
@@ -474,7 +474,7 @@ CEVtYWlsA
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JtH-AP-Ife" firstAttribute="trailing" secondItem="dZW-9B-yME" secondAttribute="trailing" id="3Oe-Rf-XgT"/>
                             <constraint firstItem="T9O-rH-Zxt" firstAttribute="top" secondItem="JtH-AP-Ife" secondAttribute="top" constant="30" id="LyD-0A-ZiF"/>
@@ -591,7 +591,7 @@ CEVtYWlsA
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="D1F-GG-EdU" firstAttribute="leading" secondItem="Xsu-nP-otG" secondAttribute="leading" constant="53" id="89D-Rf-EPp"/>
                             <constraint firstItem="D1F-GG-EdU" firstAttribute="top" secondItem="Xsu-nP-otG" secondAttribute="top" constant="60" id="Frz-VZ-8SA"/>

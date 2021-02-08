@@ -9,13 +9,4 @@ target 'CryptoniteCev' do
 
   # Pods for CryptoniteCev
 
-  target 'CryptoniteCevTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
-
-  target 'CryptoniteCevUITests' do
-    # Pods for testing
-  end
-
-end
