@@ -16,6 +16,7 @@
 		390DAF4625B707850056BFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */; };
 		390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */; };
 		390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6F25B724720056BFD5 /* SignUpController.swift */; };
+		3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */; };
 		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
 		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
 		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
@@ -69,6 +70,7 @@
 		390DAF5725B707850056BFD5 /* CryptoniteCevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoniteCevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		390DAF6F25B724720056BFD5 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintTestController.swift; sourceTree = "<group>"; };
 		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
 				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
+				3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
+				3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */,
 				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				5393E88925B8E94700C647FD /* Requests.swift in Sources */,

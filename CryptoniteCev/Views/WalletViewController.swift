@@ -11,6 +11,7 @@ class WalletViewController: UIViewController, ChartViewDelegate
     var pieChart = PieChartView()
     var lineChart = LineChartView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,9 +21,9 @@ class WalletViewController: UIViewController, ChartViewDelegate
         
     }
     
-    override func viewDidLayoutSubviews() {
+    /*override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+       
         lineChart.frame = CGRect(
                
                    x: 0,y: 0,
@@ -30,12 +31,18 @@ class WalletViewController: UIViewController, ChartViewDelegate
                    height: 300
                    
                )
-               print("está haciendo la funcion")
-                
-        lineChart.center = view.center
-               view.addSubview(lineChart)
-        
-                       var entries = [ChartDataEntry]()
+        print("está haciendo la funcion")
+        lineChart.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: lineChart, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: lineChart, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: lineChart, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: lineChart, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+       
+
+        lineChart.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+        view.addSubview(lineChart)
+
+             var entries = [ChartDataEntry]()
                
                for x in 0...10{
                    
@@ -81,6 +88,6 @@ class WalletViewController: UIViewController, ChartViewDelegate
         set.colors = ChartColorTemplates.colorful()
         let data = PieChartData(dataSet: set)
         pieChart.data = data*/
-    }
+    }*/
 
 }
