@@ -25,6 +25,7 @@
 		5393E88925B8E94700C647FD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Requests.swift */; };
 		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
+		7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19AD5525E52BF800279E9D /* PruebaCellController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
@@ -82,6 +83,7 @@
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F19AD5525E52BF800279E9D /* PruebaCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaCellController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
 				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
+				7F19AD5525E52BF800279E9D /* PruebaCellController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */,
 				F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */,
 				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
