@@ -660,7 +660,7 @@ CEVtYWlsA
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7Gb-aW-ui4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellID" id="7Gb-aW-ui4" customClass="CoinCellPrueba">
                                         <rect key="frame" x="0.0" y="7" width="101.66666666666667" height="113.66666666666667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFv-Zb-jtN">
@@ -728,6 +728,13 @@ CEVtYWlsA
                                                 <constraint firstAttribute="bottom" secondItem="kkC-vT-IY2" secondAttribute="bottom" constant="6" id="Wvd-hJ-idD"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="ammountLabel" destination="Dkn-bE-lHm" id="jD5-q6-bDY"/>
+                                            <outlet property="categoryLabel" destination="d52-7J-DoR" id="Kj7-Ca-8ZB"/>
+                                            <outlet property="coinNameLabel" destination="U5U-G0-Xc8" id="vyI-4s-ley"/>
+                                            <outlet property="iconImageView" destination="RqP-JJ-Yt8" id="YC8-LM-b4k"/>
+                                            <outlet property="percentageLabel" destination="rng-rh-uf8" id="4Ha-Q6-a2b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

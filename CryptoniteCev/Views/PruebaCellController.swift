@@ -1,39 +1,39 @@
-//
-//  PruebaCell.swift
-//  CryptoniteCev
-//
-//  Created by alumnos on 23/02/2021.
-//  Copyright © 2021 user177257. All rights reserved.
-//
+
 
 import UIKit
 
-class PruebaCellController: UIViewController {
+class PruebaCellController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var stories : UICollectionView?
-    var coinsCollection : UICollectionView?
+    
+    var CoinPrueba: [CoinPrueba] = []
     
     override func viewDidLoad() {
     
         view.overrideUserInterfaceStyle = .dark
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
-        /*loadImages()
-        stories = createStoriesView()
-        coinsCollection = createCoinsView()
         
-        if stories != nil {
-            view.addSubview(stories!)
-            setStoriesConstraints(stories: stories!)
-        }
-        if coinsCollection != nil {
-            view.addSubview(coinsCollection!)
-            setCoinsConstraints(coinsCollection: coinsCollection!)
-        }*/
+        
 
     }
     
-    func getImages(image: UIImage) -> UIImage {
-        
-        return image
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.CoinPrueba.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! CoinCellPrueba
+        //cell.iconImageView.image = CoinPrueba[indexPath.row].icon
+        cell.coinNameLabel.text = CoinPrueba[indexPath.row].coin_name
+        cell.categoryLabel.text = CoinPrueba[indexPath.row].category
+        cell.ammountLabel.text = CoinPrueba[indexPath.row].ammount
+        
+        return cell
+        
+    }
+    
+    
+    
+    
 }
