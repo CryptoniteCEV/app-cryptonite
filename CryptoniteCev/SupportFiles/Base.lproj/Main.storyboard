@@ -649,21 +649,23 @@ CEVtYWlsA
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-Qs-O7Z">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-Qs-O7Z">
                                 <rect key="frame" x="0.0" y="212" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqQ-Dl-xdh">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqQ-Dl-xdh">
+                                    <size key="itemSize" width="128" height="108"/>
+                                    <size key="estimatedItemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellPrueba" id="7Gb-aW-ui4" customClass="CoinCellPrueba">
-                                        <rect key="frame" x="0.0" y="7" width="101.66666666666667" height="113.66666666666667"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellPrueba" id="7Gb-aW-ui4" customClass="CoinCellPrueba" customModule="CryptoniteCev" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="7" width="101.66666666666667" height="113.66666666666669"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFv-Zb-jtN">
-                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="113.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="113.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kkC-vT-IY2">
@@ -739,15 +741,6 @@ CEVtYWlsA
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="bFz-Qs-O7Z" firstAttribute="leading" secondItem="QXM-xL-vzu" secondAttribute="leading" id="5cc-IF-QRM"/>
-                            <constraint firstItem="bFz-Qs-O7Z" firstAttribute="trailing" secondItem="QXM-xL-vzu" secondAttribute="trailing" id="Boc-4X-pzc"/>
-                            <constraint firstItem="w3l-VM-tN9" firstAttribute="leading" secondItem="QXM-xL-vzu" secondAttribute="leading" id="Dpy-8Q-K9P"/>
-                            <constraint firstItem="w3l-VM-tN9" firstAttribute="top" secondItem="QXM-xL-vzu" secondAttribute="top" id="DqH-cX-6HK"/>
-                            <constraint firstItem="QXM-xL-vzu" firstAttribute="bottom" secondItem="bFz-Qs-O7Z" secondAttribute="bottom" constant="522" id="IRx-ZX-del"/>
-                            <constraint firstItem="QXM-xL-vzu" firstAttribute="trailing" secondItem="w3l-VM-tN9" secondAttribute="trailing" id="JtK-op-1Qk"/>
-                            <constraint firstItem="bFz-Qs-O7Z" firstAttribute="top" secondItem="QXM-xL-vzu" secondAttribute="top" constant="168" id="kBm-Jj-f5W"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QXM-xL-vzu"/>
                         <variation key="default">
                             <mask key="subviews">
@@ -761,7 +754,7 @@ CEVtYWlsA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAB-4m-ggc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114.49275362318842" y="730.58035714285711"/>
+            <point key="canvasLocation" x="-39" y="731"/>
         </scene>
     </scenes>
     <resources>
