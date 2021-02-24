@@ -9,8 +9,9 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
  
    
    var wallet = [
-        Wallet(icon: "BTC",idsCoins: "Bitcoin",quantities: 25,dollars: 0.03)
-    
+    Wallet(icon: #imageLiteral(resourceName: "Bitcoin.svg"),idsCoins: "Bitcoin",simbol: "BTC", quantities: 3,dollars: 63000 ),
+    Wallet(icon: #imageLiteral(resourceName: "eth.png"),idsCoins: "Ethereum", simbol: "ETH",quantities: 25,dollars: 35000),
+    Wallet(icon: #imageLiteral(resourceName: "doge.png"),idsCoins: "Dogecoin",simbol: "DOGE",quantities: 300,dollars: 10.12)
     ]
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,14 +35,20 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        return 3
+        return self.wallet.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! CellRowController
-      
+       
+        
+        cell.currency.text = wallet[indexPath.row].coins
+        cell.simbol.text = wallet[indexPath.row].simbol
+        cell.icon.image = wallet[indexPath.row].icons
+        cell.dolars.text = String(wallet[indexPath.row].dollars)
+        cell.currencyValor.text = String(wallet[indexPath.row].quantities)
            return cell
        }
     override func viewDidLayoutSubviews() {
