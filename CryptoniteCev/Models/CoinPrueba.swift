@@ -2,9 +2,9 @@
 import Foundation
 import UIKit
 
-class CoinPrueba : Encodable, Decodable{
+class CoinPrueba {
     
-     private var _icon:String
+     private var _icon:UIImage
      private var _coin_name:String
      private var _category:String
      private var _ammount:String
@@ -19,7 +19,7 @@ class CoinPrueba : Encodable, Decodable{
         
     }
     
-    init(icon:String, coin_name:String, category:String, ammount:String, percentage:String){
+    init(icon:UIImage, coin_name:String, category:String, ammount:String, percentage:String){
         
         self._icon = icon
         self._coin_name = coin_name
@@ -28,7 +28,7 @@ class CoinPrueba : Encodable, Decodable{
         self._percentage = percentage
     }
     
-    public var icon: String {
+    public var icon: UIImage {
         get {
             return self._icon
         }
