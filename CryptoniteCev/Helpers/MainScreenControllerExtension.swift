@@ -13,10 +13,17 @@ var images : [UIImage] = []
 var imageSelected : UIImage?
 
 var coinPrueba = [
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%")
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Moneda con más movimiento", ammount: "+3.056M $", percentage: "+27,06%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "eth"), coin_name: "ETH", category: "Mayor subida de valor", ammount: "+1.596M $", percentage: "+167,95%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "doge.png"), coin_name: "DOGE", category: "Mayor número de transacciones", ammount: "+375M $", percentage: "-15,94%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "LITE"), coin_name: "LTC", category: "Mayor bajada de valor", ammount: "+816M $", percentage: "-36,15%")
+]
+
+var userPrueba = [
+    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", category: "Mayor dinero invertido en BTC", percentage: "+22,89%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", name: "Andrea García", category: "Mayor porcentaje de ganancias", percentage: "+38,57%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", name: "Juan Carlos", category: "Mayor porcentaje de pérdidas", percentage: "-44,98%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", name: "Manuel Fernández", category: "Mayor número de seguidores", percentage: "+15,14%")
 ]
 
   
@@ -29,14 +36,7 @@ fileprivate let storiesView:UICollectionView = {
     return cv
 }()
 
-fileprivate let coinsView:UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-    let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    cv.translatesAutoresizingMaskIntoConstraints = false
-    cv.register(CoinCell.self, forCellWithReuseIdentifier: "cell")
-    return cv
-}()
+
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -69,15 +69,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
     }
     
-    func createCoinsView() -> UICollectionView {
-        //coinsView.backgroundColor = .none
-        //coinsView.delegate = self
-        //coinsView.dataSource = self
-        coinCollectionView.dataSource = self
-        coinCollectionView.delegate = self
-        
-        return coinsView
-    }
     /*
     func setCoinsConstraints(coinsCollection : UICollectionView){
         
@@ -99,19 +90,24 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesView {
             return images.count
-        } else {
+        } else if collectionView == coinCollectionView {
             return coinPrueba.count
+        } else {
+            return userPrueba.count
         }
+        
     }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == storiesView {
             let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
             cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
             return cell
-        }else{
-            /*let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
-            return cell*/
-            let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellPrueba", for: indexPath) as! CoinCellPrueba
+        }
+        if collectionView == coinCollectionView{
+            //let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
+            //return cell
+            let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellPrueba
             cell.iconImageView?.image = coinPrueba[indexPath.row].icono
             cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
             cell.categoryLabel?.text = coinPrueba[indexPath.row].category
@@ -122,8 +118,22 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return cell
             
         }
+        else {
+            let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellPrueba
+            cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
+            //cell.profilePicIV.image.layer.cornerRadius = cell.profilePicIV.image.frame.height/2
+            cellUser.usernameL.text = userPrueba[indexPath.row].user_name
+            cellUser.nameL.text = userPrueba[indexPath.row].name
+            cellUser.categoryUserL.text = userPrueba[indexPath.row].category
+            cellUser.percentageUserL.text = userPrueba[indexPath.row].percentage
+            cellUser.layer.cornerRadius = cellUser.frame.height/8
+            
+            return cellUser
+        }
+       
         
     }
+    
     
     @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
         setImage(image: sender.image(for: .normal)!)

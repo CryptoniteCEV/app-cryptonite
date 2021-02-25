@@ -13,23 +13,33 @@ class MainScreenController: UIViewController {
 
     var stories : UICollectionView?
     var coinsCollection : UICollectionView?
+    var usersCollection : UICollectionView?
 
     @IBOutlet weak var coinCollectionView: UICollectionView!
+    
+    @IBOutlet weak var usersCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
         
         loadImages()
         stories = createStoriesView()
-        coinsCollection = createCoinsView()
+        
+        
         
         if stories != nil {
             view.addSubview(stories!)
             setStoriesConstraints(stories: stories!)
         }
-        if coinsCollection != nil {
-            view.addSubview(coinsCollection!)
-        }
+        
+        coinCollectionView.dataSource = self
+        coinCollectionView.delegate = self
+        
+        usersCollectionView.dataSource = self
+        usersCollectionView.delegate = self
+        
+        
     }
 }
     
