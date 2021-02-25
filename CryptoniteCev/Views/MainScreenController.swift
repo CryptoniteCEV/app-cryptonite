@@ -19,6 +19,8 @@ class MainScreenController: UIViewController {
     
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
+    @IBOutlet weak var activityTableView: UITableView!
+    
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -39,6 +41,9 @@ class MainScreenController: UIViewController {
         usersCollectionView.dataSource = self
         usersCollectionView.delegate = self
         
+        activityTableView.dataSource = self
+        activityTableView.delegate = self
+        self.activityTableView.reloadData()
         
     }
 }
