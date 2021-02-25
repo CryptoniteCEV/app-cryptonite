@@ -121,7 +121,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         else {
             let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellPrueba
             cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
-            //cell.profilePicIV.image.layer.cornerRadius = cell.profilePicIV.image.frame.height/2
+            cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
             cellUser.usernameL.text = userPrueba[indexPath.row].user_name
             cellUser.nameL.text = userPrueba[indexPath.row].name
             cellUser.categoryUserL.text = userPrueba[indexPath.row].category
