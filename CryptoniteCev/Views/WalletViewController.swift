@@ -16,6 +16,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     
+    @IBOutlet weak var porgress: UIProgressView!
     var graph = PieChart()
     
    
@@ -27,6 +28,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         
        
         lineChart.delegate = self
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -62,8 +64,12 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                 
             )
      print("está haciendo la funcion")
-        lineChart.center = view.center
+        
+       
      view.addSubview(lineChart)
+        
+        lineChart.center = view.center
+
           var entries = [ChartDataEntry]()
             
             for x in 0...10{
@@ -79,9 +85,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             
             
             let set =  LineChartDataSet(entries: entries)
+            
             set.colors = ChartColorTemplates.colorful()
+       
+            set.circleRadius = 5
+       
             let data = LineChartData(dataSet: set)
             lineChart.data = data
-   
-}
+            
+    }
 }
