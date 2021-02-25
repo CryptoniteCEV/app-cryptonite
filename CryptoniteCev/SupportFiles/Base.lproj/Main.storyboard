@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="09z-No-uyc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8tv-10-snU">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -293,6 +293,96 @@ CEZvcmdvdCBwYXNzd29yZD8
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ns-BeS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-Qs-O7Z">
+                                <rect key="frame" x="0.0" y="178" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqQ-Dl-xdh">
+                                    <size key="itemSize" width="128" height="108"/>
+                                    <size key="estimatedItemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellPrueba" id="7Gb-aW-ui4" customClass="CoinCellPrueba" customModule="CryptoniteCev" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="7" width="101.66666666666667" height="113.66666666666669"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFv-Zb-jtN">
+                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="113.66666666666669"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kkC-vT-IY2">
+                                                    <rect key="frame" x="5" y="6" width="91.666666666666671" height="101.66666666666667"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleAspectFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pr7-c2-TTa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-JJ-Yt8" userLabel="icon">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="DmR-hW-Dnh"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="j5K-ad-MxW"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-G0-Xc8" userLabel="coin">
+                                                                    <rect key="frame" x="31.999999999999996" y="0.0" width="59.666666666666657" height="20"/>
+                                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest invested currency" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d52-7J-DoR" userLabel="category">
+                                                            <rect key="frame" x="0.0" y="26" width="91.666666666666671" height="26.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.992.233M $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-bE-lHm" userLabel="ammount">
+                                                            <rect key="frame" x="0.0" y="58.333333333333329" width="91.666666666666671" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-PB-BIR">
+                                                            <rect key="frame" x="0.0" y="81.333333333333329" width="91.666666666666671" height="20.333333333333329"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+27,3%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rng-rh-uf8" userLabel="percentage">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="20.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYr-4J-1na">
+                                                                    <rect key="frame" x="66" y="0.0" width="25.666666666666671" height="20.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.1803921568627451" green="0.23921568627450979" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="kkC-vT-IY2" firstAttribute="top" secondItem="hFv-Zb-jtN" secondAttribute="top" constant="6" id="2al-XN-fB0"/>
+                                                <constraint firstAttribute="trailing" secondItem="kkC-vT-IY2" secondAttribute="trailing" constant="5" id="6YI-e0-1Lv"/>
+                                                <constraint firstItem="kkC-vT-IY2" firstAttribute="leading" secondItem="hFv-Zb-jtN" secondAttribute="leading" constant="5" id="SrX-SH-btj"/>
+                                                <constraint firstAttribute="bottom" secondItem="kkC-vT-IY2" secondAttribute="bottom" constant="6" id="Wvd-hJ-idD"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="ammountLabel" destination="Dkn-bE-lHm" id="jD5-q6-bDY"/>
+                                            <outlet property="categoryLabel" destination="d52-7J-DoR" id="Kj7-Ca-8ZB"/>
+                                            <outlet property="coinNameLabel" destination="U5U-G0-Xc8" id="vyI-4s-ley"/>
+                                            <outlet property="iconImageView" destination="RqP-JJ-Yt8" id="YC8-LM-b4k"/>
+                                            <outlet property="percentageLabel" destination="rng-rh-uf8" id="4Ha-Q6-a2b"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.090196078431372548" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -313,6 +403,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="489-do-pkL"/>
                     <connections>
+                        <outlet property="coinCollectionView" destination="bFz-Qs-O7Z" id="wrX-9a-WkO"/>
                         <segue destination="grX-AG-6vv" kind="modal" identifier="stories" id="w1g-rT-Sh6"/>
                     </connections>
                 </viewController>
@@ -646,96 +737,6 @@ CEVtYWlsA
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.78911751510000006" green="0.048330016429999997" blue="0.41420379280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-Qs-O7Z">
-                                <rect key="frame" x="0.0" y="212" width="414" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gqQ-Dl-xdh">
-                                    <size key="itemSize" width="128" height="108"/>
-                                    <size key="estimatedItemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellPrueba" id="7Gb-aW-ui4" customClass="CoinCellPrueba" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="7" width="101.66666666666667" height="113.66666666666669"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFv-Zb-jtN">
-                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="113.66666666666669"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kkC-vT-IY2">
-                                                    <rect key="frame" x="5" y="6" width="91.666666666666671" height="101.66666666666667"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleAspectFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pr7-c2-TTa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="20"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-JJ-Yt8" userLabel="icon">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="20" id="DmR-hW-Dnh"/>
-                                                                        <constraint firstAttribute="height" constant="20" id="j5K-ad-MxW"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-G0-Xc8" userLabel="coin">
-                                                                    <rect key="frame" x="31.999999999999996" y="0.0" width="59.666666666666657" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest invested currency" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d52-7J-DoR" userLabel="category">
-                                                            <rect key="frame" x="0.0" y="26" width="91.666666666666671" height="26.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.992.233M $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-bE-lHm" userLabel="ammount">
-                                                            <rect key="frame" x="0.0" y="58.333333333333329" width="91.666666666666671" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-PB-BIR">
-                                                            <rect key="frame" x="0.0" y="81.333333333333329" width="91.666666666666671" height="20.333333333333329"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+27,3%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rng-rh-uf8" userLabel="percentage">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="20.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYr-4J-1na">
-                                                                    <rect key="frame" x="66" y="0.0" width="25.666666666666671" height="20.333333333333332"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.1803921568627451" green="0.23921568627450979" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="kkC-vT-IY2" firstAttribute="top" secondItem="hFv-Zb-jtN" secondAttribute="top" constant="6" id="2al-XN-fB0"/>
-                                                <constraint firstAttribute="trailing" secondItem="kkC-vT-IY2" secondAttribute="trailing" constant="5" id="6YI-e0-1Lv"/>
-                                                <constraint firstItem="kkC-vT-IY2" firstAttribute="leading" secondItem="hFv-Zb-jtN" secondAttribute="leading" constant="5" id="SrX-SH-btj"/>
-                                                <constraint firstAttribute="bottom" secondItem="kkC-vT-IY2" secondAttribute="bottom" constant="6" id="Wvd-hJ-idD"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="ammountLabel" destination="Dkn-bE-lHm" id="jD5-q6-bDY"/>
-                                            <outlet property="categoryLabel" destination="d52-7J-DoR" id="Kj7-Ca-8ZB"/>
-                                            <outlet property="coinNameLabel" destination="U5U-G0-Xc8" id="vyI-4s-ley"/>
-                                            <outlet property="iconImageView" destination="RqP-JJ-Yt8" id="YC8-LM-b4k"/>
-                                            <outlet property="percentageLabel" destination="rng-rh-uf8" id="4Ha-Q6-a2b"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

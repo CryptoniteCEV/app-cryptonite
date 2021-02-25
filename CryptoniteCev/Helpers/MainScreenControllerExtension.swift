@@ -12,6 +12,13 @@ var images : [UIImage] = []
 
 var imageSelected : UIImage?
 
+var coinPrueba = [
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%")
+]
+
   
 fileprivate let storiesView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -31,7 +38,7 @@ fileprivate let coinsView:UICollectionView = {
     return cv
 }()
 
-extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func loadImages() {
         
@@ -63,32 +70,38 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func createCoinsView() -> UICollectionView {
-        coinsView.backgroundColor = .none
-        coinsView.delegate = self
-        coinsView.dataSource = self
+        //coinsView.backgroundColor = .none
+        //coinsView.delegate = self
+        //coinsView.dataSource = self
+        coinCollectionView.dataSource = self
+        coinCollectionView.delegate = self
         
         return coinsView
     }
-    
+    /*
     func setCoinsConstraints(coinsCollection : UICollectionView){
         
         coinsCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/5).isActive = true
         coinsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
         coinsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
         coinsCollection.heightAnchor.constraint(equalToConstant: view.frame.height/5).isActive = true
-    }
+    }*/
     
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == storiesView {
+        //if collectionView == storiesView {
             return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
-        }else{
+        /*}else{
             return CGSize(width: coinsView.frame.width/4, height: coinsView.frame.width/2)
-        }
+        }*/
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        if collectionView == storiesView {
+            return images.count
+        } else {
+            return coinPrueba.count
+        }
     }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == storiesView {
@@ -96,8 +109,18 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
             return cell
         }else{
-            let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
+            /*let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
+            return cell*/
+            let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellPrueba", for: indexPath) as! CoinCellPrueba
+            cell.iconImageView?.image = coinPrueba[indexPath.row].icono
+            cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
+            cell.categoryLabel?.text = coinPrueba[indexPath.row].category
+            cell.ammountLabel?.text = coinPrueba[indexPath.row].ammount
+            cell.percentageLabel?.text = coinPrueba[indexPath.row].percentage
+            cell.layer.cornerRadius = cell.frame.height/8
+                
             return cell
+            
         }
         
     }

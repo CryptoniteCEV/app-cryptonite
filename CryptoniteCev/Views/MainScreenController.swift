@@ -14,6 +14,7 @@ class MainScreenController: UIViewController {
     var stories : UICollectionView?
     var coinsCollection : UICollectionView?
 
+    @IBOutlet weak var coinCollectionView: UICollectionView!
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -28,7 +29,6 @@ class MainScreenController: UIViewController {
         }
         if coinsCollection != nil {
             view.addSubview(coinsCollection!)
-            setCoinsConstraints(coinsCollection: coinsCollection!)
         }
     }
 }

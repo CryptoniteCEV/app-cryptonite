@@ -25,7 +25,7 @@ class PruebaCellController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
         
-    func numberOfSections(in collectioView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
         
