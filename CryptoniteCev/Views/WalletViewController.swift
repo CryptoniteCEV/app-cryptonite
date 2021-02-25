@@ -7,11 +7,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     ChartViewDelegate
 {
  
-   
+    @IBOutlet weak var container: UIView!
+    
    var wallet = [
     Wallet(icon: #imageLiteral(resourceName: "Bitcoin.svg"),idsCoins: "Bitcoin",simbol: "BTC", quantities: 3,dollars: 63000 ),
     Wallet(icon: #imageLiteral(resourceName: "eth.png"),idsCoins: "Ethereum", simbol: "ETH",quantities: 25,dollars: 35000),
-    Wallet(icon: #imageLiteral(resourceName: "doge.png"),idsCoins: "Dogecoin",simbol: "DOGE",quantities: 300,dollars: 10.12)
+    Wallet(icon: #imageLiteral(resourceName: "doge.png"),idsCoins: "Dogecoin",simbol: "DOGE",quantities: 300,dollars: 10.12),
+    Wallet(icon: #imageLiteral(resourceName: "LITE.png"),idsCoins: "Litecoin",simbol: "LITE",quantities: 77,dollars: 21231)
     ]
     @IBOutlet weak var tableView: UITableView!
     
@@ -56,42 +58,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-     lineChart.frame = CGRect(
-            
-                x: 0,y: 0,
-                width: 400,
-                height: 200
-                
-            )
-     print("está haciendo la funcion")
-        
-       
-     view.addSubview(lineChart)
-        
-        lineChart.center = view.center
-
-          var entries = [ChartDataEntry]()
-            
-            for x in 0...10{
-                
-                entries.append(ChartDataEntry(
-                    
-                    x: Double(x),
-                    y: Double(x^2)
-                    
-                ))
-                
-            }
-            
-            
-            let set =  LineChartDataSet(entries: entries)
-            
-            set.colors = ChartColorTemplates.colorful()
-       
-            set.circleRadius = 5
-       
-            let data = LineChartData(dataSet: set)
-            lineChart.data = data
+        graph.impirmirGrafica(lineChart: lineChart, screen: container)
             
     }
 }
