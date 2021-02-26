@@ -124,6 +124,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.categoryLabel?.text = coinPrueba[indexPath.row].category
             cell.ammountLabel?.text = coinPrueba[indexPath.row].ammount
             cell.percentageLabel?.text = coinPrueba[indexPath.row].percentage
+            if(cell.percentageLabel?.text?.first == "-") {
+                cell.percentageLabel?.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+            }else {
+                cell.percentageLabel?.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+            }
             cell.layer.cornerRadius = cell.frame.height/8
                 
             return cell
@@ -137,6 +142,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cellUser.nameL.text = userPrueba[indexPath.row].name
             cellUser.categoryUserL.text = userPrueba[indexPath.row].category
             cellUser.percentageUserL.text = userPrueba[indexPath.row].percentage
+            if(cellUser.percentageUserL.text?.first == "-") {
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+            }else {
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+            }
             cellUser.layer.cornerRadius = cellUser.frame.height/8
             
             return cellUser
