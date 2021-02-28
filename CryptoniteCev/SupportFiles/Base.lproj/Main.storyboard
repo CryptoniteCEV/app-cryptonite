@@ -76,17 +76,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A13-HO-EkN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A13-HO-EkN">
                                         <rect key="frame" x="0.0" y="44.333333333333371" width="308" height="20.333333333333329"/>
                                         <color key="tintColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <string key="text" base64-UTF8="YES">
-CEVtYWlsA
-</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZ0-1r-IkH" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="paco123" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZ0-1r-IkH" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="89" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -103,7 +100,7 @@ CEVtYWlsA
                                         <rect key="frame" x="0.0" y="191.66666666666669" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4t-hH-chp">
                                         <rect key="frame" x="0.0" y="249.66666666666669" width="308" height="50"/>
@@ -115,8 +112,7 @@ CEVtYWlsA
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="validation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPk-pT-0eI"/>
-                                            <segue destination="UH5-nG-GWp" kind="show" id="scN-Iv-bTA"/>
+                                            <action selector="LogInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfZ-BN-d8d"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -186,6 +182,9 @@ CEZvcmdvdCBwYXNzd29yZD8
                     </navigationItem>
                     <connections>
                         <outlet property="logInButton" destination="c4t-hH-chp" id="5bl-qM-bP3"/>
+                        <outlet property="passwordTF" destination="XXO-Kd-VGM" id="vnY-ce-Ujf"/>
+                        <outlet property="usernameTF" destination="KZ0-1r-IkH" id="4YP-BM-oqz"/>
+                        <segue destination="UH5-nG-GWp" kind="show" identifier="toMain" id="ftt-Am-FVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -363,7 +362,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQL-fp-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2618.840579710145" y="1546.875"/>
+            <point key="canvasLocation" x="-2771" y="1560"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hHN-pB-A8m">
@@ -800,7 +799,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1749.2753623188407" y="730.58035714285711"/>
+            <point key="canvasLocation" x="-1752" y="783"/>
         </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
@@ -830,7 +829,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1097" y="731"/>
+            <point key="canvasLocation" x="-833" y="783"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="hfi-YM-nuH">
@@ -878,7 +877,7 @@ CEVtYWlsA
                                         <rect key="frame" x="0.0" y="165.33333333333331" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O2a-Pl-uzf">
                                         <rect key="frame" x="0.0" y="229.66666666666669" width="308" height="49"/>
@@ -923,7 +922,7 @@ CEVtYWlsA
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="h44-g4-uMP" kind="show" id="XGV-8r-FZ7"/>
+                                            <action selector="ContinueButton:" destination="OhZ-Zf-S06" eventType="touchUpInside" id="1rr-1k-Pqx"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-eg-9Ag">
@@ -978,11 +977,15 @@ CEVtYWlsA
                     <connections>
                         <outlet property="backButton" destination="47a-k4-L1F" id="hH3-85-Wmx"/>
                         <outlet property="continue_button" destination="VfP-aR-86K" id="bGP-Bc-9o8"/>
+                        <outlet property="emailTF" destination="6Hp-8y-C15" id="29a-iv-O4e"/>
+                        <outlet property="isAdultSW" destination="Iia-rA-F8J" id="xZg-dT-s2I"/>
+                        <outlet property="passwordTF" destination="yE6-2n-XNR" id="iGD-rp-UP3"/>
+                        <segue destination="h44-g4-uMP" kind="show" identifier="toCompletion" id="aY6-SN-34x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FzS-ca-TVy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1097" y="-87"/>
+            <point key="canvasLocation" x="-1135" y="-87"/>
         </scene>
         <!--Complete Your Profile-->
         <scene sceneID="EHw-Fk-ZzB">
@@ -1061,7 +1064,7 @@ CEVtYWlsA
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="goToLogInScreen:" destination="h44-g4-uMP" eventType="touchUpInside" id="LK0-jd-s1G"/>
+                                            <action selector="FinishedButton:" destination="h44-g4-uMP" eventType="touchUpInside" id="JK9-HN-HI0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1085,6 +1088,9 @@ CEVtYWlsA
                     <connections>
                         <outlet property="date_picker" destination="9Cm-dn-oNh" id="d4Z-A4-wWJ"/>
                         <outlet property="finishButton" destination="gIv-fX-YLz" id="0e2-ZN-Kcv"/>
+                        <outlet property="nameTF" destination="UzY-Hl-Xnc" id="NeO-xT-P5J"/>
+                        <outlet property="surnameTF" destination="elz-Qe-ri3" id="UXq-sK-3XF"/>
+                        <outlet property="usernameTF" destination="Rny-dt-Yoe" id="Srl-Eu-2Fv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIq-jr-l3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

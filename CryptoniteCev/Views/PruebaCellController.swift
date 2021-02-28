@@ -20,7 +20,8 @@ class PruebaCellController: UIViewController, UICollectionViewDataSource, UIColl
         
         coinCollectionView.dataSource = self
         coinCollectionView.delegate = self
-            
+        
+        
 
     }
     
@@ -46,7 +47,4 @@ class PruebaCellController: UIViewController, UICollectionViewDataSource, UIColl
             
     }
         
-        
-    
-    
 }

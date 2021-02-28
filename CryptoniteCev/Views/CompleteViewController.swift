@@ -4,22 +4,27 @@ import UIKit
 
 class CompleteViewController: UIViewController {
 
-    
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var date_picker: UITextField!
     let date = UIDatePicker()
-
+    
+    @IBOutlet weak var usernameTF: UnderlinedTextField!
+    @IBOutlet weak var nameTF: UnderlinedTextField!
+    var email:String?
+    var password:String?
+    @IBOutlet weak var surnameTF: UnderlinedTextField!
+    
+    let identifiers = Identifiers.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         
         finishButton.layer.cornerRadius = 5
-      createDatePicker()
+        createDatePicker()
     }
     
-    @IBAction func goToLogInScreen(_ sender: Any) {
+    func goToLogInScreen() {
         
         navigationController?.popToRootViewController(animated: true)
-        
         
     }
     
@@ -40,12 +45,29 @@ class CompleteViewController: UIViewController {
     //crea el boton de DONE para coger la fecha
     @objc func donePressed(){
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .short
         formatter.timeStyle = .none
-        
         
         date_picker.text = formatter.string(from: date.date)
         self.view.endEditing(true)
     }
     
+    
+    @IBAction func FinishedButton(_ sender: Any) {
+        
+        let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, date_of_birth: /*date_picker.text!*/"2020-12-02")
+        
+        let request = Service.shared.register(user: user)
+        
+        request.responseJSON { (response) in
+            let body = response.value as? [String: Any]
+            if(response.response?.statusCode == StatusCodes.shared.created){
+                self.goToLogInScreen()
+            }else{
+                print(body!["message"]!)
+            }
+        }
+    }
 }
+    
+

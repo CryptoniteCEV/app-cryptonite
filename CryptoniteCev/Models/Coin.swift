@@ -6,11 +6,12 @@ import UIKit;
 class Coin : Decodable, Encodable{
     
     private var _name:String
-    private var _price:Int
+    private var _symbol:String
+    private var _price:Double?
     
-    init(name:String, price:Int){
+    init(name:String, symbol:String){
         self._name = name
-        self._price = price
+        self._symbol = symbol
     }
     
     public var name: String {
@@ -21,10 +22,18 @@ class Coin : Decodable, Encodable{
             self._name = newValue
         }
     }
-    
-    public var price: Int {
+    public var symbol: String {
         get {
-            return self._price;
+            return self._symbol;
+        }
+        set {
+            self._symbol = newValue
+        }
+    }
+    
+    public var price: Double {
+        get {
+            return self._price!;
         }
         set {
             self._price = newValue

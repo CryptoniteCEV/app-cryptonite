@@ -29,6 +29,14 @@
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
 		5393E88925B8E94700C647FD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Requests.swift */; };
 		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
+		53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */; };
+		53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B325EC08CD00393C7A /* FieldsController.swift */; };
+		53C6C6B825EC091B00393C7A /* FieldValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B525EC091B00393C7A /* FieldValidations.swift */; };
+		53C6C6B925EC091B00393C7A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B625EC091B00393C7A /* StringExtension.swift */; };
+		53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B725EC091B00393C7A /* UITextFieldExtension.swift */; };
+		53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BB25EC0BB100393C7A /* Identifiers.swift */; };
+		53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */; };
+		53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BF25EC0DF900393C7A /* UserMessages.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19AD5525E52BF800279E9D /* PruebaCellController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
@@ -93,6 +101,14 @@
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		5393E88825B8E94700C647FD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		5393E88A25B8EA8A00C647FD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBodyNames.swift; sourceTree = "<group>"; };
+		53C6C6B325EC08CD00393C7A /* FieldsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsController.swift; sourceTree = "<group>"; };
+		53C6C6B525EC091B00393C7A /* FieldValidations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldValidations.swift; sourceTree = "<group>"; };
+		53C6C6B625EC091B00393C7A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		53C6C6B725EC091B00393C7A /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		53C6C6BB25EC0BB100393C7A /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodes.swift; sourceTree = "<group>"; };
+		53C6C6BF25EC0DF900393C7A /* UserMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessages.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +252,10 @@
 		5393E88225B8AE4200C647FD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				53C6C6B525EC091B00393C7A /* FieldValidations.swift */,
+				53C6C6B625EC091B00393C7A /* StringExtension.swift */,
+				53C6C6B725EC091B00393C7A /* UITextFieldExtension.swift */,
+				53C6C6B325EC08CD00393C7A /* FieldsController.swift */,
 				53E9E27225BA071D00B78B17 /* MainController.swift */,
 			);
 			path = Controllers;
@@ -244,8 +264,12 @@
 		5393E88325B8AE4300C647FD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				53C6C6BF25EC0DF900393C7A /* UserMessages.swift */,
+				53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */,
+				53C6C6BB25EC0BB100393C7A /* Identifiers.swift */,
 				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
 				7F7411CC25BB08EF009D8D6C /* Keys.swift */,
+				53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -524,10 +548,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */,
 				0706463925E589350054CE67 /* CoinPrueba.swift in Sources */,
 				531657F225B797510040417F /* Wallet.swift in Sources */,
 				7F987F9725C8261900BCD586 /* PieChart.swift in Sources */,
 				7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */,
+				53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */,
 				7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */,
 				07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */,
 				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
@@ -535,9 +561,11 @@
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
+				53C6C6B825EC091B00393C7A /* FieldValidations.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
 				3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */,
 				0706463B25E58CF00054CE67 /* CoinCellPrueba.swift in Sources */,
+				53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */,
 				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				5393E88925B8E94700C647FD /* Requests.swift in Sources */,
@@ -546,6 +574,8 @@
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				07103E8925E835D50092E36D /* ActivityFeed.swift in Sources */,
+				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
+				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
@@ -553,6 +583,8 @@
 				7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */,
 				F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */,
 				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
+				53C6C6B925EC091B00393C7A /* StringExtension.swift in Sources */,
+				53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
