@@ -21,9 +21,18 @@ class Service {
         
     }
     
+    //Recibe params (email) , devuelve datos de la petición
+   func restorePassword(parameters:[String:String])-> DataRequest {
+
+       return AF.request(Endpoints.domain + Endpoints.path+Endpoints.User.restorePassword, method: .put, parameters:parameters , encoder: JSONParameterEncoder.default)
+   }
+    
     func getCoins()->DataRequest{
-        
-        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil)
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.getList, method: .get, encoding: URLEncoding.default, headers: headers)
     }
     
     func getUsers() {

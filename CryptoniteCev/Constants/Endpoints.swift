@@ -7,22 +7,23 @@ class Endpoints {
     let shared = Endpoints()
     
     static let domain = "http://localhost:8888"
-    static let path = "/Laravel/api-cryptonite/public/api/"
+    static let path = "/Laravel/api-cryptonite/public/api"
+    
     //User´s Petitions
     enum User {
-        static let register:String = "users/register"
-        static let login:String = "users/login"
-        static let restorePassword:String = "users/restore/password"
-        static let updatePassword:String = "users/update/password"
-        static let getProfileInfo:String = "users/profile/info"
-        static let updateProfile:String = "users/update"
-        static let followUser:String = "users/follow"
-        static let getFollowings:String = "users/followings/list"
-        static let updateExperience:String = "users/update/exp"
-        static let getFollowers:String = "users/followers/list"
-        static let trade:String = "users/trade/coin"
-        static let all:String = "users/all"
-        static let userTrades:String = "users/trades/info"
+        static let register:String = "/users/register"
+        static let login:String = "/users/login"
+        static let restorePassword:String = "/users/restore/password"
+        static let updatePassword:String = "/users/update/password"
+        static let getProfileInfo:String = "/users/profile/info"
+        static let updateProfile:String = "/users/update"
+        static let followUser:String = "/users/follow"
+        static let getFollowings:String = "/users/followings/list"
+        static let updateExperience:String = "/users/update/exp"
+        static let getFollowers:String = "/users/followers/list"
+        static let trade:String = "/users/trade/coin"
+        static let all:String = "/users/all"
+        static let userTrades:String = "/users/trades/info"
     }
     //Score´s petitions
     enum Score {
@@ -46,7 +47,6 @@ class Endpoints {
         static let getPrice:String = "/coins/get/price"
         static let convertQuantity:String = "/coins/convert/quantity"
         static let history:String = "/coins/history"
-        
     }
 }
 
