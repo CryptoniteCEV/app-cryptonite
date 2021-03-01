@@ -35,7 +35,7 @@ class CircleCell: UICollectionViewCell {
         circularButton.layer.borderColor = #colorLiteral(red: 0, green: 0.7529411765, blue: 0.4549019608, alpha: 1)
         circularButton.layer.borderWidth = 3
             
-        
+        	
         
         return circularButton
     }()

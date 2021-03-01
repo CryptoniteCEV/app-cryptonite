@@ -2,21 +2,21 @@
 import Foundation;
 import UIKit;
 
-class Trade : Decodable, Encodable{
+class Trade {
     
-    private let _id:String
+    private let _profilePic:UIImage
     private let _quantity:Int
     private let _idCoin:Int
     
-    init(id:String, idCoin:Int, quantity:Int){
-        self._id = id
+    init(profilePic:UIImage, idCoin:Int, quantity:Int){
+        self._profilePic = profilePic
         self._idCoin = idCoin
         self._quantity = quantity
     }
     
-    public var id: String {
+    public var profilePic: UIImage {
         get {
-            return self._id;
+            return self._profilePic;
         }
     }
     public var quantity: Int {

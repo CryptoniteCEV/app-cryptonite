@@ -14,7 +14,7 @@ class PieChart: UIViewController, ChartViewDelegate{
                
                    x: 0,y: 0,
             width: screen.frame.width,
-                   height: 200
+            height: screen.frame.height
                    
                )
         
