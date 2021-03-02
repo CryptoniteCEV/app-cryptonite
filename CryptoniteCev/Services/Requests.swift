@@ -35,6 +35,14 @@ class Service {
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.getList, method: .get, encoding: URLEncoding.default, headers: headers)
     }
     
+    func getCoinsWithQuantities()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.quantities, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+    
     func getWallets()->DataRequest{
         let headers:HTTPHeaders = [
             ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!

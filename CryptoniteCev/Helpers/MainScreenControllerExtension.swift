@@ -103,7 +103,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if coins.count>0{
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
-                cell.categoryLabel?.text = "Mayor porcentaje de ganancias"
+                cell.categoryLabel?.text = ""
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = "25%"
             }else{

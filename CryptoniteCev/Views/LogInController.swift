@@ -18,18 +18,6 @@ class LogInController: UIViewController {
 
     @IBAction func LogInButton(_ sender: Any) {
         
-         /*let request = Service.shared.getCoins()
-        
-        request.responseJSON { (response) in
-            let body = response.value as? [String: Any]
-            //print(body!["data"]!)
-            let data = body!["data"]!
-            
-            for coin in data as! [[String:Any]]{
-                print(coin)
-            }
-            
-        }*/
         if checkUsername(textFieldUsername:usernameTF/*, errorLabel: ErrorUserLabel*/) && checkPassword(textFieldPass: passwordTF/*, errorLabel: ErrorPassLabel*/){
             let apiBodyNames = ApiBodyNames.shared
             let parameters =

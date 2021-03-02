@@ -7,7 +7,7 @@ class Endpoints {
     let shared = Endpoints()
     
     static let domain = "http://localhost:8888"
-    static let path = "/Laravel/api-cryptonite/public/api"
+    static let path = "/Alejandro/api-cryptonite/public/api"
     
     //User´s Petitions
     enum User {
@@ -47,6 +47,7 @@ class Endpoints {
         static let getPrice:String = "/coins/get/price"
         static let convertQuantity:String = "/coins/convert/quantity"
         static let history:String = "/coins/history"
+        static let quantities:String = "/coins/quantities"
     }
 }
 

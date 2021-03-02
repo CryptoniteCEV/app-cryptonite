@@ -37,6 +37,7 @@
 		53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BF25EC0DF900393C7A /* UserMessages.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
+		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserPrueba.swift */; };
@@ -108,6 +109,7 @@
 		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F92F55B25E7C7A80095E15A /* UserPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrueba.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				531657EB25B7970B0040417F /* User.swift */,
 				7F92F55B25E7C7A80095E15A /* UserPrueba.swift */,
 				07103E8825E835D50092E36D /* ActivityFeed.swift */,
+				7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				53F194C625ED95200096055F /* Images.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
+				7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */,
 				53C6C6B825EC091B00393C7A /* FieldValidations.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
 				0706463B25E58CF00054CE67 /* CoinCellMainController.swift in Sources */,
