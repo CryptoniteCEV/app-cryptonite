@@ -405,6 +405,121 @@ CEZvcmdvdCBwYXNzd29yZD8
             </objects>
             <point key="canvasLocation" x="-1706" y="2494"/>
         </scene>
+        <!--Trading-->
+        <scene sceneID="MVu-d1-2Uf">
+            <objects>
+                <viewController id="wAl-fb-GFB" customClass="TradingController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GPn-He-dii">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib4-cP-s6w">
+                                <rect key="frame" x="49" y="74" width="316" height="350"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC/USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVr-w1-qae">
+                                        <rect key="frame" x="0.0" y="0.0" width="316" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="LXD-gu-2jv">
+                                        <rect key="frame" x="0.0" y="60.333333333333343" width="316" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="knc-Eq-qz2">
+                                        <rect key="frame" x="0.0" y="120.66666666666666" width="316" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WDz-G3-0E5">
+                                                <rect key="frame" x="0.0" y="0.0" width="158" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.2627450980392157" green="0.85098039215686272" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Buy">
+                                                    <color key="titleColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="black"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buySelected:" destination="wAl-fb-GFB" eventType="touchUpInside" id="rUp-Mi-ACP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-8y-Grt">
+                                                <rect key="frame" x="158" y="0.0" width="158" height="36"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Sell">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="black"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sellSelected:" destination="wAl-fb-GFB" eventType="touchUpInside" id="Mta-8I-9fm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpm-x8-FAt">
+                                        <rect key="frame" x="0.0" y="193" width="316" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-w8-Blr" userLabel="amount">
+                                        <rect key="frame" x="0.0" y="249.66666666666669" width="316" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OqJ-8f-BdN">
+                                        <rect key="frame" x="-2" y="320" width="320" height="31"/>
+                                        <connections>
+                                            <action selector="amountSlider:" destination="wAl-fb-GFB" eventType="valueChanged" id="iVz-aQ-E5H"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Ibh-fY-hAI"/>
+                                    <constraint firstItem="knc-Eq-qz2" firstAttribute="leading" secondItem="Ib4-cP-s6w" secondAttribute="leading" id="d3F-dK-zX3"/>
+                                    <constraint firstAttribute="trailing" secondItem="knc-Eq-qz2" secondAttribute="trailing" id="uEH-zW-TyX"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvp-Ri-44H">
+                                <rect key="frame" x="75" y="474" width="264" height="36"/>
+                                <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Buy ">
+                                    <color key="titleColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lvp-Ri-44H" firstAttribute="top" secondItem="Ib4-cP-s6w" secondAttribute="bottom" constant="50" id="H8E-h2-bmz"/>
+                            <constraint firstItem="2DI-mR-ZfB" firstAttribute="trailing" secondItem="Ib4-cP-s6w" secondAttribute="trailing" constant="49" id="Kzv-gc-c54"/>
+                            <constraint firstItem="Ib4-cP-s6w" firstAttribute="leading" secondItem="2DI-mR-ZfB" secondAttribute="leading" constant="49" id="Nsq-lk-A90"/>
+                            <constraint firstItem="2DI-mR-ZfB" firstAttribute="trailing" secondItem="Lvp-Ri-44H" secondAttribute="trailing" constant="75" id="W9u-SO-6gA"/>
+                            <constraint firstItem="Ib4-cP-s6w" firstAttribute="top" secondItem="2DI-mR-ZfB" secondAttribute="top" constant="30" id="Z8u-kc-8on"/>
+                            <constraint firstItem="Lvp-Ri-44H" firstAttribute="leading" secondItem="2DI-mR-ZfB" secondAttribute="leading" constant="75" id="aVJ-7I-oQI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2DI-mR-ZfB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trading" image="arrow.right.arrow.left.circle.fill" catalog="system" selectedImage="arrow.right.arrow.left.circle.fill" id="lbt-Ce-Ct5"/>
+                    <connections>
+                        <outlet property="amountTextfield" destination="t3p-w8-Blr" id="VMp-k6-MnW"/>
+                        <outlet property="buyButton" destination="WDz-G3-0E5" id="U7a-2T-Isf"/>
+                        <outlet property="buyOrSellButton" destination="Lvp-Ri-44H" id="e4Q-ts-r41"/>
+                        <outlet property="sellButton" destination="KTm-8y-Grt" id="0M5-2M-duE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Peh-Gk-7Kn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3565" y="1289"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tRA-1F-5MD">
             <objects>
@@ -422,11 +537,12 @@ CEZvcmdvdCBwYXNzd29yZD8
                     <connections>
                         <segue destination="ASR-P2-KX9" kind="relationship" relationship="viewControllers" id="knl-3u-z4d"/>
                         <segue destination="7aG-AW-ATd" kind="relationship" relationship="viewControllers" id="SUa-fD-zDg"/>
+                        <segue destination="wAl-fb-GFB" kind="relationship" relationship="viewControllers" id="xvm-Nr-osb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wu-HO-7Xj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2771" y="784"/>
+            <point key="canvasLocation" x="-2619" y="706"/>
         </scene>
         <!--Main Screen Controller-->
         <scene sceneID="sdR-cf-Aeg">
@@ -1097,6 +1213,7 @@ CEVtYWlsA
         <image name="Bitcoin.svg" width="1200" height="1200"/>
         <image name="Captura de pantalla 2021-02-01 a las 12.45.29" width="249" height="506"/>
         <image name="arrow.right.arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.right.arrow.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web" width="980" height="554"/>
         <image name="logoTransparente" width="626" height="664"/>
