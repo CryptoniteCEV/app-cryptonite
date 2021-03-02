@@ -18,6 +18,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     ]
     var graph = PieChart()
     
+    @IBOutlet weak var unfollowButton: UIButton!
+    
     var lineChart = LineChartView()
     
     @IBOutlet weak var imageView: UIImageView!
@@ -26,6 +28,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        unfollowButton.layer.cornerRadius = 15
+        /*unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+        unfollowButton.layer.borderWidth = 3*/
         
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2
        
@@ -50,6 +56,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "otherCell") as! OtherUserCell
        
         cell.profile.image = storieImage
+        cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
+        
         /*cell.currency.text = wa
          llet[indexPath.row].coins
         cell.simbol.text = wallet[indexPath.row].simbol
