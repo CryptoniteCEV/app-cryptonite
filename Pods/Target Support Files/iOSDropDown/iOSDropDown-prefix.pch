@@ -10,7 +10,3 @@
 #endif
 #endif
 
-
-FOUNDATION_EXPORT double Pods_CryptoniteCev_CryptoniteCevUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CryptoniteCev_CryptoniteCevUITestsVersionString[];
-

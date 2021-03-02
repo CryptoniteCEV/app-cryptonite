@@ -6,6 +6,7 @@ target 'CryptoniteCev' do
   use_frameworks!
   pod 'Alamofire', '~> 5.2'
   pod 'Charts'	
+  pod 'iOSDropDown'
 
   # Pods for CryptoniteCev
 

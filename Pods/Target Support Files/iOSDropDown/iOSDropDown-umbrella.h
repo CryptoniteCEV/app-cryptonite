@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CryptoniteCevTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CryptoniteCevTestsVersionString[];
+FOUNDATION_EXPORT double iOSDropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char iOSDropDownVersionString[];
 

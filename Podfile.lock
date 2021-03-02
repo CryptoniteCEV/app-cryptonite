@@ -3,20 +3,24 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - iOSDropDown (0.3.4)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Charts
+  - iOSDropDown
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Charts
+    - iOSDropDown
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
 
-PODFILE CHECKSUM: dd8faef9602e3eff18d3d00d466f68c73d58791b
+PODFILE CHECKSUM: 8e5ed27fee4877db8524b3b8f180d5ff1e1c3d73
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
