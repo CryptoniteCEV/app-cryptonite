@@ -21,14 +21,14 @@ class MainScreenController: UIViewController {
     
     @IBOutlet weak var activityTableView: UITableView!
     
+    var coins:[Coin] = []
+    
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
         
         loadImages()
         stories = createStoriesView()
-        
-        
         
         if stories != nil {
             view.addSubview(stories!)
@@ -44,6 +44,19 @@ class MainScreenController: UIViewController {
         activityTableView.dataSource = self
         activityTableView.delegate = self
         self.activityTableView.reloadData()
+        
+        let request = Service.shared.getCoins()
+        
+        request.responseJSON { (response) in
+        let body = response.value as? [String: Any]
+        let data = body!["data"]! as! [[String:Any]]
+        
+        for i in 0..<data.count {
+            self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
+        }
+            self.coinCollectionView.reloadData()
+        }
+        
         
     }
 }

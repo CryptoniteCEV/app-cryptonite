@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003584EFCE48AF5358D2BC29 /* Pods_CryptoniteCevTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */; };
-		0706463925E589350054CE67 /* CoinPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706463825E589350054CE67 /* CoinPrueba.swift */; };
-		0706463B25E58CF00054CE67 /* CoinCellPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706463A25E58CF00054CE67 /* CoinCellPrueba.swift */; };
+		0706463B25E58CF00054CE67 /* CoinCellMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706463A25E58CF00054CE67 /* CoinCellMainController.swift */; };
 		07103E8925E835D50092E36D /* ActivityFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07103E8825E835D50092E36D /* ActivityFeed.swift */; };
 		07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07103E8A25E837E20092E36D /* ActivityRow.swift */; };
 		390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3925B707810056BFD5 /* AppDelegate.swift */; };
@@ -20,7 +19,6 @@
 		390DAF4625B707850056BFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */; };
 		390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */; };
 		390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6F25B724720056BFD5 /* SignUpController.swift */; };
-		3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */; };
 		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
 		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
 		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
@@ -38,19 +36,18 @@
 		53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */; };
 		53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BF25EC0DF900393C7A /* UserMessages.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
-		7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F19AD5525E52BF800279E9D /* PruebaCellController.swift */; };
+		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserPrueba.swift */; };
-		7F92F55E25E7CA1B0095E15A /* UserCellPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55D25E7CA1B0095E15A /* UserCellPrueba.swift */; };
+		7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */; };
 		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
 		7F987F9725C8261900BCD586 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987F9625C8261900BCD586 /* PieChart.swift */; };
-		7F98EBAD25E6783F00E0A443 /* CellRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98EBAC25E6783F00E0A443 /* CellRowController.swift */; };
+		7F98EBAD25E6783F00E0A443 /* CoinRowWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98EBAC25E6783F00E0A443 /* CoinRowWalletController.swift */; };
 		7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A930325D15DBB0083F71D /* WalletViewController.swift */; };
 		86E44E6131679134197A3A95 /* Pods_CryptoniteCev_CryptoniteCevUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815E22525C233EF00D65B6A /* CoinCell.swift */; };
-		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
 		F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0847125BDFE7900287C60 /* StoriesController.swift */; };
 /* End PBXBuildFile section */
@@ -73,8 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0706463825E589350054CE67 /* CoinPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPrueba.swift; sourceTree = "<group>"; };
-		0706463A25E58CF00054CE67 /* CoinCellPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCellPrueba.swift; sourceTree = "<group>"; };
+		0706463A25E58CF00054CE67 /* CoinCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCellMainController.swift; sourceTree = "<group>"; };
 		07103E8825E835D50092E36D /* ActivityFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeed.swift; sourceTree = "<group>"; };
 		07103E8A25E837E20092E36D /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
 		0828DEB589E277D14A826CA9 /* Pods-CryptoniteCev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,7 +88,6 @@
 		390DAF5725B707850056BFD5 /* CryptoniteCevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoniteCevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		390DAF6F25B724720056BFD5 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
-		3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintTestController.swift; sourceTree = "<group>"; };
 		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -110,23 +105,22 @@
 		53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodes.swift; sourceTree = "<group>"; };
 		53C6C6BF25EC0DF900393C7A /* UserMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessages.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7F19AD5525E52BF800279E9D /* PruebaCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaCellController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F92F55B25E7C7A80095E15A /* UserPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrueba.swift; sourceTree = "<group>"; };
-		7F92F55D25E7CA1B0095E15A /* UserCellPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellPrueba.swift; sourceTree = "<group>"; };
+		7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellMainController.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		7F987F9625C8261900BCD586 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
-		7F98EBAC25E6783F00E0A443 /* CellRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRowController.swift; sourceTree = "<group>"; };
+		7F98EBAC25E6783F00E0A443 /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowWalletController.swift; sourceTree = "<group>"; };
 		7F9A930325D15DBB0083F71D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		7FD587DC3C00C91F9BDEF80C /* Pods_CryptoniteCev_CryptoniteCevUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev_CryptoniteCevUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D39659803FFD78A6FD3592 /* Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCevTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
-		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
 		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,7 +219,6 @@
 				531657EF25B7973F0040417F /* Coin.swift */,
 				531657ED25B7972D0040417F /* Trade.swift */,
 				531657EB25B7970B0040417F /* User.swift */,
-				0706463825E589350054CE67 /* CoinPrueba.swift */,
 				7F92F55B25E7C7A80095E15A /* UserPrueba.swift */,
 				07103E8825E835D50092E36D /* ActivityFeed.swift */,
 			);
@@ -239,12 +232,8 @@
 				7F944AA825B9AF3D00A9854E /* MainScreenController.swift */,
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
 				3966791F25B7606500334585 /* CompleteViewController.swift */,
-				F8C139C225B9E13B008F92B6 /* ViewController.swift */,
 				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
-				3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */,
-				7F98EBAC25E6783F00E0A443 /* CellRowController.swift */,
-				7F19AD5525E52BF800279E9D /* PruebaCellController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +253,7 @@
 		5393E88325B8AE4300C647FD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				53F194C525ED95200096055F /* Images.swift */,
 				53C6C6BF25EC0DF900393C7A /* UserMessages.swift */,
 				53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */,
 				53C6C6BB25EC0BB100393C7A /* Identifiers.swift */,
@@ -282,8 +272,9 @@
 				7F987F9625C8261900BCD586 /* PieChart.swift */,
 				7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */,
 				F815E22525C233EF00D65B6A /* CoinCell.swift */,
-				0706463A25E58CF00054CE67 /* CoinCellPrueba.swift */,
-				7F92F55D25E7CA1B0095E15A /* UserCellPrueba.swift */,
+				0706463A25E58CF00054CE67 /* CoinCellMainController.swift */,
+				7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */,
+				7F98EBAC25E6783F00E0A443 /* CoinRowWalletController.swift */,
 				07103E8A25E837E20092E36D /* ActivityRow.swift */,
 			);
 			path = Helpers;
@@ -549,7 +540,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */,
-				0706463925E589350054CE67 /* CoinPrueba.swift in Sources */,
 				531657F225B797510040417F /* Wallet.swift in Sources */,
 				7F987F9725C8261900BCD586 /* PieChart.swift in Sources */,
 				7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */,
@@ -557,16 +547,15 @@
 				7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */,
 				07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */,
 				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
-				7F98EBAD25E6783F00E0A443 /* CellRowController.swift in Sources */,
+				7F98EBAD25E6783F00E0A443 /* CoinRowWalletController.swift in Sources */,
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
+				53F194C625ED95200096055F /* Images.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
 				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
 				53C6C6B825EC091B00393C7A /* FieldValidations.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,
-				3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */,
-				0706463B25E58CF00054CE67 /* CoinCellPrueba.swift in Sources */,
+				0706463B25E58CF00054CE67 /* CoinCellMainController.swift in Sources */,
 				53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */,
-				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				5393E88925B8E94700C647FD /* Requests.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
@@ -579,8 +568,7 @@
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
-				7F92F55E25E7CA1B0095E15A /* UserCellPrueba.swift in Sources */,
-				7F19AD5625E52BF800279E9D /* PruebaCellController.swift in Sources */,
+				7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */,
 				F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */,
 				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				53C6C6B925EC091B00393C7A /* StringExtension.swift in Sources */,

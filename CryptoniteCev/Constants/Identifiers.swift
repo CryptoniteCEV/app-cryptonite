@@ -13,11 +13,13 @@ class Identifiers {
     private init() {}
 
     static let shared = Identifiers()
-
+    
+    let coinID = "coinID"
     let toDetail = "toDetail"
     let toMain = "toMain"
     let toCompletion = "toCompletion"
     let signUp = "signup"
     let auth = "Authorization"
+    let stories = "stories"
 
 }

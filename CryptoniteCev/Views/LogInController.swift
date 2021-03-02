@@ -18,7 +18,7 @@ class LogInController: UIViewController {
 
     @IBAction func LogInButton(_ sender: Any) {
         
-         let request = Service.shared.getCoins()
+         /*let request = Service.shared.getCoins()
         
         request.responseJSON { (response) in
             let body = response.value as? [String: Any]
@@ -29,8 +29,8 @@ class LogInController: UIViewController {
                 print(coin)
             }
             
-        }
-        /*if checkUsername(textFieldUsername:usernameTF/*, errorLabel: ErrorUserLabel*/) && checkPassword(textFieldPass: passwordTF/*, errorLabel: ErrorPassLabel*/){
+        }*/
+        if checkUsername(textFieldUsername:usernameTF/*, errorLabel: ErrorUserLabel*/) && checkPassword(textFieldPass: passwordTF/*, errorLabel: ErrorPassLabel*/){
             let apiBodyNames = ApiBodyNames.shared
             let parameters =
                 [apiBodyNames.username:usernameTF.text!,
@@ -48,7 +48,7 @@ class LogInController: UIViewController {
                     print(body!["message"]!)
                 }
             }
-        }*/
+        }
     }
     
     

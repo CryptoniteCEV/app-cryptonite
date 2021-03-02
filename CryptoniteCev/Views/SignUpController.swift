@@ -28,7 +28,7 @@ class SignUpController: UIViewController {
         }
     }
     
-    /**
+        /**
         Comprueba identificador a la hora de realizar segue y pasa email y pass a la siguiente pantalla
         */
        override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -38,6 +38,7 @@ class SignUpController: UIViewController {
                controller.password = passwordTF.text!
            }
        }
+    
     
     @IBAction func goToLogIn(_ sender: Any) {
          navigationController?.popToRootViewController(animated: true)

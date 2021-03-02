@@ -13,14 +13,10 @@ protocol CircleCellDelegate: class {
     func collectionViewCell(_ cell: UICollectionViewCell, buttonTapped: UIButton)
 }
 
-
 class CircleCell: UICollectionViewCell {
      
-    
-       
     static var index = 0
     var isLoaded = false
-    
     
     let bg: UIButton = {
         
@@ -35,12 +31,8 @@ class CircleCell: UICollectionViewCell {
         circularButton.layer.borderColor = #colorLiteral(red: 0, green: 0.7529411765, blue: 0.4549019608, alpha: 1)
         circularButton.layer.borderWidth = 3
             
-        
-        
         return circularButton
     }()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: .zero)      

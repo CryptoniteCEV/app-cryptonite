@@ -12,12 +12,6 @@ var images : [UIImage] = []
 
 var imageSelected : UIImage?
 
-var coinPrueba = [
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Moneda con más movimiento", ammount: "+3.056M $", percentage: "+27,06%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "eth"), coin_name: "ETH", category: "Mayor subida de valor", ammount: "+1.596M $", percentage: "+167,95%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "doge.png"), coin_name: "DOGE", category: "Mayor número de transacciones", ammount: "+375M $", percentage: "-15,94%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "LITE"), coin_name: "LTC", category: "Mayor bajada de valor", ammount: "+816M $", percentage: "-36,15%")
-]
 
 var userPrueba = [
     UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", category: "Mayor dinero invertido en BTC", percentage: "+22,89%"),
@@ -49,7 +43,6 @@ fileprivate let storiesView:UICollectionView = {
 
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
-    
     
     func loadImages() {
         
@@ -102,7 +95,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if collectionView == storiesView {
             return images.count
         } else if collectionView == coinCollectionView {
-            return coinPrueba.count
+            return coins.count
         } else {
             return userPrueba.count
         }
@@ -116,21 +109,23 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return cell
         }
         if collectionView == coinCollectionView{
-            //let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
-            //return cell
-            let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellPrueba
-            cell.iconImageView?.image = coinPrueba[indexPath.row].icono
-            cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
-            cell.categoryLabel?.text = coinPrueba[indexPath.row].category
-            cell.ammountLabel?.text = coinPrueba[indexPath.row].ammount
-            cell.percentageLabel?.text = coinPrueba[indexPath.row].percentage
+            
+            let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellMainController
+            if coins.count>0{
+                cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
+                cell.coinNameLabel?.text = coins[indexPath.row].name
+                cell.categoryLabel?.text = "Mayor porcentaje de ganancias"
+                cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
+                cell.percentageLabel?.text = "25%"
+            }
             cell.layer.cornerRadius = cell.frame.height/8
                 
             return cell
             
         }
         else {
-            let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellPrueba
+            let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellMainController
+            
             cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
             cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
             cellUser.usernameL.text = userPrueba[indexPath.row].user_name
@@ -166,7 +161,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
         setImage(image: sender.image(for: .normal)!)
-        self.performSegue(withIdentifier: "stories", sender: sender)
+        self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
     }
     
     func setImage(image: UIImage){
@@ -175,7 +170,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
-        if (segue.identifier == "stories") {
+        if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
             storiesController.storieImage = imageSelected
         }
