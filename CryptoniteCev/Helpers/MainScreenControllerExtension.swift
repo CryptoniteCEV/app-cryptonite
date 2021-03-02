@@ -13,27 +13,27 @@ var images : [UIImage] = []
 var imageSelected : UIImage?
 
 var coinPrueba = [
-    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Moneda con más movimiento", ammount: "+3.056M $", percentage: "+27,06%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "eth"), coin_name: "ETH", category: "Mayor subida de valor", ammount: "+1.596M $", percentage: "+167,95%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "doge.png"), coin_name: "DOGE", category: "Mayor número de transacciones", ammount: "+375M $", percentage: "-15,94%"),
-    CoinPrueba(icono: #imageLiteral(resourceName: "LITE"), coin_name: "LTC", category: "Mayor bajada de valor", ammount: "+816M $", percentage: "-36,15%")
+    CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", ammount: "+3.056M $", percentage: "+27,06%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "eth"), coin_name: "ETH", ammount: "+1.596M $", percentage: "+167,95%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "doge.png"), coin_name: "DOGE", ammount: "+375M $", percentage: "-15,94%"),
+    CoinPrueba(icono: #imageLiteral(resourceName: "LITE"), coin_name: "LTC", ammount: "+816M $", percentage: "-36,15%")
 ]
 
 var userPrueba = [
-    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", category: "Mayor dinero invertido en BTC", percentage: "+22,89%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", name: "Andrea García", category: "Mayor porcentaje de ganancias", percentage: "+38,57%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", name: "Juan Carlos", category: "Mayor porcentaje de pérdidas", percentage: "-44,98%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", name: "Manuel Fernández", category: "Mayor número de seguidores", percentage: "+15,14%")
+    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", percentage: "+22,89%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", percentage: "+38,57%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", percentage: "-44,98%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", percentage: "+15,14%")
 ]
 
 var activityFeed = [
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "eth"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin"))
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "eth"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
+    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin"))
 ]
 
   
@@ -121,13 +121,12 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellPrueba
             cell.iconImageView?.image = coinPrueba[indexPath.row].icono
             cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
-            cell.categoryLabel?.text = coinPrueba[indexPath.row].category
             cell.ammountLabel?.text = coinPrueba[indexPath.row].ammount
             cell.percentageLabel?.text = coinPrueba[indexPath.row].percentage
             if(cell.percentageLabel?.text?.first == "-") {
-                cell.percentageLabel?.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+                cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             }else {
-                cell.percentageLabel?.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+                cell.percentageLabel?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             }
             cell.layer.cornerRadius = cell.frame.height/8
                 
@@ -139,13 +138,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
             cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
             cellUser.usernameL.text = userPrueba[indexPath.row].user_name
-            cellUser.nameL.text = userPrueba[indexPath.row].name
-            cellUser.categoryUserL.text = userPrueba[indexPath.row].category
             cellUser.percentageUserL.text = userPrueba[indexPath.row].percentage
             if(cellUser.percentageUserL.text?.first == "-") {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             }else {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             }
             cellUser.layer.cornerRadius = cellUser.frame.height/8
             

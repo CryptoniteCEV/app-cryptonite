@@ -8,10 +8,10 @@ class PruebaCellController: UIViewController, UICollectionViewDataSource, UIColl
     
   
     var coinPrueba = [
-        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%"),
-        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", category: "Highest invested currency", ammount: "+3,056M $", percentage: "+27,06%")
+        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", ammount: "+3,056M $", percentage: "+27,06%"),
+        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", ammount: "+3,056M $", percentage: "+27,06%"),
+        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", ammount: "+3,056M $", percentage: "+27,06%"),
+        CoinPrueba(icono: #imageLiteral(resourceName: "Bitcoin"), coin_name: "BTC", ammount: "+3,056M $", percentage: "+27,06%")
     ]
     
     override func viewDidLoad() {
@@ -37,7 +37,6 @@ class PruebaCellController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellPrueba", for: indexPath) as! CoinCellPrueba
         cell.iconImageView?.image = coinPrueba[indexPath.row].icono
         cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
-        cell.categoryLabel?.text = coinPrueba[indexPath.row].category
         cell.ammountLabel?.text = coinPrueba[indexPath.row].ammount
         cell.percentageLabel?.text = coinPrueba[indexPath.row].percentage
         cell.layer.cornerRadius = cell.frame.height/8

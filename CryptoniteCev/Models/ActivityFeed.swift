@@ -6,7 +6,6 @@ class ActivityFeed {
     
     private var _profilePic:UIImage
     private var _user_name:String
-    private var _name:String
     private var _coin_selling:String
     private var _icon_selling:UIImage
     private var _coin_buying:String
@@ -15,7 +14,6 @@ class ActivityFeed {
     enum CodingKeys: String, CodingKey {
         case _profilePic = "profilePic"
         case _user_name = "user_name"
-        case _name = "name"
         case _coin_selling = "coin_selling"
         case _icon_selling = "icon_selling"
         case _coin_buying = "coin_buying"
@@ -23,11 +21,10 @@ class ActivityFeed {
         
     }
     
-    init(profilePic:UIImage, user_name:String, name:String, coin_selling:String, icon_selling:UIImage, coin_buying:String, icon_buying:UIImage){
+    init(profilePic:UIImage, user_name:String, coin_selling:String, icon_selling:UIImage, coin_buying:String, icon_buying:UIImage){
         
         self._profilePic = profilePic
         self._user_name = user_name
-        self._name = name
         self._coin_selling = coin_selling
         self._icon_selling = icon_selling
         self._coin_buying = coin_buying
@@ -45,11 +42,7 @@ class ActivityFeed {
             return self._user_name
         }
     }
-    public var name: String {
-        get {
-            return self._name
-        }
-    }
+    
     public var coin_selling: String {
         get {
             return self._coin_selling
