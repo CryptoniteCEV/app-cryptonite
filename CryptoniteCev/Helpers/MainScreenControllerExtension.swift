@@ -163,7 +163,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         cell.profilePicActivityIV.image = activityFeed[indexPath.row].profilePic
         cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
         cell.usernameActivityL.text = activityFeed[indexPath.row].user_name
-        cell.nameActivityL.text = activityFeed[indexPath.row].name
         cell.coinSellingL.text = activityFeed[indexPath.row].coin_selling
         cell.iconSellingIV.image = activityFeed[indexPath.row].icon_selling
         cell.coinBuyingL.text = activityFeed[indexPath.row].coin_buying
