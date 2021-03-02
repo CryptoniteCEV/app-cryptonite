@@ -18,7 +18,6 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     @IBOutlet weak var porgress: UIProgressView!
     var graph = PieChart()
-    
    
     var lineChart = LineChartView()
     
@@ -35,16 +34,17 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         let request = Service.shared.getCoinsWithQuantities()
         
         request.responseJSON { (response) in
-        let body = response.value as? [String: Any]
-        let data = body!["data"]! as! [[String:Any]]
+            let body = response.value as? [String: Any]
+            let data = body!["data"]! as! [[String:Any]]
         
             for i in 0..<data.count {
                 self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
+                self.cash += self.coinsQuantities[i].inDollars
             }
+            self.totalCash.text = String((round(100*self.cash)/100)) + "$"
             self.tableView.reloadData()
         }
-        
-        
+    
     }
     
     
