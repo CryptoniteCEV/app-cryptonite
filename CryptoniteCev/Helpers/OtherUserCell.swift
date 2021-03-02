@@ -14,5 +14,6 @@ class OtherUserCell: UITableViewCell{
     
     @IBOutlet weak var profile: UIImageView!
     
+    @IBOutlet weak var username: UILabel!
     
 }

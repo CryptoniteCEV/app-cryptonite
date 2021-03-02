@@ -14,7 +14,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     var storieImage : UIImage?
     var trades = [
-    Trade(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), idCoin: 21, quantity: 21)
+    Trade(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"),username: "missing", idCoin: 21, quantity: 21)
     ]
     var graph = PieChart()
     
@@ -45,11 +45,11 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
             imageView.image = storieImage
             imageView.contentMode = .scaleAspectFill
         }
-        
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return trades.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +57,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
        
         cell.profile.image = storieImage
         cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-        
+        print("Username",trades[indexPath.row].username)
+        cell.username.text = String(trades[indexPath.row].username)
         /*cell.currency.text = wa
          llet[indexPath.row].coins
         cell.simbol.text = wallet[indexPath.row].simbol
