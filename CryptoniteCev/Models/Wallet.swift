@@ -12,8 +12,8 @@ class Wallet {
         
         self._coin = coin
         self._symbol = symbol
-        self._quantity = (round(1000*quantity)/1000)
-        self._inDollars = (round(1000*inDollars)/1000)
+        self._quantity = quantity
+        self._inDollars = inDollars
     }
     
     public var coin: String {

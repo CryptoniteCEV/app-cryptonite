@@ -22,6 +22,7 @@ class MainScreenController: UIViewController {
     @IBOutlet weak var activityTableView: UITableView!
     
     var coins:[Coin] = []
+    var coinImages:[UIImage] = []
     
     override func viewDidLoad() {
         
@@ -44,6 +45,10 @@ class MainScreenController: UIViewController {
         activityTableView.dataSource = self
         activityTableView.delegate = self
         self.activityTableView.reloadData()
+        
+        for (_, value) in Images.shared.coins {
+            coinImages.append(value)
+        }
         
         let request = Service.shared.getCoins()
         

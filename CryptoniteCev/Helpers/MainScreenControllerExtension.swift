@@ -73,29 +73,18 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
     }
     
-    /*
-    func setCoinsConstraints(coinsCollection : UICollectionView){
-        
-        coinsCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/5).isActive = true
-        coinsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
-        coinsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
-        coinsCollection.heightAnchor.constraint(equalToConstant: view.frame.height/5).isActive = true
-    }*/
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //if collectionView == storiesView {
             return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
-        /*}else{
-            return CGSize(width: coinsView.frame.width/4, height: coinsView.frame.width/2)
-        }*/
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesView {
             return images.count
         } else if collectionView == coinCollectionView {
-            return coins.count
+            if coins.count>0{
+                return coins.count
+            }else{
+                return coinImages.count
+            }
         } else {
             return userPrueba.count
         }
@@ -117,6 +106,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cell.categoryLabel?.text = "Mayor porcentaje de ganancias"
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = "25%"
+            }else{
+                cell.iconImageView?.image = coinImages[indexPath.row]
             }
             cell.layer.cornerRadius = cell.frame.height/8
                 
