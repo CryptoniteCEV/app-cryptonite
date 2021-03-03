@@ -17,7 +17,7 @@ class CompleteViewController: UIViewController {
     let identifiers = Identifiers.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         finishButton.layer.cornerRadius = 5
         createDatePicker()
     }

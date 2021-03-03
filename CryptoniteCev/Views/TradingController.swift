@@ -69,19 +69,16 @@ class TradingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         tradeTableView.delegate = self
         tradeTableView.dataSource = self
         tradeTableView.reloadData()
-        
-        
         
         coinDropdown.optionArray = ["BTC/USD", "ETH/USD", "DOGE/USD", "LITE/USD", "SFP/USD"]
         coinDropdown.selectedIndex = 0
         coinDropdownTextfield.text = coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0]
         buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
         
-        
-        // Do any additional setup after loading the view.
     }
 }

@@ -26,7 +26,6 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         super.viewDidLoad()
         
         lineChart.delegate = self
-
         tableView.delegate = self
         tableView.dataSource = self
     
@@ -36,24 +35,25 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         
         self.cash = 0
         self.coinsQuantities = []
+    
         
-        if let token = UserDefaults.standard.string(forKey: Identifiers.shared.auth) {
-        let request = Service.shared.getCoinsWithQuantities()
             
         if Service.isConnectedToInternet {
-            request.responseJSON { (response) in
-                if let body = response.value as? [String: Any]{
-                    let data = body["data"]! as! [[String:Any]]
-                
-                    for i in 0..<data.count {
-                        self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
-                        self.cash += self.coinsQuantities[i].inDollars
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getCoinsWithQuantities()
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String: Any]{
+                        let data = body["data"]! as! [[String:Any]]
+                    
+                        for i in 0..<data.count {
+                            self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
+                            self.cash += self.coinsQuantities[i].inDollars
+                        }
+                        self.totalCash.text = String((round(100*self.cash)/100)) + "$"
+                        self.tableView.reloadData()
                     }
-                    self.totalCash.text = String((round(100*self.cash)/100)) + "$"
-                    self.tableView.reloadData()
                 }
             }
-        }
         }
     }
     
