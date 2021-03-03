@@ -55,6 +55,9 @@ class MainScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        if let token = UserDefaults.standard.string(forKey: Identifiers.shared.auth) {
+            
+        
         if Service.isConnectedToInternet {
             let requestCoins = Service.shared.getCoins()
             
@@ -86,6 +89,7 @@ class MainScreenController: UIViewController {
                 }
             }
         }
+    }
     }
 }
     

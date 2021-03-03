@@ -33,10 +33,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let request = Service.shared.getCoinsWithQuantities()
+        
         self.cash = 0
         self.coinsQuantities = []
         
+        if let token = UserDefaults.standard.string(forKey: Identifiers.shared.auth) {
+        let request = Service.shared.getCoinsWithQuantities()
+            
         if Service.isConnectedToInternet {
             request.responseJSON { (response) in
                 if let body = response.value as? [String: Any]{
@@ -50,6 +53,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                     self.tableView.reloadData()
                 }
             }
+        }
         }
     }
     
