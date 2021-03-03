@@ -4,41 +4,32 @@ import UIKit;
 
 class User : Encodable, Decodable{
     
-     private var _username:String
-     private var _email:String
-     private var _name:String
-     private var _surname:String
-     //var _dateOfBirth:String
-     private var _profilePic:String?
+    private var _username:String
+    private var _email:String
+    private var _name:String
+    private var _surname:String
+    private var _date_of_birth:String
+    private var _profilePic:String?
     private var _password:String
     
     enum CodingKeys:String, CodingKey {
         case _name = "name"
         case _username = "username"
-        case _profilePic = "profile_pic"
         case _email = "email"
         case _surname = "surname"
         case _password = "password"
+        case _date_of_birth = "date_of_birth"
     }
     
-    init(username:String, email:String, name:String, surname:String, profilePic:String, password:String){
+    init(username:String, email:String, name:String, surname:String, password:String, date_of_birth:String){
         
         self._username = username
         self._email = email
         self._name = name
         self._surname = surname
-        self._profilePic = profilePic
         self._password = password
+        self._date_of_birth = date_of_birth
     }
-    
-    
-    
-    /**
-     Devuelve info del usuario orientada a ser mostrada en el perfil
-     */
-    /*public func getProfileInfo()->[String:Any]{
-        return ["username":_username,"email":_email,"name":_name,"surname":_surname,"dateOfBirth":_dateOfBirth]
-    }*/
     
     public var name: String {
         get {
@@ -74,6 +65,15 @@ class User : Encodable, Decodable{
         }
         set {
             self._profilePic = newValue
+        }
+    }
+    
+    public var date_of_birth: String {
+        get {
+            return self._date_of_birth;
+        }
+        set {
+            self._date_of_birth = newValue
         }
     }
     

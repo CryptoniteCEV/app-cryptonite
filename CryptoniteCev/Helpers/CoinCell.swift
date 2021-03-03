@@ -15,10 +15,8 @@ protocol CoinCellDelegate: class {
 
 class CoinCell: UICollectionViewCell {
     
-       
     static var index = 0
     var isLoaded = false
-    
     
     let coinCardButton: UIButton = {
         
@@ -31,12 +29,8 @@ class CoinCell: UICollectionViewCell {
         coinCardButton.setImage(images[CoinCell.index], for: .normal)
         coinCardButton.imageView?.contentMode = .scaleAspectFill
             
-        
-        
         return coinCardButton
     }()
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -50,7 +44,6 @@ class CoinCell: UICollectionViewCell {
         CoinCell.index += 1
     
         coinCardButton.addTarget(self, action: #selector(thumbsUpButtonPressed), for: .touchUpInside)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

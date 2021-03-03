@@ -8,9 +8,61 @@ class Service {
     
     private init() {}
     
+    //Recibe params (user y pass) , devuelve datos de la petición
+    func login(parameters:[String:String])-> DataRequest{
+        
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.login, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default)
+
+    }
+    
+    func register(user:User)-> DataRequest {
+        
+        return AF.request(Endpoints.domain + Endpoints.path+Endpoints.User.register, method: .post, parameters: user, encoder: JSONParameterEncoder.default)
+        
+    }
+    
+    //Recibe params (email) , devuelve datos de la petición
+   func restorePassword(parameters:[String:String])-> DataRequest {
+
+       return AF.request(Endpoints.domain + Endpoints.path+Endpoints.User.restorePassword, method: .put, parameters:parameters , encoder: JSONParameterEncoder.default)
+   }
+    
+    func getCoins()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.getList, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func getCoinsWithQuantities()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.quantities, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func getWallets()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.getInfo, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    
+    
+    func getTradingHistory()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Trading.getTradingHistory, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
     func getUsers() {
         
-        AF.request(Endpoints.baseUrl+Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in
+        AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in
             guard let data = responseData.data else {return}
             
             do{
@@ -28,15 +80,6 @@ class Service {
         
     }
     
-    func postUsers() {
-        
-        let user = User(username: "mastodonte", email: "arrobagmail", name: "arroba", surname: "gmail", profilePic: "", password: "12314we")
-
-        AF.request(Endpoints.baseUrl+Endpoints.User.register, method: .post, parameters: user, encoder: JSONParameterEncoder.default).response { response in
-            debugPrint(response)
-        
-        }
-    }
 }
     
     /*func setRequest(url:String, token:String, parameters:String)->{

@@ -9,18 +9,15 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
  
     @IBOutlet weak var container: UIView!
     
-   var wallet = [
-    Wallet(icon: #imageLiteral(resourceName: "Bitcoin.svg"),idsCoins: "Bitcoin",simbol: "BTC", quantities: 3,dollars: 63000 ),
-    Wallet(icon: #imageLiteral(resourceName: "eth.png"),idsCoins: "Ethereum", simbol: "ETH",quantities: 25,dollars: 35000),
-    Wallet(icon: #imageLiteral(resourceName: "doge.png"),idsCoins: "Dogecoin",simbol: "DOGE",quantities: 300,dollars: 10.12),
-    Wallet(icon: #imageLiteral(resourceName: "LITE.png"),idsCoins: "Litecoin",simbol: "LITE",quantities: 77,dollars: 21231)
-    ]
+    var cash:Double = 0
+    var coinsQuantities:[CoinsQuantities] = []
+    
+    @IBOutlet weak var totalCash: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     
     @IBOutlet weak var porgress: UIProgressView!
     var graph = PieChart()
-    
    
     var lineChart = LineChartView()
     
@@ -28,32 +25,48 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         lineChart.delegate = self
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        let request = Service.shared.getCoinsWithQuantities()
+        
+        request.responseJSON { (response) in
+            let body = response.value as? [String: Any]
+            let data = body!["data"]! as! [[String:Any]]
+        
+            for i in 0..<data.count {
+                self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
+                self.cash += self.coinsQuantities[i].inDollars
+            }
+            self.totalCash.text = String((round(100*self.cash)/100)) + "$"
+            self.tableView.reloadData()
+        }
+    
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        return self.wallet.count
+        return self.coinsQuantities.count
+        
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as! CellRowController
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.shared.coinID) as! CoinRowWalletController
        
-        
-        cell.currency.text = wallet[indexPath.row].coins
-        cell.simbol.text = wallet[indexPath.row].simbol
-        cell.icon.image = wallet[indexPath.row].icons
-        cell.dolars.text = String(wallet[indexPath.row].dollars)
-        cell.currencyValor.text = String(wallet[indexPath.row].quantities)
-           return cell
+        if coinsQuantities.count>0{
+            cell.coin.text = coinsQuantities[indexPath.row].name
+            cell.symbol.text = coinsQuantities[indexPath.row].symbol
+            cell.icon.image = Images.shared.coins[coinsQuantities[indexPath.row].name]
+            cell.price.text = String((round(1000*coinsQuantities[indexPath.row].inDollars)/1000)) + "$"
+            cell.quantity.text = String((round(1000*coinsQuantities[indexPath.row].quantity)/1000)) + " " + coinsQuantities[indexPath.row].symbol
+        }
+        return cell
        }
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
