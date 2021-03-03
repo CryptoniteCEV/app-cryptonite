@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class CoinCellPrueba: UICollectionViewCell {
+class CoinCellMainController: UICollectionViewCell {
    
     @IBOutlet weak var iconImageView: UIImageView?
     

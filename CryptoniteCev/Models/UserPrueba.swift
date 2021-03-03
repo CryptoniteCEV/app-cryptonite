@@ -10,7 +10,9 @@ class UserPrueba {
     private var _category:String
     private var _percentage:String
     
+    
     enum CodingKeys: String, CodingKey {
+        
         case _profilePic = "profilePic"
         case _user_name = "user_name"
         case _name = "name"

@@ -3,16 +3,18 @@
 import Foundation;
 import UIKit;
 
-class Coin : Decodable, Encodable{
+class CoinsQuantities : Decodable, Encodable{
     
     private var _name:String
     private var _symbol:String
-    private var _price:Double
+    private var _quantity:Double
+    private var _inDollars:Double
     
-    init(name:String, symbol:String, price:Double){
+    init(name:String, symbol:String, quantity:Double, inDollars:Double){
         self._name = name
         self._symbol = symbol
-        self._price = price
+        self._quantity = quantity
+        self._inDollars = inDollars
     }
     
     public var name: String {
@@ -32,12 +34,21 @@ class Coin : Decodable, Encodable{
         }
     }
     
-    public var price: Double {
+    public var quantity: Double {
         get {
-            return self._price;
+            return self._quantity;
         }
         set {
-            self._price = newValue
+            self._quantity = newValue
+        }
+    }
+    
+    public var inDollars: Double {
+        get {
+            return self._inDollars;
+        }
+        set {
+            self._inDollars = newValue
         }
     }
     

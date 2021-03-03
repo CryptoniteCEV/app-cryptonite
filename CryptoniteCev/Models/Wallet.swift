@@ -3,63 +3,52 @@ import Foundation;
 import UIKit;
 
 class Wallet {
-    private var icon: UIImage
-    private var _idsCoin:String
-    private var _simbol:String
-    private var _quantities:Int
-    private var _dollars:Float
+    private var _coin:String
+    private var _symbol:String
+    private var _quantity:Double
+    private var _inDollars:Double
     
-    init(icon : UIImage, idsCoins:String,simbol:String, quantities:Int, dollars:Float){
+    init(coin:String, symbol:String, quantity:Double, inDollars:Double){
         
-        self.icon = icon
-        self._idsCoin = idsCoins
-        self._simbol = simbol
-        self._quantities = quantities
-        self._dollars = dollars
+        self._coin = coin
+        self._symbol = symbol
+        self._quantity = quantity
+        self._inDollars = inDollars
     }
     
-    public var icons: UIImage {
+    public var coin: String {
         get {
-            return self.icon;
+            return self._coin;
         }
         set {
-            self.icon = newValue
-        }
-    }
-    
-    public var coins: String {
-        get {
-            return self._idsCoin;
-        }
-        set {
-            self._idsCoin = newValue
+            self._coin = newValue
         }
     }
     
-    public var simbol: String {
+    public var symbol: String {
         get {
-            return self._simbol;
+            return self._symbol;
         }
         set {
-            self._simbol = newValue
+            self._symbol = newValue
         }
     }
    
-    public var quantities: Int {
+    public var quantity: Double {
         get {
-            return self._quantities;
+            return self._quantity;
         }
         set {
-            self._quantities = newValue
+            self._quantity = newValue
         }
     }
     
-    public var dollars: Float {
+    public var inDollars: Double {
         get {
-            return self._dollars;
+            return self._inDollars;
         }
         set {
-            self._dollars = newValue
+            self._inDollars = newValue
         }
     }
 }
