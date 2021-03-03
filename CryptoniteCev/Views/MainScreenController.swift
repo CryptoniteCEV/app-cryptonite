@@ -22,6 +22,7 @@ class MainScreenController: UIViewController {
     @IBOutlet weak var activityTableView: UITableView!
     
     var coins:[Coin] = []
+    var trades:[TradeHistory] = []
     var coinImages:[UIImage] = []
     
     override func viewDidLoad() {
@@ -50,18 +51,32 @@ class MainScreenController: UIViewController {
             coinImages.append(value)
         }
         
-        let request = Service.shared.getCoins()
+        let requestCoins = Service.shared.getCoins()
         
-        request.responseJSON { (response) in
-        let body = response.value as? [String: Any]
-        let data = body!["data"]! as! [[String:Any]]
-        
-        for i in 0..<data.count {
-            self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
-        }
+        requestCoins.responseJSON { (response) in
+            let body = response.value as? [String: Any]
+            let data = body!["data"]! as! [[String:Any]]
+            
+            for i in 0..<data.count {
+                self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
+            }
+            
             self.coinCollectionView.reloadData()
         }
         
+        let requestTrades = Service.shared.getTradingHistory()
+        
+        requestTrades.responseJSON { (response) in
+            let body = response.value as? [String: Any]
+            let data = body!["data"]! as! [[String:Any]]
+            
+            for i in 0..<data.count {
+                self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!))
+            }
+            
+            
+            self.activityTableView.reloadData()
+        }
         
     }
 }

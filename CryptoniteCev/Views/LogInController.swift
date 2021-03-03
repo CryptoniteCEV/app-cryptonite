@@ -8,11 +8,13 @@ class LogInController: UIViewController {
     @IBOutlet weak var usernameTF: UnderlinedTextField!
     @IBOutlet weak var passwordTF: UnderlinedTextField!
     
+    @IBOutlet weak var introLabel: UILabel!
     //let apiBodyResponses = ApiBodyResponses.shared
     let identifiers = Identifiers.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = 5
+        introLabel.text = Welcomings.shared.phrases[Int.random(in: 0..<Welcomings.shared.phrases.count)]
     }
 
 

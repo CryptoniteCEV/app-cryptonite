@@ -70,27 +70,27 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there! Nice to see you again." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-0r-OdJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="308" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there! Nice to see you again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIi-0r-OdJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="308" height="21.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A13-HO-EkN">
-                                        <rect key="frame" x="0.0" y="44.333333333333371" width="308" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="45.666666666666686" width="308" height="20.333333333333329"/>
                                         <color key="tintColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="paco123" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZ0-1r-IkH" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="89" width="308" height="34"/>
+                                        <rect key="frame" x="0.0" y="89.666666666666686" width="308" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY9-pr-7Io">
-                                        <rect key="frame" x="0.0" y="147" width="308" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="147.66666666666669" width="308" height="20.333333333333343"/>
                                         <color key="tintColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -181,6 +181,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                         <barButtonItem key="backBarButtonItem" title=" " id="n23-b6-1jM"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="introLabel" destination="qIi-0r-OdJ" id="b5W-tW-llo"/>
                         <outlet property="logInButton" destination="c4t-hH-chp" id="5bl-qM-bP3"/>
                         <outlet property="passwordTF" destination="XXO-Kd-VGM" id="vnY-ce-Ujf"/>
                         <outlet property="usernameTF" destination="KZ0-1r-IkH" id="4YP-BM-oqz"/>

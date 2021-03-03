@@ -20,16 +20,6 @@ var userPrueba = [
     UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", name: "Manuel Fernández", category: "Mayor número de seguidores", percentage: "+15,14%")
 ]
 
-var activityFeed = [
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "eth"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin")),
-    ActivityFeed(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", coin_selling: "2,37M", icon_selling: #imageLiteral(resourceName: "dollar.png"), coin_buying: "36,34", icon_buying: #imageLiteral(resourceName: "Bitcoin"))
-]
-
   
 fileprivate let storiesView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -41,19 +31,18 @@ fileprivate let storiesView:UICollectionView = {
 }()
 
 
-
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     func loadImages() {
         
         if(images.count == 0){
             
-            images.append(#imageLiteral(resourceName: "stockProfilePic"))
-            images.append(#imageLiteral(resourceName: "istockphoto-1142003969-612x612"))
-            images.append(#imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"))
-            images.append(#imageLiteral(resourceName: "360_F_367464887_f0w1JrL8PddfuH3P2jSPlIGjKU2BI0rn"))
-            images.append(#imageLiteral(resourceName: "logoTransparente"))
-            images.append(#imageLiteral(resourceName: "mainScreen"))
+            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "image1"))
         }
     }
     
@@ -106,10 +95,12 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cell.categoryLabel?.text = ""
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = "25%"
+                
                  if(cell.percentageLabel?.text?.first == "-") {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
                 }else {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+                }
             }else{
                 cell.iconImageView?.image = coinImages[indexPath.row]
             }
@@ -140,19 +131,20 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activityFeed.count
+        return trades.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellActivity") as! ActivityRow
-        cell.profilePicActivityIV.image = activityFeed[indexPath.row].profilePic
-        cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
-        cell.usernameActivityL.text = activityFeed[indexPath.row].user_name
-        cell.coinSellingL.text = activityFeed[indexPath.row].coin_selling
-        cell.iconSellingIV.image = activityFeed[indexPath.row].icon_selling
-        cell.coinBuyingL.text = activityFeed[indexPath.row].coin_buying
-        cell.iconBuyingIV.image = activityFeed[indexPath.row].icon_buying
-        
+        if(trades.count>0){
+            cell.profilePicActivityIV.image = #imageLiteral(resourceName: "image1")
+            cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
+            cell.usernameActivityL.text = trades[indexPath.row].username
+            cell.coinSellingL.text = String(trades[indexPath.row].quantity) + " " + trades[indexPath.row].coinFromSymbol
+            cell.iconSellingIV.image = Images.shared.coins[trades[indexPath.row].coinFrom]
+            cell.coinBuyingL.text = String(trades[indexPath.row].converted) + " " + trades[indexPath.row].coinToSymbol
+            cell.iconBuyingIV.image = Images.shared.coins[trades[indexPath.row].coinTo]
+        }
         
         return cell
     }

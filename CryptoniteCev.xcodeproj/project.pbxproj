@@ -37,6 +37,8 @@
 		53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BF25EC0DF900393C7A /* UserMessages.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
+		53F194C825EEB3450096055F /* TradeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C725EEB3450096055F /* TradeHistory.swift */; };
+		53F194CA25EF02B60096055F /* Welcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C925EF02B60096055F /* Welcoming.swift */; };
 		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
@@ -107,6 +109,8 @@
 		53C6C6BF25EC0DF900393C7A /* UserMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessages.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		53F194C725EEB3450096055F /* TradeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistory.swift; sourceTree = "<group>"; };
+		53F194C925EF02B60096055F /* Welcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcoming.swift; sourceTree = "<group>"; };
 		5DCE5ACE0AE68A900E4558C5 /* Pods-CryptoniteCevTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.release.xcconfig"; sourceTree = "<group>"; };
 		69239AD3472C70A0B0B2BB2C /* Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev-CryptoniteCevUITests/Pods-CryptoniteCev-CryptoniteCevUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				7F92F55B25E7C7A80095E15A /* UserPrueba.swift */,
 				07103E8825E835D50092E36D /* ActivityFeed.swift */,
 				7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */,
+				53F194C725EEB3450096055F /* TradeHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
 				7F7411CC25BB08EF009D8D6C /* Keys.swift */,
 				53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */,
+				53F194C925EF02B60096055F /* Welcoming.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */,
 				7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */,
 				07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */,
+				53F194CA25EF02B60096055F /* Welcoming.swift in Sources */,
 				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
 				7F98EBAD25E6783F00E0A443 /* CoinRowWalletController.swift in Sources */,
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
@@ -565,6 +572,7 @@
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
+				53F194C825EEB3450096055F /* TradeHistory.swift in Sources */,
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				07103E8925E835D50092E36D /* ActivityFeed.swift in Sources */,
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
