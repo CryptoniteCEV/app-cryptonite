@@ -25,6 +25,10 @@ class TradingController: UIViewController {
     
     @IBOutlet var amountTextfield: UITextField!
     
+    var isSell = false
+    
+    var tradeType = "Buy "
+    
     @IBAction func buySelected(_ sender: UIButton) {
         sender.backgroundColor = #colorLiteral(red: 0.2767237127, green: 0.8484591842, blue: 0.7351078391, alpha: 1)
         sender.alpha = 1
@@ -32,8 +36,9 @@ class TradingController: UIViewController {
         sellButton.alpha = 0.4
         sellButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
         buyOrSellButton.backgroundColor = #colorLiteral(red: 0.2767237127, green: 0.8484591842, blue: 0.7351078391, alpha: 1)
-        buyOrSellButton.setTitle("Buy BTC", for: .normal)
+        buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
         buyOrSellButton.setTitleColor(#colorLiteral(red: 0.07450980392, green: 0.1215686275, blue: 0.2039215686, alpha: 1), for: .normal)
+        isSell = false
     }
     
     
@@ -45,8 +50,9 @@ class TradingController: UIViewController {
         buyButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
         buyButton.setTitleColor(UIColor.white, for: .normal)
         buyOrSellButton.backgroundColor = UIColor.systemRed
-        buyOrSellButton.setTitle("Sell BTC", for: .normal)
+        buyOrSellButton.setTitle("Sell " + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
         buyOrSellButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        isSell = true
     }
     
     @IBAction func amountSlider(_ sender: UISlider) {
@@ -54,7 +60,10 @@ class TradingController: UIViewController {
     }
     
     @IBAction func coinSelected(_ sender: DropDown) {
-        
+        if isSell {
+            tradeType = "Sell "
+        }
+        buyOrSellButton.setTitle(tradeType + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
     }
     
     
@@ -65,11 +74,12 @@ class TradingController: UIViewController {
         tradeTableView.dataSource = self
         tradeTableView.reloadData()
         
-        buyOrSellButton.setTitle("Buy BTC", for: .normal)
+        
         
         coinDropdown.optionArray = ["BTC/USD", "ETH/USD", "DOGE/USD", "LITE/USD", "SFP/USD"]
         coinDropdown.selectedIndex = 0
         coinDropdownTextfield.text = coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0]
+        buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
         
         
         // Do any additional setup after loading the view.

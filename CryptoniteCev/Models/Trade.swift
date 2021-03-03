@@ -6,14 +6,14 @@ class Trade : Decodable, Encodable{
     
     private let _coin:String
     private let _date:String
-    private let _quantity:Int
-    private let _price:Int
+    private let _quantity:Double
+    private let _price:Double
     private let _isSell:Int
     
     
     
-    init(idCoin:String, date: String, quantity:Int, price:Int, isSell:Int){
-        self._coin = idCoin
+    init(coin:String, date: String, quantity:Double, price:Double, isSell:Int){
+        self._coin = coin
         self._date = date
         self._quantity = quantity
         self._price = price
@@ -32,13 +32,13 @@ class Trade : Decodable, Encodable{
         }
     }
     
-    public var quantity: Int {
+    public var quantity: Double {
         get {
             return self._quantity;
         }
     }
     
-    public var price: Int {
+    public var price: Double {
         get {
             return self._price;
         }
