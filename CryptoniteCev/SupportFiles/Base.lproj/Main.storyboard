@@ -221,7 +221,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mvI-oU-JXj">
                                 <rect key="frame" x="30" y="579" width="354" height="234"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.80392156859999997" green="0.84313725490000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coinID" rowHeight="68" id="q4T-0A-eHI" customClass="CoinRowWalletController" customModule="CryptoniteCev" customModuleProvider="target">
@@ -246,13 +246,13 @@ CEZvcmdvdCBwYXNzd29yZD8
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQV-GX-Fpb">
                                                                     <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjt-Ur-nGW">
                                                                     <rect key="frame" x="0.0" y="26" width="119.33333333333333" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -263,13 +263,13 @@ CEZvcmdvdCBwYXNzd29yZD8
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 US$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4C-MM-gL5">
                                                                     <rect key="frame" x="0.0" y="0.0" width="119.33333333333333" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,03btc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-aZ-0M9">
                                                                     <rect key="frame" x="0.0" y="26" width="119.33333333333333" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.8980392157" green="0.4549019608" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" red="0.94901960780000005" green="0.28627450980000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -525,7 +525,7 @@ CEZvcmdvdCBwYXNzd29yZD8
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-2O-caA">
                                 <rect key="frame" x="10" y="495" width="394" height="298"/>
                                 <color key="backgroundColor" red="0.072357095780000005" green="0.11965971440000001" blue="0.206805408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.81960784310000001" green="0.96862745100000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.070588235294117646" green="0.12156862745098039" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trades" rowHeight="69" id="RI0-px-Acs" customClass="TradesRow" customModule="CryptoniteCev" customModuleProvider="target">
@@ -705,14 +705,14 @@ CEZvcmdvdCBwYXNzd29yZD8
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellCoins" id="7Gb-aW-ui4" customClass="CoinCellMainController" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="5.333333333333333" width="101.66666666666667" height="113.66666666666669"/>
+                                        <rect key="frame" x="10" y="21.666666666666668" width="101.66666666666667" height="81.333333333333343"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hFv-Zb-jtN">
-                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="113.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="81.333333333333343"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="kkC-vT-IY2">
-                                                    <rect key="frame" x="5" y="6" width="91.666666666666671" height="101.66666666666667"/>
+                                                    <rect key="frame" x="5" y="6" width="91.666666666666671" height="69.333333333333329"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleAspectFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pr7-c2-TTa">
                                                             <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="20"/>
@@ -732,25 +732,19 @@ CEZvcmdvdCBwYXNzd29yZD8
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest invested currency" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d52-7J-DoR" userLabel="category">
-                                                            <rect key="frame" x="0.0" y="26" width="91.666666666666671" height="26.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.992.233M $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-bE-lHm" userLabel="ammount">
-                                                            <rect key="frame" x="0.0" y="58.333333333333329" width="91.666666666666671" height="17"/>
+                                                            <rect key="frame" x="0.0" y="26" width="91.666666666666671" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-PB-BIR">
-                                                            <rect key="frame" x="0.0" y="81.333333333333329" width="91.666666666666671" height="20.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="49" width="91.666666666666671" height="20.333333333333329"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+27,3%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rng-rh-uf8" userLabel="percentage">
                                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="20.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYr-4J-1na">
@@ -774,7 +768,6 @@ CEZvcmdvdCBwYXNzd29yZD8
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="ammountLabel" destination="Dkn-bE-lHm" id="jD5-q6-bDY"/>
-                                            <outlet property="categoryLabel" destination="d52-7J-DoR" id="Kj7-Ca-8ZB"/>
                                             <outlet property="coinNameLabel" destination="U5U-G0-Xc8" id="vyI-4s-ley"/>
                                             <outlet property="iconImageView" destination="RqP-JJ-Yt8" id="YC8-LM-b4k"/>
                                             <outlet property="percentageLabel" destination="rng-rh-uf8" id="4Ha-Q6-a2b"/>
@@ -806,14 +799,14 @@ CEZvcmdvdCBwYXNzd29yZD8
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellUsers" id="yY2-GE-7Mo" customClass="UserCellMainController" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="7" width="161" height="115.66666666666669"/>
+                                        <rect key="frame" x="10" y="20.333333333333332" width="161" height="89.333333333333314"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="scX-W9-vU8">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="115.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="89.333333333333314"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="V99-lR-0tb">
-                                                    <rect key="frame" x="5" y="6" width="151" height="103.66666666666667"/>
+                                                    <rect key="frame" x="5" y="6" width="151" height="77.333333333333329"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-zv-49Y">
                                                             <rect key="frame" x="0.0" y="0.0" width="151" height="45"/>
@@ -829,14 +822,8 @@ CEZvcmdvdCBwYXNzd29yZD8
                                                                     <rect key="frame" x="54" y="0.0" width="97" height="45"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APr-A2-CBK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="24.666666666666668"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="97" height="45"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-R6-HSR">
-                                                                            <rect key="frame" x="0.0" y="24.666666666666671" width="97" height="20.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -844,16 +831,10 @@ CEZvcmdvdCBwYXNzd29yZD8
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPx-LO-rsM">
-                                                            <rect key="frame" x="0.0" y="51" width="151" height="20.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-Lm-Ibd">
-                                                            <rect key="frame" x="0.0" y="77.333333333333329" width="151" height="26.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="51.000000000000007" width="151" height="26.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -868,8 +849,6 @@ CEZvcmdvdCBwYXNzd29yZD8
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.18039215689999999" green="0.23921568630000001" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="categoryUserL" destination="QPx-LO-rsM" id="onY-XJ-w0G"/>
-                                            <outlet property="nameL" destination="eUg-R6-HSR" id="C4x-rd-D4v"/>
                                             <outlet property="percentageUserL" destination="uVl-Lm-Ibd" id="rse-NI-cnv"/>
                                             <outlet property="profilePicIV" destination="7bh-7s-qF4" id="tUT-xh-dGn"/>
                                             <outlet property="usernameL" destination="APr-A2-CBK" id="b1C-Of-2IC"/>

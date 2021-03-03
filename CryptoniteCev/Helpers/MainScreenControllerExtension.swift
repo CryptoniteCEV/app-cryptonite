@@ -14,10 +14,10 @@ var imageSelected : UIImage?
 
 
 var userPrueba = [
-    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", name: "Lionel Messi", category: "Mayor dinero invertido en BTC", percentage: "+22,89%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", name: "Andrea García", category: "Mayor porcentaje de ganancias", percentage: "+38,57%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", name: "Juan Carlos", category: "Mayor porcentaje de pérdidas", percentage: "-44,98%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", name: "Manuel Fernández", category: "Mayor número de seguidores", percentage: "+15,14%")
+    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", percentage: "+22,89%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", percentage: "+38,57%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", percentage: "-44,98%"),
+    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", percentage: "+15,14%")
 ]
 
   
@@ -93,14 +93,13 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if coins.count>0{
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
-                cell.categoryLabel?.text = ""
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = "25%"
                 
                  if(cell.percentageLabel?.text?.first == "-") {
-                    cell.percentageLabel?.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+                    cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
                 }else {
-                    cell.percentageLabel?.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+                    cell.percentageLabel?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
                 }
             }else{
                 cell.iconImageView?.image = coinImages[indexPath.row]
@@ -116,13 +115,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
             cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
             cellUser.usernameL.text = userPrueba[indexPath.row].user_name
-            cellUser.nameL.text = userPrueba[indexPath.row].name
-            cellUser.categoryUserL.text = userPrueba[indexPath.row].category
             cellUser.percentageUserL.text = userPrueba[indexPath.row].percentage
             if(cellUser.percentageUserL.text?.first == "-") {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9595015645, green: 0.2101880014, blue: 0.1372807622, alpha: 1)
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             }else {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.1485252082, green: 0.7475343347, blue: 0.3074167669, alpha: 1)
+                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             }
             cellUser.layer.cornerRadius = cellUser.frame.height/8
             
