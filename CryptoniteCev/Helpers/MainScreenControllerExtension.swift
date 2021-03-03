@@ -79,25 +79,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         stories.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
         stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
     }
-    
-    /*
-    func setCoinsConstraints(coinsCollection : UICollectionView){
         
-        coinsCollection.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/5).isActive = true
-        coinsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
-        coinsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
-        coinsCollection.heightAnchor.constraint(equalToConstant: view.frame.height/5).isActive = true
-    }*/
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //if collectionView == storiesView {
-            return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
-        /*}else{
-            return CGSize(width: coinsView.frame.width/4, height: coinsView.frame.width/2)
-        }*/
+        return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesView {
             return images.count
@@ -116,8 +102,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return cell
         }
         if collectionView == coinCollectionView{
-            //let cell = coinsView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinCell
-            //return cell
             let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellPrueba
             cell.iconImageView?.image = coinPrueba[indexPath.row].icono
             cell.coinNameLabel?.text = coinPrueba[indexPath.row].coin_name
