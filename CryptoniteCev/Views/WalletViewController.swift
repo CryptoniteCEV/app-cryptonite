@@ -29,9 +29,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let request = Service.shared.getCoinsWithQuantities()
+        self.cash = 0
+        self.coinsQuantities = []
         
         request.responseJSON { (response) in
             let body = response.value as? [String: Any]
@@ -44,7 +48,6 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             self.totalCash.text = String((round(100*self.cash)/100)) + "$"
             self.tableView.reloadData()
         }
-    
     }
     
     
