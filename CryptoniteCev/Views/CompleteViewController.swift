@@ -57,14 +57,17 @@ class CompleteViewController: UIViewController {
         
         let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, date_of_birth: /*date_picker.text!*/"2020-12-02")
         
-        let request = Service.shared.register(user: user)
-        
-        request.responseJSON { (response) in
-            let body = response.value as? [String: Any]
-            if(response.response?.statusCode == StatusCodes.shared.created){
-                self.goToLogInScreen()
-            }else{
-                print(body!["message"]!)
+        if Service.isConnectedToInternet {
+            let request = Service.shared.register(user: user)
+            
+            request.responseJSON { (response) in
+                if let body = response.value as? [String: Any]{
+                    if(response.response?.statusCode == StatusCodes.shared.created){
+                        self.goToLogInScreen()
+                    }else{
+                        print(body["message"]!)
+                    }
+                }
             }
         }
     }

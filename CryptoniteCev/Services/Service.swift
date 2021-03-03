@@ -8,6 +8,10 @@ class Service {
     
     private init() {}
     
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+
     //Recibe params (user y pass) , devuelve datos de la petición
     func login(parameters:[String:String])-> DataRequest{
         

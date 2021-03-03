@@ -26,17 +26,26 @@ class LogInController: UIViewController {
                 [apiBodyNames.username:usernameTF.text!,
                  apiBodyNames.password:passwordTF.text!]
             
-            let request = Service.shared.login(parameters: parameters)
-            
-            request.responseJSON { (response) in
-                let body = response.value as? [String: Any]
-                if(response.response?.statusCode == StatusCodes.shared.OK){
-                    UserDefaults.standard.set(body!["data"]!, forKey: self.identifiers.auth)
-                    self.navigationController?.setNavigationBarHidden(true, animated: true)
-                    self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
-                }else{
-                    print(body!["message"]!)
+            if Service.isConnectedToInternet {
+                let request = Service.shared.login(parameters: parameters)
+                
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String: Any]{
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            UserDefaults.standard.set(body["data"], forKey: self.identifiers.auth)
+                            self.navigationController?.setNavigationBarHidden(true, animated: true)
+                            self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
+                        }else{
+                            print(body["message"]!)
+                        }
+                    }else{
+                        self.navigationController?.setNavigationBarHidden(true, animated: true)
+                        self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
+                    }
                 }
+            }else{
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
             }
         }
     }

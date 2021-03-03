@@ -24,7 +24,7 @@
 		531657F025B7973F0040417F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EF25B7973F0040417F /* Coin.swift */; };
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
-		5393E88925B8E94700C647FD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Requests.swift */; };
+		5393E88925B8E94700C647FD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Service.swift */; };
 		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
 		53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */; };
 		53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B325EC08CD00393C7A /* FieldsController.swift */; };
@@ -95,7 +95,7 @@
 		531657EF25B7973F0040417F /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
-		5393E88825B8E94700C647FD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		5393E88825B8E94700C647FD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5393E88A25B8EA8A00C647FD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBodyNames.swift; sourceTree = "<group>"; };
 		53C6C6B325EC08CD00393C7A /* FieldsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsController.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		5393E88725B8D57400C647FD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5393E88825B8E94700C647FD /* Requests.swift */,
+				5393E88825B8E94700C647FD /* Service.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -565,7 +565,7 @@
 				0706463B25E58CF00054CE67 /* CoinCellMainController.swift in Sources */,
 				53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
-				5393E88925B8E94700C647FD /* Requests.swift in Sources */,
+				5393E88925B8E94700C647FD /* Service.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
