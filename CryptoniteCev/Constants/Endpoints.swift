@@ -6,7 +6,7 @@ class Endpoints {
     
     let shared = Endpoints()
     
-    static let baseUrl = "http://192.168.1.40/Laravel/api-cryptonite/public/api/users"
+    static let baseUrl = "http://192.168.1.40/Alejandro/api-cryptonite/public/api/users"
     
     //User´s Petitions
     enum User {
