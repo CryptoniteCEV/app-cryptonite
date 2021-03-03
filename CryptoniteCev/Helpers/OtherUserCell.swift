@@ -9,14 +9,11 @@
 import UIKit
 
 class OtherUserCell: UITableViewCell{
-
-    
     
     @IBOutlet weak var profile: UIImageView!
-    
     @IBOutlet weak var username: UILabel!
-    
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var quantity: UILabel!
     @IBOutlet weak var currencyIcon: UIImageView!
+    
 }
