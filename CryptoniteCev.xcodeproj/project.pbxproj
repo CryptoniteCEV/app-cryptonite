@@ -116,14 +116,13 @@
 		7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellMainController.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		7F987F9625C8261900BCD586 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
-		7F98EBAC25E6783F00E0A443 /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoinRowWalletController.swift; path = ../Views/CoinRowWalletController.swift; sourceTree = "<group>"; };
 		7F9A930325D15DBB0083F71D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesRow.swift; sourceTree = "<group>"; };
 		7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeScreenTableViewExtension.swift; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
-		F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoinRowWalletController.swift; path = CryptoniteCev/Helpers/CoinRowWalletController.swift; sourceTree = "<group>"; };
+		F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowWalletController.swift; sourceTree = "<group>"; };
 		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
 		F8FE716B25EDAA5D0071053D /* TradingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,7 +173,6 @@
 		390DAF2D25B707810056BFD5 = {
 			isa = PBXGroup;
 			children = (
-				F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */,
 				390DAF3825B707810056BFD5 /* CryptoniteCev */,
 				390DAF3725B707810056BFD5 /* Products */,
 				36D4D45D2AF03A60E494BFFD /* Pods */,
@@ -275,7 +273,7 @@
 				7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */,
 				07103E8A25E837E20092E36D /* ActivityRow.swift */,
 				7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */,
-				7F98EBAC25E6783F00E0A443 /* CoinRowWalletController.swift */,
+				F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */,
 				7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */,
 			);
 			path = Helpers;
