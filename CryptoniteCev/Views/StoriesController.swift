@@ -14,7 +14,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     var storieImage : UIImage?
     var trades = [
-    Trade(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"),username: "missing", idCoin: 21, quantity: 21)
+        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 1, currencyIcon: #imageLiteral(resourceName: "LITE"), quantity: 0.002),
+        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 41, currencyIcon: #imageLiteral(resourceName: "doge"), quantity: 0.0062),
+        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 11, currencyIcon: #imageLiteral(resourceName: "Bitcoin"), quantity: 0.0021),
+        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 18, currencyIcon: #imageLiteral(resourceName: "eth"), quantity: 0.022)
     ]
     var graph = PieChart()
     
@@ -59,6 +62,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
         print("Username",trades[indexPath.row].username)
         cell.username.text = String(trades[indexPath.row].username)
+        cell.price.text = String(trades[indexPath.row].price) + "$"
+        cell.quantity.text = String(trades[indexPath.row].quantity)
+        cell.currencyIcon.image = trades[indexPath.row].currencyIcon
+
         /*cell.currency.text = wa
          llet[indexPath.row].coins
         cell.simbol.text = wallet[indexPath.row].simbol
