@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		003584EFCE48AF5358D2BC29 /* Pods_CryptoniteCevTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFA6FF35C183EB1BEAB0BE /* Pods_CryptoniteCevTests.framework */; };
 		0706463B25E58CF00054CE67 /* CoinCellMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0706463A25E58CF00054CE67 /* CoinCellMainController.swift */; };
-		07103E8925E835D50092E36D /* ActivityFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07103E8825E835D50092E36D /* ActivityFeed.swift */; };
 		07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07103E8A25E837E20092E36D /* ActivityRow.swift */; };
 		390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3925B707810056BFD5 /* AppDelegate.swift */; };
 		390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF3B25B707810056BFD5 /* SceneDelegate.swift */; };
@@ -74,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		0706463A25E58CF00054CE67 /* CoinCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCellMainController.swift; sourceTree = "<group>"; };
-		07103E8825E835D50092E36D /* ActivityFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFeed.swift; sourceTree = "<group>"; };
 		07103E8A25E837E20092E36D /* ActivityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRow.swift; sourceTree = "<group>"; };
 		0828DEB589E277D14A826CA9 /* Pods-CryptoniteCev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCev.release.xcconfig"; path = "Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev.release.xcconfig"; sourceTree = "<group>"; };
 		1941D147B46E4CBE8BCD7A77 /* Pods-CryptoniteCevTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoniteCevTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoniteCevTests/Pods-CryptoniteCevTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				531657ED25B7972D0040417F /* Trade.swift */,
 				531657EB25B7970B0040417F /* User.swift */,
 				7F92F55B25E7C7A80095E15A /* UserPrueba.swift */,
-				07103E8825E835D50092E36D /* ActivityFeed.swift */,
 				7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */,
 				53F194C725EEB3450096055F /* TradeHistory.swift */,
 			);
@@ -574,7 +571,6 @@
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
 				53F194C825EEB3450096055F /* TradeHistory.swift in Sources */,
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
-				07103E8925E835D50092E36D /* ActivityFeed.swift in Sources */,
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
 				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
