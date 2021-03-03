@@ -2,7 +2,7 @@
 import Foundation;
 import UIKit;
 
-class Trade : Decodable, Encodable{
+class Trade {
     
     private let _coin:String
     private let _date:String

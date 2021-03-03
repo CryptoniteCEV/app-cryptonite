@@ -17,6 +17,8 @@
 		390DAF4625B707850056BFD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */; };
 		390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */; };
 		390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6F25B724720056BFD5 /* SignUpController.swift */; };
+		3949CEEE25ED813B00961DFA /* OtherUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949CEED25ED813B00961DFA /* OtherUserCell.swift */; };
+		3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */; };
 		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
 		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
 		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
@@ -89,6 +91,8 @@
 		390DAF5725B707850056BFD5 /* CryptoniteCevUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoniteCevUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		390DAF6925B70BAD0056BFD5 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		390DAF6F25B724720056BFD5 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		3949CEED25ED813B00961DFA /* OtherUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserCell.swift; sourceTree = "<group>"; };
+		3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintTestController.swift; sourceTree = "<group>"; };
 		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
 				F8FE716B25EDAA5D0071053D /* TradingController.swift */,
+				3960E4EF25E58A9B007CEFF2 /* ConstraintTestController.swift */,
+				7F19AD5525E52BF800279E9D /* PruebaCellController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */,
 				07103E8A25E837E20092E36D /* ActivityRow.swift */,
 				7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */,
+				3949CEED25ED813B00961DFA /* OtherUserCell.swift */,
 				F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */,
 				7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */,
 			);
@@ -497,6 +504,7 @@
 				53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				5393E88925B8E94700C647FD /* Service.swift in Sources */,
+				3949CEEE25ED813B00961DFA /* OtherUserCell.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
 				390DAF3C25B707810056BFD5 /* SceneDelegate.swift in Sources */,
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
