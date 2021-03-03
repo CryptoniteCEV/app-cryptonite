@@ -129,7 +129,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activityFeed.count
+        return activityFeed.count        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

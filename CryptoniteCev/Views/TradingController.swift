@@ -12,6 +12,8 @@ import iOSDropDown
 class TradingController: UIViewController {
 
    
+    @IBOutlet weak var tradeTableView: UITableView!
+    
     @IBOutlet weak var coinDropdown: DropDown!
     
     @IBOutlet weak var coinDropdownTextfield: UITextField!
@@ -58,6 +60,11 @@ class TradingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tradeTableView.delegate = self
+        tradeTableView.dataSource = self
+        tradeTableView.reloadData()
+        
         buyOrSellButton.setTitle("Buy BTC", for: .normal)
         
         coinDropdown.optionArray = ["BTC/USD", "ETH/USD", "DOGE/USD", "LITE/USD", "SFP/USD"]

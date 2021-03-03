@@ -4,30 +4,51 @@ import UIKit;
 
 class Trade : Decodable, Encodable{
     
-    private let _id:String
+    private let _coin:String
+    private let _date:String
     private let _quantity:Int
-    private let _idCoin:Int
+    private let _price:Int
+    private let _isSell:Int
     
-    init(id:String, idCoin:Int, quantity:Int){
-        self._id = id
-        self._idCoin = idCoin
+    
+    
+    init(idCoin:String, date: String, quantity:Int, price:Int, isSell:Int){
+        self._coin = idCoin
+        self._date = date
         self._quantity = quantity
+        self._price = price
+        self._isSell = isSell
     }
     
-    public var id: String {
+    public var coin: String {
         get {
-            return self._id;
+            return self._coin;
         }
     }
+    
+    public var date: String {
+        get {
+            return self._date;
+        }
+    }
+    
     public var quantity: Int {
         get {
             return self._quantity;
         }
     }
-    public var coins: Int {
+    
+    public var price: Int {
         get {
-            return self._idCoin;
+            return self._price;
         }
     }
+    
+    public var isSell: Int {
+        get {
+            return self._isSell;
+        }
+    }
+    
     
 }

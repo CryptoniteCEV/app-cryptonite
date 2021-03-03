@@ -38,6 +38,8 @@
 		7F987F9725C8261900BCD586 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987F9625C8261900BCD586 /* PieChart.swift */; };
 		7F98EBAD25E6783F00E0A443 /* CellRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98EBAC25E6783F00E0A443 /* CellRowController.swift */; };
 		7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A930325D15DBB0083F71D /* WalletViewController.swift */; };
+		7F9B021D25EFAF9500AB91F0 /* TradesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */; };
+		7F9B021F25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815E22525C233EF00D65B6A /* CoinCell.swift */; };
 		F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C225B9E13B008F92B6 /* ViewController.swift */; };
@@ -101,6 +103,8 @@
 		7F987F9625C8261900BCD586 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		7F98EBAC25E6783F00E0A443 /* CellRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRowController.swift; sourceTree = "<group>"; };
 		7F9A930325D15DBB0083F71D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesRow.swift; sourceTree = "<group>"; };
+		7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeScreenTableViewExtension.swift; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		F8C139C225B9E13B008F92B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				0706463A25E58CF00054CE67 /* CoinCellPrueba.swift */,
 				7F92F55D25E7CA1B0095E15A /* UserCellPrueba.swift */,
 				07103E8A25E837E20092E36D /* ActivityRow.swift */,
+				7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */,
+				7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				7F987F9725C8261900BCD586 /* PieChart.swift in Sources */,
 				7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */,
 				7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */,
+				7F9B021F25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift in Sources */,
 				07103E8B25E837E20092E36D /* ActivityRow.swift in Sources */,
 				5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */,
 				7F98EBAD25E6783F00E0A443 /* CellRowController.swift in Sources */,
@@ -462,6 +469,7 @@
 				3960E4F025E58A9B007CEFF2 /* ConstraintTestController.swift in Sources */,
 				0706463B25E58CF00054CE67 /* CoinCellPrueba.swift in Sources */,
 				F8C139C325B9E13B008F92B6 /* ViewController.swift in Sources */,
+				7F9B021D25EFAF9500AB91F0 /* TradesRow.swift in Sources */,
 				F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */,
 				5393E88925B8E94700C647FD /* Requests.swift in Sources */,
 				390DAF3A25B707810056BFD5 /* AppDelegate.swift in Sources */,
