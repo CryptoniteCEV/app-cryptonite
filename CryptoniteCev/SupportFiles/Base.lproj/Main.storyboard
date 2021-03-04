@@ -1210,8 +1210,10 @@
                     <connections>
                         <outlet property="container" destination="WSC-te-QWj" id="Cjg-rc-34h"/>
                         <outlet property="imageView" destination="mvb-C8-n0b" id="vGd-9B-NTX"/>
+                        <outlet property="nameLabel" destination="xfT-Nd-UmU" id="slG-Jo-SyF"/>
                         <outlet property="tableView" destination="tcb-5M-8Ad" id="OwW-7k-BBY"/>
                         <outlet property="unfollowButton" destination="VT1-DN-yVJ" id="vde-uv-coO"/>
+                        <outlet property="usernameLabel" destination="QiE-Wn-TdH" id="0ha-dz-Gaf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

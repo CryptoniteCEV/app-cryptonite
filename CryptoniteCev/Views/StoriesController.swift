@@ -12,14 +12,11 @@ import Charts
 class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     var storieImage : UIImage?
-    var trades:[String] = []
-    /*var trades = [
-        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 1, currencyIcon: #imageLiteral(resourceName: "LITE"), quantity: 0.002),
-        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 41, currencyIcon: #imageLiteral(resourceName: "doge"), quantity: 0.0062),
-        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 11, currencyIcon: #imageLiteral(resourceName: "Bitcoin"), quantity: 0.0021),
-        Trade(profilePic: #imageLiteral(resourceName: "doge"),username: "@marxtodon",price: 18, currencyIcon: #imageLiteral(resourceName: "eth"), quantity: 0.022)
-    ]*/
+    var trades:[TradesProfile] = []
+    
     var graph = PieChart()
     
     @IBOutlet weak var unfollowButton: UIButton!
@@ -58,21 +55,14 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "otherCell") as! OtherUserCell
-       /*
+       
         cell.profile.image = storieImage
         cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-        print("Username",trades[indexPath.row].username)
-        cell.username.text = String(trades[indexPath.row].username)
-        cell.price.text = String(trades[indexPath.row].price) + "$"
+        cell.username.text = "@alex"
+        cell.price.text = String(trades[indexPath.row].converted) + trades[indexPath.row].coinToSymbol
         cell.quantity.text = String(trades[indexPath.row].quantity)
-        cell.currencyIcon.image = trades[indexPath.row].currencyIcon
-         */
-        /*cell.currency.text = wa
-         llet[indexPath.row].coins
-        cell.simbol.text = wallet[indexPath.row].simbol
-        cell.icon.image = wallet[indexPath.row].icons
-        cell.dolars.text = String(wallet[indexPath.row].dollars)
-        cell.currencyValor.text = String(wallet[indexPath.row].quantities)*/
+        cell.currencyIcon.image = Images.shared.coins[trades[indexPath.row].coinToSymbol]
+        
            return cell
        
     }
@@ -82,6 +72,44 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
         graph.impirmirGrafica(lineChart: lineChart, screen: container)
             
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        trades = getTrades()
+    }
+    
+    func getTrades() -> [TradesProfile]{
+    
+    trades = []
+    
+    if Service.isConnectedToInternet {
+        if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+            let parameters = ["username":"alex"]
+            
+            let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
+            
+            requestTrades.responseJSON { (response) in
+                
+                if let body = response.value as? [String:Any] {
+                
+                let data = body["data"] as! [String:Any]
+                
+                let tradeHistory = data["Trades"] as! [[String:Any]]
+                let user = data["User"] as! [String:Any]
+                
+                    self.nameLabel.text = user["Name"] as? String
+                    self.usernameLabel.text = "@" + (user["Username"] as! String)
+                  
+                    for i in 0..<tradeHistory.count {
+                        self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
+                    }
+                    
+                self.tableView.reloadData()
+                    
+                }
+            }
+        }
+    }
+    return trades;
     }
 
 

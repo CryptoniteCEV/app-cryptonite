@@ -87,6 +87,33 @@ class TradingController: UIViewController {
         }
     
     func getTrades() -> [Trade]{
+        trades = []
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                
+                let requestTrades = Service.shared.getTradesInfo()
+                
+                requestTrades.responseJSON { (response) in
+                    
+                    if let body = response.value as? [String:Any] {
+                    
+                    let data = body["data"] as! [[String:Any]]
+        
+                        for i in 0..<data.count {
+                            self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: (data[i]["Date"] as? UInt64)!, quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                        }
+                        
+                    self.tradeTableView.reloadData()
+                        
+                    }
+                }
+            }
+        }
+        return trades;
+    }
+    
+    /*func getTrades() -> [Trade]{
         
         trades = []
         
@@ -114,7 +141,7 @@ class TradingController: UIViewController {
             }
         }
         return trades;
-        }
+        }*/
     
 }
 

@@ -63,15 +63,20 @@ class Service {
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Trading.getTradingHistory, method: .get, encoding: URLEncoding.default, headers: headers)
     }
     
+    func getProfileTradesInfo(parameters:[String:String])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.userProfileTrades, method: .get,parameters: parameters ,encoding: URLEncoding.default, headers: headers)
+    }
+    
     func getTradesInfo()->DataRequest{
         let headers:HTTPHeaders = [
             ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
         ]
-        let parameters:[String:String] = [
-            "username":"jose"
-        ]
     
-        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.userTrades, method: .get,parameters: parameters ,encoding: URLEncoding.default, headers: headers)
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.userTrades, method: .get ,encoding: URLEncoding.default, headers: headers)
     }
     
     func getUsers() {
