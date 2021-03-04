@@ -3,9 +3,9 @@ import Charts
 
 class PieChart: UIViewController, ChartViewDelegate{
     
-    public func impirmirGrafica(lineChart: LineChartView, screen: UIView){
+    public func impirmirGrafica(pieChart: PieChartView, screen: UIView){
         
-        lineChart.frame = CGRect(
+        pieChart.frame = CGRect(
             x: 0,y: 0,
             width: screen.frame.width,
             height: screen.frame.height
@@ -14,12 +14,12 @@ class PieChart: UIViewController, ChartViewDelegate{
         
         print("está haciendo la funcion")
            
-        screen.addSubview(lineChart)
+        screen.addSubview(pieChart)
            
-        lineChart.topAnchor.constraint(equalTo: screen.topAnchor, constant: screen.frame.height).isActive = true
-        lineChart.leadingAnchor.constraint(equalTo: screen.leadingAnchor, constant: screen.frame.width).isActive = true
-        lineChart.trailingAnchor.constraint(equalTo: screen.trailingAnchor, constant: -screen.frame.width).isActive = true
-        lineChart.heightAnchor.constraint(equalToConstant: screen.frame.height).isActive = true
+        pieChart.topAnchor.constraint(equalTo: screen.topAnchor, constant: screen.frame.height).isActive = true
+        pieChart.leadingAnchor.constraint(equalTo: screen.leadingAnchor, constant: screen.frame.width).isActive = true
+        pieChart.trailingAnchor.constraint(equalTo: screen.trailingAnchor, constant: -screen.frame.width).isActive = true
+        pieChart.heightAnchor.constraint(equalToConstant: screen.frame.height).isActive = true
 
         var entries = [ChartDataEntry]()
         
@@ -28,20 +28,20 @@ class PieChart: UIViewController, ChartViewDelegate{
             entries.append(ChartDataEntry(
                
                x: Double(x),
-               y: Double(-x^3)
+               y: Double(x)
                
            ))
            
         }
             
-        let set =  LineChartDataSet(entries: entries)
+        let set =  PieChartDataSet(entries: entries)
 
         set.colors = ChartColorTemplates.material()
         set.valueTextColor = UIColor.white
-        set.circleRadius = 5
+        
       
-        let data = LineChartData(dataSet: set)
-        lineChart.data = data
+        let data = PieChartData(dataSet: set)
+        pieChart.data = data
         
     }
     

@@ -19,13 +19,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     @IBOutlet weak var porgress: UIProgressView!
     var graph = PieChart()
    
-    var lineChart = LineChartView()
+    var pieChart = PieChartView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lineChart.delegate = self
+        pieChart.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     
@@ -81,7 +81,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        graph.impirmirGrafica(lineChart: lineChart, screen: container)
+        graph.impirmirGrafica(pieChart: pieChart, screen: container)
             
     }
 }
