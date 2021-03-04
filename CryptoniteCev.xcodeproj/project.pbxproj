@@ -40,6 +40,7 @@
 		53F194C825EEB3450096055F /* TradeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C725EEB3450096055F /* TradeHistory.swift */; };
 		53F194CA25EF02B60096055F /* Welcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C925EF02B60096055F /* Welcoming.swift */; };
 		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
+		7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserPrueba.swift */; };
@@ -114,6 +115,7 @@
 		53F194C725EEB3450096055F /* TradeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistory.swift; sourceTree = "<group>"; };
 		53F194C925EF02B60096055F /* Welcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcoming.swift; sourceTree = "<group>"; };
 		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
+		7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F92F55B25E7C7A80095E15A /* UserPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrueba.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
 				F8FE716B25EDAA5D0071053D /* TradingController.swift */,
 				5335BF5825F0368400E92F49 /* ViewControllerExtension.swift */,
+				7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				390DAF6A25B70BAD0056BFD5 /* UnderlinedTextField.swift in Sources */,
 				F8FE716C25EDAA5D0071053D /* TradingController.swift in Sources */,
 				53F194C825EEB3450096055F /* TradeHistory.swift in Sources */,
+				7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */,
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
 				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,

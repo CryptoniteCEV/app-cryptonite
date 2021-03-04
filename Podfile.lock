@@ -4,23 +4,27 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - iOSDropDown (0.3.4)
+  - SwiftConfettiView (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Charts
   - iOSDropDown
+  - SwiftConfettiView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Charts
     - iOSDropDown
+    - SwiftConfettiView
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: 8e5ed27fee4877db8524b3b8f180d5ff1e1c3d73
+PODFILE CHECKSUM: 1ffbc203961c72eb5e6aee3015a8d2ba8fbf6c0a
 
 COCOAPODS: 1.10.1

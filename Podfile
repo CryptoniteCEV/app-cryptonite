@@ -7,6 +7,7 @@ target 'CryptoniteCev' do
   pod 'Alamofire', '~> 5.2'
   pod 'Charts'	
   pod 'iOSDropDown'
+  pod 'SwiftConfettiView'
 
   # Pods for CryptoniteCev
 

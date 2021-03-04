@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8tv-10-snU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5BO-q7-TNj">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -1018,6 +1018,61 @@ CEZvcmdvdCBwYXNzd29yZD8
             </objects>
             <point key="canvasLocation" x="-1136" y="1594"/>
         </scene>
+        <!--Gamification Controller-->
+        <scene sceneID="nMH-W7-Oc2">
+            <objects>
+                <viewController id="5BO-q7-TNj" customClass="GamificationController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Lf-Uf-Qn5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="sPE-yY-9N2">
+                                <rect key="frame" x="151" y="89" width="113" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfa-cI-ans">
+                                <rect key="frame" x="195" y="212" width="25" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="tintColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="suit.diamond.fill" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-FC-xyK">
+                                <rect key="frame" x="180" y="246" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0m-G5-5s3">
+                                <rect key="frame" x="352" y="44" width="42" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.94901960784313721" green="0.28627450980392155" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="arrowshape.turn.up.left.circle" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTO-T0-76P">
+                                <rect key="frame" x="156" y="433" width="102" height="30"/>
+                                <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Claim rewards!">
+                                    <color key="titleColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="claimRewards:" destination="5BO-q7-TNj" eventType="touchUpInside" id="Q8V-kJ-zQd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NTO-T0-76P" firstAttribute="centerX" secondItem="7Lf-Uf-Qn5" secondAttribute="centerX" id="CIu-fe-YdS"/>
+                            <constraint firstItem="NTO-T0-76P" firstAttribute="centerY" secondItem="7Lf-Uf-Qn5" secondAttribute="centerY" id="fRl-4o-uAH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gpe-2t-6Ga"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="koS-PA-ZC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2346.376811594203" y="2347.0982142857142"/>
+        </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
             <objects>
@@ -1496,11 +1551,13 @@ CEVtYWlsA
         <image name="arrow.right.arrow.left" catalog="system" width="119" height="128"/>
         <image name="arrow.right.arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.right.arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.left.circle" catalog="system" width="128" height="121"/>
         <image name="buy" width="500" height="500"/>
         <image name="dollar" width="512" height="512"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="eth" width="1024" height="1024"/>
+        <image name="image1" width="300" height="300"/>
         <image name="img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web" width="980" height="554"/>
         <image name="logoGrande" width="816" height="1002"/>
         <image name="mainScreen" width="156" height="349"/>
@@ -1508,5 +1565,6 @@ CEVtYWlsA
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="singUp" width="249" height="518"/>
         <image name="sinnginWireframe" width="243" height="503"/>
+        <image name="suit.diamond.fill" catalog="system" width="107" height="128"/>
     </resources>
 </document>
