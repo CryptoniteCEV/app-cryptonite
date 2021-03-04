@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoGrande" translatesAutoresizingMaskIntoConstraints="NO" id="cH8-Df-bBd">
-                                <rect key="frame" x="20" y="144" width="374" height="502"/>
+                                <rect key="frame" x="70" y="119" width="274" height="477"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="cH8-Df-bBd" secondAttribute="bottom" constant="250" id="0Qg-Kl-HK7"/>
-                            <constraint firstItem="cH8-Df-bBd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NJd-jI-1UG"/>
-                            <constraint firstItem="cH8-Df-bBd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="P1s-4Z-uqo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cH8-Df-bBd" secondAttribute="trailing" constant="20" id="doh-kD-Bry"/>
+                            <constraint firstAttribute="bottom" secondItem="cH8-Df-bBd" secondAttribute="bottom" constant="300" id="0Qg-Kl-HK7"/>
+                            <constraint firstItem="cH8-Df-bBd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="NJd-jI-1UG"/>
+                            <constraint firstItem="cH8-Df-bBd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="P1s-4Z-uqo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cH8-Df-bBd" secondAttribute="trailing" constant="70" id="doh-kD-Bry"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
