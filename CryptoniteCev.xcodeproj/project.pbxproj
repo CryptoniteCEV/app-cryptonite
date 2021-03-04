@@ -25,6 +25,7 @@
 		531657F225B797510040417F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F125B797510040417F /* Wallet.swift */; };
 		531657F425B7975A0040417F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657F325B7975A0040417F /* Score.swift */; };
 		5335BF5925F0368400E92F49 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335BF5825F0368400E92F49 /* ViewControllerExtension.swift */; };
+		5335BF5B25F066E700E92F49 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335BF5A25F066E700E92F49 /* TabBarController.swift */; };
 		5393E88925B8E94700C647FD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88825B8E94700C647FD /* Service.swift */; };
 		5393E88B25B8EA8A00C647FD /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393E88A25B8EA8A00C647FD /* Endpoints.swift */; };
 		53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */; };
@@ -99,6 +100,7 @@
 		531657F125B797510040417F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		531657F325B7975A0040417F /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		5335BF5825F0368400E92F49 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		5335BF5A25F066E700E92F49 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5393E88825B8E94700C647FD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5393E88A25B8EA8A00C647FD /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiBodyNames.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				53C6C6B725EC091B00393C7A /* UITextFieldExtension.swift */,
 				53C6C6B325EC08CD00393C7A /* FieldsController.swift */,
 				53E9E27225BA071D00B78B17 /* MainController.swift */,
+				5335BF5A25F066E700E92F49 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				F8CCB74425F013DD00F50F7F /* CoinRowWalletController.swift in Sources */,
 				53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */,
 				531657F225B797510040417F /* Wallet.swift in Sources */,
+				5335BF5B25F066E700E92F49 /* TabBarController.swift in Sources */,
 				7F987F9725C8261900BCD586 /* PieChart.swift in Sources */,
 				7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */,
 				53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */,
