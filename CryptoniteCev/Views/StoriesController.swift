@@ -66,7 +66,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         cell.price.text = String(trades[indexPath.row].price) + "$"
         cell.quantity.text = String(trades[indexPath.row].quantity)
         cell.currencyIcon.image = trades[indexPath.row].currencyIcon
-*/
+         */
         /*cell.currency.text = wa
          llet[indexPath.row].coins
         cell.simbol.text = wallet[indexPath.row].simbol

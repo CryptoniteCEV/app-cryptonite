@@ -1,5 +1,4 @@
 
-
 import UIKit
 import Charts
 
@@ -36,15 +35,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         self.cash = 0
         self.coinsQuantities = []
     
-        
-            
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getCoinsWithQuantities()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
                         let data = body["data"]! as! [[String:Any]]
-                    
+                   
                         for i in 0..<data.count {
                             self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
                             self.cash += self.coinsQuantities[i].inDollars
@@ -61,8 +58,6 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
         return self.coinsQuantities.count
-        
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +71,9 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             cell.price.text = String((round(1000*coinsQuantities[indexPath.row].inDollars)/1000)) + "$"
             cell.quantity.text = String((round(1000*coinsQuantities[indexPath.row].quantity)/1000)) + " " + coinsQuantities[indexPath.row].symbol
         }
+        
         return cell
+        
        }
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()

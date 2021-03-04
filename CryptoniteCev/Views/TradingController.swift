@@ -25,6 +25,8 @@ class TradingController: UIViewController {
     
     @IBOutlet var amountTextfield: UITextField!
     
+    var trades:[Trade]=[]
+    
     var isSell = false
     
     var tradeType = "Buy "
@@ -65,7 +67,9 @@ class TradingController: UIViewController {
         }
         buyOrSellButton.setTitle(tradeType + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        trades = getTrades()
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,5 +84,37 @@ class TradingController: UIViewController {
         coinDropdownTextfield.text = coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0]
         buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex ?? 0], for: .normal)
         
-    }
+        }
+    
+    func getTrades() -> [Trade]{
+        
+        trades = []
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                
+                let requestTrades = Service.shared.getTradesInfo()
+                
+                requestTrades.responseJSON { (response) in
+                    
+                    if let body = response.value as? [String:Any] {
+                    
+                    let data = body["data"] as! [String:Any]
+                    
+                    let tradeHistory = data["Trades"] as! [[String:Any]]
+                       print(tradeHistory)
+                        for i in 0..<tradeHistory.count {
+                            self.trades.append(Trade(coin: (tradeHistory[i]["Coin"] as? String)!, date: (tradeHistory[i]["Date"] as? UInt64)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, price: (tradeHistory[i]["Price"] as? Double)!, isSell: (tradeHistory[i]["Is_sell"] as? Int)!))
+                        }
+                        
+                    self.tradeTableView.reloadData()
+                        
+                    }
+                }
+            }
+        }
+        return trades;
+        }
+    
 }
+
