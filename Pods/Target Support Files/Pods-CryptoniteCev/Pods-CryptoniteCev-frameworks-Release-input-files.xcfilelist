@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-CryptoniteCev/Pods-CryptoniteCev-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/CircleProgressBar/CircleProgressBar.framework
 ${BUILT_PRODUCTS_DIR}/SwiftConfettiView/SwiftConfettiView.framework
 ${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework

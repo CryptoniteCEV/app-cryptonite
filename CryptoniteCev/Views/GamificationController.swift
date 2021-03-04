@@ -8,11 +8,25 @@
 
 import UIKit
 import SwiftConfettiView
+import CircleProgressBar
 
 class GamificationController: UIViewController {
     
+    @IBOutlet var circleProgressBar: CircleProgressBar!
+    
+    @IBOutlet var missionsCard: UIView!
+    
+    @IBOutlet var walletCard: UIView!
     var viewConfeti: SwiftConfettiView?
 
+    @IBOutlet var clearMission1: UIButton!
+    
+    @IBOutlet var clearMission2: UIButton!
+    
+    @IBOutlet var clearMission3: UIButton!
+    
+    @IBOutlet var profileImage: UIImageView!
+    
     @IBAction func claimRewards(_ sender: UIButton) {
         
         
@@ -22,8 +36,18 @@ class GamificationController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearMission1.layer.cornerRadius = clearMission1.frame.width/2
+        clearMission2.layer.cornerRadius = clearMission1.frame.width/2
+        clearMission3.layer.cornerRadius = clearMission1.frame.width/2
+        circleProgressBar.setProgress(0.3, animated: true)
         self.viewConfeti = SwiftConfettiView(frame: self.view.bounds)
-        let tag = viewConfeti?.tag
+        
+        self.viewConfeti?.tag = 200
+        missionsCard.layer.cornerRadius = 10
+        walletCard.layer.cornerRadius = 10
+        profileImage.layer.cornerRadius = profileImage.frame.width / 2
+        profileImage.layer.borderWidth = 4
+        profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
     
         
         
@@ -38,7 +62,7 @@ class GamificationController: UIViewController {
     func stopConfetti(view: SwiftConfettiView){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             view.stopConfetti()
-            var confeti = self.view.viewWithTag(view.tag)
+            var confeti = self.view.viewWithTag(200)
             confeti!.removeFromSuperview()
         }
     }
