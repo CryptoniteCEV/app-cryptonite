@@ -7,6 +7,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="IYY-gS-wmf">
@@ -259,13 +264,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UcK-cA-2kW">
                                                             <rect key="frame" x="234" y="0.0" width="120" height="52"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 US$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4C-MM-gL5">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4C-MM-gL5">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,03btc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-aZ-0M9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0h-aZ-0M9">
                                                                     <rect key="frame" x="0.0" y="26" width="120" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.94901960780000005" green="0.28627450980000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -304,13 +309,13 @@
                                 <rect key="frame" x="90" y="240.66666666666666" width="294" height="38.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5G-Xm-3PF">
-                                        <rect key="frame" x="0.0" y="0.0" width="188.66666666666666" height="38.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukQ-qd-zAh">
-                                        <rect key="frame" x="188.66666666666669" y="0.0" width="105.33333333333331" height="38.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukQ-qd-zAh">
+                                        <rect key="frame" x="168" y="0.0" width="126" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -380,7 +385,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Currency" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-ND-UzL" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="53.666666666666671" width="316" height="34"/>
+                                        <rect key="frame" x="0.0" y="52.666666666666671" width="316" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -409,15 +414,15 @@
                                             <action selector="coinSelected:" destination="wAl-fb-GFB" eventType="editingDidEnd" id="6QJ-EM-mzw"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="LXD-gu-2jv">
-                                        <rect key="frame" x="0.0" y="111.33333333333333" width="316" height="23.999999999999986"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="LXD-gu-2jv">
+                                        <rect key="frame" x="0.0" y="109.33333333333333" width="316" height="29.999999999999986"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="knc-Eq-qz2">
-                                        <rect key="frame" x="0.0" y="159" width="316" height="36"/>
+                                        <rect key="frame" x="0.0" y="162" width="316" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WDz-G3-0E5">
                                                 <rect key="frame" x="0.0" y="0.0" width="158" height="36"/>
@@ -449,13 +454,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpm-x8-FAt">
-                                        <rect key="frame" x="0.0" y="218.66666666666669" width="316" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="220.66666666666669" width="316" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-w8-Blr" userLabel="amount">
-                                        <rect key="frame" x="0.0" y="262.33333333333331" width="316" height="34"/>
+                                        <rect key="frame" x="0.0" y="263.33333333333331" width="316" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -483,6 +488,9 @@
                                     <color key="titleColor" red="0.074509803921568626" green="0.12156862745098039" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tradeButton:" destination="wAl-fb-GFB" eventType="touchUpInside" id="Ao9-GU-b7v"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-2O-caA">
                                 <rect key="frame" x="10" y="495" width="394" height="298"/>
@@ -610,10 +618,11 @@
                     <tabBarItem key="tabBarItem" title="Trade" image="arrow.right.arrow.left.circle" catalog="system" selectedImage="arrow.right.arrow.left.circle.fill" id="lbt-Ce-Ct5"/>
                     <connections>
                         <outlet property="amountTextfield" destination="t3p-w8-Blr" id="VMp-k6-MnW"/>
+                        <outlet property="amountValue" destination="OqJ-8f-BdN" id="USe-w4-m4J"/>
                         <outlet property="buyButton" destination="WDz-G3-0E5" id="U7a-2T-Isf"/>
                         <outlet property="buyOrSellButton" destination="Lvp-Ri-44H" id="e4Q-ts-r41"/>
                         <outlet property="coinDropdown" destination="ehK-ND-UzL" id="jCI-zr-Xdq"/>
-                        <outlet property="coinDropdownTextfield" destination="ehK-ND-UzL" id="Zqi-M1-02t"/>
+                        <outlet property="curentPrice" destination="LXD-gu-2jv" id="0rl-P6-rB0"/>
                         <outlet property="sellButton" destination="KTm-8y-Grt" id="0M5-2M-duE"/>
                         <outlet property="tradeTableView" destination="dSk-2O-caA" id="mc9-qA-A1w"/>
                     </connections>
@@ -1161,10 +1170,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="currencyIcon" destination="8f8-za-vO9" id="k6q-Mq-gy5"/>
-                                            <outlet property="price" destination="HJg-XB-OeP" id="Lim-l9-diS"/>
+                                            <outlet property="converted" destination="bl1-de-zkU" id="1Cy-bp-zaX"/>
                                             <outlet property="profile" destination="DRe-S3-SJk" id="GDI-yp-fuD"/>
-                                            <outlet property="quantity" destination="bl1-de-zkU" id="jjW-lU-23m"/>
+                                            <outlet property="quantity" destination="HJg-XB-OeP" id="sUj-mn-XGu"/>
+                                            <outlet property="symbol_from" destination="9q4-cL-fEY" id="KG4-ZO-xrl"/>
+                                            <outlet property="symbol_to" destination="8f8-za-vO9" id="ez1-up-7QN"/>
                                             <outlet property="username" destination="HCJ-MN-EFj" id="U7V-bU-GIJ"/>
                                         </connections>
                                     </tableViewCell>

@@ -55,15 +55,16 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "otherCell") as! OtherUserCell
-       
-        cell.profile.image = storieImage
-        cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-        cell.username.text = "@alex"
-        cell.price.text = String(trades[indexPath.row].converted) + trades[indexPath.row].coinToSymbol
-        cell.quantity.text = String(trades[indexPath.row].quantity)
-        cell.currencyIcon.image = Images.shared.coins[trades[indexPath.row].coinToSymbol]
-        
-           return cell
+        if trades.count > 0{
+            cell.profile.image = storieImage
+            cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
+            cell.username.text = "@jose"
+            cell.converted.text = String(trades[indexPath.row].converted) + trades[indexPath.row].coinToSymbol
+            cell.quantity.text = String(trades[indexPath.row].quantity) + trades[indexPath.row].coinFromSymbol
+            cell.symbol_from.image = Images.shared.coins[trades[indexPath.row].coinFrom]
+            cell.symbol_to.image = Images.shared.coins[trades[indexPath.row].coinTo]
+        }
+            return cell
        
     }
 
@@ -83,7 +84,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     if Service.isConnectedToInternet {
         if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-            let parameters = ["username":"alex"]
+            let parameters = ["username":"jose"]
             
             let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
             
