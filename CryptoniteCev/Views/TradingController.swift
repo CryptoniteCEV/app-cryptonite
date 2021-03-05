@@ -62,14 +62,14 @@ class TradingController: UIViewController {
     }
     
     @IBAction func sellSelected(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.systemRed
+        sender.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
         sender.alpha = 1
         sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         buyButton.alpha = 0.4
         buyButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
         buyButton.setTitleColor(UIColor.white, for: .normal)
-        buyOrSellButton.backgroundColor = UIColor.systemRed
         buyOrSellButton.setTitle("Sell " + coinDropdown.optionArray[coinDropdown.selectedIndex!], for: .normal)
+        buyOrSellButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
         buyOrSellButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         isSell = 1
         amountValue.value = 0

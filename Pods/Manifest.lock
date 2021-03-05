@@ -3,24 +3,32 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - CircleProgressBar (0.32)
   - iOSDropDown (0.3.4)
+  - SwiftConfettiView (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Charts
+  - CircleProgressBar (~> 0.32)
   - iOSDropDown
+  - SwiftConfettiView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Charts
+    - CircleProgressBar
     - iOSDropDown
+    - SwiftConfettiView
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: 8e5ed27fee4877db8524b3b8f180d5ff1e1c3d73
+PODFILE CHECKSUM: e440b76a31fada1fa0168d049630100afe2289a9
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.9.3
