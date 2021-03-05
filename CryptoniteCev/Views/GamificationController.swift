@@ -63,7 +63,8 @@ class GamificationController: UIViewController {
                     if let body = response.value as? [String:Any] {
                     
                         if let data = body["data"]{
-                            self.cashLabel.text = data as! String + " $"
+                            //self.cashLabel.text = data as! String + " $"
+                            print(data)
                         }
                     }
                 }

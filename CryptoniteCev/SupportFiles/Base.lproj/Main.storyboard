@@ -223,6 +223,7 @@
                                 <rect key="frame" x="30" y="579" width="354" height="234"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.80392156859999997" green="0.84313725490000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coinID" rowHeight="68" id="q4T-0A-eHI" customClass="CoinRowWalletController" customModule="CryptoniteCev" customModuleProvider="target">
@@ -379,18 +380,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQL-fp-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="1594"/>
+            <point key="canvasLocation" x="-601" y="1594"/>
         </scene>
         <!--Trade-->
         <scene sceneID="MVu-d1-2Uf">
             <objects>
                 <viewController id="wAl-fb-GFB" customClass="TradingController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPn-He-dii">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib4-cP-s6w">
-                                <rect key="frame" x="49" y="54" width="316" height="350"/>
+                                <rect key="frame" x="49" y="10" width="316" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-jw-3hM">
                                         <rect key="frame" x="0.0" y="0.0" width="316" height="30"/>
@@ -399,7 +400,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Currency" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-ND-UzL" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="52.666666666666671" width="316" height="34"/>
+                                        <rect key="frame" x="0.0" y="52.666666666666657" width="316" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -468,7 +469,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpm-x8-FAt">
-                                        <rect key="frame" x="0.0" y="220.66666666666669" width="316" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="220.66666666666666" width="316" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -495,7 +496,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvp-Ri-44H">
-                                <rect key="frame" x="75" y="434" width="264" height="36"/>
+                                <rect key="frame" x="75" y="390" width="264" height="36"/>
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Buy ">
@@ -507,9 +508,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-2O-caA">
-                                <rect key="frame" x="10" y="495" width="394" height="298"/>
+                                <rect key="frame" x="10" y="451" width="394" height="337"/>
                                 <color key="backgroundColor" red="0.072357095780000005" green="0.11965971440000001" blue="0.206805408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.81960784310000001" green="0.96862745100000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.070588235294117646" green="0.12156862745098039" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trades" rowHeight="69" id="RI0-px-Acs" customClass="TradesRow" customModule="CryptoniteCev" customModuleProvider="target">
@@ -831,7 +833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBn-Cc-s5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3623.188405797102" y="2649.7767857142858"/>
+            <point key="canvasLocation" x="-3193" y="2693"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tRA-1F-5MD">
@@ -1192,7 +1194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="1594"/>
+            <point key="canvasLocation" x="-2239" y="1594"/>
         </scene>
         <!--Gamification Controller-->
         <scene sceneID="nMH-W7-Oc2">
@@ -1522,29 +1524,29 @@
                     <viewLayoutGuide key="safeArea" id="66Q-Wu-gBC"/>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="-2333" y="2577"/>
+            <point key="canvasLocation" x="657" y="2119"/>
         </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
             <objects>
                 <viewController id="grX-AG-6vv" customClass="StoriesController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yGX-YP-XZg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3u1-NO-3f8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="137"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mvb-C8-n0b">
-                                <rect key="frame" x="162" y="130" width="90" height="90"/>
+                                <rect key="frame" x="162" y="86" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="SfH-vq-7ge"/>
                                     <constraint firstAttribute="height" constant="90" id="bA0-8v-8bt"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-Do-oog">
-                                <rect key="frame" x="60" y="260" width="254" height="74"/>
+                                <rect key="frame" x="60" y="216" width="254" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Jesús Talayero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfT-Nd-UmU">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="40"/>
@@ -1561,14 +1563,14 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSC-te-QWj">
-                                <rect key="frame" x="30" y="344" width="354" height="260"/>
+                                <rect key="frame" x="30" y="300" width="354" height="260"/>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="1YY-4k-mzs"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="aRS-ZX-1Gv">
-                                <rect key="frame" x="60" y="614" width="294" height="39.333333333333371"/>
+                                <rect key="frame" x="60" y="570" width="294" height="39.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBp-hc-AN2">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="26.333333333333332"/>
@@ -1583,7 +1585,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tcb-5M-8Ad">
-                                <rect key="frame" x="25" y="683.33333333333337" width="364" height="212.66666666666663"/>
+                                <rect key="frame" x="25" y="639.33333333333337" width="364" height="202.66666666666663"/>
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.80392156859999997" green="0.84313725490000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1682,7 +1684,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT1-DN-yVJ">
-                                <rect key="frame" x="263" y="277" width="91" height="30"/>
+                                <rect key="frame" x="263" y="233" width="91" height="30"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.28627450980000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Unfollow">
                                     <color key="titleColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1999,8 +2001,8 @@ CEVtYWlsA
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MMI-0O-hjN"/>
-        <segue reference="xvm-Nr-osb"/>
+        <segue reference="w1g-rT-Sh6"/>
+        <segue reference="p0C-zo-mKz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="012-bitcoins" width="512" height="512"/>

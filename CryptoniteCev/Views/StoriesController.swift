@@ -58,9 +58,9 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         if trades.count > 0{
             cell.profile.image = storieImage
             cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-            cell.username.text = "@jose"
-            cell.converted.text = String(trades[indexPath.row].converted) + trades[indexPath.row].coinToSymbol
-            cell.quantity.text = String(trades[indexPath.row].quantity) + trades[indexPath.row].coinFromSymbol
+            cell.username.text = "@alex"
+            cell.converted.text = String(trades[indexPath.row].converted)
+            cell.quantity.text = String(trades[indexPath.row].quantity)
             cell.symbol_from.image = Images.shared.coins[trades[indexPath.row].coinFrom]
             cell.symbol_to.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }

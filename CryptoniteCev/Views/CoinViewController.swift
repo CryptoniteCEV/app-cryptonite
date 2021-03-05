@@ -17,7 +17,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var coinPercentageL: UILabel!
     
-    var graph = PieChart()
+    var graph = LineChart()
     var lineChart = LineChartView()
 
     override func viewDidLoad() {
