@@ -37,16 +37,19 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-                let request = Service.shared.getCoinsWithQuantities()
+                let request = Service.shared.getWallets()
                 request.responseJSON { (response) in
-                    if let body = response.value as? [String: Any]{
-                        let data = body["data"]! as! [[String:Any]]
+                    if let body = response.value as? [String:Any] {
+                    
+                    let data = body["data"] as! [String:Any]
+                    let wallets = data["Wallets"] as! [[String:Any]]
+                    let cash = data["Cash"]
                    
-                        for i in 0..<data.count {
-                            self.coinsQuantities.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
+                        for i in 0..<wallets.count {
+                            self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
                             self.cash += self.coinsQuantities[i].inDollars
                         }
-                        self.totalCash.text = String((round(100*self.cash)/100)) + "$"
+                        self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
                         self.tableView.reloadData()
                     }
                 }

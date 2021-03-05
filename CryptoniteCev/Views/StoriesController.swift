@@ -84,7 +84,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     if Service.isConnectedToInternet {
         if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-            let parameters = ["username":"jose"]
+            let parameters = ["username":"alex"]
             
             let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
             
