@@ -26,9 +26,9 @@ class GamificationController: UIViewController {
     @IBOutlet var clearMission3: UIButton!
     
     @IBOutlet var profileImage: UIImageView!
+    @IBOutlet weak var cashLabel: UILabel!
     
     @IBAction func claimRewards(_ sender: UIButton) {
-        
         
         self.startConfetti(view: self.viewConfeti!)
         self.stopConfetti(view: self.viewConfeti!)
@@ -56,6 +56,19 @@ class GamificationController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getCash()
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String:Any] {
+                    
+                        if let data = body["data"]{
+                            self.cashLabel.text = data as! String + " $"
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func startConfetti(view: SwiftConfettiView){
@@ -63,6 +76,7 @@ class GamificationController: UIViewController {
         self.view.addSubview(self.viewConfeti!)
         view.startConfetti()
     }
+    
     func stopConfetti(view: SwiftConfettiView){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             view.stopConfetti()

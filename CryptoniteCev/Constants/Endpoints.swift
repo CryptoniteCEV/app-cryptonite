@@ -6,7 +6,7 @@ class Endpoints {
     
     let shared = Endpoints()
     
-    static let domain = "http://192.168.1.40:8080"
+    static let domain = "http://localhost:8888"
     static let path = "/Laravel/api-cryptonite/public/api"
     
     //User´s Petitions
@@ -40,6 +40,7 @@ class Endpoints {
     enum Wallet{
         static let getInfo:String = "/wallets/info"
         static let deposit:String = "/wallets/deposit"
+        static let cash:String = "/wallets/cash"
     }
         
     //Currency´s petitions

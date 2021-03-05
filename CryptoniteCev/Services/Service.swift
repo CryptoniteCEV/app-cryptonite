@@ -54,6 +54,14 @@ class Service {
     
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.getInfo, method: .get, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func getCash()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.cash, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
 
     func getTradingHistory()->DataRequest{
         let headers:HTTPHeaders = [
