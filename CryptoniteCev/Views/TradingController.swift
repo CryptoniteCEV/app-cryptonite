@@ -165,10 +165,11 @@ class TradingController: UIViewController {
                     
                     if let body = response.value as? [String:Any] {
                     
-                        let data = body["data"] as! [[String:Any]]
+                        if let data = body["data"] as? [[String:Any]]{
         
-                        for i in 0..<data.count {
-                            self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: (data[i]["Date"] as? UInt64)!, quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                            for i in 0..<data.count {
+                                self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: (data[i]["Date"] as? UInt64)!, quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                            }
                         }
                         
                         self.tradeTableView.reloadData()
