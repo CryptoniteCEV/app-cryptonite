@@ -21,7 +21,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var unfollowButton: UIButton!
     
-    var lineChart = LineChartView()
+    var pieChart = PieChartView()
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -71,7 +71,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        graph.impirmirGrafica(lineChart: lineChart, screen: container)
+        graph.impirmirGrafica(pieChart: pieChart, screen: container)
             
     }
     override func viewDidAppear(_ animated: Bool) {
