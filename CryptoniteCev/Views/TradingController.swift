@@ -30,7 +30,6 @@ class TradingController: UIViewController {
     var coins:[Coin] = []
     var wallets:[CoinsQuantities] = []
     var selected = 0
-    
     var isSell = 0
     var tradeType = "Buy "
     
@@ -59,6 +58,7 @@ class TradingController: UIViewController {
             amountValue.value = 0
             amountTextfield.text = "0"
         }
+        
     }
     
     @IBAction func sellSelected(_ sender: UIButton) {

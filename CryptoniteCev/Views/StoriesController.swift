@@ -80,37 +80,38 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     func getTrades() -> [TradesProfile]{
     
-    trades = []
-    
-    if Service.isConnectedToInternet {
-        if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-            let parameters = ["username":"alex"]
-            
-            let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
-            
-            requestTrades.responseJSON { (response) in
+        trades = []
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let parameters = ["username":"alex"]
                 
-                if let body = response.value as? [String:Any] {
+                let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
                 
-                let data = body["data"] as! [String:Any]
-                
-                let tradeHistory = data["Trades"] as! [[String:Any]]
-                let user = data["User"] as! [String:Any]
-                
-                    self.nameLabel.text = user["Name"] as? String
-                    self.usernameLabel.text = "@" + (user["Username"] as! String)
-                  
-                    for i in 0..<tradeHistory.count {
-                        self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
+                requestTrades.responseJSON { (response) in
+                    
+                    if let body = response.value as? [String:Any] {
+                    
+                        if let data = body["data"] as? [String:Any]{
+                    
+                            let tradeHistory = data["Trades"] as! [[String:Any]]
+                            let user = data["User"] as! [String:Any]
+                            
+                                self.nameLabel.text = user["Name"] as? String
+                                self.usernameLabel.text = "@" + (user["Username"] as! String)
+                              
+                                for i in 0..<tradeHistory.count {
+                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
+                                }
+                        }
+                        
+                    self.tableView.reloadData()
+                        
                     }
-                    
-                self.tableView.reloadData()
-                    
                 }
             }
         }
-    }
-    return trades;
+        return trades;
     }
 
 

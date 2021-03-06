@@ -26,6 +26,7 @@ class GamificationController: UIViewController {
     @IBOutlet var clearMission3: UIButton!
     
     @IBOutlet var profileImage: UIImageView!
+    
     @IBOutlet weak var cashLabel: UILabel!
     
     @IBAction func claimRewards(_ sender: UIButton) {
@@ -61,10 +62,8 @@ class GamificationController: UIViewController {
                 let request = Service.shared.getCash()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                    
                         if let data = body["data"]{
-                            //self.cashLabel.text = data as! String + " $"
-                            print(data)
+                            self.cashLabel.text = data as! String + " $"
                         }
                     }
                 }

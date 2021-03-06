@@ -387,11 +387,11 @@
             <objects>
                 <viewController id="wAl-fb-GFB" customClass="TradingController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPn-He-dii">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib4-cP-s6w">
-                                <rect key="frame" x="49" y="10" width="316" height="350"/>
+                                <rect key="frame" x="49" y="54" width="316" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-jw-3hM">
                                         <rect key="frame" x="0.0" y="0.0" width="316" height="30"/>
@@ -400,7 +400,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select Currency" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-ND-UzL" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="52.666666666666657" width="316" height="34"/>
+                                        <rect key="frame" x="0.0" y="52.666666666666671" width="316" height="34"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -469,7 +469,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpm-x8-FAt">
-                                        <rect key="frame" x="0.0" y="220.66666666666666" width="316" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="220.66666666666669" width="316" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -496,7 +496,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvp-Ri-44H">
-                                <rect key="frame" x="75" y="390" width="264" height="36"/>
+                                <rect key="frame" x="75" y="434" width="264" height="36"/>
                                 <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Buy ">
@@ -508,7 +508,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dSk-2O-caA">
-                                <rect key="frame" x="10" y="451" width="394" height="337"/>
+                                <rect key="frame" x="10" y="495" width="394" height="298"/>
                                 <color key="backgroundColor" red="0.072357095780000005" green="0.11965971440000001" blue="0.206805408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.81960784310000001" green="0.96862745100000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -828,12 +828,11 @@
                         <outlet property="containerView" destination="jho-py-YlB" id="cco-Lr-uWJ"/>
                         <outlet property="currencyNameL" destination="P3O-YA-j9v" id="W1T-gp-duX"/>
                         <outlet property="tradeButton" destination="gw5-o5-yx5" id="kqf-3g-vHn"/>
-                        <segue destination="wAl-fb-GFB" kind="modal" identifier="TradeViewID" id="p0C-zo-mKz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBn-Cc-s5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3193" y="2693"/>
+            <point key="canvasLocation" x="-3623" y="2831"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tRA-1F-5MD">
@@ -1194,7 +1193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfd-mE-qIe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2239" y="1594"/>
+            <point key="canvasLocation" x="-2333" y="1594"/>
         </scene>
         <!--Gamification Controller-->
         <scene sceneID="nMH-W7-Oc2">
@@ -1394,9 +1393,6 @@
                                         </constraints>
                                         <color key="tintColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowButton-2"/>
-                                        <connections>
-                                            <segue destination="grX-AG-6vv" kind="show" id="MMI-0O-hjN"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z93-yy-os5">
                                         <rect key="frame" x="37" y="15" width="44.666666666666657" height="30"/>
@@ -1731,7 +1727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mg-CO-deh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="2577"/>
+            <point key="canvasLocation" x="-981" y="2831"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="hfi-YM-nuH">
@@ -2000,10 +1996,6 @@ CEVtYWlsA
             <point key="canvasLocation" x="-57" y="-87"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="w1g-rT-Sh6"/>
-        <segue reference="p0C-zo-mKz"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="012-bitcoins" width="512" height="512"/>
         <image name="045-digital investment" width="512" height="512"/>

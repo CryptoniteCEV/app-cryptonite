@@ -128,6 +128,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = coins[indexPath.row]
+        performSegue(withIdentifier: "coinViewID", sender: selectedItem)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count
     }
@@ -157,11 +162,15 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         imageSelected = image
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
             storiesController.storieImage = imageSelected
+        }else if(segue.identifier == "coinViewID"){
+            let coinController = segue.destination as! CoinViewController
+            
         }
     }
 }

@@ -46,7 +46,6 @@
 		7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F703F5425F119F000E99318 /* TradesProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F703F5325F119F000E99318 /* TradesProfile.swift */; };
-		7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7411CC25BB08EF009D8D6C /* Keys.swift */; };
 		7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserPrueba.swift */; };
 		7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */; };
 		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
@@ -125,7 +124,6 @@
 		7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F703F5325F119F000E99318 /* TradesProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesProfile.swift; sourceTree = "<group>"; };
-		7F7411CC25BB08EF009D8D6C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7F92F55B25E7C7A80095E15A /* UserPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrueba.swift; sourceTree = "<group>"; };
 		7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellMainController.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 				53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */,
 				53C6C6BB25EC0BB100393C7A /* Identifiers.swift */,
 				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
-				7F7411CC25BB08EF009D8D6C /* Keys.swift */,
 				53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */,
 				53F194C925EF02B60096055F /* Welcoming.swift */,
 			);
@@ -510,7 +507,6 @@
 				531657F025B7973F0040417F /* Coin.swift in Sources */,
 				53F194C625ED95200096055F /* Images.swift in Sources */,
 				390DAF3E25B707810056BFD5 /* LogInController.swift in Sources */,
-				7F7411CD25BB08EF009D8D6C /* Keys.swift in Sources */,
 				7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */,
 				53C6C6B825EC091B00393C7A /* FieldValidations.swift in Sources */,
 				390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */,

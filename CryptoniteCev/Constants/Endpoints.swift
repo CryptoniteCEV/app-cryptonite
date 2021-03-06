@@ -6,7 +6,7 @@ class Endpoints {
     
     let shared = Endpoints()
     
-    static let domain = "http://192.168.1.40:8080"
+    static let domain = "http://localhost:8888"
     static let path = "/Laravel/api-cryptonite/public/api"
     
     //User´s Petitions

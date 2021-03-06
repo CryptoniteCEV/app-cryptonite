@@ -28,6 +28,9 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         tradeButton.layer.cornerRadius = tradeButton.frame.height / 8
 
     }
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     @IBAction func TradeViewButton(_ sender: Any) {
         performSegue(withIdentifier: "TradeViewID", sender: sender)

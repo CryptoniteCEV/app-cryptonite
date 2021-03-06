@@ -9,15 +9,6 @@
 import Foundation
 import UIKit
 
-var tradesFeed = [
-    Trade(coin: "BTC", date: 1614810279, quantity: 5, price: 500, isSell: 1),
-    Trade(coin: "DOGE", date: 1614810279, quantity: 44, price: 500, isSell: 0),
-    Trade(coin: "ETH", date: 1614810279, quantity: 57, price: 500, isSell: 0),
-    Trade(coin: "BTC", date: 1614810279, quantity: 25, price: 500, isSell: 1),
-    Trade(coin: "LITE", date: 1614810279, quantity: 99, price: 500, isSell: 0),
-    Trade(coin: "SFP", date: 1614810279, quantity: 77, price: 500, isSell: 1)
-]
-
 extension TradingController: UITableViewDataSource, UITableViewDelegate {
     
     
