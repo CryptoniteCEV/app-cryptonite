@@ -15,12 +15,9 @@ class TradingController: UIViewController {
     
     @IBOutlet weak var curentPrice: UILabel!
     @IBOutlet weak var tradeTableView: UITableView!
-    
-    @IBOutlet weak var coinDropdown: DropDown!
 
-    @IBOutlet var buyButton: UIButton!
-    
-    @IBOutlet var sellButton: UIButton!
+    @IBOutlet weak var coinsSC: UISegmentedControl!
+    @IBOutlet weak var buySellSC: UISegmentedControl!
     
     @IBOutlet var buyOrSellButton: UIButton!
     
@@ -29,93 +26,105 @@ class TradingController: UIViewController {
     var trades:[Trade] = []
     var coins:[Coin] = []
     var wallets:[CoinsQuantities] = []
-    var selected = 0
+    
+    var cryptoPos = 0
+    var dollarPos = 0
     var isSell = 0
     var tradeType = "Buy "
-    
-    @IBAction func buySelected(_ sender: UIButton) {
-        sender.backgroundColor = #colorLiteral(red: 0.2767237127, green: 0.8484591842, blue: 0.7351078391, alpha: 1)
-        sender.alpha = 1
-        sender.setTitleColor(#colorLiteral(red: 0.07450980392, green: 0.1215686275, blue: 0.2039215686, alpha: 1), for: .normal)
-        sellButton.alpha = 0.4
-        sellButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        buyOrSellButton.backgroundColor = #colorLiteral(red: 0.2767237127, green: 0.8484591842, blue: 0.7351078391, alpha: 1)
-        buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex!], for: .normal)
-        buyOrSellButton.setTitleColor(#colorLiteral(red: 0.07450980392, green: 0.1215686275, blue: 0.2039215686, alpha: 1), for: .normal)
-        isSell = 0
-        amountValue.value = 0
-        amountTextfield.text = "0"
-        if wallets.count > 0{
-            amountValue.maximumValue = Float(self.wallets[0].inDollars)
-        }
-    }
     
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
-            //buyOrSellButton.isEnabled = false
-            newTrade(is_sell: isSell, quantity: Double(amountValue.value), coin: coinDropdown.optionArray[selected])
+            
+            newTrade(is_sell: isSell, quantity: Double(amountValue.value), coin: coinsSC.titleForSegment(at: cryptoPos)!)
             amountValue.value = 0
             amountTextfield.text = "0"
+            buyOrSellButton.isEnabled = false
+            setProperButtonBuySellColor()
         }
         
     }
     
-    @IBAction func sellSelected(_ sender: UIButton) {
-        sender.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-        sender.alpha = 1
-        sender.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        buyButton.alpha = 0.4
-        buyButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        buyButton.setTitleColor(UIColor.white, for: .normal)
-        buyOrSellButton.setTitle("Sell " + coinDropdown.optionArray[coinDropdown.selectedIndex!], for: .normal)
-        buyOrSellButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-        buyOrSellButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        isSell = 1
-        amountValue.value = 0
-        amountTextfield.text = "0"
-        
-        if let price = inWallet(coin: coinDropdown.optionArray[selected]){
-            self.amountValue.maximumValue = Float(price)
-        }
-        
-    }
     
     @IBAction func amountSlider(_ sender: UISlider) {
         amountTextfield.text = sender.value.description
+        setProperButtonBuySellColor()
+        
+        if amountTextfield.text == "0.0"{
+            amountTextfield.text = "0"
+        }
     }
     
-    @IBAction func coinSelected(_ sender: DropDown) {
-        print("hola")
-        
-        /*coinDropdown.didSelect{(selectedText , index ,id) in
-            self.selected = index
-            self.amountValue.value = 0
-            self.amountTextfield.text = "0"
-            if self.isSell == 1 {
-                
-                self.tradeType = "Sell "
-                self.amountValue.maximumValue = Float(self.wallets[self.selected].quantity)
-                
+    func setProperButtonBuySellColor(){
+        if amountValue.value>0{
+            buyOrSellButton.isEnabled = true
+            if isSell == 0{
+                buyOrSellButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                buyOrSellButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
             }else{
-                self.tradeType = "Buy "
-                if self.wallets.count > 0{
-                    self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
-                }
+                buyOrSellButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                buyOrSellButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             }
-            
-            if self.coins.count > 0{
-                self.curentPrice.text = String(self.coins[index].price) + "$"
-            }
-            
-            self.buyOrSellButton.setTitle(self.tradeType + self.coinDropdown.optionArray[index], for: .normal)
-            
-        }*/
+        }else{
+            buyOrSellButton.isEnabled = false
+            buyOrSellButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+            buyOrSellButton.setTitleColor(UIColor.lightGray, for: .normal)
+        }
+        buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
     }
+    
+   
     override func viewDidAppear(_ animated: Bool) {
         setWallet()
         trades = getTrades()
         coins = getCoins()
+        
+    }
+    
+    @IBAction func onSelectAmountField(_ sender: Any) {
+        
+        if (amountTextfield.text! as NSString).floatValue > amountValue.maximumValue{
+            amountTextfield.text = String(amountValue.maximumValue)
+        }
+        
+    }
+    
+    @IBAction func onSelectCoin(_ sender: Any) {
+        cryptoPos = coinsSC.selectedSegmentIndex
+        curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+        amountValue.value = 0
+        amountTextfield.text = "0"
+        
+        if buySellSC.selectedSegmentIndex == 0{
+            amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
+        }else{
+            amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+        }
+        
+        setProperButtonBuySellColor()
+    }
+    
+    @IBAction func onSelectBuySell(_ sender: Any) {
+        amountValue.maximumValue = 0
+        
+        if buySellSC.selectedSegmentIndex == 0{
+            isSell = 0
+            self.tradeType = "Buy "
+            buySellSC.selectedSegmentTintColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
+            
+        }else{
+            isSell=1
+            self.tradeType = "Sell "
+            buySellSC.selectedSegmentTintColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+            amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+            
+        }
+        
+        setProperButtonBuySellColor()
+        amountValue.value = 0
+        amountTextfield.text = "0"
+        
         
     }
     
@@ -126,12 +135,9 @@ class TradingController: UIViewController {
         tradeTableView.delegate = self
         tradeTableView.dataSource = self
         
+        buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         amountValue.maximumValue = 0
         amountTextfield.text = "0"
-        coinDropdown.optionArray = ["BTC", "ETH", "DOGE", "LTC"]
-        coinDropdown.selectedIndex = 0
-        coinDropdown.text = coinDropdown.optionArray[coinDropdown.selectedIndex!]
-        buyOrSellButton.setTitle("Buy " + coinDropdown.optionArray[coinDropdown.selectedIndex!], for: .normal)
         
     }
     
@@ -149,7 +155,7 @@ class TradingController: UIViewController {
                            for i in 1..<data.count {
                                self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
                            }
-                        self.curentPrice.text = String(self.coins[self.coinDropdown.selectedIndex!].price) + "$"
+                        self.curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
                    }
                 }
             }
@@ -206,7 +212,6 @@ class TradingController: UIViewController {
                         self.setWallet()
                         self.trades = self.getTrades()
                         self.tradeTableView.reloadData()
-                        //self.buyOrSellButton.isEnabled = true
                     }
                 }
             }
@@ -227,28 +232,14 @@ class TradingController: UIViewController {
                         }
                         if self.isSell == 0{
                             self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
-                            print("entrando")
                         }else{
-                            if let price = self.inWallet(coin: self.coinDropdown.optionArray[self.selected]){
-                            self.amountValue.maximumValue = Float(price)
-                            }
+                            self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].inDollars)
                         }
                     }
                 }
             }
         }
         
-    }
-    
-    func inWallet(coin: String) -> Double?
-    {
-        for wallet in wallets {
-            if coin == wallet.symbol {
-                return wallet.quantity
-            }
-        }
-
-        return nil
     }
     
 }
