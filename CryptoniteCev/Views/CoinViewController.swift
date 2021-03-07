@@ -33,7 +33,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     }
     
     @IBAction func TradeViewButton(_ sender: Any) {
-        performSegue(withIdentifier: "TradeViewID", sender: sender)
+        //performSegue(withIdentifier: "TradeViewID", sender: sender)
         
     }
     

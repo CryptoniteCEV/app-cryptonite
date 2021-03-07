@@ -129,8 +129,13 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = coins[indexPath.row]
-        performSegue(withIdentifier: "coinViewID", sender: selectedItem)
+        
+        if coins.count>0 && collectionView == coinCollectionView{
+            let selectedItem = coins[indexPath.row]
+            performSegue(withIdentifier: "coinViewID", sender: selectedItem)
+        }else if collectionView == coinCollectionView{
+            performSegue(withIdentifier: "coinViewID", sender: Any?.self)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

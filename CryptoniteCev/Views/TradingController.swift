@@ -74,6 +74,7 @@ class TradingController: UIViewController {
         isSell = 1
         amountValue.value = 0
         amountTextfield.text = "0"
+        
         if let price = inWallet(coin: coinDropdown.optionArray[selected]){
             self.amountValue.maximumValue = Float(price)
         }
@@ -85,28 +86,31 @@ class TradingController: UIViewController {
     }
     
     @IBAction func coinSelected(_ sender: DropDown) {
-        coinDropdown.didSelect{(selectedText , index ,id) in
+        print("hola")
+        
+        /*coinDropdown.didSelect{(selectedText , index ,id) in
             self.selected = index
             self.amountValue.value = 0
             self.amountTextfield.text = "0"
             if self.isSell == 1 {
+                
                 self.tradeType = "Sell "
-                if let price = self.inWallet(coin: self.coinDropdown.optionArray[self.selected]){
-                    
-                    self.amountValue.maximumValue = Float(price)
-                }
+                self.amountValue.maximumValue = Float(self.wallets[self.selected].quantity)
+                
             }else{
                 self.tradeType = "Buy "
                 if self.wallets.count > 0{
                     self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
                 }
             }
+            
             if self.coins.count > 0{
                 self.curentPrice.text = String(self.coins[index].price) + "$"
             }
+            
             self.buyOrSellButton.setTitle(self.tradeType + self.coinDropdown.optionArray[index], for: .normal)
             
-        }
+        }*/
     }
     override func viewDidAppear(_ animated: Bool) {
         setWallet()
