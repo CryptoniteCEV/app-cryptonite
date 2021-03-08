@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import iOSDropDown
 
 class TradingController: UIViewController {
 
@@ -70,7 +69,14 @@ class TradingController: UIViewController {
             buyOrSellButton.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
             buyOrSellButton.setTitleColor(UIColor.lightGray, for: .normal)
         }
+        
+        if isSell == 0{
+            buySellSC.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
+        }else{
+            buySellSC.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
+        }
         buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
+        
     }
     
    
@@ -138,6 +144,8 @@ class TradingController: UIViewController {
         buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         amountValue.maximumValue = 0
         amountTextfield.text = "0"
+        coinsSC.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
+        buySellSC.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: UIControl.State.selected)
         
     }
     
