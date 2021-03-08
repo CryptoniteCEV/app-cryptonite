@@ -5,17 +5,18 @@ import UIKit
 /**
  Comprueba que el email sea correcto en función de ciertas validaciones del string del textfield, devielve true o false
  */
-public func checkEmail(textFieldEmail:UITextField/*, errorLabel:UILabel*/) -> Bool
+public func checkEmail(textFieldEmail:UITextField, errorLabel:UILabel) -> Bool
 {
     do
     {
         try textFieldEmail.validatedText(.email)
+        errorLabel.isHidden = true
     }
     catch let error
     {
         let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.text = validationError.localizedDescription
+        errorLabel.isHidden = false
+        errorLabel.text = validationError.localizedDescription
         return false
     }
 
@@ -26,18 +27,19 @@ public func checkEmail(textFieldEmail:UITextField/*, errorLabel:UILabel*/) -> Bo
 Comprueba que el password textfield no este vacio, devielve true o false
  En caso de false hace animación en textfield
 */
-public func checkPassword(textFieldPass:UITextField/*, errorLabel:UILabel*/) -> Bool
+public func checkPassword(textFieldPass:UITextField, errorLabel:UILabel) -> Bool
 {
     do
     {
         try textFieldPass.validatedText(.password)
+        errorLabel.isHidden = true
     }
     catch let error
     {
         let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        //errorLabel.text = validationError.localizedDescription
+        errorLabel.isHidden = false
+        errorLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+        errorLabel.text = validationError.localizedDescription
         return false
     }
 
@@ -48,17 +50,18 @@ public func checkPassword(textFieldPass:UITextField/*, errorLabel:UILabel*/) -> 
 Comprueba que el username textfield no este vacio, devielve true o false
  En caso de false hace animación en textfield
 */
-public func checkUsername(textFieldUsername:UITextField/*, errorLabel:UILabel*/) -> Bool
+public func checkUsername(textFieldUsername:UITextField, errorLabel:UILabel) -> Bool
 {
     do
     {
         try textFieldUsername.validatedText(.username)
+        errorLabel.isHidden = true
     }
     catch let error
     {
         let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.text = validationError.localizedDescription
+        errorLabel.isHidden = false
+        errorLabel.text = validationError.localizedDescription
         return false
     }
 
@@ -69,17 +72,18 @@ public func checkUsername(textFieldUsername:UITextField/*, errorLabel:UILabel*/)
 Comprueba que el name  textfield no este vacio, devielve true o false
  En caso de false hace animación en textfield
 */
-public func checkName(textFieldName:UITextField/*, errorLabel:UILabel*/) -> Bool
+public func checkName(textFieldName:UITextField, errorLabel:UILabel) -> Bool
 {
     do
     {
         try textFieldName.validatedText(.name)
+        errorLabel.isHidden = true
     }
     catch let error
     {
         let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.text = validationError.localizedDescription
+        errorLabel.isHidden = false
+        errorLabel.text = validationError.localizedDescription
         return false
     }
 
@@ -90,17 +94,18 @@ public func checkName(textFieldName:UITextField/*, errorLabel:UILabel*/) -> Bool
 Comprueba que el surname textfield no este vacio, devielve true o false
  En caso de false hace animación en textfield
 */
-public func checkSurname(textFieldSurname:UITextField/*, errorLabel:UILabel*/) -> Bool
+public func checkSurname(textFieldSurname:UITextField, errorLabel:UILabel) -> Bool
 {
     do
     {
         try textFieldSurname.validatedText(.surname)
+        errorLabel.isHidden = true
     }
     catch let error
     {
         let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.text = validationError.localizedDescription
+        errorLabel.isHidden = false
+        errorLabel.text = validationError.localizedDescription
         return false
     }
 
