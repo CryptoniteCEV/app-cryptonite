@@ -58,6 +58,7 @@
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
 		F8CCB74425F013DD00F50F7F /* CoinRowWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */; };
 		F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0847125BDFE7900287C60 /* StoriesController.swift */; };
+		F8D5B9B425F6F25900D82164 /* Roboto in Resources */ = {isa = PBXBuildFile; fileRef = F8D5B9B325F6F25900D82164 /* Roboto */; };
 		F8FE716C25EDAA5D0071053D /* TradingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FE716B25EDAA5D0071053D /* TradingController.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
 		F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowWalletController.swift; sourceTree = "<group>"; };
 		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
+		F8D5B9B325F6F25900D82164 /* Roboto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Roboto; sourceTree = "<group>"; };
 		F8FE716B25EDAA5D0071053D /* TradingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +207,7 @@
 		390DAF3825B707810056BFD5 /* CryptoniteCev */ = {
 			isa = PBXGroup;
 			children = (
+				F8D5B9B225F6F23D00D82164 /* Fonts */,
 				5393E88225B8AE4200C647FD /* Controllers */,
 				5393E88725B8D57400C647FD /* Services */,
 				390DAF4725B707850056BFD5 /* Info.plist */,
@@ -318,6 +321,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F8D5B9B225F6F23D00D82164 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F8D5B9B325F6F25900D82164 /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,6 +438,7 @@
 				390DAF4625B707850056BFD5 /* LaunchScreen.storyboard in Resources */,
 				390DAF4325B707850056BFD5 /* Assets.xcassets in Resources */,
 				390DAF4125B707810056BFD5 /* Main.storyboard in Resources */,
+				F8D5B9B425F6F25900D82164 /* Roboto in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
