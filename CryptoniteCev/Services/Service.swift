@@ -55,8 +55,14 @@ class Service {
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.getInfo, method: .get, encoding: URLEncoding.default, headers: headers)
     }
     
+    func getCash()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
     
-    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.cash, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+
     func getTradingHistory()->DataRequest{
         let headers:HTTPHeaders = [
             ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
@@ -64,6 +70,33 @@ class Service {
     
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Trading.getTradingHistory, method: .get, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func getProfileTradesInfo(parameters:[String:String])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.userProfileTrades, method: .get,parameters: parameters ,encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func getTradesInfo()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.userTrades, method: .get ,encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func newTrade(parameters:[String:String])-> DataRequest{
+        
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+        
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.trade, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default,headers: headers)
+        
+    }
+    
     func getUsers() {
         
         AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in

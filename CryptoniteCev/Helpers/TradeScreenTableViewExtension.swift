@@ -9,35 +9,27 @@
 import Foundation
 import UIKit
 
-var tradesFeed = [
-    Trade(coin: "BTC", date: "02-07-2015", quantity: 5, price: 500, isSell: 1),
-    Trade(coin: "DOGE", date: "02-12-2019", quantity: 44, price: 500, isSell: 0),
-    Trade(coin: "ETH", date: "02-07-2015", quantity: 57, price: 500, isSell: 0),
-    Trade(coin: "BTC", date: "02-07-2015", quantity: 25, price: 500, isSell: 1),
-    Trade(coin: "LITE", date: "02-07-2015", quantity: 99, price: 500, isSell: 0),
-    Trade(coin: "SFP", date: "02-07-2015", quantity: 77, price: 500, isSell: 1)
-]
-
 extension TradingController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tradesFeed.count
+        return trades.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "trades") as! TradesRow
-        if tradesFeed[indexPath.row].isSell == 0 {
-            cell.buyOrSellImage.image = #imageLiteral(resourceName: "buy")
-        }else{
-            cell.buyOrSellImage.image = #imageLiteral(resourceName: "sell")
+        if trades.count > 0 {
+            if trades[indexPath.row].isSell == 0 {
+                cell.buyOrSellImage.image = #imageLiteral(resourceName: "buy")
+            }else{
+                cell.buyOrSellImage.image = #imageLiteral(resourceName: "sell")
+            }
+            cell.coinLabel.text = trades[indexPath.row].coin + "/USD"
+            cell.tradeDateLabel.text = String(trades[indexPath.row].date)
+            cell.amountLabel.text = String(trades[indexPath.row].quantity)
+            cell.priceLabel.text = String(trades[indexPath.row].price)
         }
-        cell.coinLabel.text = tradesFeed[indexPath.row].coin + "/USD"
-        cell.tradeDateLabel.text = tradesFeed[indexPath.row].date
-        cell.amountLabel.text = String(tradesFeed[indexPath.row].quantity)
-        cell.priceLabel.text = String(tradesFeed[indexPath.row].price)
-        
         return cell
     }
 }

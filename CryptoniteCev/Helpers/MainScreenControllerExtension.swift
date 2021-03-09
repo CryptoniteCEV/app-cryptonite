@@ -128,6 +128,16 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if coins.count>0 && collectionView == coinCollectionView{
+            let selectedItem = coins[indexPath.row]
+            performSegue(withIdentifier: "coinViewID", sender: selectedItem)
+        }else if collectionView == coinCollectionView{
+            performSegue(withIdentifier: "coinViewID", sender: Any?.self)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count
     }
@@ -138,9 +148,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.profilePicActivityIV.image = #imageLiteral(resourceName: "image1")
             cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
             cell.usernameActivityL.text = trades[indexPath.row].username
-            cell.coinSellingL.text = String(trades[indexPath.row].quantity) + " " + trades[indexPath.row].coinFromSymbol
+            cell.coinSellingL.text = String(trades[indexPath.row].quantity)
             cell.iconSellingIV.image = Images.shared.coins[trades[indexPath.row].coinFrom]
-            cell.coinBuyingL.text = String(trades[indexPath.row].converted) + " " + trades[indexPath.row].coinToSymbol
+            cell.coinBuyingL.text = String(trades[indexPath.row].converted)
             cell.iconBuyingIV.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }
         
@@ -157,11 +167,15 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         imageSelected = image
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
             storiesController.storieImage = imageSelected
+        }else if(segue.identifier == "coinViewID"){
+            let coinController = segue.destination as! CoinViewController
+            
         }
     }
 }

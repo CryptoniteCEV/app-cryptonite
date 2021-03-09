@@ -18,6 +18,9 @@ class SignUpController: UIViewController {
         continue_button.layer.cornerRadius = 5
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     @IBAction func ContinueButton(_ sender: Any) {
         

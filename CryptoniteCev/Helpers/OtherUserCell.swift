@@ -12,8 +12,13 @@ class OtherUserCell: UITableViewCell{
     
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var price: UILabel!
+   
     @IBOutlet weak var quantity: UILabel!
-    @IBOutlet weak var currencyIcon: UIImageView!
+    
+    @IBOutlet weak var converted: UILabel!
+    
+    @IBOutlet weak var symbol_from: UIImageView!
+    
+    @IBOutlet weak var symbol_to: UIImageView!
     
 }
