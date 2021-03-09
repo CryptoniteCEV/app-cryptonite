@@ -1254,7 +1254,7 @@
                                                     <color key="titleColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="claimRewards:" destination="5BO-q7-TNj" eventType="touchUpInside" id="Q8V-kJ-zQd"/>
+                                                    <action selector="mission1Cleared:" destination="5BO-q7-TNj" eventType="touchUpInside" id="NLe-mE-5bT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1262,42 +1262,6 @@
                                             <constraint firstItem="ve7-i8-Jfv" firstAttribute="leading" secondItem="u9U-QP-hbb" secondAttribute="trailing" constant="20" id="Ofx-p0-W7W"/>
                                             <constraint firstAttribute="height" constant="50" id="ULZ-FV-z4V"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1l5-Vj-NsH">
-                                        <rect key="frame" x="40" y="199.99999999999994" width="274" height="50"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="045-digital investment" translatesAutoresizingMaskIntoConstraints="NO" id="wAT-xL-68L">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="DWA-yI-R3B"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a new user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-ZO-xMc">
-                                                <rect key="frame" x="70" y="0.0" width="134" height="50"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-P5-sYa">
-                                                <rect key="frame" x="224" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="qxg-4I-1II"/>
-                                                </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="checkmark" catalog="system">
-                                                    <color key="titleColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="claimRewards:" destination="5BO-q7-TNj" eventType="touchUpInside" id="NaJ-a5-n4U"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="52X-PI-pT2"/>
-                                            <constraint firstItem="LZS-ZO-xMc" firstAttribute="leading" secondItem="wAT-xL-68L" secondAttribute="trailing" constant="20" id="YLN-k0-9A2"/>
-                                        </constraints>
-                                        <viewLayoutGuide key="safeArea" id="Brv-zn-fHa"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UfB-ay-MOM">
                                         <rect key="frame" x="40" y="269.99999999999994" width="274" height="50"/>
@@ -1325,7 +1289,7 @@
                                                     <color key="titleColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="claimRewards:" destination="5BO-q7-TNj" eventType="touchUpInside" id="9aW-8x-LIb"/>
+                                                    <action selector="mission3Cleared:" destination="5BO-q7-TNj" eventType="touchUpInside" id="4q1-wx-Tkg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1341,6 +1305,42 @@
                                         <color key="textColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1l5-Vj-NsH">
+                                        <rect key="frame" x="40" y="200" width="274" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="045-digital investment" translatesAutoresizingMaskIntoConstraints="NO" id="wAT-xL-68L">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="DWA-yI-R3B"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a new user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-ZO-xMc">
+                                                <rect key="frame" x="70" y="0.0" width="134" height="50"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcc-P5-sYa">
+                                                <rect key="frame" x="224" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="qxg-4I-1II"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="checkmark" catalog="system">
+                                                    <color key="titleColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="mission2Cleared:" destination="5BO-q7-TNj" eventType="touchUpInside" id="iJ9-rl-pnJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="52X-PI-pT2"/>
+                                            <constraint firstItem="LZS-ZO-xMc" firstAttribute="leading" secondItem="wAT-xL-68L" secondAttribute="trailing" constant="20" id="YLN-k0-9A2"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="Brv-zn-fHa"/>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96954314720812185" green="0.96954314720812185" blue="0.96954314720812185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1453,9 +1453,9 @@
                     <connections>
                         <outlet property="cashLabel" destination="z93-yy-os5" id="Nb1-oy-C8S"/>
                         <outlet property="circleProgressBar" destination="buc-74-Ipg" id="4a0-sd-2Ka"/>
-                        <outlet property="clearMission1" destination="NTO-T0-76P" id="m78-86-bcJ"/>
-                        <outlet property="clearMission2" destination="kcc-P5-sYa" id="5RE-cy-87T"/>
-                        <outlet property="clearMission3" destination="HgP-TE-51A" id="jQE-TH-pgO"/>
+                        <outlet property="mission1Button" destination="NTO-T0-76P" id="wHZ-Ha-kKo"/>
+                        <outlet property="mission2Button" destination="kcc-P5-sYa" id="2dd-ls-6vo"/>
+                        <outlet property="mission3Button" destination="HgP-TE-51A" id="VXg-Hp-esa"/>
                         <outlet property="missionsCard" destination="fGl-Wm-dj0" id="AAI-7f-6nP"/>
                         <outlet property="profileImage" destination="Ntq-ds-ajG" id="0hK-bM-7Dg"/>
                         <outlet property="walletCard" destination="NR9-NL-f4S" id="w0R-19-TYI"/>
