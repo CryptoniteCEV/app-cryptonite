@@ -54,6 +54,10 @@ class GamificationController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+        let level = GetLevel(exp: 200)
+        let nextlevel = NextLevelExp(level: level)
+        let expLeft = nextlevel - 200
+        print(expLeft)
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -83,5 +87,12 @@ class GamificationController: UIViewController {
             let confeti = self.view.viewWithTag(200)
             confeti!.removeFromSuperview()
         }
+    }
+    
+    func GetLevel(exp: Int) -> Int {
+        return exp/200
+    }
+    func NextLevelExp(level: Int) -> Int {
+        return (level + 1)  *  200
     }
 }
