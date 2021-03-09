@@ -30,7 +30,8 @@ class PieChart: UIViewController, ChartViewDelegate{
         let dogeEntry: Double = 20
         let liteEntry: Double = 20
         let tetherEntry: Double = 20
-        
+       
+            
         var entries : [PieChartDataEntry] = Array()
         //Entrada de etherium
         entries.append(PieChartDataEntry(value: etheriumEntry, label: "ETH"))
