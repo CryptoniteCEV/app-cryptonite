@@ -55,7 +55,7 @@ class MainScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
        
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        //navigationController?.setNavigationBarHidden(true, animated: true)
         
         coins = []
         trades = []
@@ -92,6 +92,11 @@ class MainScreenController: UIViewController {
                     }
                 }
             }
+        }else {//cuando no hay conexion: PlaceHolders
+            
+           
+            	
+            
         }
     }
 }

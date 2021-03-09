@@ -11,8 +11,8 @@ class PieChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-        pieChart.rotationAngle = 0
-        pieChart.rotationEnabled = false
+        /*pieChart.rotationAngle = 0
+        pieChart.rotationEnabled = false*/
         
         pieChart.drawHoleEnabled = false
         //5print("está haciendo la funcion")
@@ -62,6 +62,7 @@ class PieChart: UIViewController, ChartViewDelegate{
         set.colors = [etheriumColor, bitcoinColor,dogeColor,liteColor,tetherColor]
         set.valueColors =  [valueColor]
         set.entryLabelColor = labelEntryColor
+        
         
         
         
