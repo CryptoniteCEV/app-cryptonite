@@ -12,6 +12,8 @@ var images : [UIImage] = []
 
 var imageSelected : UIImage?
 
+//imagen que venga con el token
+var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
 var userPrueba = [
     UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", percentage: "+22,89%"),
@@ -37,7 +39,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
         if(images.count == 0){
             
-            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "logoNoText"))
             images.append(#imageLiteral(resourceName: "image1"))
             images.append(#imageLiteral(resourceName: "image1"))
             images.append(#imageLiteral(resourceName: "image1"))
@@ -81,8 +83,17 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //primera foto sea tu perfil.
+        
+        
+        
         
         if collectionView == storiesView {
+            
+            print("posicion", indexPath)
+            if(indexPath.row == 0){
+                
+            }
             let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
             cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
             return cell
@@ -133,8 +144,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if coins.count>0 && collectionView == coinCollectionView{
             let selectedItem = coins[indexPath.row]
             performSegue(withIdentifier: "coinViewID", sender: selectedItem)
-        }else if collectionView == coinCollectionView{
-            performSegue(withIdentifier: "coinViewID", sender: Any?.self)
+        }else if collectionView == storiesView {
+            performSegue(withIdentifier: "gaming", sender: Any?.self)
         }
     }
     
@@ -159,7 +170,14 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     
     @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
+        print("pulsado")
+    
+        
+    
         setImage(image: sender.image(for: .normal)!)
+        if (imageSelected == myProfilePic){
+            self.performSegue(withIdentifier: "gaming", sender: sender)
+        }
         self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
     }
     

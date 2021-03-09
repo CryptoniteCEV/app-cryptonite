@@ -78,7 +78,7 @@ class GamificationController: UIViewController {
         print(expLeft)
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        //navigationController?.setNavigationBarHidden(false, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getCash()
