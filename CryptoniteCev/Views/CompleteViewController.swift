@@ -61,7 +61,8 @@ class CompleteViewController: UIViewController {
         
         if checkUsername(textFieldUsername: usernameTF, errorLabel: usernameErrorL) && checkName(textFieldName: nameTF, errorLabel: nameErrorL) && checkSurname(textFieldSurname: surnameTF, errorLabel: surnameErrorL){
             
-            let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, date_of_birth: /*date_picker.text!*/"2020-12-02")
+            
+            let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, profilePic: Int.random(in: 0..<Images.shared.users.count))
             
             if Service.isConnectedToInternet {
                 let request = Service.shared.register(user: user)

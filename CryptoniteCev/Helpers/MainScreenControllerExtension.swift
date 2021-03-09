@@ -37,12 +37,12 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
         if(images.count == 0){
             
-            images.append(#imageLiteral(resourceName: "image1"))
-            images.append(#imageLiteral(resourceName: "image1"))
-            images.append(#imageLiteral(resourceName: "image1"))
-            images.append(#imageLiteral(resourceName: "image1"))
-            images.append(#imageLiteral(resourceName: "image1"))
-            images.append(#imageLiteral(resourceName: "image1"))
+            images.append(#imageLiteral(resourceName: "user1.png"))
+            images.append(#imageLiteral(resourceName: "user13"))
+            images.append(#imageLiteral(resourceName: "user15"))
+            images.append(#imageLiteral(resourceName: "user7"))
+            images.append(#imageLiteral(resourceName: "user12"))
+            images.append(#imageLiteral(resourceName: "user6"))
         }
     }
     
@@ -145,7 +145,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellActivity") as! ActivityRow
         if(trades.count>0){
-            cell.profilePicActivityIV.image = #imageLiteral(resourceName: "image1")
+            cell.profilePicActivityIV.image = Images.shared.users[trades[indexPath.row].profilePic]
             cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
             cell.usernameActivityL.text = trades[indexPath.row].username
             cell.coinSellingL.text = String(trades[indexPath.row].quantity)

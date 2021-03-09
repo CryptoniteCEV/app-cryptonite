@@ -22,7 +22,7 @@ class Endpoints {
         static let updateExperience:String = "/users/update/exp"
         static let getFollowers:String = "/users/followers/list"
         static let trade:String = "/users/trade/coin"
-        static let all:String = "/users/all"
+        static let all:String = "/users/list"
         static let userTrades:String = "/users/trades/info"
         static let userProfileTrades:String = "/users/trades/profile/info"
     }

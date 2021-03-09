@@ -8,8 +8,7 @@ class User : Encodable, Decodable{
     private var _email:String
     private var _name:String
     private var _surname:String
-    private var _date_of_birth:String
-    private var _profilePic:String?
+    private var _profilePic:Int
     private var _password:String
     
     enum CodingKeys:String, CodingKey {
@@ -18,17 +17,17 @@ class User : Encodable, Decodable{
         case _email = "email"
         case _surname = "surname"
         case _password = "password"
-        case _date_of_birth = "date_of_birth"
+        case _profilePic = "profile_pic"
     }
     
-    init(username:String, email:String, name:String, surname:String, password:String, date_of_birth:String){
+    init(username:String, email:String, name:String, surname:String, password:String, profilePic:Int){
         
         self._username = username
         self._email = email
         self._name = name
         self._surname = surname
         self._password = password
-        self._date_of_birth = date_of_birth
+        self._profilePic = profilePic
     }
     
     public var name: String {
@@ -59,22 +58,14 @@ class User : Encodable, Decodable{
         }
     }
     
-    public var profilePic: String {
+    public var profilePic: Int {
         get {
-            return self._profilePic!;
+            return self._profilePic;
         }
         set {
             self._profilePic = newValue
         }
     }
-    
-    public var date_of_birth: String {
-        get {
-            return self._date_of_birth;
-        }
-        set {
-            self._date_of_birth = newValue
-        }
-    }
+
     
 }

@@ -11,8 +11,9 @@ class TradeHistory : Decodable, Encodable{
     private var _quantity:Double
     private var _username:String
     private var _converted:Double
+    private var _profilePic:Int
     
-    init(coinFrom:String, coinTo:String, coinFromSymbol:String, coinToSymbol:String ,quantity:Double, username:String, converted:Double){
+    init(coinFrom:String, coinTo:String, coinFromSymbol:String, coinToSymbol:String ,quantity:Double, username:String, converted:Double, profilePic:Int){
         
         self._coinFrom = coinFrom
         self._coinTo = coinTo
@@ -21,6 +22,7 @@ class TradeHistory : Decodable, Encodable{
         self._quantity = quantity
         self._username = username
         self._converted = converted
+        self._profilePic = profilePic
         
     }
     
@@ -80,6 +82,15 @@ class TradeHistory : Decodable, Encodable{
         }
         set {
             self._username = newValue
+        }
+    }
+    
+    public var profilePic: Int {
+        get {
+            return self._profilePic;
+        }
+        set {
+            self._profilePic = newValue
         }
     }
 }

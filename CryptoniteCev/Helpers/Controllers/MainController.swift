@@ -8,7 +8,7 @@ class MainController {
         var imagesList:[String] = []
         
         for user in users {
-            imagesList.append(user.profilePic)
+            //imagesList.append(user.profilePic)
         }
         
         return imagesList

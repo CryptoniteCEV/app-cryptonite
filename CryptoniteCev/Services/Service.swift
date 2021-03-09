@@ -97,24 +97,12 @@ class Service {
         
     }
     
-    func getUsers() {
-        
-        AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor:nil).response { (responseData) in
-            guard let data = responseData.data else {return}
-            
-            do{
-                let users = try JSONDecoder().decode([User].self, from: data)
-                print("users == \(users)")
-                
-                for user in users{
-                    print(user.email)
-                }
-                
-            }catch{
-                print("Error decoding == \(error)")
-            }
-        }
-        
+    func getUsers()->DataRequest{
+        /*let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]*/
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, encoding: URLEncoding.default/*, headers: headers*/)
     }
     
 }

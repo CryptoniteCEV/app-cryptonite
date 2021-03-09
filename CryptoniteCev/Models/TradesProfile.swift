@@ -11,7 +11,7 @@ class TradesProfile : Decodable, Encodable{
     private var _quantity:Double
     private var _converted:Double
     
-    init( coinFrom:String, coinTo:String, coinFromSymbol:String, coinToSymbol:String ,quantity:Double, converted:Double){
+    init(coinFrom:String, coinTo:String, coinFromSymbol:String, coinToSymbol:String ,quantity:Double, converted:Double){
         
         self._coinFrom = coinFrom
         self._coinTo = coinTo
