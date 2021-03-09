@@ -26,6 +26,7 @@ class Endpoints {
         static let userTrades:String = "/users/trades/info"
         static let userProfileTrades:String = "/users/trades/profile/info"
     }
+    
     //Score´s petitions
     enum Score {
         static let getScores:String = "/scores/list"
