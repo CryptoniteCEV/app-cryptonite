@@ -7,11 +7,16 @@ class SignUpController: UIViewController {
     @IBOutlet weak var continue_button: UIButton!
     
     @IBOutlet weak var emailTF: UnderlinedTextField!
+    @IBOutlet weak var emailErrorL: UILabel!
     
     @IBOutlet weak var passwordTF: UnderlinedTextField!
+    @IBOutlet weak var passwordErrorL: UILabel!
+    
     
     let identifiers = Identifiers.shared
     @IBOutlet weak var isAdultSW: UISwitch!
+    @IBOutlet weak var isAdultErrorL: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -24,9 +29,12 @@ class SignUpController: UIViewController {
     
     @IBAction func ContinueButton(_ sender: Any) {
         
-        if checkEmail(textFieldEmail: emailTF/*, errorLabel: ErrorUserLabel*/) && checkPassword(textFieldPass: passwordTF/*, errorLabel: ErrorPassLabel*/){
+        if checkEmail(textFieldEmail: emailTF, errorLabel: emailErrorL) && checkPassword(textFieldPass: passwordTF, errorLabel: passwordErrorL){
             if isAdultSW.isOn{
+                isAdultErrorL.isHidden = true
                 self.performSegue(withIdentifier: self.identifiers.toCompletion, sender: sender)
+            }else {
+                isAdultErrorL.isHidden = false
             }
         }
     }

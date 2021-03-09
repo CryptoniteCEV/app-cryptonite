@@ -7,12 +7,16 @@ class CompleteViewController: UIViewController {
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var date_picker: UITextField!
     let date = UIDatePicker()
+    @IBOutlet weak var datePickerErrorL: UILabel!
     
     @IBOutlet weak var usernameTF: UnderlinedTextField!
+    @IBOutlet weak var usernameErrorL: UILabel!
     @IBOutlet weak var nameTF: UnderlinedTextField!
+    @IBOutlet weak var nameErrorL: UILabel!
     var email:String?
     var password:String?
     @IBOutlet weak var surnameTF: UnderlinedTextField!
+    @IBOutlet weak var surnameErrorL: UILabel!
     
     let identifiers = Identifiers.shared
     override func viewDidLoad() {
@@ -55,17 +59,20 @@ class CompleteViewController: UIViewController {
     
     @IBAction func FinishedButton(_ sender: Any) {
         
-        let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, date_of_birth: /*date_picker.text!*/"2020-12-02")
-        
-        if Service.isConnectedToInternet {
-            let request = Service.shared.register(user: user)
+        if checkUsername(textFieldUsername: usernameTF, errorLabel: usernameErrorL) && checkName(textFieldName: nameTF, errorLabel: nameErrorL) && checkSurname(textFieldSurname: surnameTF, errorLabel: surnameErrorL){
             
-            request.responseJSON { (response) in
-                if let body = response.value as? [String: Any]{
-                    if(response.response?.statusCode == StatusCodes.shared.created){
-                        self.goToLogInScreen()
-                    }else{
-                        print(body["message"]!)
+            let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, date_of_birth: /*date_picker.text!*/"2020-12-02")
+            
+            if Service.isConnectedToInternet {
+                let request = Service.shared.register(user: user)
+                
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String: Any]{
+                        if(response.response?.statusCode == StatusCodes.shared.created){
+                            self.goToLogInScreen()
+                        }else{
+                            print(body["message"]!)
+                        }
                     }
                 }
             }
