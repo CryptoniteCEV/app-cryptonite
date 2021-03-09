@@ -23,6 +23,7 @@ class MainScreenController: UIViewController {
     
     var coins:[Coin] = []
     var trades:[TradeHistory] = []
+    var users:[UserMain] = []
     var coinImages:[UIImage] = []
     
     override func viewDidLoad() {

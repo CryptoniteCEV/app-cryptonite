@@ -13,11 +13,11 @@ var images : [UIImage] = []
 var imageSelected : UIImage?
 
 
-var userPrueba = [
-    UserPrueba(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), user_name: "@leoMessi10", percentage: "+22,89%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "descarga (1)"), user_name: "@andreita93", percentage: "+38,57%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), user_name: "@elJuanCar", percentage: "-44,98%"),
-    UserPrueba(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), user_name: "@shurmano77", percentage: "+15,14%")
+var users = [
+    UserMain(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), username: "@leoMessi10", percentage: "+22,89%"),
+    UserMain(profilePic: #imageLiteral(resourceName: "descarga (1)"), username: "@andreita93", percentage: "+38,57%"),
+    UserMain(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), username: "@elJuanCar", percentage: "-44,98%"),
+    UserMain(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), username: "@shurmano77", percentage: "+15,14%")
 ]
 
   
@@ -76,7 +76,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 return coinImages.count
             }
         } else {
-            return userPrueba.count
+            return users.count
         }
         
     }    
@@ -112,10 +112,10 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         else {
             let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellMainController
             
-            cellUser.profilePicIV.image = userPrueba[indexPath.row].profilePic
+            cellUser.profilePicIV.image = users[indexPath.row].profilePic
             cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
-            cellUser.usernameL.text = userPrueba[indexPath.row].user_name
-            cellUser.percentageUserL.text = userPrueba[indexPath.row].percentage
+            cellUser.usernameL.text = users[indexPath.row].user_name
+            cellUser.percentageUserL.text = users[indexPath.row].percentage
             if(cellUser.percentageUserL.text?.first == "-") {
                 cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             }else {
@@ -175,7 +175,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             storiesController.storieImage = imageSelected
         }else if(segue.identifier == "coinViewID"){
             let coinController = segue.destination as! CoinViewController
-            
         }
     }
 }

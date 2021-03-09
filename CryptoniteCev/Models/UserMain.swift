@@ -2,11 +2,11 @@
 import Foundation
 import UIKit
 
-class UserPrueba {
+class UserMain {
     
     private var _profilePic:UIImage
-    private var _user_name:String
-    private var _percentage:String
+    private var _username:String
+    private var _percentage:String?
     
     
     enum CodingKeys: String, CodingKey {
@@ -17,10 +17,10 @@ class UserPrueba {
         
     }
     
-    init(profilePic:UIImage, user_name:String, percentage:String){
+    init(profilePic:UIImage, username:String, percentage:String){
         
         self._profilePic = profilePic
-        self._user_name = user_name
+        self._username = username
         self._percentage = percentage
     }
     
@@ -32,11 +32,11 @@ class UserPrueba {
     
     public var user_name: String {
         get {
-            return self._user_name
+            return self._username
         }
     }
     
-    public var percentage: String {
+    public var percentage: String? {
         get {
             return self._percentage
         }

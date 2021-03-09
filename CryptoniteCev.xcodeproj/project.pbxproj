@@ -46,7 +46,7 @@
 		7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
 		7F703F5425F119F000E99318 /* TradesProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F703F5325F119F000E99318 /* TradesProfile.swift */; };
-		7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserPrueba.swift */; };
+		7F92F55C25E7C7A80095E15A /* UserMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55B25E7C7A80095E15A /* UserMain.swift */; };
 		7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */; };
 		7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F944AA825B9AF3D00A9854E /* MainScreenController.swift */; };
 		7F987F9725C8261900BCD586 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F987F9625C8261900BCD586 /* PieChart.swift */; };
@@ -125,7 +125,7 @@
 		7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
 		7F703F5325F119F000E99318 /* TradesProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesProfile.swift; sourceTree = "<group>"; };
-		7F92F55B25E7C7A80095E15A /* UserPrueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrueba.swift; sourceTree = "<group>"; };
+		7F92F55B25E7C7A80095E15A /* UserMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMain.swift; sourceTree = "<group>"; };
 		7F92F55D25E7CA1B0095E15A /* UserCellMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellMainController.swift; sourceTree = "<group>"; };
 		7F944AA825B9AF3D00A9854E /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		7F987F9625C8261900BCD586 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				531657EF25B7973F0040417F /* Coin.swift */,
 				531657ED25B7972D0040417F /* Trade.swift */,
 				531657EB25B7970B0040417F /* User.swift */,
-				7F92F55B25E7C7A80095E15A /* UserPrueba.swift */,
+				7F92F55B25E7C7A80095E15A /* UserMain.swift */,
 				7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */,
 				53F194C725EEB3450096055F /* TradeHistory.swift */,
 				7F703F5325F119F000E99318 /* TradesProfile.swift */,
@@ -509,7 +509,7 @@
 				53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */,
 				531657F225B797510040417F /* Wallet.swift in Sources */,
 				7F987F9725C8261900BCD586 /* PieChart.swift in Sources */,
-				7F92F55C25E7C7A80095E15A /* UserPrueba.swift in Sources */,
+				7F92F55C25E7C7A80095E15A /* UserMain.swift in Sources */,
 				53C6C6B225EC04DD00393C7A /* ApiBodyNames.swift in Sources */,
 				7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */,
 				7F9B021F25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift in Sources */,
