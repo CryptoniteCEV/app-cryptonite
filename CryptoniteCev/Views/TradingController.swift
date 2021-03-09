@@ -42,8 +42,15 @@ class TradingController: UIViewController {
             setProperButtonBuySellColor()
         }
         
+        if(wallets.count>0){
+            if buySellSC.selectedSegmentIndex == 0{
+                amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
+            }else{
+                amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+            }
+        }
+        
     }
-    
     
     @IBAction func amountSlider(_ sender: UISlider) {
         amountTextfield.text = sender.value.description
@@ -97,14 +104,17 @@ class TradingController: UIViewController {
     
     @IBAction func onSelectCoin(_ sender: Any) {
         cryptoPos = coinsSC.selectedSegmentIndex
-        curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+        if(coins.count>0){
+            curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+        }
         amountValue.value = 0
         amountTextfield.text = "0"
-        
-        if buySellSC.selectedSegmentIndex == 0{
-            amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
-        }else{
-            amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+        if(wallets.count>0){
+            if buySellSC.selectedSegmentIndex == 0{
+                amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
+            }else{
+                amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+            }
         }
         
         setProperButtonBuySellColor()
@@ -117,20 +127,21 @@ class TradingController: UIViewController {
             isSell = 0
             self.tradeType = "Buy "
             buySellSC.selectedSegmentTintColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-            amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
-            
+            if(wallets.count>0){
+                amountValue.maximumValue = Float(self.wallets[dollarPos].inDollars)
+            }
         }else{
             isSell=1
             self.tradeType = "Sell "
             buySellSC.selectedSegmentTintColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-            amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
-            
+                if(wallets.count>0){
+                amountValue.maximumValue = Float(self.wallets[cryptoPos+1].quantity)
+            }
         }
         
         setProperButtonBuySellColor()
         amountValue.value = 0
         amountTextfield.text = "0"
-        
         
     }
     
@@ -230,18 +241,21 @@ class TradingController: UIViewController {
         wallets = []
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-                let request = Service.shared.getCoinsWithQuantities()
+                let request = Service.shared.getWallets()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
-                        let data = body["data"]! as! [[String:Any]]
+                        if let data = body["data"]! as? [String:Any]{
+                            let walletsReceived = data["Wallets"] as! [[String:Any]]
                    
-                        for i in 0..<data.count {
-                            self.wallets.append(CoinsQuantities(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, quantity: (data[i]["Quantity"] as? Double)!, inDollars: (data[i]["inDollars"] as? Double)!))
-                        }
-                        if self.isSell == 0{
-                            self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
-                        }else{
-                            self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].inDollars)
+                            for i in 0..<walletsReceived.count {
+                                self.wallets.append(CoinsQuantities(name: (walletsReceived[i]["Name"] as? String)!, symbol: (walletsReceived[i]["Symbol"]! as? String)!, quantity: (walletsReceived[i]["Quantity"] as? Double)!, inDollars: (walletsReceived[i]["inDollars"] as? Double)!))
+                            }
+                            
+                            if self.isSell == 0{
+                                self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
+                            }else{
+                                self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].quantity)
+                            }
                         }
                     }
                 }
