@@ -38,14 +38,17 @@ class GamificationController: UIViewController {
     var experiencePerMission = 200
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
+        experience += experiencePerMission
         claimRewards()
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
+        experience += experiencePerMission
         claimRewards()
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
+        experience += experiencePerMission
         claimRewards()
     }
 
@@ -69,9 +72,9 @@ class GamificationController: UIViewController {
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
         
-        let level = GetLevel(exp: 200)
+        let level = GetLevel(exp: self.experiencePerMission)
         let nextlevel = NextLevelExp(level: level)
-        let expLeft = nextlevel - 200
+        let expLeft = nextlevel - self.experiencePerMission
         print(expLeft)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -110,9 +113,9 @@ class GamificationController: UIViewController {
     }
     
     func GetLevel(exp: Int) -> Int {
-        return exp/200
+        return exp/self.experiencePerMission
     }
     func NextLevelExp(level: Int) -> Int {
-        return (level + 1)  *  200
+        return (level + 1)  *  self.experiencePerMission
     }
 }
