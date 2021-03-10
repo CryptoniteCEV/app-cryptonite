@@ -60,6 +60,7 @@ class MainScreenController: UIViewController {
         
         coins = []
         trades = []
+        users = []
         
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
