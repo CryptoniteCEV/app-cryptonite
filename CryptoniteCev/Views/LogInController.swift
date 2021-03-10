@@ -41,11 +41,7 @@ class LogInController: UIViewController {
                             self.navigationController?.setNavigationBarHidden(true, animated: true)
                             self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
                         }else{
-                            print(body["message"]!)
-                            let leftView = UIImageView(image: #imageLiteral(resourceName: "error"))
-                            let banner = NotificationBanner(title: body["message"]! as! String, subtitle: "Error",leftView: leftView, style: .danger)
-                            banner.haptic = .heavy
-                            banner.bannerHeight = 110
+                            let banner = Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")
                             banner.show()
                         }
                     }else{
@@ -54,6 +50,8 @@ class LogInController: UIViewController {
                     }
                 }
             }else{
+                let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
+                banner.show()
                 self.navigationController?.setNavigationBarHidden(true, animated: true)
                 self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
             }

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftConfettiView
 import CircleProgressBar
+import NotificationBannerSwift
 
 class GamificationController: UIViewController {
     
@@ -169,7 +170,9 @@ class GamificationController: UIViewController {
             prevLevel = level
             DispatchQueue.main.async {
                 self.circleProgressBar.setProgress(CGFloat(1), animated: true)
-            }
+                let banner = Banners.shared.levelUpBanner(title: "Congrats! You have just reached level " + String(Int(self.level)))
+                banner.show()
+            }            
         }
         self.levelLabel.text = String(Int(level))
     }

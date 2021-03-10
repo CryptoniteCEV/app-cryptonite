@@ -21,4 +21,4 @@ class Missions{
                      Mission(id: 3, image: #imageLiteral(resourceName: "045-digital investment"), title: "Follow someone"),
                      Mission(id: 4, image: #imageLiteral(resourceName: "021-Litecoin"), title: "Sell LTC"),
                      Mission(id: 5, image: #imageLiteral(resourceName: "008-cryptovault"), title: "Sell everything to USDT")]
-    }
+}
