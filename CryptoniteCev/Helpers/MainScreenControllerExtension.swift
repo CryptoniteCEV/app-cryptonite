@@ -83,8 +83,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if stories.count > 0{
                 cell.storiesImageView?.image = stories[indexPath.row].profilePic
                 cell.storiesImageView.layer.cornerRadius = cell.storiesImageView.frame.height/2
-                cell.storiesImageView.layer.borderWidth = 3
-                cell.storiesImageView.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                cell.layer.cornerRadius = cell.frame.width/2
+                cell.layer.borderWidth = 3
+                cell.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
                 //cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
                 //cell.bg.setBackgroundImage(users[indexPath.row].profilePic, for: .normal)
             }
@@ -142,11 +143,15 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             performSegue(withIdentifier: "stories", sender: selectedItem)
         }*/ else if collectionView == storiesCollectionView {
             let selectedItem = stories[indexPath.row].profilePic
+            let cell = storiesCollectionView.cellForItem(at: indexPath)
+            cell?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: "gaming", sender: selectedItem)
+            }
             
-            //performSegue(withIdentifier: "stories", sender: selectedItem)
+            performSegue(withIdentifier: "stories", sender: selectedItem)
         }
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count
@@ -176,10 +181,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }
         self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
     }
-    
-    @objc func imageTappedInCollectionViewCell(_ sender: StoriesCell){
-        sender.storiesImageView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-    }
+
     
     func setImage(image: UIImage){
         imageSelected = image
