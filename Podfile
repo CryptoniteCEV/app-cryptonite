@@ -8,6 +8,7 @@ target 'CryptoniteCev' do
   pod 'Charts'	
   pod 'SwiftConfettiView'
   pod 'CircleProgressBar', '~> 0.32’
+  pod 'NotificationBannerSwift', '~> 3.0.0'
 
   # Pods for CryptoniteCev
 
