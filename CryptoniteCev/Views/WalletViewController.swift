@@ -6,12 +6,12 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     ChartViewDelegate
 {
  
-    @IBAction func goGamification(_ sender: UIButton) {
+    /*@IBAction func goGamification(_ sender: UIButton) {
         navigationController?.setNavigationBarHidden(false, animated: true)
         let backItem = UIBarButtonItem()
         backItem.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
-    }
+    }*/
     @IBOutlet weak var container: UIView!
     
     var cash:Double = 0
