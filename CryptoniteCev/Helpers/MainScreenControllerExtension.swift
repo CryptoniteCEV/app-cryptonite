@@ -16,14 +16,14 @@ var imageSelected : UIImage?
 var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
   
-fileprivate let storiesView:UICollectionView = {
+/*fileprivate let storiesView:UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
     cv.translatesAutoresizingMaskIntoConstraints = false
     cv.register(CircleCell.self, forCellWithReuseIdentifier: "cell")
     return cv
-}()
+}()*/
 
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -41,7 +41,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }
     }
     
-    func createStoriesView() -> UICollectionView {
+    /*func createStoriesView() -> UICollectionView {
         storiesView.backgroundColor = .none
         storiesView.delegate = self
         storiesView.dataSource = self
@@ -55,15 +55,15 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         stories.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
         stories.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
         stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
-    }
+    }*/
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: storiesView.frame.width/5, height: storiesView.frame.width/5)
-    }
+    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: storiesCollectionView.frame.width/5, height: storiesCollectionView.frame.width/5)
+    }*/
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == storiesView {
-            return images.count
+        if collectionView == storiesCollectionView {
+            return stories.count
         } else if collectionView == coinCollectionView {
             if coins.count>0{
                 return coins.count
@@ -78,10 +78,14 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //primera foto sea tu perfil.
         
-        if collectionView == storiesView {
-            let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
-            if users.count > 0{
-                cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
+        if collectionView == storiesCollectionView {
+            let cell = storiesCollectionView.dequeueReusableCell(withReuseIdentifier: "CellStories", for: indexPath) as! StoriesCell
+            if stories.count > 0{
+                cell.storiesImageView?.image = stories[indexPath.row].profilePic
+                cell.storiesImageView.layer.cornerRadius = cell.storiesImageView.frame.height/2
+                cell.storiesImageView.layer.borderWidth = 3
+                cell.storiesImageView.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                //cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
                 //cell.bg.setBackgroundImage(users[indexPath.row].profilePic, for: .normal)
             }
             return cell
@@ -133,11 +137,16 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if coins.count>0 && collectionView == coinCollectionView{
             let selectedItem = coins[indexPath.row].name
             performSegue(withIdentifier: "coinViewID", sender: selectedItem)
-        }else if collectionView == usersCollectionView {
+        }/*else if collectionView == usersCollectionView {
             let selectedItem = users[indexPath.row].username
             performSegue(withIdentifier: "stories", sender: selectedItem)
+        }*/ else if collectionView == storiesCollectionView {
+            let selectedItem = stories[indexPath.row].profilePic
+            
+            //performSegue(withIdentifier: "stories", sender: selectedItem)
         }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count
@@ -168,6 +177,10 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
     }
     
+    @objc func imageTappedInCollectionViewCell(_ sender: StoriesCell){
+        sender.storiesImageView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+    }
+    
     func setImage(image: UIImage){
         imageSelected = image
     }
@@ -177,8 +190,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
-            
             storiesController.username = sender as? String
+            
         }else if(segue.identifier == "coinViewID"){
             let coinController = segue.destination as! CoinViewController
             coinController.coinName = sender as? String
