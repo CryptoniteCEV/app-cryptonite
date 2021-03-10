@@ -14,6 +14,8 @@ class GamificationController: UIViewController {
     
     @IBOutlet var circleProgressBar: CircleProgressBar!
     
+    @IBOutlet var levelLabel: UILabel!
+    
     @IBOutlet var missionsCard: UIView!
     
     @IBOutlet var walletCard: UIView!
@@ -25,40 +27,41 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var mission3Button: UIButton!
     
-    
-    
-    
-    
     @IBOutlet var profileImage: UIImageView!
     
     @IBOutlet weak var cashLabel: UILabel!
     
-    var experience : Int = 0
+    var experience : Double = 0
     
-    var experiencePerMission = 200
+    var experiencePerMission : Double = 200
+    
+    var level : Double = 1
+    
+    var prevLevel : Double = 1
+    
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        levelManagement()
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        levelManagement()
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        levelManagement()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"
+        circleProgressBar.setProgress(0.0, animated: false)
         mission1Button.layer.cornerRadius = mission1Button.frame.width/2
         mission2Button.layer.cornerRadius = mission2Button.frame.width/2
         mission3Button.layer.cornerRadius = mission3Button.frame.width/2
-        circleProgressBar.setProgress(0.3, animated: true)
         self.viewConfeti = SwiftConfettiView(frame: self.view.bounds)
         /*
             self.viewConfeti?.type = .image(#imageLiteral(resourceName: "btc"))
@@ -71,11 +74,6 @@ class GamificationController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-        
-        let level = GetLevel(exp: self.experiencePerMission)
-        let nextlevel = NextLevelExp(level: level)
-        let expLeft = nextlevel - self.experiencePerMission
-        print(expLeft)
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -112,10 +110,30 @@ class GamificationController: UIViewController {
         self.stopConfetti(view: self.viewConfeti!)
     }
     
-    func GetLevel(exp: Int) -> Int {
-        return exp/self.experiencePerMission
+    
+    func neededExperience(level: Double) -> Double {
+        if level != 0 {
+            return neededExperience(level: level-1) + level  *  self.experiencePerMission
+        }
+        return 0
     }
-    func NextLevelExp(level: Int) -> Int {
-        return (level + 1)  *  self.experiencePerMission
+    func levelManagement() {
+        experience += experiencePerMission
+        prevLevel = level
+        for n in 1...20{
+            if experience < neededExperience(level: Double(n))  {
+                level = Double(n)
+                break
+            }
+        }
+        print(level)
+        print(prevLevel)
+        if level != prevLevel  {
+            self.claimRewards()
+            prevLevel = level
+        }
+        self.levelLabel.text = String(level)
+        let progress = (experience - neededExperience(level: level-1)) / (neededExperience(level: level) - neededExperience(level: level - 1))
+        self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
     }
 }

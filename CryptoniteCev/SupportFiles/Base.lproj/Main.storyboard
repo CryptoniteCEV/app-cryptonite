@@ -1299,14 +1299,14 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="Ezz-49-fqe"/>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-q4-SbC">
-                                        <rect key="frame" x="269" y="20" width="56.333333333333314" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-q4-SbC">
+                                        <rect key="frame" x="238.99999999999997" y="20" width="46.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1l5-Vj-NsH">
-                                        <rect key="frame" x="40" y="200" width="274" height="50"/>
+                                        <rect key="frame" x="40" y="199.99999999999994" width="274" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="045-digital investment" translatesAutoresizingMaskIntoConstraints="NO" id="wAT-xL-68L">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1341,18 +1341,26 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="Brv-zn-fHa"/>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-Q0-o3w">
+                                        <rect key="frame" x="293.66666666666669" y="20" width="7.6666666666666856" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.070588235289999995" green="0.1215686275" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96954314720812185" green="0.96954314720812185" blue="0.96954314720812185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1l5-Vj-NsH" firstAttribute="leading" secondItem="fGl-Wm-dj0" secondAttribute="leading" constant="40" id="0Xb-Cl-xxE"/>
                                     <constraint firstAttribute="trailing" secondItem="UfB-ay-MOM" secondAttribute="trailing" constant="40" id="14u-oa-CcP"/>
+                                    <constraint firstItem="acQ-Q0-o3w" firstAttribute="leading" secondItem="6qU-q4-SbC" secondAttribute="trailing" constant="8" id="DrL-nE-5hH"/>
                                     <constraint firstItem="UfB-ay-MOM" firstAttribute="top" secondItem="1l5-Vj-NsH" secondAttribute="bottom" constant="20" id="ISA-9t-oi6"/>
                                     <constraint firstAttribute="trailing" secondItem="buc-74-Ipg" secondAttribute="trailing" constant="135" id="JNK-bN-Vwm"/>
                                     <constraint firstItem="kJK-3G-LVn" firstAttribute="top" secondItem="buc-74-Ipg" secondAttribute="bottom" constant="20" id="SDe-XT-wfc"/>
+                                    <constraint firstItem="acQ-Q0-o3w" firstAttribute="top" secondItem="fGl-Wm-dj0" secondAttribute="top" constant="20" id="b3c-OZ-f99"/>
                                     <constraint firstItem="6qU-q4-SbC" firstAttribute="top" secondItem="fGl-Wm-dj0" secondAttribute="top" constant="20" id="dZo-hA-960"/>
                                     <constraint firstItem="kJK-3G-LVn" firstAttribute="leading" secondItem="fGl-Wm-dj0" secondAttribute="leading" constant="40" id="ewn-RG-ffg"/>
                                     <constraint firstItem="buc-74-Ipg" firstAttribute="leading" secondItem="fGl-Wm-dj0" secondAttribute="leading" constant="135" id="hce-q3-ldC"/>
-                                    <constraint firstItem="6qU-q4-SbC" firstAttribute="leading" secondItem="buc-74-Ipg" secondAttribute="trailing" constant="50" id="iBk-mu-dyy"/>
+                                    <constraint firstItem="6qU-q4-SbC" firstAttribute="leading" secondItem="buc-74-Ipg" secondAttribute="trailing" constant="20" id="iBk-mu-dyy"/>
                                     <constraint firstAttribute="trailing" secondItem="1l5-Vj-NsH" secondAttribute="trailing" constant="40" id="jr8-88-kWd"/>
                                     <constraint firstAttribute="height" constant="360" id="meE-LG-oaf"/>
                                     <constraint firstItem="UfB-ay-MOM" firstAttribute="leading" secondItem="fGl-Wm-dj0" secondAttribute="leading" constant="40" id="qAb-Ze-14d"/>
@@ -1453,6 +1461,7 @@
                     <connections>
                         <outlet property="cashLabel" destination="z93-yy-os5" id="Nb1-oy-C8S"/>
                         <outlet property="circleProgressBar" destination="buc-74-Ipg" id="4a0-sd-2Ka"/>
+                        <outlet property="levelLabel" destination="acQ-Q0-o3w" id="iI1-JB-Nve"/>
                         <outlet property="mission1Button" destination="NTO-T0-76P" id="wHZ-Ha-kKo"/>
                         <outlet property="mission2Button" destination="kcc-P5-sYa" id="2dd-ls-6vo"/>
                         <outlet property="mission3Button" destination="HgP-TE-51A" id="VXg-Hp-esa"/>
@@ -1499,7 +1508,7 @@
                     <viewLayoutGuide key="safeArea" id="66Q-Wu-gBC"/>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="657" y="2119"/>
+            <point key="canvasLocation" x="656.52173913043487" y="2118.75"/>
         </scene>
         <!--Stories Controller-->
         <scene sceneID="71Q-VG-htQ">
