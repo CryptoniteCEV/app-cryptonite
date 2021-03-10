@@ -138,18 +138,19 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if coins.count>0 && collectionView == coinCollectionView{
             let selectedItem = coins[indexPath.row].name
             performSegue(withIdentifier: "coinViewID", sender: selectedItem)
-        }/*else if collectionView == usersCollectionView {
+        }else if collectionView == usersCollectionView {
             let selectedItem = users[indexPath.row].username
             performSegue(withIdentifier: "stories", sender: selectedItem)
-        }*/ else if collectionView == storiesCollectionView {
+        } else if collectionView == storiesCollectionView {
             let selectedItem = stories[indexPath.row].profilePic
             let cell = storiesCollectionView.cellForItem(at: indexPath)
             cell?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "gaming", sender: selectedItem)
+            }else {
+                performSegue(withIdentifier: "stories", sender: selectedItem)
             }
             
-            performSegue(withIdentifier: "stories", sender: selectedItem)
         }
     }
     
