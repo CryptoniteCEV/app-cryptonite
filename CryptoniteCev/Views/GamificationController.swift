@@ -19,7 +19,8 @@ class GamificationController: UIViewController {
     @IBOutlet var missionsCard: UIView!
     
     @IBOutlet var walletCard: UIView!
-    var viewConfeti: SwiftConfettiView?
+    
+    var viewConfetti: SwiftConfettiView?
     
     @IBOutlet weak var mission1Button: UIButton!
     
@@ -30,6 +31,17 @@ class GamificationController: UIViewController {
     @IBOutlet var profileImage: UIImageView!
     
     @IBOutlet weak var cashLabel: UILabel!
+    
+    @IBOutlet weak var mission1Image: UIImageView!
+    @IBOutlet weak var mission1Label: UILabel!
+    
+    
+    @IBOutlet weak var mission2Image: UIImageView!
+    @IBOutlet weak var mission2Label: UILabel!
+    
+    @IBOutlet weak var mission3Image: UIImageView!
+    @IBOutlet weak var mission3Label: UILabel!
+    
     
     var experience : Double = 0
     
@@ -42,38 +54,50 @@ class GamificationController: UIViewController {
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
         //claimRewards()
-        levelManagement()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
         //claimRewards()
-        levelManagement()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
         //claimRewards()
-        levelManagement()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"
         circleProgressBar.setProgress(0.0, animated: false)
-        mission1Button.layer.cornerRadius = mission1Button.frame.width/2
-        mission2Button.layer.cornerRadius = mission2Button.frame.width/2
-        mission3Button.layer.cornerRadius = mission3Button.frame.width/2
-        self.viewConfeti = SwiftConfettiView(frame: self.view.bounds)
-        /*
-            self.viewConfeti?.type = .image(#imageLiteral(resourceName: "btc"))
-            self.viewConfeti?.colors = [#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
-            self.viewConfeti?.intensity=0.69
-        */
-        self.viewConfeti?.tag = 200
+        
+        roundButton(button: mission1Button)
+        roundButton(button: mission2Button)
+        roundButton(button: mission3Button)
+        
+        setMissions(missionImage: mission1Image, missionTittle: mission1Label)
+        setMissions(missionImage: mission2Image, missionTittle: mission2Label)
+        setMissions(missionImage: mission3Image, missionTittle: mission3Label)
+        
+        print("Hola " + String(Missions.shared.missions[1].title))
+        
+        self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
+        self.viewConfetti?.tag = 200
+        
         missionsCard.layer.cornerRadius = 10
         walletCard.layer.cornerRadius = 10
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -90,10 +114,19 @@ class GamificationController: UIViewController {
             }
         }
     }
+    func setMissions(missionImage: UIImageView, missionTittle: UILabel) {
+        var index = Int.random(in: 0...Missions.shared.missions.count-1)
+        missionImage.image = Missions.shared.missions[index].image
+        missionTittle.text = Missions.shared.missions[index].title
+    }
+    
+    func roundButton(button: UIButton) {
+        button.layer.cornerRadius = button.frame.width/2
+    }
     
     func startConfetti(view: SwiftConfettiView){
         
-        self.view.addSubview(self.viewConfeti!)
+        self.view.addSubview(self.viewConfetti!)
         view.startConfetti()
     }
     
@@ -102,12 +135,13 @@ class GamificationController: UIViewController {
             view.stopConfetti()
             let confeti = self.view.viewWithTag(200)
             confeti!.removeFromSuperview()
+            self.setProgressLabel()
         }
     }
     
     func claimRewards() {
-        self.startConfetti(view: self.viewConfeti!)
-        self.stopConfetti(view: self.viewConfeti!)
+        self.startConfetti(view: self.viewConfetti!)
+        self.stopConfetti(view: self.viewConfetti!)
     }    
     
     func neededExperience(level: Double) -> Double {
@@ -117,22 +151,30 @@ class GamificationController: UIViewController {
         return 0
     }
     
-    func levelManagement() {
+    func levelManagement()->Double? {
         experience += experiencePerMission
         prevLevel = level
-        for n in 1...20{
+        var n = 1
+        while true {
             if experience < neededExperience(level: Double(n))  {
                 level = Double(n)
-                break
+                return Double(n)
             }
+            n += 1
         }
-        print(level)
-        print(prevLevel)
+    }
+    func checkHasLeveledUp(){
         if level != prevLevel  {
             self.claimRewards()
             prevLevel = level
+            DispatchQueue.main.async {
+                self.circleProgressBar.setProgress(CGFloat(1), animated: true)
+            }
         }
-        self.levelLabel.text = String(level)
+        self.levelLabel.text = String(Int(level))
+    }
+    
+    func setProgressLabel() {
         let progress = (experience - neededExperience(level: level-1)) / (neededExperience(level: level) - neededExperience(level: level - 1))
         self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
     }

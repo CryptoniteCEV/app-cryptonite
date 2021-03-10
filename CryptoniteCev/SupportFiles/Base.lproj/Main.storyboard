@@ -1237,7 +1237,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="kTE-C7-mmd"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a sale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve7-i8-Jfv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a sale" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve7-i8-Jfv">
                                                 <rect key="frame" x="70" y="0.0" width="134" height="50"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1272,7 +1272,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="0XZ-lA-bpJ"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy DOGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-bH-TVD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy DOGE" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-bH-TVD">
                                                 <rect key="frame" x="70" y="0.0" width="134" height="50"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1314,7 +1314,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="DWA-yI-R3B"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a new user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-ZO-xMc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow a new user" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZS-ZO-xMc">
                                                 <rect key="frame" x="70" y="0.0" width="134" height="50"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.062745098040000002" green="0.090196078430000007" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1463,8 +1463,14 @@
                         <outlet property="circleProgressBar" destination="buc-74-Ipg" id="4a0-sd-2Ka"/>
                         <outlet property="levelLabel" destination="acQ-Q0-o3w" id="iI1-JB-Nve"/>
                         <outlet property="mission1Button" destination="NTO-T0-76P" id="wHZ-Ha-kKo"/>
+                        <outlet property="mission1Image" destination="u9U-QP-hbb" id="Ueb-kT-kvS"/>
+                        <outlet property="mission1Label" destination="ve7-i8-Jfv" id="Mlh-BF-jo3"/>
                         <outlet property="mission2Button" destination="kcc-P5-sYa" id="2dd-ls-6vo"/>
+                        <outlet property="mission2Image" destination="wAT-xL-68L" id="OSr-LJ-Oeq"/>
+                        <outlet property="mission2Label" destination="LZS-ZO-xMc" id="gvO-Gp-ISy"/>
                         <outlet property="mission3Button" destination="HgP-TE-51A" id="VXg-Hp-esa"/>
+                        <outlet property="mission3Image" destination="6QH-qB-iu5" id="d4R-u8-kOB"/>
+                        <outlet property="mission3Label" destination="nMp-bH-TVD" id="EcG-SJ-61m"/>
                         <outlet property="missionsCard" destination="fGl-Wm-dj0" id="AAI-7f-6nP"/>
                         <outlet property="profileImage" destination="Ntq-ds-ajG" id="0hK-bM-7Dg"/>
                         <outlet property="walletCard" destination="NR9-NL-f4S" id="w0R-19-TYI"/>
