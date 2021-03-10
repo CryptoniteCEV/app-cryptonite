@@ -57,11 +57,6 @@ class MainScreenController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
        
         //navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        coins = []
-        trades = []
-        users = []
-        
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let requestCoins = Service.shared.getCoins()
@@ -70,7 +65,7 @@ class MainScreenController: UIViewController {
                     
                     if let body = response.value as? [String: Any]{
                         let data = body["data"] as! [[String:Any]]
-                        
+                        self.coins = []
                         for i in 1..<data.count {
                             self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
                         }
@@ -84,7 +79,7 @@ class MainScreenController: UIViewController {
                 requestTrades.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
                         let data = body["data"]! as! [[String:Any]]
-                        
+                        self.trades = []
                         for i in 0..<data.count {
                             self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
                         }
@@ -98,7 +93,7 @@ class MainScreenController: UIViewController {
                 requestUsers.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
                         let data = body["data"]! as! [[String:Any]]
-                        
+                        self.users = []
                         for i in 0..<data.count {
                             self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Int)!))
                         }

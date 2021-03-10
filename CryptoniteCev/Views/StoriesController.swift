@@ -61,7 +61,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         if trades.count > 0{
             cell.profile.image = storieImage
             cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-            cell.username.text = "@alex"
+            //cell.username.text = "@alex"
             cell.converted.text = String(trades[indexPath.row].converted)
             cell.quantity.text = String(trades[indexPath.row].quantity)
             cell.symbol_from.image = Images.shared.coins[trades[indexPath.row].coinFrom]
@@ -74,7 +74,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        graph.impirmirGrafica(pieChart: pieChart, screen: container)
+        //graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: )
             
     }
     override func viewDidAppear(_ animated: Bool) {
