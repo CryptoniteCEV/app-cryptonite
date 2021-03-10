@@ -111,18 +111,18 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }
         else {
             let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellMainController
-            
-            cellUser.profilePicIV.image = users[indexPath.row].profilePic
-            cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
-            cellUser.usernameL.text = users[indexPath.row].username
-            cellUser.percentageUserL.text = "Lvl. " + String(users[indexPath.row].experience)
-            if(cellUser.percentageUserL.text?.first == "-") {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-            }else {
-                cellUser.percentageUserL.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            if users.count > 0{
+                cellUser.profilePicIV.image = users[indexPath.row].profilePic
+                cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
+                cellUser.usernameL.text = users[indexPath.row].username
+                cellUser.percentageUserL.text = "Lvl. " + String(users[indexPath.row].experience)
+                if(cellUser.percentageUserL.text?.first == "-") {
+                    cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                }else {
+                    cellUser.percentageUserL.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                }
+                cellUser.layer.cornerRadius = cellUser.frame.height/8
             }
-            cellUser.layer.cornerRadius = cellUser.frame.height/8
-            
             return cellUser
         }
         
