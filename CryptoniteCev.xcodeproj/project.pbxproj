@@ -55,6 +55,7 @@
 		7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A930325D15DBB0083F71D /* WalletViewController.swift */; };
 		7F9B021D25EFAF9500AB91F0 /* TradesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */; };
 		7F9B021F25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */; };
+		7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA2CCB25F8FACC00239C0C /* Colors.swift */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815E22525C233EF00D65B6A /* CoinCell.swift */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
@@ -136,6 +137,7 @@
 		7F9A930325D15DBB0083F71D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesRow.swift; sourceTree = "<group>"; };
 		7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeScreenTableViewExtension.swift; sourceTree = "<group>"; };
+		7FCA2CCB25F8FACC00239C0C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */,
 				53F194C925EF02B60096055F /* Welcoming.swift */,
 				7F28EE8B25F7B07E009D6CCD /* Missions.swift */,
+				7FCA2CCB25F8FACC00239C0C /* Colors.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */,
 				7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */,
 				5303612325F2D3B30034AC06 /* TabBarController.swift in Sources */,
 				F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */,

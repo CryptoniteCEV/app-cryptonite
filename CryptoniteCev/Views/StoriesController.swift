@@ -74,7 +74,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        graph.impirmirGrafica(pieChart: pieChart, screen: container)
+        //graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: )
             
     }
     override func viewDidAppear(_ animated: Bool) {

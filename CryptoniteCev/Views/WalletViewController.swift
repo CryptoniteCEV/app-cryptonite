@@ -16,10 +16,10 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     var cash:Double = 0
     var coinsQuantities:[CoinsQuantities] = []
+    var percentages:[String:Double] = [:]
     
     @IBOutlet weak var totalCash: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
     
     @IBOutlet weak var porgress: UIProgressView!
     var graph = PieChart()
@@ -35,6 +35,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         tableView.dataSource = self
     
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -59,12 +60,34 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                                 self.cash += self.coinsQuantities[i].inDollars
                             }
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
+                            self.percentages = self.getCoinPercentages()
+                            print(self.percentages)
                         }
                         self.tableView.reloadData()
                     }
                 }
             }
         }
+    }
+    
+    func getCoinPercentages()->[String:Double]{
+        var total:Double = 0
+        var coinsInWallet:[String:Double] = [:]
+        
+        for wallet in coinsQuantities {
+            total += wallet.inDollars
+        }
+        
+        for wallet in coinsQuantities {
+            
+            if wallet.inDollars > 0{
+                let percentage = (wallet.inDollars * 100) / total
+                coinsInWallet [wallet.symbol] = percentage
+            }
+        }
+        
+        return coinsInWallet
+        
     }
     
     
@@ -91,7 +114,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        graph.impirmirGrafica(pieChart: pieChart, screen: container)
+        graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: percentages)
             
     }
 }

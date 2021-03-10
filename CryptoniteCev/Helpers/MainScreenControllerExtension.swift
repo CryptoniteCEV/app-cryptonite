@@ -177,7 +177,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
-            
             storiesController.username = sender as? String
         }else if(segue.identifier == "coinViewID"){
             let coinController = segue.destination as! CoinViewController
