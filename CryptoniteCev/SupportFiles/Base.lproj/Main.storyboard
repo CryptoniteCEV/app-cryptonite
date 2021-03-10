@@ -316,7 +316,7 @@
                                             <outlet property="price" destination="X4C-MM-gL5" id="vWP-Hs-GkF"/>
                                             <outlet property="quantity" destination="X0h-aZ-0M9" id="gBz-mp-VrA"/>
                                             <outlet property="symbol" destination="Qjt-Ur-nGW" id="bW4-qE-DzD"/>
-                                            <segue destination="nsy-il-cIQ" kind="presentation" id="5Bx-DR-7Y7"/>
+                                            <segue destination="5BO-q7-TNj" kind="show" id="P9q-5X-cc0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -342,14 +342,6 @@
                                 <rect key="frame" x="30" y="289" width="354" height="280"/>
                                 <color key="backgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XF7-fc-0W8">
-                                <rect key="frame" x="342" y="66" width="42" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="GRU-lf-lH9"/>
-                                    <constraint firstAttribute="height" constant="42" id="xsK-z9-cgu"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="logoNoText"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.1215686275" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -368,8 +360,6 @@
                             <constraint firstItem="mvI-oU-JXj" firstAttribute="top" secondItem="Uqz-cL-V6b" secondAttribute="bottom" constant="300" id="oYS-jv-If1"/>
                             <constraint firstItem="haI-m8-BYB" firstAttribute="top" secondItem="Uqz-cL-V6b" secondAttribute="bottom" constant="10" id="rMr-9H-RfV"/>
                             <constraint firstItem="M1X-KX-WNF" firstAttribute="trailing" secondItem="haI-m8-BYB" secondAttribute="trailing" constant="30" id="sPQ-vC-Zxx"/>
-                            <constraint firstItem="M1X-KX-WNF" firstAttribute="trailing" secondItem="XF7-fc-0W8" secondAttribute="trailing" constant="30" id="stv-xV-i6D"/>
-                            <constraint firstItem="XF7-fc-0W8" firstAttribute="top" secondItem="M1X-KX-WNF" secondAttribute="top" constant="22" id="syE-G9-T55"/>
                             <constraint firstItem="Uqz-cL-V6b" firstAttribute="leading" secondItem="M1X-KX-WNF" secondAttribute="leading" constant="90" id="uoa-lD-iMq"/>
                             <constraint firstItem="ou8-p1-M50" firstAttribute="top" secondItem="M1X-KX-WNF" secondAttribute="top" id="wks-FL-eor"/>
                             <constraint firstItem="ou8-p1-M50" firstAttribute="leading" secondItem="M1X-KX-WNF" secondAttribute="leading" id="zCf-sJ-UDj"/>
@@ -382,6 +372,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wallet" image="dollarsign.circle" catalog="system" selectedImage="dollarsign.circle.fill" id="VpZ-hM-9Sz"/>
+                    <navigationItem key="navigationItem" id="aVd-tp-oVH"/>
                     <connections>
                         <outlet property="container" destination="haI-m8-BYB" id="lBs-st-OAZ"/>
                         <outlet property="porgress" destination="k86-hm-SLC" id="Xw7-KD-hIM"/>
@@ -391,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQL-fp-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="1594"/>
+            <point key="canvasLocation" x="-678.26086956521749" y="1593.75"/>
         </scene>
         <!--Trade-->
         <scene sceneID="MVu-d1-2Uf">
@@ -402,16 +393,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ib4-cP-s6w">
-                                <rect key="frame" x="49" y="54" width="320" height="350"/>
+                                <rect key="frame" x="49" y="54" width="324" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAd-jw-3hM">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CfE-9g-fUm">
-                                        <rect key="frame" x="0.0" y="51.333333333333329" width="320" height="36.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="51.333333333333329" width="324" height="36.666666666666671"/>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.22352941176470587" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <segments>
                                             <segment title="BTC"/>
@@ -432,7 +423,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-fX-0Rr">
-                                        <rect key="frame" x="0.0" y="161.33333333333334" width="320" height="41"/>
+                                        <rect key="frame" x="0.0" y="161.33333333333334" width="324" height="41"/>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.22352941176470587" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Xlx-9Z-zyM"/>
@@ -447,13 +438,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpm-x8-FAt">
-                                        <rect key="frame" x="0.0" y="223" width="320" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="223" width="324" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-w8-Blr" userLabel="amount" customClass="UnderlinedTextField" customModule="CryptoniteCev" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="264.66666666666669" width="320" height="34"/>
+                                        <rect key="frame" x="0.0" y="264.66666666666669" width="324" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -463,7 +454,7 @@
                                         </connections>
                                     </textField>
                                     <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OqJ-8f-BdN">
-                                        <rect key="frame" x="-2" y="320" width="324" height="31"/>
+                                        <rect key="frame" x="-2" y="320" width="328" height="31"/>
                                         <color key="tintColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="amountSlider:" destination="wAl-fb-GFB" eventType="valueChanged" id="iVz-aQ-E5H"/>
@@ -559,7 +550,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55.509" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Akq-U2-Jqp">
-                                                                            <rect key="frame" x="73.999999999999943" y="0.0" width="43.333333333333343" height="17"/>
+                                                                            <rect key="frame" x="74" y="0.0" width="43.333333333333343" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1176,11 +1167,11 @@
             <objects>
                 <viewController id="5BO-q7-TNj" customClass="GamificationController" customModule="CryptoniteCev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Lf-Uf-Qn5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGl-Wm-dj0">
-                                <rect key="frame" x="30" y="320.66666666666669" width="354" height="360.00000000000006"/>
+                                <rect key="frame" x="30" y="364.66666666666674" width="354" height="360"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buc-74-Ipg" customClass="CircleProgressBar">
                                         <rect key="frame" x="135" y="10" width="84" height="100"/>
@@ -1358,7 +1349,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NR9-NL-f4S">
-                                <rect key="frame" x="30" y="160" width="354" height="75"/>
+                                <rect key="frame" x="30" y="204" width="354" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lE-2b-8ha">
                                         <rect key="frame" x="304" y="22" width="30" height="30"/>
@@ -1368,6 +1359,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.26274509800000001" green="0.85098039219999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowButton-2"/>
+                                        <connections>
+                                            <action selector="goToWallet:" destination="5BO-q7-TNj" eventType="touchUpInside" id="Py7-03-fIi"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z93-yy-os5">
                                         <rect key="frame" x="37" y="15" width="44.666666666666657" height="30"/>
@@ -1395,13 +1389,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to earn more?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJk-oK-av1">
-                                <rect key="frame" x="109.66666666666667" y="265" width="194.66666666666663" height="25.666666666666686"/>
+                                <rect key="frame" x="109.66666666666667" y="309" width="194.66666666666663" height="25.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="Ntq-ds-ajG">
-                                <rect key="frame" x="30" y="15" width="100" height="100"/>
+                                <rect key="frame" x="30" y="59" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="BQK-V2-TUD"/>
                                     <constraint firstAttribute="width" constant="100" id="SSs-Xg-RZ7"/>
@@ -1415,7 +1409,7 @@
                                 <state key="normal" image="suit.diamond.fill" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoB-mT-bzc">
-                                <rect key="frame" x="160" y="53" width="175.66666666666663" height="59.666666666666657"/>
+                                <rect key="frame" x="160" y="97" width="175.66666666666663" height="59.666666666666657"/>
                                 <string key="text">Good earnings
 @marxtodon</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
@@ -1455,6 +1449,7 @@
                         <outlet property="missionsCard" destination="fGl-Wm-dj0" id="AAI-7f-6nP"/>
                         <outlet property="profileImage" destination="Ntq-ds-ajG" id="0hK-bM-7Dg"/>
                         <outlet property="walletCard" destination="NR9-NL-f4S" id="w0R-19-TYI"/>
+                        <segue destination="7aG-AW-ATd" kind="show" identifier="wallet" id="vWR-re-gFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koS-PA-ZC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2023,7 +2018,8 @@ CEVtYWlsA
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5Bx-DR-7Y7"/>
+        <segue reference="P9q-5X-cc0"/>
+        <segue reference="SUa-fD-zDg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="012-bitcoins" width="512" height="512"/>

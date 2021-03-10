@@ -51,7 +51,11 @@ class GamificationController: UIViewController {
         experience += experiencePerMission
         claimRewards()
     }
-
+    @IBAction func goToWallet(_ sender: Any) {
+        performSegue(withIdentifier: "wallet", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"
