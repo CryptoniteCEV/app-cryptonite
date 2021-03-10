@@ -21,7 +21,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var wallets:[CoinsQuantities] = []
     var cash:Double = 0
     var percentages:[String:Double] = [:]
-    
+    var followings:[String] = []
     var graph = PieChart()
     
     @IBOutlet weak var unfollowButton: UIButton!
@@ -31,12 +31,15 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var container: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getPercentages()
+        fillFollowings()
+        
         unfollowButton.layer.cornerRadius = 15
-        /*unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        unfollowButton.layer.borderWidth = 3*/
+        unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+        unfollowButton.layer.borderWidth = 3
         
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2
        
@@ -45,12 +48,6 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        if storieImage != nil {
-            imageView.image = storieImage
-            imageView.contentMode = .scaleAspectFill
-        }
-        
         
         tableView.reloadData()
     }
@@ -82,6 +79,12 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     }
     override func viewDidAppear(_ animated: Bool) {
         trades = getTrades()
+    }
+    
+    
+    @IBAction func followUserButton(_ sender: Any) {
+        
+        followSomeone()
         
     }
     
@@ -103,7 +106,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                     
                             let tradeHistory = data["Trades"] as! [[String:Any]]
                             let user = data["User"] as! [String:Any]
-                            print(user)
+
                             self.nameLabel.text = user["Name"] as? String
                             self.usernameLabel.text = "@" + (user["Username"] as! String)
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
@@ -143,5 +146,65 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                }
            }
        }
+    
+    func followSomeone(){
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+             let parameters = ["username":username!]
+                let request = Service.shared.followUser(params: parameters)
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                    
+                        if let data = body["data"] as? String{
+                            
+                           self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                           self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                           self.unfollowButton.setTitle("Unfollow", for: .normal)
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func fillFollowings(){
+        followings = []
+
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getFollowings()
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                        if let data = body["data"] as? [[String:Any]]{
+                            
+                             for i in 0..<data.count{
+                                self.followings.append(data[i]["username"] as! String)
+                               
+                             }
+                            self.setProperButton()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func setProperButton(){
+     
+        if !self.followings.contains(self.username!){
+            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            self.unfollowButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
+            self.unfollowButton.setTitle("Follow", for: .normal)
+        }else{
+            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+            self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            self.unfollowButton.setTitle("Unfollow", for: .normal)
+        }
+        
+    }
 
 }
