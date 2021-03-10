@@ -43,6 +43,7 @@ class Endpoints {
         static let getInfo:String = "/wallets/info"
         static let deposit:String = "/wallets/deposit"
         static let cash:String = "/wallets/cash"
+        static let percentages:String = "/wallets/percentages"
     }
         
     //Currency´s petitions

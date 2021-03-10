@@ -18,6 +18,9 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var storieImage : UIImage?
     var username : String?
     var trades:[TradesProfile] = []
+    var wallets:[CoinsQuantities] = []
+    var cash:Double = 0
+    var percentages:[String:Double] = [:]
     
     var graph = PieChart()
     
@@ -30,7 +33,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getPercentages()
         unfollowButton.layer.cornerRadius = 15
         /*unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
         unfollowButton.layer.borderWidth = 3*/
@@ -74,11 +77,12 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
-        //graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: )
+        graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: percentages)
             
     }
     override func viewDidAppear(_ animated: Bool) {
         trades = getTrades()
+        
     }
     
     func getTrades() -> [TradesProfile]{
@@ -99,7 +103,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                     
                             let tradeHistory = data["Trades"] as! [[String:Any]]
                             let user = data["User"] as! [String:Any]
-                            
+                            print(user)
                             self.nameLabel.text = user["Name"] as? String
                             self.usernameLabel.text = "@" + (user["Username"] as! String)
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
@@ -117,6 +121,27 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         }
         return trades;
     }
-
+    
+    func getPercentages(){
+       
+           if Service.isConnectedToInternet {
+               if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let parameters = ["username":username!]
+                   let request = Service.shared.getPercentages(parameters: parameters)
+                   request.responseJSON { (response) in
+                    
+                       if let body = response.value as? [String:Any] {
+                       
+                           if let data = body["data"] as? [String:Any]{
+                                let wallets = data["Wallets"] as! [[String:Any]]
+                                for i in 0..<wallets.count{
+                                    self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
+                                }
+                           }
+                       }
+                   }
+               }
+           }
+       }
 
 }

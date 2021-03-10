@@ -105,6 +105,14 @@ class Service {
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.all, method: .get, encoding: URLEncoding.default/*, headers: headers*/)
     }
     
+    func getPercentages(parameters:[String:String])->DataRequest{
+        /*let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]*/
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.percentages, method: .get, parameters: parameters, encoding: URLEncoding.default/*, headers: headers*/)
+    }
+    
     func getCoinInfo(parameters:[String:String])->DataRequest{
         /*let headers:HTTPHeaders = [
             ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!

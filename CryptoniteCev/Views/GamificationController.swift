@@ -25,10 +25,6 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var mission3Button: UIButton!
     
-    
-    
-    
-    
     @IBOutlet var profileImage: UIImageView!
     
     @IBOutlet weak var cashLabel: UILabel!
