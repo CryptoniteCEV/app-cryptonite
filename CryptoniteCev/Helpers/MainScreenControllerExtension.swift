@@ -12,13 +12,8 @@ var images : [UIImage] = []
 
 var imageSelected : UIImage?
 
-
-var users = [
-    UserMain(profilePic: #imageLiteral(resourceName: "img_femartinez_20181010-125104_imagenes_md_otras_fuentes_captura-kcOG-U452531892714hYG-980x554@MundoDeportivo-Web"), username: "@leoMessi10", percentage: "+22,89%"),
-    UserMain(profilePic: #imageLiteral(resourceName: "descarga (1)"), username: "@andreita93", percentage: "+38,57%"),
-    UserMain(profilePic: #imageLiteral(resourceName: "depositphotos_19841901-stock-photo-asian-young-business-man-close"), username: "@elJuanCar", percentage: "-44,98%"),
-    UserMain(profilePic: #imageLiteral(resourceName: "1-intro-photo-final"), username: "@shurmano77", percentage: "+15,14%")
-]
+//imagen que venga con el token
+var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
   
 fileprivate let storiesView:UICollectionView = {
@@ -81,12 +76,17 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //primera foto sea tu perfil.
         
         if collectionView == storiesView {
             let cell = storiesView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircleCell
-            cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
+            if users.count > 0{
+                cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
+                //cell.bg.setBackgroundImage(users[indexPath.row].profilePic, for: .normal)
+            }
             return cell
         }
+        
         if collectionView == coinCollectionView{
             
             let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellMainController
@@ -114,8 +114,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             
             cellUser.profilePicIV.image = users[indexPath.row].profilePic
             cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
-            cellUser.usernameL.text = users[indexPath.row].user_name
-            cellUser.percentageUserL.text = users[indexPath.row].percentage
+            cellUser.usernameL.text = users[indexPath.row].username
+            cellUser.percentageUserL.text = "Lvl. " + String(users[indexPath.row].experience)
             if(cellUser.percentageUserL.text?.first == "-") {
                 cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             }else {
@@ -131,10 +131,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if coins.count>0 && collectionView == coinCollectionView{
-            let selectedItem = coins[indexPath.row]
+            let selectedItem = coins[indexPath.row].name
             performSegue(withIdentifier: "coinViewID", sender: selectedItem)
-        }else if collectionView == coinCollectionView{
-            performSegue(withIdentifier: "coinViewID", sender: Any?.self)
+        }else if collectionView == usersCollectionView {
+            let selectedItem = users[indexPath.row].username
+            performSegue(withIdentifier: "stories", sender: selectedItem)
         }
     }
     
@@ -159,7 +160,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     
     @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
+    
         setImage(image: sender.image(for: .normal)!)
+        if (imageSelected == myProfilePic){
+            self.performSegue(withIdentifier: "gaming", sender: sender)
+        }
         self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
     }
     
@@ -172,9 +177,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
-            storiesController.storieImage = imageSelected
+            
+            storiesController.username = sender as? String
         }else if(segue.identifier == "coinViewID"){
             let coinController = segue.destination as! CoinViewController
+            coinController.coinName = sender as? String
         }
     }
 }

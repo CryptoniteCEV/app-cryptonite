@@ -42,6 +42,8 @@
 		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
 		53F194C825EEB3450096055F /* TradeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C725EEB3450096055F /* TradeHistory.swift */; };
 		53F194CA25EF02B60096055F /* Welcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C925EF02B60096055F /* Welcoming.swift */; };
+		7F28EE8C25F7B07E009D6CCD /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8B25F7B07E009D6CCD /* Missions.swift */; };
+		7F28EE8E25F7B0FB009D6CCD /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8D25F7B0FB009D6CCD /* Mission.swift */; };
 		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
 		7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
@@ -121,6 +123,8 @@
 		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		53F194C725EEB3450096055F /* TradeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistory.swift; sourceTree = "<group>"; };
 		53F194C925EF02B60096055F /* Welcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcoming.swift; sourceTree = "<group>"; };
+		7F28EE8B25F7B07E009D6CCD /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
+		7F28EE8D25F7B0FB009D6CCD /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
 		7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */,
 				53F194C725EEB3450096055F /* TradeHistory.swift */,
 				7F703F5325F119F000E99318 /* TradesProfile.swift */,
+				7F28EE8D25F7B0FB009D6CCD /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				5393E88A25B8EA8A00C647FD /* Endpoints.swift */,
 				53C6C6B125EC04DD00393C7A /* ApiBodyNames.swift */,
 				53F194C925EF02B60096055F /* Welcoming.swift */,
+				7F28EE8B25F7B07E009D6CCD /* Missions.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -550,8 +556,10 @@
 				0712BCA225F16CF200511DC9 /* CoinViewController.swift in Sources */,
 				53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */,
 				5335BF5925F0368400E92F49 /* ViewControllerExtension.swift in Sources */,
+				7F28EE8C25F7B07E009D6CCD /* Missions.swift in Sources */,
 				531657F425B7975A0040417F /* Score.swift in Sources */,
 				7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */,
+				7F28EE8E25F7B0FB009D6CCD /* Mission.swift in Sources */,
 				531657EC25B7970B0040417F /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

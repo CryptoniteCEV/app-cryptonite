@@ -14,7 +14,9 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    
     var storieImage : UIImage?
+    var username : String?
     var trades:[TradesProfile] = []
     
     var graph = PieChart()
@@ -24,7 +26,6 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var pieChart = PieChartView()
     
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
@@ -46,6 +47,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
             imageView.image = storieImage
             imageView.contentMode = .scaleAspectFill
         }
+        
+        
         tableView.reloadData()
     }
     
@@ -84,7 +87,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-                let parameters = ["username":"alex"]
+                let parameters = ["username":username!]
                 
                 let requestTrades = Service.shared.getProfileTradesInfo(parameters: parameters)
                 
@@ -97,9 +100,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             let tradeHistory = data["Trades"] as! [[String:Any]]
                             let user = data["User"] as! [String:Any]
                             
-                                self.nameLabel.text = user["Name"] as? String
-                                self.usernameLabel.text = "@" + (user["Username"] as! String)
-                              
+                            self.nameLabel.text = user["Name"] as? String
+                            self.usernameLabel.text = "@" + (user["Username"] as! String)
+                            self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
+                            
                                 for i in 0..<tradeHistory.count {
                                     self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
                                 }

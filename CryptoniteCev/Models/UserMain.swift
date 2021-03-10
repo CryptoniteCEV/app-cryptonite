@@ -6,22 +6,22 @@ class UserMain {
     
     private var _profilePic:UIImage
     private var _username:String
-    private var _percentage:String?
+    private var _experience:Int
     
     
     enum CodingKeys: String, CodingKey {
         
         case _profilePic = "profilePic"
-        case _user_name = "user_name"
-        case _percentage = "percentage"
+        case _username = "username"
+        case _experience = "experience"
         
     }
     
-    init(profilePic:UIImage, username:String, percentage:String){
+    init(profilePic:UIImage, username:String, experience:Int){
         
         self._profilePic = profilePic
         self._username = username
-        self._percentage = percentage
+        self._experience = experience
     }
     
     public var profilePic: UIImage{
@@ -30,15 +30,15 @@ class UserMain {
         }
     }
     
-    public var user_name: String {
+    public var username: String {
         get {
             return self._username
         }
     }
     
-    public var percentage: String? {
+    public var experience: Int {
         get {
-            return self._percentage
+            return self._experience
         }
     }
     

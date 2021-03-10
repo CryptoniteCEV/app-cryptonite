@@ -11,8 +11,8 @@ class PieChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-        pieChart.rotationAngle = 0
-        pieChart.rotationEnabled = false
+        /*pieChart.rotationAngle = 0
+        pieChart.rotationEnabled = false*/
         
         pieChart.drawHoleEnabled = false
         //5print("está haciendo la funcion")
@@ -30,7 +30,8 @@ class PieChart: UIViewController, ChartViewDelegate{
         let dogeEntry: Double = 20
         let liteEntry: Double = 20
         let tetherEntry: Double = 20
-        
+       
+            
         var entries : [PieChartDataEntry] = Array()
         //Entrada de etherium
         entries.append(PieChartDataEntry(value: etheriumEntry, label: "ETH"))
@@ -61,6 +62,7 @@ class PieChart: UIViewController, ChartViewDelegate{
         set.colors = [etheriumColor, bitcoinColor,dogeColor,liteColor,tetherColor]
         set.valueColors =  [valueColor]
         set.entryLabelColor = labelEntryColor
+        
         
         
         

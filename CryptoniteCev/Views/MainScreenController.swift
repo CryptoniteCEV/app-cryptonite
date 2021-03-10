@@ -56,7 +56,7 @@ class MainScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
        
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        //navigationController?.setNavigationBarHidden(true, animated: true)
         
         coins = []
         trades = []
@@ -70,7 +70,7 @@ class MainScreenController: UIViewController {
                     if let body = response.value as? [String: Any]{
                         let data = body["data"] as! [[String:Any]]
                         
-                        for i in 0..<data.count {
+                        for i in 1..<data.count {
                             self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
                         }
                         
@@ -92,7 +92,27 @@ class MainScreenController: UIViewController {
                         
                     }
                 }
+                
+                let requestUsers = Service.shared.getUsers()
+                requestUsers.responseJSON { (response) in
+                    if let body = response.value as? [String: Any]{
+                        let data = body["data"]! as! [[String:Any]]
+                        
+                        for i in 0..<data.count {
+                            self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Int)!))
+                        }
+                        self.usersCollectionView.reloadData()
+                    }
+                }
+                
+                
+                
             }
+        }else {//cuando no hay conexion: PlaceHolders
+            
+           
+            	
+            
         }
     }
 }
