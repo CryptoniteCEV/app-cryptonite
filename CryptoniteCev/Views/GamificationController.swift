@@ -108,8 +108,7 @@ class GamificationController: UIViewController {
     func claimRewards() {
         self.startConfetti(view: self.viewConfeti!)
         self.stopConfetti(view: self.viewConfeti!)
-    }
-    
+    }    
     
     func neededExperience(level: Double) -> Double {
         if level != 0 {
@@ -117,6 +116,7 @@ class GamificationController: UIViewController {
         }
         return 0
     }
+    
     func levelManagement() {
         experience += experiencePerMission
         prevLevel = level
