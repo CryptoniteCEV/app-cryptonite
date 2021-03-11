@@ -3,7 +3,7 @@ import Charts
 
 class LineChart: UIViewController, ChartViewDelegate{
     
-    public func impirmirGrafica(lineChart: LineChartView, screen: UIView){
+    public func impirmirGrafica(lineChart: LineChartView, screen: UIView, values:[ChartDataEntry]){
         
         lineChart.frame = CGRect(
             x: 0,y: 0,
@@ -11,8 +11,6 @@ class LineChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-        
-        print("está haciendo la funcion")
            
         screen.addSubview(lineChart)
            
@@ -21,20 +19,8 @@ class LineChart: UIViewController, ChartViewDelegate{
         lineChart.trailingAnchor.constraint(equalTo: screen.trailingAnchor, constant: -screen.frame.width).isActive = true
         lineChart.heightAnchor.constraint(equalToConstant: screen.frame.height).isActive = true
 
-        var entries = [ChartDataEntry]()
-        
-        for x in 0...10{
-           
-            entries.append(ChartDataEntry(
-               
-               x: Double(x),
-               y: Double(-x^3)
-               
-           ))
-           
-        }
             
-        let set =  LineChartDataSet(entries: entries)
+        let set =  LineChartDataSet(entries: values)
 
         set.colors = ChartColorTemplates.material()
         set.valueTextColor = UIColor.white

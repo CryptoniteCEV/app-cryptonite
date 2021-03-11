@@ -142,6 +142,14 @@ class Service {
         ]
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.stopFollowing, method: .delete, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
     }
+    
+    func getCoinHistory(params:[String:String])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.history, method: .get,parameters: params, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

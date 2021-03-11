@@ -67,7 +67,7 @@ class MainScreenController: UIViewController {
                         let data = body["data"] as! [[String:Any]]
                         self.coins = []
                         for i in 1..<data.count {
-                            self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
+                            self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
                         }
                         
                         self.coinCollectionView.reloadData()

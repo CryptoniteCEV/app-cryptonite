@@ -188,7 +188,7 @@ class TradingController: UIViewController {
                            let data = body["data"] as! [[String:Any]]
                            
                            for i in 1..<data.count {
-                               self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!))
+                               self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
                            }
                         self.curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
                    }

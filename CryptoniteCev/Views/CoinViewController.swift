@@ -12,16 +12,21 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var coinIconIV: UIImageView!
     
     @IBOutlet weak var aboutTitleLabel: UILabel!
+    
     @IBOutlet weak var aboutCoinLabel: UILabel!
     
     @IBOutlet weak var currencyNameL: UILabel!
     
     @IBOutlet weak var coinValueL: UILabel!
     
+    @IBOutlet weak var marketCapLabel: UILabel!
+    
+    @IBOutlet weak var volumeLabel: UILabel!
+    
     @IBOutlet weak var coinPercentageL: UILabel!
     
     var onDoneBlock : ((String?) -> Void)?
-    
+    var values:[ChartDataEntry] = []
     var graph = LineChart()
     var lineChart = LineChartView()
     
@@ -30,16 +35,21 @@ class CoinViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCoin()
-        lineChart.delegate = self
         
+        lineChart.delegate = self
+        getCoin()
+        getCoinHistory()
         tradeButton.layer.cornerRadius = tradeButton.frame.height / 8
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getCoinHistory()
+    }
+    
     
     @IBAction func TradeViewButton(_ sender: Any) {
-        //performSegue(withIdentifier: "TradeViewID", sender: sender)
+        
         self.dismiss(animated: true) {
             self.onDoneBlock!(self.coinSymbol)
         }
@@ -48,8 +58,8 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
-    
-        graph.impirmirGrafica(lineChart: lineChart, screen: containerView)
+        
+        graph.impirmirGrafica(lineChart: lineChart, screen: containerView, values:values)
             
     }
     
@@ -74,6 +84,15 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
                             self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
                             self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
+                            self.coinPercentageL.text = String(describing: data["Change"]!) + "%"
+                            self.volumeLabel.text = String(describing:data["Volume"]!) + "$"
+                            self.marketCapLabel.text = String(describing:data["Cap"]!) + "$"
+                            
+                            if((data["Change"] as! Double) < 0) {
+                                self.coinPercentageL?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                            }else {
+                                self.coinPercentageL?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                            }
                         }
                     }
                 }
@@ -82,4 +101,30 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         
     }
 
+    func getCoinHistory(){
+    
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                
+                let parameters = ["coin":coinName!]
+                
+                let request = Service.shared.getCoinHistory(params: parameters)
+                
+                request.responseJSON { (response) in
+                   
+                    if let body = response.value as? [String:Any] {
+                        
+                        if let data = body["data"] as? [[Double]]{
+                            
+                            for i in 0..<data.count{
+                                
+                                self.values.append(ChartDataEntry(x: data[i][0], y: data[i][1]))
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

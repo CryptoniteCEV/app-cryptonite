@@ -58,9 +58,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
-                cell.percentageLabel?.text = "25%"
+                cell.percentageLabel?.text = String(coins[indexPath.row].change) + "%"
                 
-                 if(cell.percentageLabel?.text?.first == "-") {
+                 if(coins[indexPath.row].change < 0) {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
                 }else {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)

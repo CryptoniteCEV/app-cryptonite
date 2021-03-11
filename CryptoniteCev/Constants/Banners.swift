@@ -61,7 +61,4 @@ class Banners{
         banner.show()
     }
     
-    
-    
-    
 }
