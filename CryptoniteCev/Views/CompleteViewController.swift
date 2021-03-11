@@ -7,16 +7,12 @@ class CompleteViewController: UIViewController {
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var date_picker: UITextField!
     let date = UIDatePicker()
-    @IBOutlet weak var datePickerErrorL: UILabel!
     
     @IBOutlet weak var usernameTF: UnderlinedTextField!
-    @IBOutlet weak var usernameErrorL: UILabel!
     @IBOutlet weak var nameTF: UnderlinedTextField!
-    @IBOutlet weak var nameErrorL: UILabel!
     var email:String?
     var password:String?
     @IBOutlet weak var surnameTF: UnderlinedTextField!
-    @IBOutlet weak var surnameErrorL: UILabel!
     
     let identifiers = Identifiers.shared
     override func viewDidLoad() {
