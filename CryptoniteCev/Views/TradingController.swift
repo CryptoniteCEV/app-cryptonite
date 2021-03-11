@@ -228,6 +228,7 @@ class TradingController: UIViewController {
                     if let body = response.value as? [String: Any]{
                         print(body["message"]!)
                         
+                        Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
                         self.setWallet()
                         self.trades = self.getTrades()
                         self.tradeTableView.reloadData()

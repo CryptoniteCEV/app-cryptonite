@@ -71,7 +71,6 @@ class CompleteViewController: UIViewController {
                         if(response.response?.statusCode == StatusCodes.shared.created){
                             self.goToLogInScreen()
                         }else{
-                            //Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")
                             print(body["message"]!)
                         }
                     }

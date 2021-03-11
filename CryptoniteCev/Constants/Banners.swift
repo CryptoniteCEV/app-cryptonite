@@ -16,14 +16,19 @@ class Banners{
     
     private init(){}
     
+    private var normalDuration : TimeInterval = 1
+    private var longDuration : TimeInterval = 2
+    private var normalHeight : CGFloat = 110
+    private var smallHeight : CGFloat = 50
+    
     func levelUpBanner(title: String){
         let leftView = UIImageView(image: #imageLiteral(resourceName: "logoNoText"))
         let banner = NotificationBanner(title: title, leftView: leftView, style: .info)
         banner.haptic = .heavy
         banner.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        banner.bannerHeight = 110
+        banner.bannerHeight = self.normalHeight
         banner.titleLabel?.textColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
-        banner.duration = 1
+        banner.duration = self.longDuration
         
         banner.show()
     }
@@ -32,8 +37,17 @@ class Banners{
         let leftView = UIImageView(image: #imageLiteral(resourceName: "error"))
         let banner = NotificationBanner(title: title, subtitle: subtitle,leftView: leftView, style: .danger)
         banner.haptic = .heavy
-        banner.bannerHeight = 110
-        banner.duration = 1
+        banner.bannerHeight = self.normalHeight
+        banner.duration = self.normalDuration
+        
+        banner.show()
+    }
+    
+    func successBanner(title: String, subtitle: String){
+        let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
+        banner.haptic = .heavy
+        banner.bannerHeight = self.normalHeight
+        banner.duration = self.normalDuration
         
         banner.show()
     }
@@ -41,6 +55,7 @@ class Banners{
     func noConnectionBanner() {
         let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
         banner.autoDismiss = false
+        banner.bannerHeight = self.smallHeight
         banner.show()
     }
     
