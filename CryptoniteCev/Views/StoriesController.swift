@@ -22,6 +22,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var cash:Double = 0
     var percentages:[String:Double] = [:]
     var followings:[String] = []
+    var following:Bool = false
     var graph = PieChart()
     
     @IBOutlet weak var unfollowButton: UIButton!
@@ -84,7 +85,11 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     
     @IBAction func followUserButton(_ sender: Any) {
         
-        followSomeone()
+        if(!following){
+            followSomeone()
+        }else{
+            unfollowSomeone()
+        }
         
     }
     
@@ -158,10 +163,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                     if let body = response.value as? [String:Any] {
                     
                         if let data = body["data"] as? String{
-                            
-                           self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-                           self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                           self.unfollowButton.setTitle("Unfollow", for: .normal)
+                            self.following=true
+                            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                            self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                            self.unfollowButton.setTitle("Unfollow", for: .normal)
                         }
                     }
                 }
@@ -196,13 +201,40 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     func setProperButton(){
      
         if !self.followings.contains(self.username!){
+            self.following = false
             self.unfollowButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             self.unfollowButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
             self.unfollowButton.setTitle("Follow", for: .normal)
         }else{
+            self.following = true
             self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
             self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
             self.unfollowButton.setTitle("Unfollow", for: .normal)
+        }
+        
+    }
+    
+    func unfollowSomeone(){
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+             let parameters = ["username":username!]
+                let request = Service.shared.stopFollowing(params: parameters)
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                    
+                        if let message = body["message"] as? String{
+                            print(message)
+                            self.following=false
+                            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                            self.unfollowButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
+                            self.unfollowButton.setTitle("Follow", for: .normal)
+                            
+                        }
+                    }
+                }
+            }
         }
         
     }
