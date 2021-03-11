@@ -118,7 +118,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             
                             for i in 0..<data.count{
                                 
-                                self.values.append(ChartDataEntry(x: data[i][0], y: data[i][1]))
+                                self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
                                 
                             }
                         }
