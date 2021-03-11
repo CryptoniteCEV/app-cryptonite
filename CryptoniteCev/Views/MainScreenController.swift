@@ -28,23 +28,8 @@ class MainScreenController: UIViewController {
     var coins:[Coin] = []
     var trades:[TradeHistory] = []
     var users:[UserMain] = []
+    var followings:[UserStories] = [UserStories(profilePic: Images.shared.users[0], username: "")]
     var coinImages:[UIImage] = []
-    
-    var stories:[UserStories] = [
-        UserStories(profilePic: #imageLiteral(resourceName: "image1"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user5"), username: "alex"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose")
-    ]
     
     override func viewDidLoad() {
         
@@ -70,7 +55,7 @@ class MainScreenController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+       fillFollowings()
         //navigationController?.setNavigationBarHidden(true, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -124,6 +109,29 @@ class MainScreenController: UIViewController {
            
             	
             
+        }
+    }
+    
+    func fillFollowings(){
+        followings = [UserStories(profilePic: Images.shared.users[0], username: "")]
+
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getFollowings()
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                        if let data = body["data"] as? [[String:Any]]{
+                            
+                             for i in 0..<data.count{
+                                self.followings.append(UserStories(profilePic: Images.shared.users[data[i]["profile_pic"] as! Int], username: data[i]["username"] as! String))
+                               
+                             }
+                            self.storiesCollectionView.reloadData()
+                        }
+                    }
+                }
+            }
         }
     }
 }

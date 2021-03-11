@@ -21,7 +21,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesCollectionView {
-            return stories.count
+            return followings.count
         } else if collectionView == coinCollectionView {
             if coins.count>0{
                 return coins.count
@@ -40,8 +40,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             
             if indexPath.row == 0 {
                 cell.storiesImageView?.image = myProfilePic
-            }else if stories.count > 0{
-                cell.storiesImageView?.image = stories[indexPath.row].profilePic
+            }else if followings.count > 1{
+                cell.storiesImageView?.image = followings[indexPath.row].profilePic
                 cell.storiesImageView.layer.cornerRadius = cell.storiesImageView.frame.height/2
             }
             cell.layer.cornerRadius = cell.frame.width/2
@@ -100,7 +100,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }else if users.count>0 && collectionView == usersCollectionView {
             let selectedItem = users[indexPath.row].username
             performSegue(withIdentifier: "stories", sender: selectedItem)
-        } else if stories.count>0 && collectionView == storiesCollectionView {
+        } else if followings.count>0 && collectionView == storiesCollectionView {
             
             let cell = storiesCollectionView.cellForItem(at: indexPath)
             cell?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -108,7 +108,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "gaming", sender: (Any).self)
             }else {
-                let selectedItem = stories[indexPath.row].username
+                let selectedItem = followings[indexPath.row].username
                 performSegue(withIdentifier: "stories", sender: selectedItem)
             }
             
