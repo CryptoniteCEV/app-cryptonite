@@ -29,7 +29,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         pieChart.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,7 +42,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+         print("Vienes de gmification")
         self.cash = 0
         self.coinsQuantities = []
     

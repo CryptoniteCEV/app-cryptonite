@@ -92,6 +92,7 @@ class MainScreenController: UIViewController {
                 let requestUsers = Service.shared.getUsers()
                 requestUsers.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
+                    
                         let data = body["data"]! as! [[String:Any]]
                         self.users = []
                         for i in 0..<data.count {
