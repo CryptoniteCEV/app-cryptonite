@@ -11,7 +11,8 @@ import UIKit
 
 class MainScreenController: UIViewController {
 
-    var stories : UICollectionView?
+    //var stories : UICollectionView?
+    var storiesCollection: UICollectionView?
     var coinsCollection : UICollectionView?
     var usersCollection : UICollectionView?
 
@@ -19,24 +20,45 @@ class MainScreenController: UIViewController {
     
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
+    @IBOutlet weak var storiesCollectionView: UICollectionView!
+    
+    
     @IBOutlet weak var activityTableView: UITableView!
     
     var coins:[Coin] = []
     var trades:[TradeHistory] = []
     var users:[UserMain] = []
     var coinImages:[UIImage] = []
+    var stories:[UserStories] = [
+        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user5"), username: "alex"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
+        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose")
+    ]
     
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
         
-        loadImages()
+        /*loadImages()
         stories = createStoriesView()
         
         if stories != nil {
             view.addSubview(stories!)
             setStoriesConstraints(stories: stories!)
-        }
+        }*/
+        
+        storiesCollectionView.dataSource = self
+        storiesCollectionView.delegate = self
         
         coinCollectionView.dataSource = self
         coinCollectionView.delegate = self

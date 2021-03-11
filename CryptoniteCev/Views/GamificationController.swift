@@ -52,8 +52,12 @@ class GamificationController: UIViewController {
         claimRewards()
     }
     @IBAction func goToWallet(_ sender: Any) {
-        performSegue(withIdentifier: "wallet", sender: nil)
-        self.dismiss(animated: true, completion: nil)
+        
+        let meacguendios = true
+       
+        self.performSegue(withIdentifier: "wallet", sender: meacguendios)
+        self.dismiss(animated: true, completion: mi)
+        
     }
     
     override func viewDidLoad() {

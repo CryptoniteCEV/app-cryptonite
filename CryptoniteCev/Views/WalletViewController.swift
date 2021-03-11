@@ -38,7 +38,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-        tabBarController?.tabBar.isHidden = false
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
