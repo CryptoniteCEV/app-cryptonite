@@ -25,10 +25,6 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var mission3Button: UIButton!
     
-    
-    
-    
-    
     @IBOutlet var profileImage: UIImageView!
     
     @IBOutlet weak var cashLabel: UILabel!
@@ -56,7 +52,7 @@ class GamificationController: UIViewController {
         let meacguendios = true
        
         self.performSegue(withIdentifier: "wallet", sender: meacguendios)
-        self.dismiss(animated: true, completion: mi)
+        self.dismiss(animated: true, completion: nil)
         
     }
     

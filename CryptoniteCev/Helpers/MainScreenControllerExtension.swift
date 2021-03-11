@@ -15,55 +15,13 @@ var imageSelected : UIImage?
 //imagen que venga con el token
 var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
-  
-/*fileprivate let storiesView:UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-    let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    cv.translatesAutoresizingMaskIntoConstraints = false
-    cv.register(CircleCell.self, forCellWithReuseIdentifier: "cell")
-    return cv
-}()*/
-
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    func loadImages() {
-        
-        if(images.count == 0){
-            
-            images.append(#imageLiteral(resourceName: "user1.png"))
-            images.append(#imageLiteral(resourceName: "user13"))
-            images.append(#imageLiteral(resourceName: "user15"))
-            images.append(#imageLiteral(resourceName: "user7"))
-            images.append(#imageLiteral(resourceName: "user12"))
-            images.append(#imageLiteral(resourceName: "user6"))
-        }
-    }
-    
-    /*func createStoriesView() -> UICollectionView {
-        storiesView.backgroundColor = .none
-        storiesView.delegate = self
-        storiesView.dataSource = self
-        
-        return storiesView
-    }
-    
-    func setStoriesConstraints(stories : UICollectionView){
-        
-        stories.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/20).isActive = true
-        stories.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/80).isActive = true
-        stories.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.frame.width/80).isActive = true
-        stories.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
-    }*/
-    
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: storiesCollectionView.frame.width/5, height: storiesCollectionView.frame.width/5)
-    }*/
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesCollectionView {
-            return stories.count
+            return followings.count
         } else if collectionView == coinCollectionView {
             if coins.count>0{
                 return coins.count
@@ -76,19 +34,19 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //primera foto sea tu perfil.
         
         if collectionView == storiesCollectionView {
             let cell = storiesCollectionView.dequeueReusableCell(withReuseIdentifier: "CellStories", for: indexPath) as! StoriesCell
-            if stories.count > 0{
-                cell.storiesImageView?.image = stories[indexPath.row].profilePic
+            
+            if indexPath.row == 0 {
+                cell.storiesImageView?.image = myProfilePic
+            }else if followings.count > 1{
+                cell.storiesImageView?.image = followings[indexPath.row].profilePic
                 cell.storiesImageView.layer.cornerRadius = cell.storiesImageView.frame.height/2
-                cell.layer.cornerRadius = cell.frame.width/2
-                cell.layer.borderWidth = 3
-                cell.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-                //cell.bg.addTarget(self, action: #selector(buttonTappedInCollectionViewCell), for: .touchUpInside)
-                //cell.bg.setBackgroundImage(users[indexPath.row].profilePic, for: .normal)
             }
+            cell.layer.cornerRadius = cell.frame.width/2
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             return cell
         }
         
@@ -121,6 +79,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
                 cellUser.usernameL.text = users[indexPath.row].username
                 cellUser.percentageUserL.text = "Lvl. " + String(users[indexPath.row].experience)
+                
                 if(cellUser.percentageUserL.text?.first == "-") {
                     cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
                 }else {
@@ -138,20 +97,20 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         if coins.count>0 && collectionView == coinCollectionView{
             let selectedItem = coins[indexPath.row].name
             performSegue(withIdentifier: "coinViewID", sender: selectedItem)
-        }else if collectionView == usersCollectionView {
+        }else if users.count>0 && collectionView == usersCollectionView {
             let selectedItem = users[indexPath.row].username
             performSegue(withIdentifier: "stories", sender: selectedItem)
-        }else if collectionView == storiesCollectionView {
-            var selectedItem = stories[indexPath.row].profilePic
+        } else if followings.count>0 && collectionView == storiesCollectionView {
+            
             let cell = storiesCollectionView.cellForItem(at: indexPath)
             cell?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            
             if indexPath.row == 0 {
-                performSegue(withIdentifier: "gaming", sender: selectedItem)
-                selectedItem = #imageLiteral(resourceName: "cryptoFondo")
-            }else{
+                performSegue(withIdentifier: "gaming", sender: (Any).self)
+            }else {
+                let selectedItem = followings[indexPath.row].username
                 performSegue(withIdentifier: "stories", sender: selectedItem)
             }
-            
             
         }
     }
@@ -176,25 +135,15 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     
-    @objc func buttonTappedInCollectionViewCell(sender: UIButton) {
-    
-        setImage(image: sender.image(for: .normal)!)
-        if (imageSelected == myProfilePic){
-            self.performSegue(withIdentifier: "gaming", sender: sender)
-        }
-        self.performSegue(withIdentifier: Identifiers.shared.stories, sender: sender)
-    }
-
-    
-    func setImage(image: UIImage){
-        imageSelected = image
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
+            storiesController.onDoneBlock = { result in
+                
+                //self.storiesCollectionView.reloadData()
+                self.fillFollowings()
+            }
             storiesController.username = sender as? String
             
         }else if(segue.identifier == "coinViewID"){
