@@ -11,6 +11,9 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var coinIconIV: UIImageView!
     
+    @IBOutlet weak var aboutTitleLabel: UILabel!
+    @IBOutlet weak var aboutCoinLabel: UILabel!
+    
     @IBOutlet weak var currencyNameL: UILabel!
     
     @IBOutlet weak var coinValueL: UILabel!
@@ -63,7 +66,8 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             self.currencyNameL.text = data["Name"]! as! String + "'s price"
                             //currencyNameL.text = data["Symbol"] as! String
                             self.coinValueL.text = String(describing: data["Price"]!) + "$"
-                            
+                            self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
+                            self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
                             self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
                         }
                     }

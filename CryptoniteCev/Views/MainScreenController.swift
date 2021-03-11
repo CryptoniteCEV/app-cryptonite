@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import SkeletonView
 
-
-class MainScreenController: UIViewController {
+class MainScreenController: UIViewController, SkeletonTableViewDataSource {
 
     //var stories : UICollectionView?
     var storiesCollection: UICollectionView?
@@ -25,37 +25,19 @@ class MainScreenController: UIViewController {
     
     @IBOutlet weak var activityTableView: UITableView!
     
+    @IBOutlet weak var topMoverLabel: UILabel!
     var coins:[Coin] = []
     var trades:[TradeHistory] = []
     var users:[UserMain] = []
+    var followings:[UserStories] = [UserStories(profilePic: Images.shared.users[0], username: "")]
     var coinImages:[UIImage] = []
-    var stories:[UserStories] = [
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user5"), username: "alex"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user4"), username: "jesus"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user10"), username: "sergio"),
-        UserStories(profilePic: #imageLiteral(resourceName: "user3"), username: "jose")
-    ]
     
     override func viewDidLoad() {
+        //skeletonables
+        //setupSkeleton()
+        //topMoverLabel.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
         
         view.overrideUserInterfaceStyle = .dark
-        
-        /*loadImages()
-        stories = createStoriesView()
-        
-        if stories != nil {
-            view.addSubview(stories!)
-            setStoriesConstraints(stories: stories!)
-        }*/
         
         storiesCollectionView.dataSource = self
         storiesCollectionView.delegate = self
@@ -68,7 +50,26 @@ class MainScreenController: UIViewController {
         
         activityTableView.dataSource = self
         activityTableView.delegate = self
-        self.activityTableView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            let requestTrades = Service.shared.getTradingHistory()
+            
+            requestTrades.responseJSON { (response) in
+                if let body = response.value as? [String: Any]{
+                    let data = body["data"]! as! [[String:Any]]
+                    self.trades = []
+                    for i in 0..<data.count {
+                        self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
+                    }
+                    self.activityTableView.stopSkeletonAnimation()
+                    self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+                    //self.topMoverLabel.stopSkeletonAnimation()
+                self.activityTableView.reloadData()
+                    
+                }
+            }
+        })
+        
         
         for (_, value) in Images.shared.coins {
             coinImages.append(value)
@@ -77,7 +78,9 @@ class MainScreenController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+       fillFollowings()
+        activityTableView.isSkeletonable = true
+        activityTableView.showSkeleton(usingColor: .brown, transition: .crossDissolve(0.25))
         //navigationController?.setNavigationBarHidden(true, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -96,7 +99,7 @@ class MainScreenController: UIViewController {
                     }
                 }
                 
-                let requestTrades = Service.shared.getTradingHistory()
+                /*let requestTrades = Service.shared.getTradingHistory()
                 
                 requestTrades.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
@@ -109,7 +112,7 @@ class MainScreenController: UIViewController {
                     self.activityTableView.reloadData()
                         
                     }
-                }
+                }*/
                 
                 let requestUsers = Service.shared.getUsers()
                 requestUsers.responseJSON { (response) in
@@ -128,17 +131,43 @@ class MainScreenController: UIViewController {
             }
         }else {//cuando no hay conexion: PlaceHolders
             
-           
+            
             	
             
         }
     }
-}
+        private func setupSkeleton(){
+        topMoverLabel.isSkeletonable = true
+        storiesCollectionView.isSkeletonable = true
+    }
     
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return ActivityRow.identifier
+    }
+    	
+    
+    func fillFollowings(){
+        followings = [UserStories(profilePic: Images.shared.users[0], username: "")]
 
-func getImages(image: UIImage) -> UIImage {
-    
-    return image
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getFollowings()
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                        if let data = body["data"] as? [[String:Any]]{
+                            
+                             for i in 0..<data.count{
+                                self.followings.append(UserStories(profilePic: Images.shared.users[data[i]["profile_pic"] as! Int], username: data[i]["username"] as! String))
+                               
+                             }
+                            self.storiesCollectionView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 

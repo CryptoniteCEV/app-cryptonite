@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,9 @@
 		3910BF0D25F158C5005D0C08 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910BF0C25F158C5005D0C08 /* LineChart.swift */; };
 		3949CEEE25ED813B00961DFA /* OtherUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949CEED25ED813B00961DFA /* OtherUserCell.swift */; };
 		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
+		39D2767425FA6F95004B7ED5 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 39D2767325FA6F95004B7ED5 /* SkeletonView */; };
+		39D2767925FA8090004B7ED5 /* SkeletonCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2767825FA8090004B7ED5 /* SkeletonCellTest.swift */; };
+		39D2767E25FA826C004B7ED5 /* tTableViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2767D25FA826C004B7ED5 /* tTableViewTableViewCell.swift */; };
 		5303612325F2D3B30034AC06 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5303612225F2D3B30034AC06 /* TabBarController.swift */; };
 		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
 		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
@@ -42,6 +45,7 @@
 		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
 		53F194C825EEB3450096055F /* TradeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C725EEB3450096055F /* TradeHistory.swift */; };
 		53F194CA25EF02B60096055F /* Welcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C925EF02B60096055F /* Welcoming.swift */; };
+		53F7DD7B25FA16060001351E /* AboutCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F7DD7A25FA16060001351E /* AboutCoins.swift */; };
 		7F28EE8C25F7B07E009D6CCD /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8B25F7B07E009D6CCD /* Missions.swift */; };
 		7F28EE8E25F7B0FB009D6CCD /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8D25F7B0FB009D6CCD /* Mission.swift */; };
 		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
@@ -55,9 +59,9 @@
 		7F9A930425D15DBB0083F71D /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A930325D15DBB0083F71D /* WalletViewController.swift */; };
 		7F9B021D25EFAF9500AB91F0 /* TradesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */; };
 		7F9B021F25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */; };
-		7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA2CCB25F8FACC00239C0C /* Colors.swift */; };
 		7FA2D1B425F8F4AD0079F269 /* UserStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2D1B325F8F4AD0079F269 /* UserStories.swift */; };
 		7FA2D1B625F8F5280079F269 /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2D1B525F8F5280079F269 /* StoriesCell.swift */; };
+		7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA2CCB25F8FACC00239C0C /* Colors.swift */; };
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815E22525C233EF00D65B6A /* CoinCell.swift */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
@@ -105,6 +109,8 @@
 		3910BF0C25F158C5005D0C08 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		3949CEED25ED813B00961DFA /* OtherUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserCell.swift; sourceTree = "<group>"; };
 		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		39D2767825FA8090004B7ED5 /* SkeletonCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCellTest.swift; sourceTree = "<group>"; };
+		39D2767D25FA826C004B7ED5 /* tTableViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tTableViewTableViewCell.swift; sourceTree = "<group>"; };
 		5303612225F2D3B30034AC06 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		53F194C725EEB3450096055F /* TradeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistory.swift; sourceTree = "<group>"; };
 		53F194C925EF02B60096055F /* Welcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcoming.swift; sourceTree = "<group>"; };
+		53F7DD7A25FA16060001351E /* AboutCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoins.swift; sourceTree = "<group>"; };
 		7F28EE8B25F7B07E009D6CCD /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
 		7F28EE8D25F7B0FB009D6CCD /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
@@ -139,9 +146,9 @@
 		7F9A930325D15DBB0083F71D /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		7F9B021C25EFAF9500AB91F0 /* TradesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesRow.swift; sourceTree = "<group>"; };
 		7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeScreenTableViewExtension.swift; sourceTree = "<group>"; };
-		7FCA2CCB25F8FACC00239C0C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7FA2D1B325F8F4AD0079F269 /* UserStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStories.swift; sourceTree = "<group>"; };
 		7FA2D1B525F8F5280079F269 /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
+		7FCA2CCB25F8FACC00239C0C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
@@ -156,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D2767425FA6F95004B7ED5 /* SkeletonView in Frameworks */,
 				9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +299,7 @@
 				53F194C925EF02B60096055F /* Welcoming.swift */,
 				7F28EE8B25F7B07E009D6CCD /* Missions.swift */,
 				7FCA2CCB25F8FACC00239C0C /* Colors.swift */,
+				53F7DD7A25FA16060001351E /* AboutCoins.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -312,6 +321,8 @@
 				7F9B021E25EFC89000AB91F0 /* TradeScreenTableViewExtension.swift */,
 				3910BF0C25F158C5005D0C08 /* LineChart.swift */,
 				7FA2D1B525F8F5280079F269 /* StoriesCell.swift */,
+				39D2767825FA8090004B7ED5 /* SkeletonCellTest.swift */,
+				39D2767D25FA826C004B7ED5 /* tTableViewTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -362,6 +373,9 @@
 			dependencies = (
 			);
 			name = CryptoniteCev;
+			packageProductDependencies = (
+				39D2767325FA6F95004B7ED5 /* SkeletonView */,
+			);
 			productName = CryptoniteCev;
 			productReference = 390DAF3625B707810056BFD5 /* CryptoniteCev.app */;
 			productType = "com.apple.product-type.application";
@@ -434,6 +448,9 @@
 				Base,
 			);
 			mainGroup = 390DAF2D25B707810056BFD5;
+			packageReferences = (
+				39D2767225FA6F95004B7ED5 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = 390DAF3725B707810056BFD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -554,16 +571,19 @@
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
 				7F703F5425F119F000E99318 /* TradesProfile.swift in Sources */,
+				39D2767E25FA826C004B7ED5 /* tTableViewTableViewCell.swift in Sources */,
 				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,
 				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
+				39D2767925FA8090004B7ED5 /* SkeletonCellTest.swift in Sources */,
 				7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */,
 				7F92F55E25E7CA1B0095E15A /* UserCellMainController.swift in Sources */,
 				5303612325F2D3B30034AC06 /* TabBarController.swift in Sources */,
 				F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */,
 				53E9E27325BA071D00B78B17 /* MainController.swift in Sources */,
 				53C6C6B925EC091B00393C7A /* StringExtension.swift in Sources */,
+				53F7DD7B25FA16060001351E /* AboutCoins.swift in Sources */,
 				0712BCA225F16CF200511DC9 /* CoinViewController.swift in Sources */,
 				53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */,
 				5335BF5925F0368400E92F49 /* ViewControllerExtension.swift in Sources */,
@@ -897,6 +917,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39D2767225FA6F95004B7ED5 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39D2767325FA6F95004B7ED5 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39D2767225FA6F95004B7ED5 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 390DAF2E25B707810056BFD5 /* Project object */;
 }

@@ -58,11 +58,11 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                        
                             for i in 0..<wallets.count {
                                 self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
-                                self.cash += self.coinsQuantities[i].inDollars
                             }
+                            self.cash = cash as! Double
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
-                            self.percentages = self.getCoinPercentages()
-                            print(self.percentages)
+                            self.percentages = self.getCoinPercentages(cash: cash as! Double)
+
                         }
                         self.tableView.reloadData()
                     }
@@ -71,18 +71,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
     }
     
-    func getCoinPercentages()->[String:Double]{
-        var total:Double = 0
+    func getCoinPercentages(cash:Double)->[String:Double]{
         var coinsInWallet:[String:Double] = [:]
-        
-        for wallet in coinsQuantities {
-            total += wallet.inDollars
-        }
         
         for wallet in coinsQuantities {
             
             if wallet.inDollars > 0{
-                let percentage = (wallet.inDollars * 100) / total
+                let percentage = (wallet.inDollars * 100) / cash
                 coinsInWallet [wallet.symbol] = percentage
             }
         }

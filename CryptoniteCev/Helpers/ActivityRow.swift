@@ -10,4 +10,8 @@ class ActivityRow: UITableViewCell {
     @IBOutlet weak var iconSellingIV: UIImageView!
     @IBOutlet weak var coinBuyingL: UILabel!
     @IBOutlet weak var iconBuyingIV: UIImageView!
+    
+    
+     static let identifier = "cellActivity"
+    
 }
