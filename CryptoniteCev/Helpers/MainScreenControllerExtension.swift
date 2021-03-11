@@ -15,6 +15,7 @@ var imageSelected : UIImage?
 //imagen que venga con el token
 var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
+var selectedCoin:String?
 
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
@@ -139,16 +140,33 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
            
         if (segue.identifier == Identifiers.shared.stories) {
             let storiesController = segue.destination as! StoriesController
-            storiesController.onDoneBlock = { result in
+            storiesController.onDoneBlock = {
                 
-                //self.storiesCollectionView.reloadData()
                 self.fillFollowings()
             }
             storiesController.username = sender as? String
             
         }else if(segue.identifier == "coinViewID"){
+            
             let coinController = segue.destination as! CoinViewController
             coinController.coinName = sender as? String
+            
+            coinController.onDoneBlock = { result in
+                
+                self.tabBarController?.selectedIndex = 0
+                let tradeVC = self.tabBarController!.viewControllers![0] as! TradingController
+                tradeVC.coinForSC = result
+                
+            }
+            
+        }else if(segue.identifier == "gaming"){
+            
+            let gamingController = segue.destination as! GamificationController
+            gamingController.mainClass = self
+            gamingController.onDoneBlock = {
+                
+                self.tabBarController?.selectedIndex = 2
+            }
         }
     }
 }

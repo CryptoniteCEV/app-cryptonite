@@ -25,7 +25,7 @@ class TradingController: UIViewController {
     var trades:[Trade] = []
     var coins:[Coin] = []
     var wallets:[CoinsQuantities] = []
-    
+    var coinForSC:String?
     var cryptoPos = 0
     var dollarPos = 0
     var isSell = 0
@@ -64,6 +64,7 @@ class TradingController: UIViewController {
     func setProperButtonBuySellColor(){
         if amountValue.value>0{
             buyOrSellButton.isEnabled = true
+            
             if isSell == 0{
                 buyOrSellButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
                 buyOrSellButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
@@ -82,6 +83,7 @@ class TradingController: UIViewController {
         }else{
             buySellSC.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         }
+        
         buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         
     }
@@ -91,6 +93,14 @@ class TradingController: UIViewController {
         setWallet()
         trades = getTrades()
         coins = getCoins()
+        
+        if coinForSC != nil {
+            coinsSC.selectedSegmentIndex = getPositionInSGFromName()
+            self.cryptoPos = coinsSC.selectedSegmentIndex
+            if coins.count > 0{
+                curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+            }
+        }
         
     }
     
@@ -262,6 +272,17 @@ class TradingController: UIViewController {
             }
         }
         
+    }
+    
+    func getPositionInSGFromName()->Int{
+        
+        for i in 0..<coinsSC.numberOfSegments{
+            
+            if coinForSC == coinsSC.titleForSegment(at: i)!{
+                return i
+            }
+        }
+        return 0
     }
     
 }

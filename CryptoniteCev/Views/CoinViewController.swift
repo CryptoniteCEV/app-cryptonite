@@ -20,9 +20,12 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var coinPercentageL: UILabel!
     
+    var onDoneBlock : ((String?) -> Void)?
+    
     var graph = LineChart()
     var lineChart = LineChartView()
     
+    var coinSymbol:String = "BTC"
     var coinName:String?
 
     override func viewDidLoad() {
@@ -37,7 +40,9 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     @IBAction func TradeViewButton(_ sender: Any) {
         //performSegue(withIdentifier: "TradeViewID", sender: sender)
-        
+        self.dismiss(animated: true) {
+            self.onDoneBlock!(self.coinSymbol)
+        }
     }
     
     
@@ -64,7 +69,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                         if let data = body["data"] as? [String:Any]{
                             
                             self.currencyNameL.text = data["Name"]! as! String + "'s price"
-                            //currencyNameL.text = data["Symbol"] as! String
+                            self.coinSymbol = data["Symbol"] as! String
                             self.coinValueL.text = String(describing: data["Price"]!) + "$"
                             self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
                             self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)

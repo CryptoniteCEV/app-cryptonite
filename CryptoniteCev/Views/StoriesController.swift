@@ -24,7 +24,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var followings:[String] = []
     var following:Bool = false
     var graph = PieChart()
-    var onDoneBlock : ((Bool) -> Void)?
+    var onDoneBlock : (() -> Void)?
     
     @IBOutlet weak var unfollowButton: UIButton!
     
@@ -52,11 +52,11 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         
         tableView.reloadData()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        onDoneBlock!(true)
-        print("aaaa")
+        onDoneBlock!()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

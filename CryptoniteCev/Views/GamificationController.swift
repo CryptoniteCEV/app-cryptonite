@@ -17,6 +17,7 @@ class GamificationController: UIViewController {
     @IBOutlet var missionsCard: UIView!
     
     @IBOutlet var walletCard: UIView!
+    
     var viewConfeti: SwiftConfettiView?
     
     @IBOutlet weak var mission1Button: UIButton!
@@ -29,7 +30,11 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var cashLabel: UILabel!
     
+    var onDoneBlock : (() -> Void)?
+    
     var experience : Int = 0
+    
+    var mainClass:MainScreenController?
     
     var experiencePerMission = 200
     
@@ -47,6 +52,17 @@ class GamificationController: UIViewController {
         experience += experiencePerMission
         claimRewards()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
+    @IBAction func toWalletButton(_ sender: Any) {
+        self.dismiss(animated: true) {
+            self.onDoneBlock!()
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
