@@ -99,6 +99,8 @@ class TradingController: UIViewController {
             self.cryptoPos = coinsSC.selectedSegmentIndex
             if coins.count > 0{
                 curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+            }else{
+                curentPrice.text = "N/A"
             }
         }
         
@@ -116,6 +118,8 @@ class TradingController: UIViewController {
         cryptoPos = coinsSC.selectedSegmentIndex
         if(coins.count>0){
             curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+        }else{
+            curentPrice.text = "N/A"
         }
         amountValue.value = 0
         amountTextfield.text = "0"
