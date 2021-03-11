@@ -8,8 +8,6 @@ class LogInController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var usernameTF: UnderlinedTextField!
     @IBOutlet weak var passwordTF: UnderlinedTextField!
-    @IBOutlet weak var usernameErrorL: UILabel!
-    @IBOutlet weak var passwordErrorL: UILabel!
     
     @IBOutlet weak var introLabel: UILabel!
     //let apiBodyResponses = ApiBodyResponses.shared
@@ -25,7 +23,7 @@ class LogInController: UIViewController {
 
     @IBAction func LogInButton(_ sender: Any) {
         
-        if checkUsername(textFieldUsername: usernameTF, errorLabel: usernameErrorL) && checkPassword(textFieldPass: passwordTF, errorLabel: passwordErrorL){
+        if checkUsername(textFieldUsername: usernameTF) && checkPassword(textFieldPass: passwordTF){
             let apiBodyNames = ApiBodyNames.shared
             let parameters =
                 [apiBodyNames.username:usernameTF.text!,

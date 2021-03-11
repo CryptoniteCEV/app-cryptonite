@@ -20,7 +20,6 @@
 		390DAF7025B724720056BFD5 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DAF6F25B724720056BFD5 /* SignUpController.swift */; };
 		3910BF0D25F158C5005D0C08 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910BF0C25F158C5005D0C08 /* LineChart.swift */; };
 		3949CEEE25ED813B00961DFA /* OtherUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949CEED25ED813B00961DFA /* OtherUserCell.swift */; };
-		3966792025B7606500334585 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3966791F25B7606500334585 /* CompleteViewController.swift */; };
 		5303612325F2D3B30034AC06 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5303612225F2D3B30034AC06 /* TabBarController.swift */; };
 		531657EC25B7970B0040417F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657EB25B7970B0040417F /* User.swift */; };
 		531657EE25B7972D0040417F /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531657ED25B7972D0040417F /* Trade.swift */; };
@@ -106,7 +105,6 @@
 		390DAF6F25B724720056BFD5 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3910BF0C25F158C5005D0C08 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		3949CEED25ED813B00961DFA /* OtherUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserCell.swift; sourceTree = "<group>"; };
-		3966791F25B7606500334585 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		5303612225F2D3B30034AC06 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		531657EB25B7970B0040417F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		531657ED25B7972D0040417F /* Trade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 				390DAF3D25B707810056BFD5 /* LogInController.swift */,
 				7F944AA825B9AF3D00A9854E /* MainScreenController.swift */,
 				390DAF6F25B724720056BFD5 /* SignUpController.swift */,
-				3966791F25B7606500334585 /* CompleteViewController.swift */,
 				F8D0847125BDFE7900287C60 /* StoriesController.swift */,
 				7F9A930325D15DBB0083F71D /* WalletViewController.swift */,
 				F8FE716B25EDAA5D0071053D /* TradingController.swift */,
@@ -562,7 +559,6 @@
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
 				7F703F5425F119F000E99318 /* TradesProfile.swift in Sources */,
 				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,
-				3966792025B7606500334585 /* CompleteViewController.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
 				531657EE25B7972D0040417F /* Trade.swift in Sources */,
 				7FCA2CCC25F8FACC00239C0C /* Colors.swift in Sources */,

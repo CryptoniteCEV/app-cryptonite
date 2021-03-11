@@ -122,8 +122,10 @@ class GamificationController: UIViewController {
                 let request = Service.shared.getCash()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        if let data = body["data"]{
-                            self.cashLabel.text = data as! String + " $"
+                        if let data = body["data"] as? String{
+                            let cash = round(100*(Double(data)!))/100
+                                
+                            self.cashLabel.text = String(cash) + " $"
                         }
                     }
                 }
