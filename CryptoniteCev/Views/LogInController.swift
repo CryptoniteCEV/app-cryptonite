@@ -1,6 +1,7 @@
 
 
 import UIKit
+import NotificationBannerSwift
 
 class LogInController: UIViewController {
 
@@ -40,22 +41,16 @@ class LogInController: UIViewController {
                             self.navigationController?.setNavigationBarHidden(true, animated: true)
                             self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
                         }else{
-                            print(body["message"]!)
+                            Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")
                         }
                     }else{
-                        self.navigationController?.setNavigationBarHidden(true, animated: true)
-                        self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
+                        //Algo ha ocurrido ERROR
                     }
                 }
             }else{
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-                self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
+                Banners.shared.noConnectionBanner()
             }
         }
-    }
-    
-    
-    @IBAction func goToSignUp(_ sender: Any) {
     }
     
     override func viewDidAppear(_ animated: Bool) {

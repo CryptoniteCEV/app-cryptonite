@@ -9,16 +9,19 @@
 import UIKit
 import SwiftConfettiView
 import CircleProgressBar
+import NotificationBannerSwift
 
 class GamificationController: UIViewController {
     
     @IBOutlet var circleProgressBar: CircleProgressBar!
     
+    @IBOutlet var levelLabel: UILabel!
+    
     @IBOutlet var missionsCard: UIView!
     
     @IBOutlet var walletCard: UIView!
     
-    var viewConfeti: SwiftConfettiView?
+    var viewConfetti: SwiftConfettiView?
     
     @IBOutlet weak var mission1Button: UIButton!
     
@@ -30,27 +33,49 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var cashLabel: UILabel!
     
-    var onDoneBlock : (() -> Void)?
+    @IBOutlet weak var mission1Image: UIImageView!
+    @IBOutlet weak var mission1Label: UILabel!
     
-    var experience : Int = 0
+    
+    @IBOutlet weak var mission2Image: UIImageView!
+    @IBOutlet weak var mission2Label: UILabel!
+    
+    @IBOutlet weak var mission3Image: UIImageView!
+    @IBOutlet weak var mission3Label: UILabel!
+    
+    
+    var onDoneBlock : (() -> Void)?
     
     var mainClass:MainScreenController?
     
-    var experiencePerMission = 200
+    var experience : Double = 0
+    
+    var experiencePerMission : Double = 200
+    
+    var level : Double = 1
+    
+    var prevLevel : Double = 1
+    
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
-        experience += experiencePerMission
-        claimRewards()
+        //claimRewards()
+        self.level = levelManagement()!
+        checkHasLeveledUp()
+        setProgressLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,27 +92,28 @@ class GamificationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"
-        mission1Button.layer.cornerRadius = mission1Button.frame.width/2
-        mission2Button.layer.cornerRadius = mission2Button.frame.width/2
-        mission3Button.layer.cornerRadius = mission3Button.frame.width/2
-        circleProgressBar.setProgress(0.3, animated: true)
-        self.viewConfeti = SwiftConfettiView(frame: self.view.bounds)
-        /*
-            self.viewConfeti?.type = .image(#imageLiteral(resourceName: "btc"))
-            self.viewConfeti?.colors = [#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
-            self.viewConfeti?.intensity=0.69
-        */
-        self.viewConfeti?.tag = 200
+        circleProgressBar.setProgress(0.0, animated: false)
+        
+        roundButton(button: mission1Button)
+        roundButton(button: mission2Button)
+        roundButton(button: mission3Button)
+        
+        setMissions(missionImage: mission1Image, missionTittle: mission1Label)
+        setMissions(missionImage: mission2Image, missionTittle: mission2Label)
+        setMissions(missionImage: mission3Image, missionTittle: mission3Label)
+        
+        print("Hola " + String(Missions.shared.missions[1].title))
+        
+        self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
+        self.viewConfetti?.tag = 200
+        
         missionsCard.layer.cornerRadius = 10
         walletCard.layer.cornerRadius = 10
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
         
-        let level = GetLevel(exp: self.experiencePerMission)
-        let nextlevel = NextLevelExp(level: level)
-        let expLeft = nextlevel - self.experiencePerMission
-        print(expLeft)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         //navigationController?.setNavigationBarHidden(false, animated: true)
@@ -104,10 +130,19 @@ class GamificationController: UIViewController {
             }
         }
     }
+    func setMissions(missionImage: UIImageView, missionTittle: UILabel) {
+        var index = Int.random(in: 0...Missions.shared.missions.count-1)
+        missionImage.image = Missions.shared.missions[index].image
+        missionTittle.text = Missions.shared.missions[index].title
+    }
+    
+    func roundButton(button: UIButton) {
+        button.layer.cornerRadius = button.frame.width/2
+    }
     
     func startConfetti(view: SwiftConfettiView){
         
-        self.view.addSubview(self.viewConfeti!)
+        self.view.addSubview(self.viewConfetti!)
         view.startConfetti()
     }
     
@@ -116,18 +151,48 @@ class GamificationController: UIViewController {
             view.stopConfetti()
             let confeti = self.view.viewWithTag(200)
             confeti!.removeFromSuperview()
+            self.setProgressLabel()
         }
     }
     
     func claimRewards() {
-        self.startConfetti(view: self.viewConfeti!)
-        self.stopConfetti(view: self.viewConfeti!)
+        self.startConfetti(view: self.viewConfetti!)
+        self.stopConfetti(view: self.viewConfetti!)
+    }    
+    
+    func neededExperience(level: Double) -> Double {
+        if level != 0 {
+            return neededExperience(level: level-1) + level  *  self.experiencePerMission
+        }
+        return 0
     }
     
-    func GetLevel(exp: Int) -> Int {
-        return exp/self.experiencePerMission
+    func levelManagement()->Double? {
+        experience += experiencePerMission
+        prevLevel = level
+        var n = 1
+        while true {
+            if experience < neededExperience(level: Double(n))  {
+                level = Double(n)
+                return Double(n)
+            }
+            n += 1
+        }
     }
-    func NextLevelExp(level: Int) -> Int {
-        return (level + 1)  *  self.experiencePerMission
+    func checkHasLeveledUp(){
+        if level != prevLevel  {
+            self.claimRewards()
+            prevLevel = level
+            DispatchQueue.main.async {
+                self.circleProgressBar.setProgress(CGFloat(1), animated: true)
+                Banners.shared.levelUpBanner(title: "Congrats! You have just reached level " + String(Int(self.level)))
+            }            
+        }
+        self.levelLabel.text = String(Int(level))
+    }
+    
+    func setProgressLabel() {
+        let progress = (experience - neededExperience(level: level-1)) / (neededExperience(level: level) - neededExperience(level: level - 1))
+        self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
     }
 }

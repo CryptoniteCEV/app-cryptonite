@@ -4,12 +4,18 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - CircleProgressBar (0.32)
+  - MarqueeLabel (4.0.5)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
+  - SnapKit (5.0.1)
   - SwiftConfettiView (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Charts
   - CircleProgressBar (~> 0.32)
+  - NotificationBannerSwift (~> 3.0.0)
   - SwiftConfettiView
 
 SPEC REPOS:
@@ -17,14 +23,20 @@ SPEC REPOS:
     - Alamofire
     - Charts
     - CircleProgressBar
+    - MarqueeLabel
+    - NotificationBannerSwift
+    - SnapKit
     - SwiftConfettiView
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: f9890edfde7e9a249526e4cadf117a1fbfc97c68
+PODFILE CHECKSUM: c844cc37d7f4a67dc61b6c9657a2cdb5e5555e84
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.9.3

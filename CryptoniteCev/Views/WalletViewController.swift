@@ -62,11 +62,15 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
                             self.percentages = self.getCoinPercentages(cash: cash as! Double)
 
+                        }else{
+                            Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Sorry!")
                         }
                         self.tableView.reloadData()
                     }
                 }
             }
+        }else{
+            Banners.shared.noConnectionBanner()
         }
     }
     

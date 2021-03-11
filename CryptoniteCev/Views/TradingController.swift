@@ -102,7 +102,9 @@ class TradingController: UIViewController {
             }else{
                 curentPrice.text = "N/A"
             }
+            buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         }
+        
         
     }
     
@@ -242,6 +244,7 @@ class TradingController: UIViewController {
                     if let body = response.value as? [String: Any]{
                         print(body["message"]!)
                         
+                        Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
                         self.setWallet()
                         self.trades = self.getTrades()
                         self.tradeTableView.reloadData()

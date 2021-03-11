@@ -11,7 +11,11 @@ import UIKit
 
 class Missions{
     
-    var missions = [ Mission(id: 0, image: #imageLiteral(resourceName: "023-coin stacks"), title: "Buy DOGE"),
+    static let shared = Missions()
+    
+    private init(){}
+    
+    let missions = [ Mission(id: 0, image: #imageLiteral(resourceName: "023-coin stacks"), title: "Buy DOGE"),
                      Mission(id: 1, image: #imageLiteral(resourceName: "034-trading"), title: "Check Bitcoin"),
                      Mission(id: 2, image: #imageLiteral(resourceName: "049-currency exchange"), title: "Buy any cryptocurrency"),
                      Mission(id: 3, image: #imageLiteral(resourceName: "045-digital investment"), title: "Follow someone"),

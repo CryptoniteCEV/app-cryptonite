@@ -76,6 +76,8 @@ class CompleteViewController: UIViewController {
                         }
                     }
                 }
+            }else{
+                Banners.shared.noConnectionBanner()
             }
         }
     }
