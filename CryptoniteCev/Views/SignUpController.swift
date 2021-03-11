@@ -55,13 +55,13 @@ class SignUpController: UIViewController {
     /**
     Comprueba identificador a la hora de realizar segue y pasa email y pass a la siguiente pantalla
     */
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+   /*override func prepare(for segue: UIStoryboardSegue, sender: Any?){
        if(segue.identifier == identifiers.toCompletion){
            let controller = segue.destination as! CompleteViewController
            controller.email = emailTF.text!
            controller.password = passwordTF.text!
        }
-   }
+   }*/
     
     
     @IBAction func goToLogIn(_ sender: Any) {

@@ -125,9 +125,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.profilePicActivityIV.image = Images.shared.users[trades[indexPath.row].profilePic]
             cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
             cell.usernameActivityL.text = trades[indexPath.row].username
-            cell.coinSellingL.text = String(trades[indexPath.row].quantity)
+            cell.coinSellingL.text = String((round(100000*trades[indexPath.row].quantity)/100000))
             cell.iconSellingIV.image = Images.shared.coins[trades[indexPath.row].coinFrom]
-            cell.coinBuyingL.text = String(trades[indexPath.row].converted)
+            cell.coinBuyingL.text = String((round(100000*trades[indexPath.row].converted)/100000))
             cell.iconBuyingIV.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }
         
