@@ -7,15 +7,12 @@ class SignUpController: UIViewController {
     @IBOutlet weak var continue_button: UIButton!
     
     @IBOutlet weak var emailTF: UnderlinedTextField!
-    @IBOutlet weak var emailErrorL: UILabel!
-    
     @IBOutlet weak var passwordTF: UnderlinedTextField!
-    @IBOutlet weak var passwordErrorL: UILabel!
-    
+    @IBOutlet weak var usernameTF: UnderlinedTextField!
+    @IBOutlet weak var nameTF: UnderlinedTextField!
     
     let identifiers = Identifiers.shared
     @IBOutlet weak var isAdultSW: UISwitch!
-    @IBOutlet weak var isAdultErrorL: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +26,28 @@ class SignUpController: UIViewController {
     
     @IBAction func ContinueButton(_ sender: Any) {
         
-        if checkEmail(textFieldEmail: emailTF, errorLabel: emailErrorL) && checkPassword(textFieldPass: passwordTF, errorLabel: passwordErrorL){
+        if checkEmail(textFieldEmail: emailTF) && checkPassword(textFieldPass: passwordTF){
             if isAdultSW.isOn{
-                isAdultErrorL.isHidden = true
-                self.performSegue(withIdentifier: self.identifiers.toCompletion, sender: sender)
+                //isAdultErrorL.isHidden = true
+                //self.performSegue(withIdentifier: self.identifiers.toCompletion, sender: sender)
+                
+                let user = User(username: usernameTF.text!, email: emailTF.text!, name: nameTF.text!, surname: nameTF.text!, password: passwordTF.text!, profilePic: Int.random(in: 0..<Images.shared.users.count))
+                
+                if Service.isConnectedToInternet {
+                    let request = Service.shared.register(user: user)
+                    
+                    request.responseJSON { (response) in
+                        if let body = response.value as? [String: Any]{
+                            if(response.response?.statusCode == StatusCodes.shared.created){
+                                self.goToLogInScreen()
+                            }else{
+                                print(body["message"]!)
+                            }
+                        }
+                    }
+                }
             }else {
-                isAdultErrorL.isHidden = false
+                
             }
         }
     }
@@ -53,6 +66,12 @@ class SignUpController: UIViewController {
     
     @IBAction func goToLogIn(_ sender: Any) {
          navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func goToLogInScreen() {
+        
+        navigationController?.popToRootViewController(animated: true)
+        
     }
     
 }

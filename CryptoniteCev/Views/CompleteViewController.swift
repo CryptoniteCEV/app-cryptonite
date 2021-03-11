@@ -59,7 +59,7 @@ class CompleteViewController: UIViewController {
     
     @IBAction func FinishedButton(_ sender: Any) {
         
-        if checkUsername(textFieldUsername: usernameTF, errorLabel: usernameErrorL) && checkName(textFieldName: nameTF, errorLabel: nameErrorL) && checkSurname(textFieldSurname: surnameTF, errorLabel: surnameErrorL){
+        if checkUsername(textFieldUsername: usernameTF) && checkName(textFieldName: nameTF) && checkSurname(textFieldSurname: surnameTF){
             
             
             let user = User(username: usernameTF.text!, email: email!, name: nameTF.text!, surname: surnameTF.text!, password: password!, profilePic: Int.random(in: 0..<Images.shared.users.count))
