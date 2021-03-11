@@ -55,8 +55,11 @@ class GamificationController: UIViewController {
         
         let meacguendios = true
        
-        self.performSegue(withIdentifier: "wallet", sender: meacguendios)
-        self.dismiss(animated: true, completion: mi)
+        //self.performSegue(withIdentifier: "wallet", sender: meacguendios)
+        self.dismiss(animated: true) {
+            
+        }
+        //self.dismiss(animated: true, completion:)
         
     }
     

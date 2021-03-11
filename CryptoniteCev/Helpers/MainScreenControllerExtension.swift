@@ -146,8 +146,10 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             let cell = storiesCollectionView.cellForItem(at: indexPath)
             cell?.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             if indexPath.row == 0 {
+                print("abrir gamification")
                 performSegue(withIdentifier: "gaming", sender: selectedItem)
-                selectedItem = #imageLiteral(resourceName: "cryptoFondo")
+                
+               // selectedItem = #imageLiteral(resourceName: "bar-chart")
             }else{
                 performSegue(withIdentifier: "stories", sender: selectedItem)
             }
