@@ -86,7 +86,8 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
                             self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
                             self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
-                            self.coinPercentageL.text = String(describing: data["Change"]!) + "%"
+                            let percentage = data["Change"]!
+                            self.coinPercentageL.text = String(round(100*(percentage as? Double)!)/100) + "%"
                             self.volumeLabel.text = String(describing:data["Volume"]!) + "$"
                             self.marketCapLabel.text = String(describing:data["Cap"]!) + "$"
                             

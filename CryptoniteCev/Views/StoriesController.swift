@@ -123,7 +123,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
                             
                                 for i in 0..<tradeHistory.count {
-                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
+                                    let quantityRounded = round(100000*(tradeHistory[i]["Quantity"] as? Double)!)/100000
+                                    let convertedRounded = round(100000*(tradeHistory[i]["Converted"] as? Double)!)/100000
+                                    
+                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: quantityRounded, converted: convertedRounded))
                                 }
                         }
                         

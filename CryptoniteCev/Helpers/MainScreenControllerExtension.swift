@@ -17,6 +17,11 @@ var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
 var selectedCoin:String?
 
+let roundingPair = ["DogeCoin", "Tether"]
+
+var roundingQuantity: Double = 100000
+
+
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -58,7 +63,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
                 cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
-                cell.percentageLabel?.text = String(coins[indexPath.row].change) + "%"
+                cell.percentageLabel?.text = String(round(100*coins[indexPath.row].change)/100) + "%"
                 
                  if(coins[indexPath.row].change < 0) {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
@@ -126,13 +131,24 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.profilePicActivityIV.image = Images.shared.users[trades[indexPath.row].profilePic]
             cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
             cell.usernameActivityL.text = trades[indexPath.row].username
-            cell.coinSellingL.text = String((round(100000*trades[indexPath.row].quantity)/100000))
+            roundingQuantity = setRounding(symbol: trades[indexPath.row].coinFrom)
+            cell.coinSellingL.text = String(round(roundingQuantity * trades[indexPath.row].quantity)/roundingQuantity)
             cell.iconSellingIV.image = Images.shared.coins[trades[indexPath.row].coinFrom]
-            cell.coinBuyingL.text = String((round(100000*trades[indexPath.row].converted)/100000))
+            roundingQuantity = setRounding(symbol: trades[indexPath.row].coinTo)
+            cell.coinBuyingL.text = String(round(roundingQuantity * trades[indexPath.row].converted)/roundingQuantity)
             cell.iconBuyingIV.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }
         
         return cell
+    }
+    func setRounding(symbol:String) -> Double {
+        
+        if(roundingPair.contains(symbol)){
+            return 100
+        } else {
+            return 100000
+        }
+        return 100000
     }
     
     
