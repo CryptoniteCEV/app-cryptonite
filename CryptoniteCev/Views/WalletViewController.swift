@@ -32,6 +32,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeRight.direction = .right
+        swipeRight.numberOfTouchesRequired = 2
+        self.view.addGestureRecognizer(swipeRight)
+        let tripleTap = UITapGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        
+        tripleTap.numberOfTapsRequired = 3;
+        
+        self.view.addGestureRecognizer(tripleTap)
         
         pieChart.delegate = self
         tableView.delegate = self
