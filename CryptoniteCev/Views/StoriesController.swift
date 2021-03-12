@@ -34,6 +34,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var container: UIView!
     
+    let roundingPair = ["DogeCoin", "Tether"]
+
+    var roundingQuantity: Double = 100000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getPercentages()
@@ -123,8 +127,11 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
                             
                                 for i in 0..<tradeHistory.count {
-                                    let quantityRounded = round(100000*(tradeHistory[i]["Quantity"] as? Double)!)/100000
-                                    let convertedRounded = round(100000*(tradeHistory[i]["Converted"] as? Double)!)/100000
+                                    self.roundingQuantity = self.setRounding(symbol: (tradeHistory[i]["Coin_from"] as? String)!)
+                                    let quantityRounded: Double = round(self.roundingQuantity * (tradeHistory[i]["Quantity"] as? Double)!)/self.roundingQuantity
+                                    
+                                    self.roundingQuantity = self.setRounding(symbol: (tradeHistory[i]["Coin_to"] as? String)!)
+                                    let convertedRounded: Double = round(self.roundingQuantity * (tradeHistory[i]["Converted"] as? Double)!)/self.roundingQuantity
                                     
                                     self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: quantityRounded, converted: convertedRounded))
                                 }
@@ -246,6 +253,15 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
             }
         }
         
+    }
+    
+    func setRounding(symbol:String) -> Double {
+        
+        if(roundingPair.contains(symbol)){
+            return 100
+        } else {
+            return 100000
+        }
     }
 
 }

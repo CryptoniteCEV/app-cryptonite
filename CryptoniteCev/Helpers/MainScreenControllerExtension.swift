@@ -148,7 +148,6 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         } else {
             return 100000
         }
-        return 100000
     }
     
     
