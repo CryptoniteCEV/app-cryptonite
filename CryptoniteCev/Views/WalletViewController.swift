@@ -5,13 +5,6 @@ import Charts
 class WalletViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate,
     ChartViewDelegate
 {
- 
-    /*@IBAction func goGamification(_ sender: UIButton) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
-    }*/
     @IBOutlet weak var container: UIView!
     
     var cash:Double = 0
@@ -33,12 +26,8 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeRight.direction = .right
         swipeRight.numberOfTouchesRequired = 2
+        
         self.view.addGestureRecognizer(swipeRight)
-        let tripleTap = UITapGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
-        
-        tripleTap.numberOfTapsRequired = 3;
-        
-        self.view.addGestureRecognizer(tripleTap)
         
         pieChart.delegate = self
         tableView.delegate = self
