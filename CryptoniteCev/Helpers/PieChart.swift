@@ -34,6 +34,8 @@ class PieChart: UIViewController, ChartViewDelegate{
         
         let set =  PieChartDataSet(entries: entries)
         
+        
+        
         let valueColor = NSUIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.95)
         let labelEntryColor = NSUIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.95)
         
@@ -41,7 +43,14 @@ class PieChart: UIViewController, ChartViewDelegate{
         set.valueColors =  [valueColor]
         set.entryLabelColor = labelEntryColor
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        formatter.multiplier = 1.0
+        
         let data = PieChartData(dataSet: set)
+        data.setValueFormatter(DefaultValueFormatter(formatter:formatter))
+        
         pieChart.data = data
         
     }

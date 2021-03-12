@@ -3,7 +3,7 @@ import Charts
 
 class LineChart: UIViewController, ChartViewDelegate{
     
-    public func impirmirGrafica(lineChart: LineChartView, screen: UIView, values:[ChartDataEntry]){
+    public func impirmirGrafica(lineChart: LineChartView, screen: UIView, values:[ChartDataEntry], coinSymbol:String){
         
         lineChart.frame = CGRect(
             x: 0,y: 0,
@@ -21,10 +21,15 @@ class LineChart: UIViewController, ChartViewDelegate{
 
             
         let set =  LineChartDataSet(entries: values)
-
-        set.colors = ChartColorTemplates.material()
-        set.valueTextColor = UIColor.white
-        set.circleRadius = 5
+        set.drawValuesEnabled = false
+        //set.drawCircleHoleEnabled = true
+        set.drawCirclesEnabled = false
+        set.colors = [Colors.shared.graph[coinSymbol]!]
+        
+        
+        //set.colors = ChartColorTemplates.material()
+        //set.valueTextColor = UIColor.white
+        //set.circleRadius = 5
       
         let data = LineChartData(dataSet: set)
         lineChart.data = data

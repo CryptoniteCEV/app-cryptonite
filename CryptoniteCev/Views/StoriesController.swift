@@ -38,7 +38,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         getPercentages()
         fillFollowings()
-        
+        pieChart.drawEntryLabelsEnabled = false
         unfollowButton.layer.cornerRadius = 15
         //unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
         //unfollowButton.layer.borderWidth = 3
@@ -47,6 +47,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
        
         imageView.layer.borderColor = #colorLiteral(red: 0.0733634308, green: 0.1234697327, blue: 0.2026597559, alpha: 1)
         imageView.layer.borderWidth = 3
+        
+        
 
         tableView.delegate = self
         tableView.dataSource = self
