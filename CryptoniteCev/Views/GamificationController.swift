@@ -52,28 +52,28 @@ class GamificationController: UIViewController {
     
     var experiencePerMission : Double = 200
     
-    var level : Double = 1
+    var level : Double = 0
     
-    var prevLevel : Double = 1
+    var prevLevel : Double = 0
     
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
-        //claimRewards()
-        self.level = levelManagement()!
+        getExperience()
+        level = levelManagement()!
         checkHasLeveledUp()
         setProgressLabel()
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
-        //claimRewards()
-        self.level = levelManagement()!
+        getExperience()
+        level = levelManagement()!
         checkHasLeveledUp()
         setProgressLabel()
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
-        //claimRewards()
-        self.level = levelManagement()!
+        getExperience()
+        level = levelManagement()!
         checkHasLeveledUp()
         setProgressLabel()
     }
@@ -101,6 +101,9 @@ class GamificationController: UIViewController {
         setMissions(missionImage: mission1Image, missionTittle: mission1Label)
         setMissions(missionImage: mission2Image, missionTittle: mission2Label)
         setMissions(missionImage: mission3Image, missionTittle: mission3Label)
+        
+        level = levelManagement()!
+        self.levelLabel.text = String(Int(level))
         
         print("Hola " + String(Missions.shared.missions[1].title))
         
@@ -169,10 +172,13 @@ class GamificationController: UIViewController {
         return 0
     }
     
-    func levelManagement()->Double? {
+    func getExperience() {
         experience += experiencePerMission
+    }
+    
+    func levelManagement()->Double? {
         prevLevel = level
-        var n = 1
+        var n = 0
         while true {
             if experience < neededExperience(level: Double(n))  {
                 level = Double(n)
