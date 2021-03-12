@@ -38,7 +38,6 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         
         lineChart.delegate = self
         lineChart.xAxis.drawGridLinesEnabled = false
-        lineChart.leftAxis.drawLabelsEnabled = false
         lineChart.legend.enabled = false
         
         getCoin()

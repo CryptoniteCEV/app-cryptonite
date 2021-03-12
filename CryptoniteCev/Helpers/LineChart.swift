@@ -21,7 +21,10 @@ class LineChart: UIViewController, ChartViewDelegate{
 
             
         let set =  LineChartDataSet(entries: values)
-
+        set.drawValuesEnabled = false
+        //set.drawCircleHoleEnabled = true
+        set.drawCirclesEnabled = false
+        
         set.colors = ChartColorTemplates.material()
         set.valueTextColor = UIColor.white
         set.circleRadius = 5
