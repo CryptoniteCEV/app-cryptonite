@@ -61,4 +61,16 @@ class Banners{
         banner.show()
     }
     
+    func creatorsBanner(){
+           let leftView = UIImageView(image: #imageLiteral(resourceName: "logoNoText"))
+           let banner = NotificationBanner(title: "Created by Alex Sergio Jesus and Jose", leftView: leftView, style: .info)
+           banner.haptic = .heavy
+           banner.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+           banner.bannerHeight = self.normalHeight
+           banner.titleLabel?.textColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+           banner.duration = self.longDuration
+           
+           banner.show()
+       }
+    
 }
