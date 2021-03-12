@@ -33,7 +33,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         pieChart.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-    
+        pieChart.drawEntryLabelsEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
