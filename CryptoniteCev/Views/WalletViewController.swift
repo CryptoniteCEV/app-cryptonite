@@ -30,6 +30,9 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
+        swipeRight.direction = .right
+        
         pieChart.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -115,5 +118,24 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
         graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: percentages)
             
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+
+            switch swipeGesture.direction {
+            case .right:
+                Banners.shared.creatorsBanner()
+            case .down:
+                print("Swiped down")
+            case .left:
+                print("Swiped left")
+            case .up:
+                print("Swiped up")
+            default:
+                break
+            }
+        }
     }
 }

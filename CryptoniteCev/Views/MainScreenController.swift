@@ -52,8 +52,7 @@ class MainScreenController: UIViewController {
             coinImages.append(value)
         }
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
-        swipeRight.direction = .right
+        
         
     }
     
@@ -138,24 +137,7 @@ class MainScreenController: UIViewController {
         }
     }
     
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-
-    if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-
-        switch swipeGesture.direction {
-        case .right:
-            Banners.shared.creatorsBanner()
-        case .down:
-            print("Swiped down")
-        case .left:
-            print("Swiped left")
-        case .up:
-            print("Swiped up")
-        default:
-            break
-        }
-    }
-}
+    
 }
 
 
