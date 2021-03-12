@@ -62,7 +62,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
         
-        graph.impirmirGrafica(lineChart: lineChart, screen: containerView, values:values)
+        graph.impirmirGrafica(lineChart: lineChart, screen: containerView, values:values, coinSymbol: coinSymbol)
             
     }
     
