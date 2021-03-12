@@ -47,6 +47,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
        
         imageView.layer.borderColor = #colorLiteral(red: 0.0733634308, green: 0.1234697327, blue: 0.2026597559, alpha: 1)
         imageView.layer.borderWidth = 3
+        
+        
 
         tableView.delegate = self
         tableView.dataSource = self

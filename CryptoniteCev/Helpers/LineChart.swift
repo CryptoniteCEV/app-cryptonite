@@ -28,8 +28,8 @@ class LineChart: UIViewController, ChartViewDelegate{
         
         
         //set.colors = ChartColorTemplates.material()
-        set.valueTextColor = UIColor.white
-        set.circleRadius = 5
+        //set.valueTextColor = UIColor.white
+        //set.circleRadius = 5
       
         let data = LineChartData(dataSet: set)
         lineChart.data = data

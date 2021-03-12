@@ -41,7 +41,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         lineChart.legend.enabled = false
         
         getCoin()
-        getCoinHistory()
+        
         tradeButton.layer.cornerRadius = tradeButton.frame.height / 8
 
     }
@@ -64,6 +64,10 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         
         graph.impirmirGrafica(lineChart: lineChart, screen: containerView, values:values, coinSymbol: coinSymbol)
             
+        lineChart.data?.notifyDataChanged()
+        lineChart.notifyDataSetChanged()
+        lineChart.setNeedsDisplay()
+        lineChart.reloadInputViews()
     }
     
     func getCoin(){
@@ -124,6 +128,9 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                                 self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
                                 
                             }
+                            
+                            self.viewDidLayoutSubviews()
+                            
                         }
                     }
                 }
