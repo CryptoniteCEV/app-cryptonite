@@ -25,12 +25,23 @@ class LineChart: UIViewController, ChartViewDelegate{
         //set.drawCircleHoleEnabled = true
         set.drawCirclesEnabled = false
         set.colors = [Colors.shared.graph[coinSymbol]!]
+        set.highlightColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+        
+        //Remove grid lines
+        lineChart.rightAxis.drawAxisLineEnabled = false
+        lineChart.rightAxis.drawGridLinesEnabled = false
+        lineChart.leftAxis.drawGridLinesEnabled = false
+        lineChart.xAxis.drawGridLinesEnabled = false
+        
+        //Removed labels
+        lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        lineChart.rightAxis.drawLabelsEnabled = false
         
         
-        //set.colors = ChartColorTemplates.material()
-        //set.valueTextColor = UIColor.white
-        //set.circleRadius = 5
-      
+        lineChart.legend.enabled = false
+        
+    
+              
         let data = LineChartData(dataSet: set)
         lineChart.data = data
         

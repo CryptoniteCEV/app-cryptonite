@@ -37,9 +37,10 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         lineChart.delegate = self
-        lineChart.xAxis.drawGridLinesEnabled = false
-        lineChart.legend.enabled = false
+        //lineChart.xAxis.drawGridLinesEnabled = false
         
+      
+        //lineChart.rightAxis.drawLabelsEnabled = false
         getCoin()
         
         tradeButton.layer.cornerRadius = tradeButton.frame.height / 8
