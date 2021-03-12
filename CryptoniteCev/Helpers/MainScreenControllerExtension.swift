@@ -17,7 +17,7 @@ var imageSelected : UIImage?
 var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
 
-extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate {
+extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     
     
     
@@ -134,6 +134,10 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }
         
         return cell
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return ActivityRow.identifier
     }
     
     

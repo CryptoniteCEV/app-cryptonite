@@ -11,8 +11,8 @@ class PieChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-        /*pieChart.rotationAngle = 0
-        pieChart.rotationEnabled = false*/
+        pieChart.rotationAngle = 0
+        pieChart.rotationEnabled = true
         
         pieChart.drawHoleEnabled = false
         //5print("está haciendo la funcion")

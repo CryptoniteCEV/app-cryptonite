@@ -9,7 +9,7 @@
 import UIKit
 import SkeletonView
 
-class MainScreenController: UIViewController, SkeletonTableViewDataSource {
+class MainScreenController: UIViewController {
 
     //var stories : UICollectionView?
     var storiesCollection: UICollectionView?
@@ -36,7 +36,8 @@ class MainScreenController: UIViewController, SkeletonTableViewDataSource {
         //skeletonables
         //setupSkeleton()
         //topMoverLabel.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
-        
+        activityTableView.isSkeletonable = true
+        activityTableView.showSkeleton(usingColor: .brown, transition: .crossDissolve(0.25))
         view.overrideUserInterfaceStyle = .dark
         
         storiesCollectionView.dataSource = self
@@ -79,8 +80,7 @@ class MainScreenController: UIViewController, SkeletonTableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
        fillFollowings()
-        activityTableView.isSkeletonable = true
-        activityTableView.showSkeleton(usingColor: .brown, transition: .crossDissolve(0.25))
+        
         //navigationController?.setNavigationBarHidden(true, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -141,9 +141,7 @@ class MainScreenController: UIViewController, SkeletonTableViewDataSource {
         storiesCollectionView.isSkeletonable = true
     }
     
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return ActivityRow.identifier
-    }
+    
     	
     
     func fillFollowings(){

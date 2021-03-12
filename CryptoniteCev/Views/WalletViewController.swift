@@ -1,17 +1,13 @@
 
 import UIKit
 import Charts
+import SkeletonView
 
 class WalletViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate,
     ChartViewDelegate
 {
  
-    /*@IBAction func goGamification(_ sender: UIButton) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backItem
-    }*/
+   
     @IBOutlet weak var container: UIView!
     
     var cash:Double = 0
@@ -37,16 +33,28 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
+      
         navigationController?.setNavigationBarHidden(true, animated: true)
-       
+       let anim = SkeletonableAnim()
+        anim.placeholder(view: totalCash)
+    
+        
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        
+      
         self.cash = 0
         self.coinsQuantities = []
     
         if Service.isConnectedToInternet {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                               self.totalCash.stopSkeletonAnimation()
+                               self.totalCash.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+            print("Skeleton out")
+                    })
+            print("con internet")
+            
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
                 request.responseJSON { (response) in
@@ -68,6 +76,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                     }
                 }
             }
+        }else {
+            print("sin internet")
+            totalCash.isSkeletonable = true
+            let animation = GradientDirection.leftRight.slidingAnimation()
+            let gradient = SkeletonGradient.init(baseColor: .midnightBlue)
+            totalCash.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+            
         }
     }
     
