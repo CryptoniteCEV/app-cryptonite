@@ -150,6 +150,31 @@ class Service {
     
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Coin.history, method: .get,parameters: params, encoding: URLEncoding.default, headers: headers)
     }
+    //Recibe la que se acaba de terminar
+    func assignNewMission(params:[String:String])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.assignNewMission, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    //Recibe la que se acaba de hace
+    func updateMissionToFinish(params:[String:String])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.missionFinished, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func missionList()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.missionList, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

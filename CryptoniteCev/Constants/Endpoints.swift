@@ -27,6 +27,9 @@ class Endpoints {
         static let userProfileTrades:String = "/users/trades/profile/info"
         static let someonesInfo:String = "/users/info"
         static let stopFollowing:String = "/users/stop/following"
+        static let assignNewMission:String = "/users/assign/mission"
+        static let missionFinished:String = "/users/update/mission"
+        static let missionList:String = "/users/missions/list"
     }
     
     //Score´s petitions
@@ -56,6 +59,7 @@ class Endpoints {
         static let quantities:String = "/coins/quantities"
         static let coinInfo:String = "/coins/info"
     }
+    
 }
 
     

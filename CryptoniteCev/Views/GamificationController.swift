@@ -43,7 +43,6 @@ class GamificationController: UIViewController {
     @IBOutlet weak var mission3Image: UIImageView!
     @IBOutlet weak var mission3Label: UILabel!
     
-    
     var onDoneBlock : (() -> Void)?
     
     var mainClass:MainScreenController?
@@ -55,6 +54,8 @@ class GamificationController: UIViewController {
     var level : Double = 0
     
     var prevLevel : Double = 0
+    
+    var missions:[Mission] = []
     
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
@@ -98,14 +99,8 @@ class GamificationController: UIViewController {
         roundButton(button: mission2Button)
         roundButton(button: mission3Button)
         
-        setMissions(missionImage: mission1Image, missionTittle: mission1Label)
-        setMissions(missionImage: mission2Image, missionTittle: mission2Label)
-        setMissions(missionImage: mission3Image, missionTittle: mission3Label)
-        
         level = levelManagement()!
         self.levelLabel.text = String(Int(level))
-        
-        print("Hola " + String(Missions.shared.missions[1].title))
         
         self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
         self.viewConfetti?.tag = 200
@@ -119,26 +114,9 @@ class GamificationController: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        //navigationController?.setNavigationBarHidden(false, animated: true)
-        if Service.isConnectedToInternet {
-            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-                let request = Service.shared.getCash()
-                request.responseJSON { (response) in
-                    if let body = response.value as? [String:Any] {
-                        if let data = body["data"] as? String{
-                            let cash = round(100*(Double(data)!))/100
-                                
-                            self.cashLabel.text = String(cash) + " $"
-                        }
-                    }
-                }
-            }
-        }
-    }
-    func setMissions(missionImage: UIImageView, missionTittle: UILabel) {
-        var index = Int.random(in: 0...Missions.shared.missions.count-1)
-        missionImage.image = Missions.shared.missions[index].image
-        missionTittle.text = Missions.shared.missions[index].title
+        getCash()
+        getMissions()
+        
     }
     
     func roundButton(button: UIButton) {
@@ -202,5 +180,84 @@ class GamificationController: UIViewController {
     func setProgressLabel() {
         let progress = (experience - neededExperience(level: level-1)) / (neededExperience(level: level) - neededExperience(level: level - 1))
         self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
+    }
+    
+    func getMissions(){
+        
+        missions = []
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                
+                let request = Service.shared.missionList()
+                
+                request.responseJSON { (response) in
+                   
+                    if let body = response.value as? [String:Any] {
+                        
+                        if let data = body["data"] as? [[String:Any]]{
+                            
+                            for i in 0..<data.count{
+                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int]!, description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                            }
+                            self.setMissions()
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func setMissions(){
+        
+        mission1Label.text = missions[0].description
+        mission1Image.image = missions[0].icon
+        if missions[0].isFinished == 0{
+            mission1Button.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+            mission1Button.isEnabled = false
+        }else{
+            mission1Button.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            mission1Button.isEnabled = true
+        }
+        
+        mission2Label.text = missions[1].description
+        mission2Image.image = missions[1].icon
+        if missions[1].isFinished == 0{
+            mission2Button.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+            mission2Button.isEnabled = false
+        }else{
+            mission2Button.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            mission2Button.isEnabled = true
+        }
+        
+        mission3Label.text = missions[2].description
+        mission3Image.image = missions[2].icon
+        if missions[2].isFinished == 0{
+            mission3Button.backgroundColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+            mission3Button.isEnabled = false
+        }else{
+            mission3Button.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+            mission3Button.isEnabled = true
+        }
+        
+    }
+    
+    func getCash(){
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.getCash()
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String:Any] {
+                        if let data = body["data"] as? String{
+                            let cash = round(100*(Double(data)!))/100
+                                
+                            self.cashLabel.text = String(cash) + " $"
+                        }
+                    }
+                }
+            }
+        }
     }
 }

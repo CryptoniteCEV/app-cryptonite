@@ -12,13 +12,15 @@ import UIKit
 class Mission{
     
     private var _id : Int
-    private var _image : UIImage
-    private var _title : String
+    private var _icon : UIImage
+    private var _description : String
+    private var _isFinished : Int
     
-    init(id:Int, image:UIImage, title: String){
+    init(id:Int, icon:UIImage, description: String, isFinished:Int){
         self._id = id
-        self._image = image
-        self._title = title
+        self._icon = icon
+        self._description = description
+        self._isFinished = isFinished
     }
     
     public var id: Int {
@@ -30,21 +32,29 @@ class Mission{
         }
     }
     
-    public var image: UIImage {
+    public var icon: UIImage {
         get {
-            return self._image;
+            return self._icon;
         }
         set {
-            self._image = newValue
+            self._icon = newValue
         }
     }
 
-    public var title: String {
+    public var description: String {
         get {
-            return self._title;
+            return self._description;
         }
         set {
-            self._title = newValue
+            self._description = newValue
+        }
+    }
+    public var isFinished: Int {
+        get {
+            return self._isFinished;
+        }
+        set {
+            self._isFinished = newValue
         }
     }
 
