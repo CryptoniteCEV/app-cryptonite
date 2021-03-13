@@ -34,8 +34,8 @@ class TradingController: UIViewController {
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
-            
-            newTrade(is_sell: isSell, quantity: Double(amountValue.value), coin: coinsSC.titleForSegment(at: cryptoPos)!)
+            let quantityWithFee = applyFee(quantity: Double(amountValue.value))
+            newTrade(is_sell: isSell, quantity: quantityWithFee, coin: coinsSC.titleForSegment(at: cryptoPos)!)
             amountValue.value = 0
             amountTextfield.text = "0"
             buyOrSellButton.isEnabled = false
@@ -226,17 +226,16 @@ class TradingController: UIViewController {
         return trades;
     }
     
-    func newTrade(is_sell:Int, quantity:Double, coin:String) {
+    func newTrade(is_sell:Int, quantity: Double, coin:String) {
         
         if Service.isConnectedToInternet {
             
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
-                let quantityWithFee = quantity - (quantity/100)
                 
                 let parameters:[String:String] = [
                     "is_sell":String(is_sell),
-                    "quantity":String(quantityWithFee),
+                    "quantity":String(quantity),
                     "coin":coin
                 ]
                 
@@ -292,6 +291,12 @@ class TradingController: UIViewController {
             }
         }
         return 0
+    }
+    
+    func applyFee(quantity: Double) -> Double {
+        
+        let quantityWithFee = quantity - (quantity/100)
+        return quantityWithFee
     }
     
 }
