@@ -232,9 +232,11 @@ class TradingController: UIViewController {
             
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
+                let quantityWithFee = quantity - (quantity/100)
+                
                 let parameters:[String:String] = [
                     "is_sell":String(is_sell),
-                    "quantity":String(quantity),
+                    "quantity":String(quantityWithFee),
                     "coin":coin
                 ]
                 
