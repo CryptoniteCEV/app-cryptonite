@@ -21,5 +21,4 @@ class UserMessages {
     let invalidName = "Please enter a valid name"
     let invalidPass = "Please enter a valid password"
     let invalidUsername = "Please enter a valid username"
-    let invalidSurname = "Please enter a valid surname"
 }

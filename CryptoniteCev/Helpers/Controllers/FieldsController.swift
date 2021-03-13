@@ -90,24 +90,3 @@ public func checkName(textFieldName:UITextField/*, errorLabel:UILabel*/) -> Bool
     return true
 }
 
-/**
-Comprueba que el surname textfield no este vacio, devielve true o false
- En caso de false hace animación en textfield
-*/
-public func checkSurname(textFieldSurname:UITextField/*, errorLabel:UILabel*/) -> Bool
-{
-    do
-    {
-        try textFieldSurname.validatedText(.surname)
-        //errorLabel.isHidden = true
-    }
-    catch let error
-    {
-        let validationError = error as! ValidationError
-        //errorLabel.isHidden = false
-        //errorLabel.text = validationError.localizedDescription
-        return false
-    }
-
-    return true
-}

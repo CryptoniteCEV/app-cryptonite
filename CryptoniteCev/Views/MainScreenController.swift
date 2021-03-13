@@ -31,6 +31,8 @@ class MainScreenController: UIViewController {
     var followings:[UserStories] = [UserStories(profilePic: Images.shared.users[0], username: "")]
     var coinImages:[UIImage] = []
     
+    let experiencePerMission : Double = 200
+    
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -46,6 +48,7 @@ class MainScreenController: UIViewController {
         
         activityTableView.dataSource = self
         activityTableView.delegate = self
+        
         self.activityTableView.reloadData()
         
         for (_, value) in Images.shared.coins {
@@ -97,7 +100,7 @@ class MainScreenController: UIViewController {
                         let data = body["data"]! as! [[String:Any]]
                         self.users = []
                         for i in 0..<data.count {
-                            self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Int)!))
+                            self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Double)!))
                         }
                         self.usersCollectionView.reloadData()
                     }

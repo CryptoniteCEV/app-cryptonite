@@ -6,7 +6,7 @@ class Endpoints {
     
     let shared = Endpoints()
     
-    static let domain = "http://54.163.6.175"
+    static let domain = "http://52.90.76.43"
     static let path = "/api-cryptonite/public/api"
     
     //User´s Petitions
@@ -29,7 +29,7 @@ class Endpoints {
         static let stopFollowing:String = "/users/stop/following"
         static let assignNewMission:String = "/users/assign/mission"
         static let missionFinished:String = "/users/update/mission"
-        static let missionList:String = "/users/missions/list"
+        static let gamification:String = "/users/gamification"
     }
     
     //Score´s petitions

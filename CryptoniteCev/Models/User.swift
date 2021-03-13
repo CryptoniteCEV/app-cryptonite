@@ -7,7 +7,6 @@ class User : Encodable, Decodable{
     private var _username:String
     private var _email:String
     private var _name:String
-    private var _surname:String
     private var _profilePic:Int
     private var _password:String
     
@@ -15,17 +14,15 @@ class User : Encodable, Decodable{
         case _name = "name"
         case _username = "username"
         case _email = "email"
-        case _surname = "surname"
         case _password = "password"
         case _profilePic = "profile_pic"
     }
     
-    init(username:String, email:String, name:String, surname:String, password:String, profilePic:Int){
+    init(username:String, email:String, name:String, password:String, profilePic:Int){
         
         self._username = username
         self._email = email
         self._name = name
-        self._surname = surname
         self._password = password
         self._profilePic = profilePic
     }
@@ -47,14 +44,6 @@ class User : Encodable, Decodable{
     public var email: String {
         get {
             return self._email;
-        }
-    }
-    public var surname: String {
-        get {
-            return self._surname;
-        }
-        set {
-            self._surname = newValue
         }
     }
     

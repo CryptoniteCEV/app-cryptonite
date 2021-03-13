@@ -31,7 +31,7 @@ class SignUpController: UIViewController {
                 //isAdultErrorL.isHidden = true
                 //self.performSegue(withIdentifier: self.identifiers.toCompletion, sender: sender)
                 
-                let user = User(username: usernameTF.text!, email: emailTF.text!, name: nameTF.text!, surname: nameTF.text!, password: passwordTF.text!, profilePic: Int.random(in: 0..<Images.shared.users.count))
+                let user = User(username: usernameTF.text!, email: emailTF.text!, name: nameTF.text!, password: passwordTF.text!, profilePic: Int.random(in: 0..<Images.shared.users.count))
                 
                 if Service.isConnectedToInternet {
                     let request = Service.shared.register(user: user)

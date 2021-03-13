@@ -43,17 +43,18 @@ class GamificationController: UIViewController {
     @IBOutlet weak var mission3Image: UIImageView!
     @IBOutlet weak var mission3Label: UILabel!
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     var onDoneBlock : (() -> Void)?
     
     var mainClass:MainScreenController?
     
     var experience : Double = 0
     
-    var experiencePerMission : Double = 200
+    let experiencePerMission : Double = 200
     
-    var level : Double = 0
+    var level : Int = 0
     
-    var prevLevel : Double = 0
+    var prevLevel : Int = 0
     
     var missions:[Mission] = []
     
@@ -61,7 +62,8 @@ class GamificationController: UIViewController {
     @IBAction func mission1Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[0].id)])
         getExperience()
-        level = levelManagement()!
+        sendNewExp()
+        level = levelManagement()
         checkHasLeveledUp()
         setProgressLabel()
     }
@@ -69,7 +71,8 @@ class GamificationController: UIViewController {
     @IBAction func mission2Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[1].id)])
         getExperience()
-        level = levelManagement()!
+        sendNewExp()
+        level = levelManagement()
         checkHasLeveledUp()
         setProgressLabel()
     }
@@ -77,13 +80,14 @@ class GamificationController: UIViewController {
     @IBAction func mission3Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[2].id)])
         getExperience()
-        level = levelManagement()!
+        sendNewExp()
+        level = levelManagement()
         checkHasLeveledUp()
         setProgressLabel()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
+    func sendNewExp() {
+        updateExp(parameters: ["new_exp" : Int(experience)])
     }
     
     @IBAction func toWalletButton(_ sender: Any) {
@@ -102,7 +106,7 @@ class GamificationController: UIViewController {
         roundButton(button: mission2Button)
         roundButton(button: mission3Button)
         
-        level = levelManagement()!
+        //level = levelManagement()!
         self.levelLabel.text = String(Int(level))
         
         self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
@@ -118,7 +122,7 @@ class GamificationController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         getCash()
-        getMissions()
+        getGamification()
         
     }
     
@@ -146,28 +150,40 @@ class GamificationController: UIViewController {
         self.stopConfetti(view: self.viewConfetti!)
     }    
     
-    func neededExperience(level: Double) -> Double {
+    func neededExperience(level: Int) -> Double {
         if level != 0 {
-            return neededExperience(level: level-1) + level  *  self.experiencePerMission
+            return neededExperience(level: level-1) + Double(level)  *  self.experiencePerMission
         }
         return 0
     }
     
-    func getExperience() {
+    func getExperience(){
         experience += experiencePerMission
     }
     
-    func levelManagement()->Double? {
+    func levelManagement()->Int {
         prevLevel = level
         var n = 0
         while true {
-            if experience < neededExperience(level: Double(n))  {
-                level = Double(n)
-                return Double(n)
+            if experience < neededExperience(level: n)  {
+                return n
             }
             n += 1
         }
     }
+    
+    func getCurrentLvl(experience:Double)->Int{
+        var n = 0
+        var level:Int = 0
+        while true {
+            if experience < neededExperience(level: n)  {
+                level = n
+                return level
+            }
+            n += 1
+        }
+    }
+    
     func checkHasLeveledUp(){
         if level != prevLevel  {
             self.claimRewards()
@@ -185,25 +201,38 @@ class GamificationController: UIViewController {
         self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
     }
     
-    func getMissions(){
-        
-        missions = []
+    func getGamification(){
         
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
-                let request = Service.shared.missionList()
+                let request = Service.shared.gamification()
                 
                 request.responseJSON { (response) in
                    
                     if let body = response.value as? [String:Any] {
                         
-                        if let data = body["data"] as? [[String:Any]]{
+                        if let data = body["data"] as? [String:Any]{
                             
-                            for i in 0..<data.count{
-                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int]!, description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                            let missions = data["Missions"] as! [[String:Any]]
+                           
+                            let userInfo = data["User"] as! [String:Any]
+                            
+                            let user = UserMain(profilePic: Images.shared.users[(userInfo["ProfilePic"] as? Int)!], username: (userInfo["Username"] as? String)!, experience: (userInfo["Exp"] as? Double)!)
+                            
+                            self.missions = []
+                            
+                            for i in 0..<missions.count{
+                                self.missions.append(Mission(id: missions[i]["id"] as! Int, icon: Missions.shared.missions[missions[i]["icon"] as! Int], description: missions[i]["description"] as! String, isFinished: missions[i]["is_finished"] as! Int))
                             }
+                            
                             self.setMissions()
+                            self.experience = user.experience
+                            self.level = self.getCurrentLvl(experience: user.experience)
+                            self.setProgressLabel()
+                            self.profileImage.image = user.profilePic
+                            self.welcomeLabel.text = "Good earnings @" + user.username
+                            self.levelLabel.text = String(self.level)
                         }
                         
                     }
@@ -274,9 +303,27 @@ class GamificationController: UIViewController {
                         if let data = body["data"] as? [[String:Any]]{
                             
                             for i in 0..<data.count{
-                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int]!, description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int], description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
                             }
                             self.setMissions()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateExp(parameters:[String:Int]){
+        missions = []
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.updateExp(params: parameters)
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String:Any] {
+                        print(body)
+                        if let message = body["message"] as? [String:Any]{
+                            
+                            print(message)
                         }
                     }
                 }

@@ -25,8 +25,6 @@ extension String
                 try validatePassword()
             case .name:
                 try validateName()
-            case .surname:
-                try validateSurname()
         }
     }
 
@@ -66,12 +64,5 @@ extension String
             throw ValidationError.invalidPassword
         }
     }
-    //si surname vacio devuelve error
-    private func validateSurname() throws
-    {
-        if isEmpty
-        {
-            throw ValidationError.invalidPassword
-        }
-    }
+
 }

@@ -7,7 +7,6 @@ enum ValidatorType
     case name
     case password
     case username
-    case surname
 
 }
 //tipos de error
@@ -17,7 +16,6 @@ enum ValidationError: Error, LocalizedError
     case invalidEmail
     case invalidPassword
     case invalidName
-    case invalidSurname
 
 //Errores concretos
     var localizedDescription: String
@@ -34,8 +32,6 @@ enum ValidationError: Error, LocalizedError
                 return userMessages.invalidPass
             case .invalidName:
                 return userMessages.invalidName
-            case .invalidSurname:
-                return userMessages.invalidSurname
             
         }
     }

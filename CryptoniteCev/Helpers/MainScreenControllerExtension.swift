@@ -22,6 +22,8 @@ let roundingPair = ["DogeCoin", "Tether"]
 var roundingQuantity: Double = 100000
 
 
+
+
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -84,7 +86,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cellUser.profilePicIV.image = users[indexPath.row].profilePic
                 cellUser.profilePicIV.layer.cornerRadius = cellUser.profilePicIV.frame.height/2
                 cellUser.usernameL.text = users[indexPath.row].username
-                cellUser.percentageUserL.text = "Lvl. " + String(users[indexPath.row].experience)
+                cellUser.percentageUserL.text = "Lvl. " + String(getCurrentLvl(experience: users[indexPath.row].experience))
                 
                 if(cellUser.percentageUserL.text?.first == "-") {
                     cellUser.percentageUserL.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
@@ -148,6 +150,25 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         } else {
             return 100000
         }
+    }
+    
+    func getCurrentLvl(experience:Double)->Int{
+        var n = 0
+        var level:Int = 0
+        while true {
+            if experience < neededExperience(level: Double(n))  {
+                level = n
+                return level
+            }
+            n += 1
+        }
+    }
+    
+    func neededExperience(level: Double) -> Double {
+        if level != 0 {
+            return neededExperience(level: level-1) + level  *  self.experiencePerMission
+        }
+        return 0
     }
     
     

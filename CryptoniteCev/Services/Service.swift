@@ -168,12 +168,20 @@ class Service {
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.missionFinished, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
     }
     
-    func missionList()->DataRequest{
+    func gamification()->DataRequest{
         let headers:HTTPHeaders = [
             ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
         ]
     
-        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.missionList, method: .get, encoding: URLEncoding.default, headers: headers)
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.gamification, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
+    
+    func updateExp(params:[String:Int])->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.updateExperience, method: .put, parameters: params, encoding: URLEncoding.default, headers: headers)
     }
 }
 
