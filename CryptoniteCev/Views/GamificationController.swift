@@ -58,6 +58,9 @@ class GamificationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let anim = SkeletonableAnim()
+        anim.placeholder(view: cashLabel)
         self.title = "Rewards"
         mission1Button.layer.cornerRadius = mission1Button.frame.width/2
         mission2Button.layer.cornerRadius = mission2Button.frame.width/2
@@ -82,6 +85,8 @@ class GamificationController: UIViewController {
         print(expLeft)
     }
     override func viewDidAppear(_ animated: Bool) {
+        
+    
         //navigationController?.setNavigationBarHidden(false, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -95,6 +100,14 @@ class GamificationController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //esto es lo que hace que se vaya el skeleton en 2 segundos, quitaselo cuando vayas a hacerlo al recibir la response.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                           self.cashLabel.stopSkeletonAnimation()
+                           self.cashLabel.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+        })
     }
     
     func startConfetti(view: SwiftConfettiView){

@@ -91,6 +91,8 @@ class TradingController: UIViewController {
         setWallet()
         trades = getTrades()
         coins = getCoins()
+        let anim = SkeletonableAnim()
+        anim.placeholder(view: curentPrice )
         
     }
     
@@ -181,11 +183,20 @@ class TradingController: UIViewController {
         }
         return coins
     }
+    override func viewWillAppear(_ animated: Bool) {
+        //esto es lo que hace que se vaya el skeleton en 2 segundos, quitaselo cuando vayas a hacerlo al recibir la response.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                           self.curentPrice.stopSkeletonAnimation()
+                           self.curentPrice.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+        })
+    }
     
     func getTrades() -> [Trade]{
         trades = []
         
         if Service.isConnectedToInternet {
+            
+            
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
                 let requestTrades = Service.shared.getTradesInfo()

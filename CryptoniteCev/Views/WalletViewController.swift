@@ -35,7 +35,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidAppear(_ animated: Bool) {
       
         navigationController?.setNavigationBarHidden(true, animated: true)
-       let anim = SkeletonableAnim()
+        let anim = SkeletonableAnim()
         anim.placeholder(view: totalCash)
     
         
@@ -48,12 +48,13 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         self.coinsQuantities = []
     
         if Service.isConnectedToInternet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            //esto es lo que hace que se vaya el skeleton en 2 segundos, quitaselo cuando vayas a hacerlo al recibir la response.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                                self.totalCash.stopSkeletonAnimation()
                                self.totalCash.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
-            print("Skeleton out")
+            
                     })
-            print("con internet")
+            
             
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
