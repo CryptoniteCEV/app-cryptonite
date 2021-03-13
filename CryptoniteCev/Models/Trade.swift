@@ -5,12 +5,12 @@ import UIKit;
 class Trade {
     
     private let _coin:String
-    private let _date:UInt64
+    private let _date:String
     private let _quantity:Double
     private let _price:Double
     private let _isSell:Int
     
-    init(coin:String, date: UInt64, quantity:Double, price:Double, isSell:Int){
+    init(coin:String, date: String, quantity:Double, price:Double, isSell:Int){
         self._coin = coin
         self._date = date
         self._quantity = quantity
@@ -24,7 +24,7 @@ class Trade {
         }
     }
     
-    public var date: UInt64 {
+    public var date: String {
         get {
             return self._date;
         }

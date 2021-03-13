@@ -182,6 +182,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 
                 self.tabBarController?.selectedIndex = 2
             }
+            gamingController.didLogout = {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
     }
 }

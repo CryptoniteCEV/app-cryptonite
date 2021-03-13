@@ -19,6 +19,14 @@ class LogInController: UIViewController {
         logInButton.layer.cornerRadius = 5
         introLabel.text = Welcomings.shared.phrases[Int.random(in: 0..<Welcomings.shared.phrases.count)]
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.performSegue(withIdentifier: self.identifiers.toMain, sender: (Any).self)
+
+        }
+    }
 
 
     @IBAction func LogInButton(_ sender: Any) {
