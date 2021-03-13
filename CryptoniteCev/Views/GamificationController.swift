@@ -59,6 +59,7 @@ class GamificationController: UIViewController {
     
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
+        assigNewMission(parameters: ["id":String(missions[0].id)])
         getExperience()
         level = levelManagement()!
         checkHasLeveledUp()
@@ -66,6 +67,7 @@ class GamificationController: UIViewController {
     }
     
     @IBAction func mission2Cleared(_ sender: UIButton) {
+        assigNewMission(parameters: ["id":String(missions[1].id)])
         getExperience()
         level = levelManagement()!
         checkHasLeveledUp()
@@ -73,6 +75,7 @@ class GamificationController: UIViewController {
     }
     
     @IBAction func mission3Cleared(_ sender: UIButton) {
+        assigNewMission(parameters: ["id":String(missions[2].id)])
         getExperience()
         level = levelManagement()!
         checkHasLeveledUp()
@@ -254,6 +257,26 @@ class GamificationController: UIViewController {
                             let cash = round(100*(Double(data)!))/100
                                 
                             self.cashLabel.text = String(cash) + " $"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func assigNewMission(parameters:[String:String]){
+        missions = []
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.assignNewMission(params: parameters)
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String:Any] {
+                        if let data = body["data"] as? [[String:Any]]{
+                            
+                            for i in 0..<data.count{
+                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int]!, description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                            }
+                            self.setMissions()
                         }
                     }
                 }
