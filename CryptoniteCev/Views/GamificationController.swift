@@ -46,6 +46,8 @@ class GamificationController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     var onDoneBlock : (() -> Void)?
     
+    var didLogout : (() -> Void)?
+    
     var mainClass:MainScreenController?
     
     var experience : Double = 0
@@ -96,7 +98,15 @@ class GamificationController: UIViewController {
         }
     }
     
-
+    @IBAction func logout(_ sender: UIButton) {       
+        UserDefaults.standard.removeObject(forKey: Identifiers.shared.auth)
+        self.dismiss(animated: true) {
+            self.didLogout!()
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"

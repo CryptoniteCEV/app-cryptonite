@@ -21,5 +21,6 @@ class Identifiers {
     let signUp = "signup"
     let auth = "Authorization"
     let stories = "stories"
+    let logout = "logout"
 
 }

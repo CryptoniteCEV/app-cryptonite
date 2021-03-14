@@ -213,7 +213,9 @@ class TradingController: UIViewController {
                         if let data = body["data"] as? [[String:Any]]{
         
                             for i in 0..<data.count {
-                                self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: (data[i]["Date"] as? UInt64)!, quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                                
+                                
+                                self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: self.timestampToDate(date: data[i]["Date"] as! Double), quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
                             }
                         }
                         
@@ -313,6 +315,13 @@ class TradingController: UIViewController {
         
         let quantityWithFee = quantity - (quantity/100)
         return quantityWithFee
+    }
+    
+    func timestampToDate(date: Double) -> String {
+        let tradeDate = Date(timeIntervalSince1970: date )
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .long
+        return formatter1.string(from: tradeDate)
     }
     
 }
