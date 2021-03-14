@@ -30,6 +30,7 @@ class Endpoints {
         static let assignNewMission:String = "/users/assign/mission"
         static let missionFinished:String = "/users/update/mission"
         static let gamification:String = "/users/gamification"
+        static let updateMission:String = "/users/update/mission"
     }
     
     //Score´s petitions

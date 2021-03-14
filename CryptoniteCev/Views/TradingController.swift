@@ -248,6 +248,9 @@ class TradingController: UIViewController {
                         Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
                         self.setWallet()
                         self.trades = self.getTrades()
+                        if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "DOGE"){
+                            isMissionFinished(parameters: ["id":"1"])
+                        }
                         self.tradeTableView.reloadData()
                     }
                 }

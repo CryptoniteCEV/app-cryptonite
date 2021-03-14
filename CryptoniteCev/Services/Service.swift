@@ -183,6 +183,14 @@ class Service {
     
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.updateExperience, method: .put, parameters: params, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func updateMission(params:[String:String])->DataRequest{
+            let headers:HTTPHeaders = [
+                ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+            ]
+        
+            return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.updateMission, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

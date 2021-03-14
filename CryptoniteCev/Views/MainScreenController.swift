@@ -36,7 +36,7 @@ class MainScreenController: UIViewController {
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
-        
+        isMissionFinished(parameters: ["id":"13"])
         storiesCollectionView.dataSource = self
         storiesCollectionView.delegate = self
         
