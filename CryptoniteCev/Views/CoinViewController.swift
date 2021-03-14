@@ -37,11 +37,10 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         lineChart.delegate = self
-        //lineChart.xAxis.drawGridLinesEnabled = false
-        
-      
-        //lineChart.rightAxis.drawLabelsEnabled = false
         getCoin()
+        if(coinName! == "Bitcoin"){
+            isMissionFinished(parameters: ["id":"3"])
+        }
         
         tradeButton.layer.cornerRadius = tradeButton.frame.height / 8
 
@@ -49,6 +48,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         getCoinHistory()
+        
     }
     
     
