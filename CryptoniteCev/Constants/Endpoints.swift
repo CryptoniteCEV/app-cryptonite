@@ -6,7 +6,7 @@ class Endpoints {
     
     let shared = Endpoints()
     
-    static let domain = "http://54.163.6.175"
+    static let domain = "http://52.90.76.43"
     static let path = "/api-cryptonite/public/api"
     
     //User´s Petitions

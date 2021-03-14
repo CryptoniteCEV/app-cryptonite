@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "390DAF3525B707810056BFD5"
-               BuildableName = "CryptoniteCev.app"
+               BuildableName = "Cryptonite.app"
                BlueprintName = "CryptoniteCev"
                ReferencedContainer = "container:CryptoniteCev.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "390DAF3525B707810056BFD5"
-            BuildableName = "CryptoniteCev.app"
+            BuildableName = "Cryptonite.app"
             BlueprintName = "CryptoniteCev"
             ReferencedContainer = "container:CryptoniteCev.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "390DAF3525B707810056BFD5"
-            BuildableName = "CryptoniteCev.app"
+            BuildableName = "Cryptonite.app"
             BlueprintName = "CryptoniteCev"
             ReferencedContainer = "container:CryptoniteCev.xcodeproj">
          </BuildableReference>
