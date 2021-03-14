@@ -40,7 +40,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        isMissionFinished(parameters: ["id":"14"])
         self.cash = 0
         self.coinsQuantities = []
     

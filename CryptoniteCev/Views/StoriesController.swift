@@ -186,6 +186,13 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
                             self.unfollowButton.setTitle("Unfollow", for: .normal)
                             isMissionFinished(parameters: ["id":"5"])
+                            var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
+                            numberOfFollows += 1
+                            UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
+                            
+                            if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 2){
+                                isMissionFinished(parameters: ["id":"9"])
+                            }
                         }
                     }
                 }

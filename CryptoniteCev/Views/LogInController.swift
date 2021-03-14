@@ -37,6 +37,8 @@ class LogInController: UIViewController {
                         if(response.response?.statusCode == StatusCodes.shared.OK){
                             UserDefaults.standard.set(body["data"], forKey: self.identifiers.auth)
                             self.navigationController?.setNavigationBarHidden(true, animated: true)
+                            UserDefaults.standard.set(0, forKey: "numberOfTransactions")
+                            UserDefaults.standard.set(0, forKey: "numberOfFollows")
                             self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
                         }else{
                             Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")

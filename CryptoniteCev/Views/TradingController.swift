@@ -256,6 +256,14 @@ class TradingController: UIViewController {
                             isMissionFinished(parameters: ["id":"6"])
                         }
                         
+                        var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
+                        numberOfFollows += 1
+                        UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
+                        
+                        if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 3){
+                            isMissionFinished(parameters: ["id":"10"])
+                        }
+                        
                         self.tradeTableView.reloadData()
                     }
                 }
