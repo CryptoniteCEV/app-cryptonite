@@ -3,8 +3,7 @@ import UIKit
 import Charts
 import SkeletonView
 
-class WalletViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate,
-    ChartViewDelegate
+class WalletViewController: UIViewController,  SkeletonTableViewDataSource, UITableViewDelegate,ChartViewDelegate
 {
  
    
@@ -26,18 +25,34 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 68
+        tableView.estimatedRowHeight = 68
+        tableView.dataSource = self
+        
         pieChart.delegate = self
         tableView.delegate = self
-        tableView.dataSource = self
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        
+            self.tableView.stopSkeletonAnimation()
+            self.tableView.hideSkeleton()
+
+            self.tableView.reloadData()
+                })
+       
+       
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
-      
+        
+        let anim2 = SkeletonableAnim()
+        anim2.placeholder(view: tableView)
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
         let anim = SkeletonableAnim()
         anim.placeholder(view: totalCash)
-    
+        
         
     }
     
@@ -55,6 +70,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             
                     })
             
+           
             
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
@@ -113,6 +129,8 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.shared.coinID) as! CoinRowWalletController
        
         if coinsQuantities.count>0{
+            
+            
             cell.coin.text = coinsQuantities[indexPath.row].name
             cell.symbol.text = coinsQuantities[indexPath.row].symbol
             cell.icon.image = Images.shared.coins[coinsQuantities[indexPath.row].name]
@@ -123,6 +141,12 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         return cell
         
        }
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        
+        return Identifiers.shared.coinID
+        
+    }
+    
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     

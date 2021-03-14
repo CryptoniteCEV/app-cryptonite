@@ -10,4 +10,5 @@ class CoinRowWalletController: UITableViewCell{
     @IBOutlet weak var symbol: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var quantity: UILabel!
-}
+    
+    static let identifier = "coinID"}

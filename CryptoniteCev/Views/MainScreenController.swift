@@ -36,8 +36,9 @@ class MainScreenController: UIViewController {
         //skeletonables
         //setupSkeleton()
         //topMoverLabel.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
-        activityTableView.isSkeletonable = true
-        activityTableView.showSkeleton(usingColor: .brown, transition: .crossDissolve(0.25))
+        activityTableView.rowHeight = 68
+        activityTableView.estimatedRowHeight = 68
+        
         view.overrideUserInterfaceStyle = .dark
         
         storiesCollectionView.dataSource = self
@@ -52,23 +53,14 @@ class MainScreenController: UIViewController {
         activityTableView.dataSource = self
         activityTableView.delegate = self
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            let requestTrades = Service.shared.getTradingHistory()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3	, execute: {
             
-            requestTrades.responseJSON { (response) in
-                if let body = response.value as? [String: Any]{
-                    let data = body["data"]! as! [[String:Any]]
-                    self.trades = []
-                    for i in 0..<data.count {
-                        self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
-                    }
                     self.activityTableView.stopSkeletonAnimation()
                     self.view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
                     //self.topMoverLabel.stopSkeletonAnimation()
-                self.activityTableView.reloadData()
+                    self.activityTableView.reloadData()
                     
-                }
-            }
+            
         })
         
         
@@ -80,7 +72,8 @@ class MainScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
        fillFollowings()
-        
+        activityTableView.isSkeletonable = true
+        activityTableView.showSkeleton(usingColor: .midnightBlue, transition: .crossDissolve(0.25))
         //navigationController?.setNavigationBarHidden(true, animated: true)
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -99,7 +92,7 @@ class MainScreenController: UIViewController {
                     }
                 }
                 
-                /*let requestTrades = Service.shared.getTradingHistory()
+                let requestTrades = Service.shared.getTradingHistory()
                 
                 requestTrades.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
@@ -112,7 +105,7 @@ class MainScreenController: UIViewController {
                     self.activityTableView.reloadData()
                         
                     }
-                }*/
+                }
                 
                 let requestUsers = Service.shared.getUsers()
                 requestUsers.responseJSON { (response) in
