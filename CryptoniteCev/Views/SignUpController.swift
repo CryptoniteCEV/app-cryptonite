@@ -39,18 +39,31 @@ class SignUpController: UIViewController {
                     request.responseJSON { (response) in
                         if let body = response.value as? [String: Any]{
                             if(response.response?.statusCode == StatusCodes.shared.created){
-                                self.goToLogInScreen()
+                                self.showBanner(completion: { (success) in
+                                    if success {
+                                       self.goToLogInScreen()
+                                    }
+                                }, message: body["message"] as! String)
+                                
                             }else{
                                 print(body["message"]!)
+                                Banners.shared.errorBanner(title: body["message"]! as! String, subtitle: "Try again")
                             }
                         }
                     }
                 }
             }else {
-                
+                Banners.shared.errorBanner(title: "You have to agree our Terms and conditions ", subtitle: "Try again")
             }
         }
     }
+    func showBanner(completion: @escaping (_ success: Bool) -> Void, message: String) {
+        Banners.shared.successBanner(title: message, subtitle: "Log in now!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            completion(true)
+        }
+    }
+    
     
     /**
     Comprueba identificador a la hora de realizar segue y pasa email y pass a la siguiente pantalla

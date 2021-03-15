@@ -38,7 +38,7 @@ class Banners{
         let banner = NotificationBanner(title: title, subtitle: subtitle,leftView: leftView, style: .danger)
         banner.haptic = .heavy
         banner.bannerHeight = self.normalHeight
-        banner.duration = self.normalDuration
+        banner.duration = self.longDuration
         
         banner.show()
     }
