@@ -49,7 +49,7 @@ class Banners{
         banner.bannerHeight = self.normalHeight
         banner.duration = self.normalDuration
         banner.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-        banner.applyStyling(cornerRadius: .none, titleFont: .none, titleColor: #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), titleTextAlign: .center, subtitleFont: .none, subtitleColor: .none, subtitleTextAlign: .center)
+        banner.applyStyling(cornerRadius: .none, titleFont: .none, titleColor: #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), titleTextAlign: .center, subtitleFont: .none, subtitleColor: #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), subtitleTextAlign: .center)
         
         banner.show()
     }

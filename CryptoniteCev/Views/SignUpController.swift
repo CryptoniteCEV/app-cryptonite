@@ -44,14 +44,11 @@ class SignUpController: UIViewController {
                                        self.goToLogInScreen()
                                     }
                                 }, message: body["message"]! as! String)
-                                
                             }else{
                                 let errorMessages = body["message"] as! [String:[String]]                                
                                 let firstKey = Array(errorMessages.keys).first
                                 Banners.shared.errorBanner(title: (errorMessages[firstKey!]?.first)!, subtitle: "Try again")
                             }
-                        }else{
-                            print("no")
                         }
                     }
                 }
