@@ -19,6 +19,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
    
     var pieChart = PieChartView()
     
+    var roundingQuantity: Double = 100000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +57,9 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                        
                             for i in 0..<wallets.count {
                                 
-                                let quantity: Double = (currencyFormatter(numberToFormat: (wallets[i]["Quantity"] as? Double)!) as NSString).doubleValue
-                                print(wallets[i]["Quantity"])
-                                print(quantity)
                                 
-                                self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: quantity, inDollars: (wallets[i]["inDollars"] as? Double)!))
+                                
+                                self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
                             }
                             self.cash = cash as! Double
                             self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
@@ -108,8 +107,11 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             cell.coin.text = coinsQuantities[indexPath.row].name
             cell.symbol.text = coinsQuantities[indexPath.row].symbol
             cell.icon.image = Images.shared.coins[coinsQuantities[indexPath.row].name]
-            cell.price.text = String((round(1000*coinsQuantities[indexPath.row].inDollars)/1000)) + "$"
-            cell.quantity.text = String((round(1000*coinsQuantities[indexPath.row].quantity)/1000)) + " " + coinsQuantities[indexPath.row].symbol
+            roundingQuantity = setRounding(symbol: "Tether")
+            cell.price.text = currencyFormatter(numberToFormat: (round(roundingQuantity*coinsQuantities[indexPath.row].inDollars)/roundingQuantity)) + "$"
+            roundingQuantity = setRounding(symbol: coinsQuantities[indexPath.row].symbol)
+            let quantity = currencyFormatter(numberToFormat: (round(roundingQuantity * (coinsQuantities[indexPath.row].quantity)) / roundingQuantity))
+            cell.quantity.text = quantity + " " + coinsQuantities[indexPath.row].symbol
         }
         
         return cell

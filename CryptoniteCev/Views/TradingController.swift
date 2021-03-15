@@ -98,7 +98,7 @@ class TradingController: UIViewController {
             coinsSC.selectedSegmentIndex = getPositionInSGFromName()
             self.cryptoPos = coinsSC.selectedSegmentIndex
             if coins.count > 0{
-                curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+                curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
             }else{
                 curentPrice.text = "N/A"
             }
@@ -119,7 +119,7 @@ class TradingController: UIViewController {
     @IBAction func onSelectCoin(_ sender: Any) {
         cryptoPos = coinsSC.selectedSegmentIndex
         if(coins.count>0){
-            curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+            curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
         }else{
             curentPrice.text = "N/A"
         }
@@ -190,7 +190,7 @@ class TradingController: UIViewController {
                            for i in 1..<data.count {
                                self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
                            }
-                        self.curentPrice.text = String(self.coins[self.cryptoPos].price) + "$"
+                        self.curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
                    }
                 }
             }

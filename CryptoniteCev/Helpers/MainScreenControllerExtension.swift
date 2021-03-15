@@ -17,8 +17,6 @@ var myProfilePic = #imageLiteral(resourceName: "logoNoText")
 
 var selectedCoin:String?
 
-let roundingPair = ["DogeCoin", "Tether"]
-
 var roundingQuantity: Double = 100000
 
 
@@ -63,7 +61,8 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
                 cell.ammountLabel?.text = currencyFormatter(numberToFormat: coins[indexPath.row].price) + "$"
-                cell.percentageLabel?.text = String(round(100*coins[indexPath.row].change)/100) + "%"
+                cell.percentageLabel?.text = currencyFormatterTwoDecimals(numberToFormat: coins[indexPath.row].change) + "%"
+                
                 
                  if(coins[indexPath.row].change < 0) {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
@@ -141,14 +140,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
         return cell
     }
-    func setRounding(symbol:String) -> Double {
-        
-        if(roundingPair.contains(symbol)){
-            return 100
-        } else {
-            return 100000
-        }
-    }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
