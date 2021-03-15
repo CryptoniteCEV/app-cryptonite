@@ -8,7 +8,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
 {
     @IBOutlet weak var container: UIView!
     
-    var cash:Double = 0
+    var balance:Double = 0
     var coinsQuantities:[CoinsQuantities] = []
     
     var percentages:[String:Double] = [:]
@@ -57,8 +57,8 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         isMissionFinished(parameters: ["id":"14"])
-        self.cash = 0
-        self.coinsQuantities = []
+        balance = 0
+        coinsQuantities = []
     
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -71,14 +71,12 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
                             let cash = data["Cash"]
                        
                             for i in 0..<wallets.count {
-                                
-                                
-                                
                                 self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
                             }
-                            self.cash = cash as! Double
+                            self.balance = cash as! Double
                             self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
-                            //self.percentages = self.getPercentages(myWallets: cash as! [CoinsQuantities])
+                            
+                            self.percentages = self.getPercentages(myWallets: self.coinsQuantities)
                             self.anim.hidePlaceholder(view: self.totalCash)
                             self.anim.hidePlaceholder(view: self.tableView)
                             self.viewDidLayoutSubviews()
@@ -101,7 +99,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         
         for i in 0..<myWallets.count {
             if(myWallets[i].inDollars > 0){
-                percentage = (myWallets[i].inDollars * 100) / cash;
+                percentage = (myWallets[i].inDollars * 100) / balance;
                 if(percentage > 2){
                     values[myWallets[i].symbol] = percentage
                 }
