@@ -13,7 +13,7 @@ var images : [UIImage] = []
 var imageSelected : UIImage?
 
 //imagen que venga con el token
-var myProfilePic = #imageLiteral(resourceName: "logoNoText")
+var myProfilePic = #imageLiteral(resourceName: "gamifiLogo")
 
 var selectedCoin:String?
 
