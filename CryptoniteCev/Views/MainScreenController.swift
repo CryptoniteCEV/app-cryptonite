@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SkeletonView
 
 class MainScreenController: UIViewController {
 
@@ -32,7 +32,7 @@ class MainScreenController: UIViewController {
     var coinImages:[UIImage] = []
     
     let experiencePerMission : Double = 200
-    
+    let anim = SkeletonableAnim()
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -48,7 +48,9 @@ class MainScreenController: UIViewController {
         
         activityTableView.dataSource = self
         activityTableView.delegate = self
-        
+        activityTableView.rowHeight = 68
+        activityTableView.estimatedRowHeight = 68
+        anim.placeholder(view: activityTableView)
         self.activityTableView.reloadData()
         
         for (_, value) in Images.shared.coins {
@@ -88,7 +90,7 @@ class MainScreenController: UIViewController {
                         for i in 0..<data.count {
                             self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
                         }
-                        
+                    self.anim.hidePlaceholder(view: self.activityTableView)
                     self.activityTableView.reloadData()
                         
                     }

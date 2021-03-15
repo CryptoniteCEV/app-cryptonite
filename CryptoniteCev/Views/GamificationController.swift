@@ -60,6 +60,7 @@ class GamificationController: UIViewController {
     
     var missions:[Mission] = []
     
+    let anim = SkeletonableAnim()
     
     @IBAction func mission1Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[0].id)])
@@ -128,6 +129,10 @@ class GamificationController: UIViewController {
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
         
+        anim.placeholder(view: cashLabel)
+        anim.placeholder(view: mission1Label)
+        anim.placeholder(view: mission2Label)
+        anim.placeholder(view: mission3Label)
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -235,6 +240,7 @@ class GamificationController: UIViewController {
                             
                             for i in 0..<missions.count{
                                 self.missions.append(Mission(id: missions[i]["id"] as! Int, icon: Missions.shared.missions[missions[i]["icon"] as! Int], description: missions[i]["description"] as! String, isFinished: missions[i]["is_finished"] as! Int))
+                                
                             }
                             
                             self.setMissions()
@@ -244,6 +250,9 @@ class GamificationController: UIViewController {
                             self.profileImage.image = user.profilePic
                             self.welcomeLabel.text = "Good earnings @" + user.username
                             self.levelLabel.text = String(self.level)
+                            self.anim.hidePlaceholder(view: self.mission1Label)
+                            self.anim.hidePlaceholder(view: self.mission2Label)
+                            self.anim.hidePlaceholder(view: self.mission3Label)
                         }
                         
                     }
@@ -297,6 +306,7 @@ class GamificationController: UIViewController {
                             let cash = round(100*(Double(data)!))/100
                                 
                             self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: cash) + " $"
+                            self.anim.hidePlaceholder(view: self.cashLabel)
                         }
                     }
                 }

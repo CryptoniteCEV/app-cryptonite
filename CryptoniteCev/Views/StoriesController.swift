@@ -8,8 +8,9 @@
 
 import UIKit
 import Charts
+import SkeletonView
 
-class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,7 +26,7 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
     var following:Bool = false
     var graph = PieChart()
     var onDoneBlock : (() -> Void)?
-    
+    let anim = SkeletonableAnim()
     @IBOutlet weak var unfollowButton: UIButton!
     
     var pieChart = PieChartView()
@@ -52,12 +53,16 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         imageView.layer.borderColor = #colorLiteral(red: 0.0733634308, green: 0.1234697327, blue: 0.2026597559, alpha: 1)
         imageView.layer.borderWidth = 3
         
-        
+        tableView.rowHeight = 68
+        tableView.estimatedRowHeight = 68
 
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.reloadData()
+        anim.placeholder(view: nameLabel)
+        anim.placeholder(view: usernameLabel)
+        anim.placeholder(view: tableView)
         
     }
     
@@ -74,7 +79,6 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
         if trades.count > 0{
             cell.profile.image = storieImage
             cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
-            cell.username.text = "@alex"
             roundingQuantity = setRounding(symbol: trades[indexPath.row].coinTo)
             cell.converted.text = currencyFormatter(numberToFormat: round(roundingQuantity * trades[indexPath.row].converted) / roundingQuantity)
             roundingQuantity = setRounding(symbol: trades[indexPath.row].coinFrom)
@@ -131,13 +135,14 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             self.nameLabel.text = user["Name"] as? String
                             self.usernameLabel.text = "@" + (user["Username"] as! String)
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
-                            
+                            self.anim.hidePlaceholder(view: self.usernameLabel)
+                            self.anim.hidePlaceholder(view: self.nameLabel)
                                 for i in 0..<tradeHistory.count {
                                     
                                     self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
                                 }
                         }
-                        
+                    self.anim.hidePlaceholder(view: self.tableView)
                     self.tableView.reloadData()
                         
                     }
@@ -168,7 +173,11 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                }
            }
        }
-    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            
+            return "otherCell"
+            
+        }
     func followSomeone(){
         
         if Service.isConnectedToInternet {

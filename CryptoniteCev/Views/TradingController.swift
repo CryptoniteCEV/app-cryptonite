@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class TradingController: UIViewController {
 
@@ -30,7 +31,7 @@ class TradingController: UIViewController {
     var dollarPos = 0
     var isSell = 0
     var tradeType = "Buy "
-    
+    let anim = SkeletonableAnim()
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
@@ -179,10 +180,12 @@ class TradingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        anim.placeholder(view: curentPrice)
         tradeTableView.delegate = self
         tradeTableView.dataSource = self
-        
+        tradeTableView.rowHeight = 68
+        tradeTableView.estimatedRowHeight = 68
+        anim.self.placeholder(view: tradeTableView)
         buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         amountValue.maximumValue = 0
         amountTextfield.text = "0"
@@ -206,6 +209,7 @@ class TradingController: UIViewController {
                                self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
                            }
                         self.curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
+                        self.anim.hidePlaceholder(view: self.curentPrice)
                    }
                 }
             }
@@ -233,7 +237,7 @@ class TradingController: UIViewController {
                                 self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: self.timestampToDate(date: data[i]["Date"] as! Double), quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
                             }
                         }
-                        
+                        self.anim.hidePlaceholder(view: self.tradeTableView)
                         self.tradeTableView.reloadData()
                     }
                 }

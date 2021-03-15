@@ -8,14 +8,19 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
-extension TradingController: UITableViewDataSource, UITableViewDelegate {
+extension TradingController: SkeletonTableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trades.count
     }
-
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            
+            return "trades"
+            
+        }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "trades") as! TradesRow

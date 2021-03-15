@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SkeletonView
 var images : [UIImage] = []
 
 var imageSelected : UIImage?
@@ -22,9 +22,13 @@ var roundingQuantity: Double = 100000
 
 
 
-extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate,SkeletonTableViewDataSource , UITableViewDelegate {
     
-    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            
+            return "cellActivity"
+            
+        }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesCollectionView {
             return followings.count
