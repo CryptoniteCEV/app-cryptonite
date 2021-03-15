@@ -26,9 +26,11 @@ extension TradingController: UITableViewDataSource, UITableViewDelegate {
                 cell.buyOrSellImage.image = #imageLiteral(resourceName: "sell")
             }
             cell.coinLabel.text = trades[indexPath.row].coin + "/USD"
+            
             cell.tradeDateLabel.text = String(trades[indexPath.row].date)
-            cell.amountLabel.text = String(trades[indexPath.row].quantity)
-            cell.priceLabel.text = String(trades[indexPath.row].price)
+            roundingQuantity = setRounding(symbol: trades[indexPath.row].coin)
+            cell.amountLabel.text = currencyFormatter(numberToFormat: round(roundingQuantity * trades[indexPath.row].quantity) / roundingQuantity)
+            cell.priceLabel.text = currencyFormatter(numberToFormat: trades[indexPath.row].price)
         }
         return cell
     }

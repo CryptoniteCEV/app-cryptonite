@@ -75,8 +75,10 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
             cell.profile.image = storieImage
             cell.profile.layer.cornerRadius = cell.profile.bounds.size.width / 2
             cell.username.text = "@alex"
-            cell.converted.text = String(trades[indexPath.row].converted)
-            cell.quantity.text = String(trades[indexPath.row].quantity)
+            roundingQuantity = setRounding(symbol: trades[indexPath.row].coinTo)
+            cell.converted.text = currencyFormatter(numberToFormat: round(roundingQuantity * trades[indexPath.row].converted) / roundingQuantity)
+            roundingQuantity = setRounding(symbol: trades[indexPath.row].coinFrom)
+            cell.quantity.text = currencyFormatter(numberToFormat: round(roundingQuantity * trades[indexPath.row].quantity) / roundingQuantity)
             cell.symbol_from.image = Images.shared.coins[trades[indexPath.row].coinFrom]
             cell.symbol_to.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }
@@ -131,13 +133,8 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
                             self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
                             
                                 for i in 0..<tradeHistory.count {
-                                    self.roundingQuantity = self.setRounding(symbol: (tradeHistory[i]["Coin_from"] as? String)!)
-                                    let quantityRounded: Double = round(self.roundingQuantity * (tradeHistory[i]["Quantity"] as? Double)!)/self.roundingQuantity
                                     
-                                    self.roundingQuantity = self.setRounding(symbol: (tradeHistory[i]["Coin_to"] as? String)!)
-                                    let convertedRounded: Double = round(self.roundingQuantity * (tradeHistory[i]["Converted"] as? Double)!)/self.roundingQuantity
-                                    
-                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: quantityRounded, converted: convertedRounded))
+                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
                                 }
                         }
                         
@@ -266,15 +263,6 @@ class StoriesController: UIViewController, ChartViewDelegate, UITableViewDataSou
             }
         }
         
-    }
-    
-    func setRounding(symbol:String) -> Double {
-        
-        if(roundingPair.contains(symbol)){
-            return 100
-        } else {
-            return 100000
-        }
     }
 
 }
