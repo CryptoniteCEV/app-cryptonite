@@ -207,6 +207,14 @@ class Service {
     
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.percentagesOwn, method: .get, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func getMissions()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.getMissions, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

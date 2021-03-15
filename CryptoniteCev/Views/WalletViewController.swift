@@ -9,6 +9,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     var cash:Double = 0
     var coinsQuantities:[CoinsQuantities] = []
+    
     var percentages:[String:Double] = [:]
     
     @IBOutlet weak var totalCash: UILabel!
@@ -59,8 +60,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             }
                             self.cash = cash as! Double
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
-                            self.getOwnPercentages()//self.getCoinPercentages(cash: cash as! Double)
-                            print(self.percentages)
+                            self.percentages = self.getPercentages(myWallets: self.coinsQuantities)
                             self.viewDidLayoutSubviews()
 
                         }else{
@@ -75,41 +75,19 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
     }
     
-    func getCoinPercentages(cash:Double)->[String:Double]{
-        var coinsInWallet:[String:Double] = [:]
+    func getPercentages(myWallets:[CoinsQuantities]) -> [String:Double]{
+        var values:[String:Double] = [:];
+        var percentage:Double = 0
         
-        for wallet in coinsQuantities {
-            
-            if wallet.inDollars > 0{
-                let percentage = (wallet.inDollars * 100) / cash
-                coinsInWallet [wallet.symbol] = percentage
-            }
-        }
-        
-        return coinsInWallet
-        
-    }
-    
-    func getOwnPercentages(){
-    
-        if Service.isConnectedToInternet {
-            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-             
-                let request = Service.shared.getOwnPercentages()
-                request.responseJSON { (response) in
-                 
-                    if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [String:Any]{
-                             let wallets = data["Wallets"] as! [[String:Any]]
-                             for i in 0..<wallets.count{
-                                 self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
-                             }
-                        }
-                    }
+        for i in 0..<myWallets.count {
+            if(myWallets[i].inDollars > 0){
+                percentage = (myWallets[i].inDollars * 100) / cash;
+                if(percentage > 2){
+                    values[myWallets[i].symbol] = percentage
                 }
             }
         }
+        return values;
     }
     
     
