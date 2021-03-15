@@ -37,6 +37,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         lineChart.delegate = self
+        
         getCoin()
         if(coinName! == "Bitcoin"){
             isMissionFinished(parameters: ["id":"3"])

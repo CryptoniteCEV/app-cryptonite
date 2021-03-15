@@ -191,6 +191,14 @@ class Service {
         
             return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.updateMission, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func desposit(params:[String:Int])->DataRequest{
+            let headers:HTTPHeaders = [
+                ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+            ]
+        
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.deposit, method: .put,parameters: params, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

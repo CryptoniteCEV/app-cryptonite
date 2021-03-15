@@ -340,4 +340,22 @@ class GamificationController: UIViewController {
             }
         }
     }
+    
+    func deposit(parameters:[String:Int]){
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+                let request = Service.shared.desposit(params: parameters)
+                request.responseJSON { (response) in
+                    if let body = response.value as? [String:Any] {
+                        
+                        if let message = body["message"] as? [String:Any]{
+                            
+                            print(message)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

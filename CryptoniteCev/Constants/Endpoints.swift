@@ -46,7 +46,7 @@ class Endpoints {
     //Deposit´s petitions
     enum Wallet{
         static let getInfo:String = "/wallets/info"
-        static let deposit:String = "/wallets/deposit"
+        static let deposit:String = "/wallets/deposit/doge"
         static let cash:String = "/wallets/cash"
         static let percentages:String = "/wallets/percentages"
     }
