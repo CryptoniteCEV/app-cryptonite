@@ -64,7 +64,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             }
                             self.cash = cash as! Double
                             self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
-                            self.percentages = self.getPercentages(myWallets: cash as! [CoinsQuantities])
+                            //self.percentages = self.getPercentages(myWallets: cash as! [CoinsQuantities])
                             self.viewDidLayoutSubviews()
 
                         }else{

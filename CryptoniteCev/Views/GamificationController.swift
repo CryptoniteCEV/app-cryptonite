@@ -172,7 +172,7 @@ class GamificationController: UIViewController {
     }
     
     func levelManagement()->Int {
-        
+        prevLevel = level
         var n = 0
         while true {
             if experience < neededExperience(level: n)  {
@@ -185,7 +185,7 @@ class GamificationController: UIViewController {
     func getCurrentLvl(experience:Double)->Int{
         var n = 0
         var level:Int = 0
-        prevLevel = level
+        
         while true {
             if experience < neededExperience(level: n)  {
                 level = n
