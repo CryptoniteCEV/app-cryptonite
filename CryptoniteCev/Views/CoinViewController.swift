@@ -88,7 +88,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             
                             self.currencyNameL.text = data["Name"]! as! String + "'s price"
                             self.coinSymbol = data["Symbol"] as! String
-                            let coinValue = self.currencyFormatter(numberToFormat: (data["Price"] as? Double)!)
+                            let coinValue = currencyFormatter(numberToFormat: (data["Price"] as? Double)!)
                             self.coinValueL.text = coinValue + "$"
                             self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
                             self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
@@ -155,13 +155,4 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         return splitted
     }
     
-    func currencyFormatter(numberToFormat: Double) -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = .currency
-        //currencyFormatter.locale = Locale.current
-        
-        return currencyFormatter.string(from: NSNumber(value: numberToFormat))!
-        
-    }
 }

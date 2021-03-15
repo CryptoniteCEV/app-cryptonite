@@ -137,8 +137,7 @@ class GamificationController: UIViewController {
                     if let body = response.value as? [String:Any] {
                         if let data = body["data"] as? String{
                             let cash = round(100*(Double(data)!))/100
-                                
-                            self.cashLabel.text = String(cash) + " $"
+                            self.cashLabel.text = currencyFormatter(numberToFormat: cash) + " $"
                         }
                     }
                 }

@@ -62,7 +62,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if coins.count>0{
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
                 cell.coinNameLabel?.text = coins[indexPath.row].name
-                cell.ammountLabel?.text = String(coins[indexPath.row].price) + "$"
+                cell.ammountLabel?.text = currencyFormatter(numberToFormat: coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = String(round(100*coins[indexPath.row].change)/100) + "%"
                 
                  if(coins[indexPath.row].change < 0) {
@@ -132,10 +132,10 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.profilePicActivityIV.layer.cornerRadius = cell.profilePicActivityIV.frame.height/2
             cell.usernameActivityL.text = trades[indexPath.row].username
             roundingQuantity = setRounding(symbol: trades[indexPath.row].coinFrom)
-            cell.coinSellingL.text = String(round(roundingQuantity * trades[indexPath.row].quantity)/roundingQuantity)
+            cell.coinSellingL.text = currencyFormatter(numberToFormat: (round(roundingQuantity * trades[indexPath.row].quantity)/roundingQuantity))
             cell.iconSellingIV.image = Images.shared.coins[trades[indexPath.row].coinFrom]
             roundingQuantity = setRounding(symbol: trades[indexPath.row].coinTo)
-            cell.coinBuyingL.text = String(round(roundingQuantity * trades[indexPath.row].converted)/roundingQuantity)
+            cell.coinBuyingL.text = currencyFormatter(numberToFormat: (round(roundingQuantity * trades[indexPath.row].converted)/roundingQuantity))
             cell.iconBuyingIV.image = Images.shared.coins[trades[indexPath.row].coinTo]
         }
         

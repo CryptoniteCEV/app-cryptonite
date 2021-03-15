@@ -55,10 +55,15 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             let cash = data["Cash"]
                        
                             for i in 0..<wallets.count {
-                                self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
+                                
+                                let quantity: Double = (currencyFormatter(numberToFormat: (wallets[i]["Quantity"] as? Double)!) as NSString).doubleValue
+                                print(wallets[i]["Quantity"])
+                                print(quantity)
+                                
+                                self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: quantity, inDollars: (wallets[i]["inDollars"] as? Double)!))
                             }
                             self.cash = cash as! Double
-                            self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
+                            self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
                             self.percentages = self.getCoinPercentages(cash: cash as! Double)
                             self.viewDidLayoutSubviews()
 

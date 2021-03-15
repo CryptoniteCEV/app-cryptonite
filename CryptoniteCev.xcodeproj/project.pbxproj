@@ -44,6 +44,7 @@
 		53F7DD7B25FA16060001351E /* AboutCoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F7DD7A25FA16060001351E /* AboutCoins.swift */; };
 		7F28EE8C25F7B07E009D6CCD /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8B25F7B07E009D6CCD /* Missions.swift */; };
 		7F28EE8E25F7B0FB009D6CCD /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28EE8D25F7B0FB009D6CCD /* Mission.swift */; };
+		7F2C30C025FF91ED006EA82F /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2C30BF25FF91ED006EA82F /* CurrencyFormatter.swift */; };
 		7F3C1BEA25EE7991000C3B21 /* CoinsQuantities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */; };
 		7F5CE3E225F1183E00CF2CE5 /* GamificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */; };
 		7F61A29925C19610008AAD2F /* MainScreenControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */; };
@@ -129,6 +130,7 @@
 		53F7DD7A25FA16060001351E /* AboutCoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoins.swift; sourceTree = "<group>"; };
 		7F28EE8B25F7B07E009D6CCD /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
 		7F28EE8D25F7B0FB009D6CCD /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		7F2C30BF25FF91ED006EA82F /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		7F3C1BE925EE7991000C3B21 /* CoinsQuantities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsQuantities.swift; sourceTree = "<group>"; };
 		7F5CE3E125F1183E00CF2CE5 /* GamificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationController.swift; sourceTree = "<group>"; };
 		7F61A29825C19610008AAD2F /* MainScreenControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenControllerExtension.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				53C6C6B325EC08CD00393C7A /* FieldsController.swift */,
 				53E9E27225BA071D00B78B17 /* MainController.swift */,
 				5303612225F2D3B30034AC06 /* TabBarController.swift */,
+				7F2C30BF25FF91ED006EA82F /* CurrencyFormatter.swift */,
 			);
 			name = Controllers;
 			path = Helpers/Controllers;
@@ -557,6 +560,7 @@
 				3910BF0D25F158C5005D0C08 /* LineChart.swift in Sources */,
 				F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */,
 				53C6C6BA25EC091B00393C7A /* UITextFieldExtension.swift in Sources */,
+				7F2C30C025FF91ED006EA82F /* CurrencyFormatter.swift in Sources */,
 				7F703F5425F119F000E99318 /* TradesProfile.swift in Sources */,
 				53C6C6BC25EC0BB100393C7A /* Identifiers.swift in Sources */,
 				7F944AA925B9AF3D00A9854E /* MainScreenController.swift in Sources */,
