@@ -37,18 +37,21 @@ class SignUpController: UIViewController {
                     let request = Service.shared.register(user: user)
                     
                     request.responseJSON { (response) in
-                        if let body = response.value as? [String: Any]{
+                        if let body = response.value as? [String:Any]{
                             if(response.response?.statusCode == StatusCodes.shared.created){
                                 self.showBanner(completion: { (success) in
                                     if success {
                                        self.goToLogInScreen()
                                     }
-                                }, message: body["message"] as! String)
+                                }, message: body["message"]! as! String)
                                 
                             }else{
-                                print(body["message"]!)
-                                Banners.shared.errorBanner(title: body["message"]! as! String, subtitle: "Try again")
+                                let errorMessages = body["message"] as! [String:[String]]                                
+                                let firstKey = Array(errorMessages.keys).first
+                                Banners.shared.errorBanner(title: (errorMessages[firstKey!]?.first)!, subtitle: "Try again")
                             }
+                        }else{
+                            print("no")
                         }
                     }
                 }
