@@ -19,7 +19,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
    
     var pieChart = PieChartView()
     
-   
+    let anim = SkeletonableAnim()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         tableView.dataSource = self
         pieChart.drawEntryLabelsEnabled = false
         
-        let anim = SkeletonableAnim()
+        
         anim.placeholder(view: totalCash)
         
         
@@ -70,8 +70,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             self.cash = cash as! Double
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
                             self.getOwnPercentages()//self.getCoinPercentages(cash: cash as! Double)
-                            self.totalCash.stopSkeletonAnimation()
-                            self.totalCash.hideSkeleton()
+                            self.anim.hidePlaceholder(view: self.totalCash)
                              
                             self.viewDidLayoutSubviews()
 

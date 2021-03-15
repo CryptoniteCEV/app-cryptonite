@@ -19,5 +19,8 @@ class SkeletonableAnim: UIViewController {
          view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
          
      }
-    
+    public func hidePlaceholder(view : UIView){
+        view.stopSkeletonAnimation()
+        view.hideSkeleton()
+    }
 }
