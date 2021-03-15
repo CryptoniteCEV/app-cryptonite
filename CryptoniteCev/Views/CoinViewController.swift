@@ -38,6 +38,10 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         
         lineChart.delegate = self
         
+        for i in 0..<30{            
+            self.values.append(ChartDataEntry(x: Double(i), y: 1))
+        }
+        
         getCoin()
         if(coinName! == "Bitcoin"){
             isMissionFinished(parameters: ["id":"3"])
@@ -126,10 +130,11 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                         
                         if let data = body["data"] as? [[Double]]{
                             
+                            
+                            self.values = []
+                            
                             for i in 0..<data.count{
-                                
-                                self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
-                                
+                               self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
                             }
                             
                             self.viewDidLayoutSubviews()
