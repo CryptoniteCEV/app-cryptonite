@@ -93,14 +93,21 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                             
                             self.currencyNameL.text = data["Name"]! as! String + "'s price"
                             self.coinSymbol = data["Symbol"] as! String
-                            self.coinValueL.text = String(describing: data["Price"]!) + "$"
+                            let coinValue = currencyFormatter(numberToFormat: (data["Price"] as? Double)!)
+                            self.coinValueL.text = coinValue + "$"
                             self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
                             self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
                             self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
                             let percentage = data["Change"]!
                             self.coinPercentageL.text = String(round(100*(percentage as? Double)!)/100) + "%"
-                            self.volumeLabel.text = String(describing:data["Volume"]!) + "$"
-                            self.marketCapLabel.text = String(describing:data["Cap"]!) + "$"
+                            
+                            var volume = String(((data["Volume"]! as? Double)!) / 1000000000)
+                            volume = self.removeDecimals(numberToRound: volume)
+                            self.volumeLabel.text = volume + "B $"
+                            
+                            var marketCap = String(((data["Cap"]! as? Double)!)/1000000000)
+                            marketCap = self.removeDecimals(numberToRound: marketCap)
+                            self.marketCapLabel.text = marketCap + "B $"
                             
                             if((data["Change"] as! Double) < 0) {
                                 self.coinPercentageL?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
@@ -145,4 +152,13 @@ class CoinViewController: UIViewController, ChartViewDelegate {
             }
         }
     }
+    func removeDecimals(numberToRound: String) -> String{
+        let splitter = numberToRound.components(separatedBy: ".")
+        var splitted: String = splitter[1]
+        let lastDecimal = splitted.first
+        splitted = splitter[0] + "." + String(lastDecimal!)
+        
+        return splitted
+    }
+    
 }

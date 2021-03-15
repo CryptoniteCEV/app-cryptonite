@@ -9,6 +9,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     var cash:Double = 0
     var coinsQuantities:[CoinsQuantities] = []
+    
     var percentages:[String:Double] = [:]
     
     @IBOutlet weak var totalCash: UILabel!
@@ -19,6 +20,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
    
     var pieChart = PieChartView()
     
+    var roundingQuantity: Double = 100000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +57,14 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             let cash = data["Cash"]
                        
                             for i in 0..<wallets.count {
+                                
+                                
+                                
                                 self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
                             }
                             self.cash = cash as! Double
-                            self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
-                            self.getOwnPercentages()//self.getCoinPercentages(cash: cash as! Double)
-                            print(self.percentages)
+                            self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
+                            self.percentages = self.getPercentages(myWallets: cash as! [CoinsQuantities])
                             self.viewDidLayoutSubviews()
 
                         }else{
@@ -75,41 +79,19 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         }
     }
     
-    func getCoinPercentages(cash:Double)->[String:Double]{
-        var coinsInWallet:[String:Double] = [:]
+    func getPercentages(myWallets:[CoinsQuantities]) -> [String:Double]{
+        var values:[String:Double] = [:];
+        var percentage:Double = 0
         
-        for wallet in coinsQuantities {
-            
-            if wallet.inDollars > 0{
-                let percentage = (wallet.inDollars * 100) / cash
-                coinsInWallet [wallet.symbol] = percentage
-            }
-        }
-        
-        return coinsInWallet
-        
-    }
-    
-    func getOwnPercentages(){
-    
-        if Service.isConnectedToInternet {
-            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-             
-                let request = Service.shared.getOwnPercentages()
-                request.responseJSON { (response) in
-                 
-                    if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [String:Any]{
-                             let wallets = data["Wallets"] as! [[String:Any]]
-                             for i in 0..<wallets.count{
-                                 self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
-                             }
-                        }
-                    }
+        for i in 0..<myWallets.count {
+            if(myWallets[i].inDollars > 0){
+                percentage = (myWallets[i].inDollars * 100) / cash;
+                if(percentage > 2){
+                    values[myWallets[i].symbol] = percentage
                 }
             }
         }
+        return values;
     }
     
     
@@ -126,8 +108,11 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
             cell.coin.text = coinsQuantities[indexPath.row].name
             cell.symbol.text = coinsQuantities[indexPath.row].symbol
             cell.icon.image = Images.shared.coins[coinsQuantities[indexPath.row].name]
-            cell.price.text = String((round(1000*coinsQuantities[indexPath.row].inDollars)/1000)) + "$"
-            cell.quantity.text = String((round(1000*coinsQuantities[indexPath.row].quantity)/1000)) + " " + coinsQuantities[indexPath.row].symbol
+            roundingQuantity = setRounding(symbol: "Tether")
+            cell.price.text = currencyFormatter(numberToFormat: (round(roundingQuantity*coinsQuantities[indexPath.row].inDollars)/roundingQuantity)) + "$"
+            roundingQuantity = setRounding(symbol: coinsQuantities[indexPath.row].symbol)
+            let quantity = currencyFormatter(numberToFormat: (round(roundingQuantity * (coinsQuantities[indexPath.row].quantity)) / roundingQuantity))
+            cell.quantity.text = quantity + " " + coinsQuantities[indexPath.row].symbol
         }
         
         return cell
