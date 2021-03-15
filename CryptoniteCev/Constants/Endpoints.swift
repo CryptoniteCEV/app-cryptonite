@@ -49,6 +49,7 @@ class Endpoints {
         static let deposit:String = "/wallets/deposit/doge"
         static let cash:String = "/wallets/cash"
         static let percentages:String = "/wallets/percentages"
+        static let percentagesOwn:String = "/wallets/percentages/own"
     }
         
     //Currency´s petitions

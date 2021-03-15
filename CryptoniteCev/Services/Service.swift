@@ -199,6 +199,14 @@ class Service {
         
         return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.deposit, method: .put,parameters: params, encoding: URLEncoding.default, headers: headers)
     }
+    
+    func getOwnPercentages()->DataRequest{
+        let headers:HTTPHeaders = [
+            ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
+        ]
+    
+        return AF.request(Endpoints.domain + Endpoints.path + Endpoints.Wallet.percentagesOwn, method: .get, encoding: URLEncoding.default, headers: headers)
+    }
 }
 
     

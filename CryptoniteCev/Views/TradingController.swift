@@ -105,7 +105,6 @@ class TradingController: UIViewController {
             buyOrSellButton.setTitle(self.tradeType + coinsSC.titleForSegment(at: cryptoPos)!, for: .normal)
         }
         
-        
     }
     
     @IBAction func onSelectAmountField(_ sender: Any) {
@@ -113,8 +112,24 @@ class TradingController: UIViewController {
         if (amountTextfield.text! as NSString).floatValue > amountValue.maximumValue{
             amountTextfield.text = String(amountValue.maximumValue)
         }
+        setProperButtonBuySellColor()
+    }
+    
+    @IBAction func onTextFieldValueChanged(_ sender: UITextField) {
+        
+        if(sender.text == ""){
+            amountValue.value = 0
+        }else{
+            amountValue.value = (sender.text! as NSString).floatValue
+            if (amountTextfield.text! as NSString).floatValue > amountValue.maximumValue{
+                amountTextfield.text = String(amountValue.maximumValue)
+            }
+            
+        }
+        setProperButtonBuySellColor()
         
     }
+    
     
     @IBAction func onSelectCoin(_ sender: Any) {
         cryptoPos = coinsSC.selectedSegmentIndex

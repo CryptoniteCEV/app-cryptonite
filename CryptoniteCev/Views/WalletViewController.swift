@@ -59,7 +59,8 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             }
                             self.cash = cash as! Double
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
-                            self.percentages = self.getCoinPercentages(cash: cash as! Double)
+                            self.getOwnPercentages()//self.getCoinPercentages(cash: cash as! Double)
+                            print(self.percentages)
                             self.viewDidLayoutSubviews()
 
                         }else{
@@ -87,6 +88,28 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         
         return coinsInWallet
         
+    }
+    
+    func getOwnPercentages(){
+    
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+             
+                let request = Service.shared.getOwnPercentages()
+                request.responseJSON { (response) in
+                 
+                    if let body = response.value as? [String:Any] {
+                    
+                        if let data = body["data"] as? [String:Any]{
+                             let wallets = data["Wallets"] as! [[String:Any]]
+                             for i in 0..<wallets.count{
+                                 self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
+                             }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     
