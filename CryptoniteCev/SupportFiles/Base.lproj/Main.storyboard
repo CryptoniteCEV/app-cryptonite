@@ -311,15 +311,15 @@
                                 <rect key="frame" x="90" y="240.66666666666666" width="294" height="38.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5G-Xm-3PF">
-                                        <rect key="frame" x="0.0" y="0.0" width="168" height="38.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.28627450980000002" green="0.94901960780000005" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukQ-qd-zAh">
-                                        <rect key="frame" x="168" y="0.0" width="126" height="38.333333333333336"/>
+                                        <rect key="frame" x="154" y="0.0" width="140" height="38.333333333333336"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="126" id="B8V-QW-Lnc"/>
+                                            <constraint firstAttribute="width" constant="140" id="B8V-QW-Lnc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
