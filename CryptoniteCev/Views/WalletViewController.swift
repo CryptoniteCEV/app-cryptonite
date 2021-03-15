@@ -1,8 +1,9 @@
 
 import UIKit
 import Charts
+import SkeletonView
 
-class WalletViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate,
+class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITableViewDelegate,
     ChartViewDelegate
 {
     @IBOutlet weak var container: UIView!
@@ -35,9 +36,11 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         tableView.dataSource = self
         pieChart.drawEntryLabelsEnabled = false
         
+        tableView.rowHeight = 68
+        tableView.estimatedRowHeight = 68
         
         anim.placeholder(view: totalCash)
-        
+        anim.placeholder(view: tableView)
         
                                
                  
@@ -47,6 +50,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +75,7 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
                             self.totalCash.text = String((round(100*(cash as? Double)!)/100)) + "$"
                             self.getOwnPercentages()//self.getCoinPercentages(cash: cash as! Double)
                             self.anim.hidePlaceholder(view: self.totalCash)
-                             
+                            self.anim.hidePlaceholder(view: self.tableView)
                             self.viewDidLayoutSubviews()
 
                         }else{
@@ -150,6 +154,12 @@ class WalletViewController: UIViewController,  UITableViewDataSource, UITableVie
         graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: percentages)
             
     }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            
+            return Identifiers.shared.coinID
+            
+        }
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         Banners.shared.creatorsBanner()

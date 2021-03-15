@@ -15,7 +15,7 @@ class SkeletonableAnim: UIViewController {
          
          view.isSkeletonable = true
          let animation = GradientDirection.leftRight.slidingAnimation()
-         let gradient = SkeletonGradient.init(baseColor: .midnightBlue)
+         let gradient = SkeletonGradient.init(baseColor: .wetAsphalt)
          view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
          
      }
