@@ -44,10 +44,6 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         anim.placeholder(view: totalCash)
         anim.placeholder(view: tableView)
         
-                               
-                 
-                       
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,7 +55,12 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         isMissionFinished(parameters: ["id":"14"])
         balance = 0
         coinsQuantities = []
+        getWallets()
+        
+    }
     
+    func getWallets(){
+        
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
@@ -91,6 +92,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         }else{
             Banners.shared.noConnectionBanner()
         }
+        
     }
     
     func getPercentages(myWallets:[CoinsQuantities]) -> [String:Double]{

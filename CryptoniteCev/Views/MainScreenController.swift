@@ -56,14 +56,18 @@ class MainScreenController: UIViewController {
         for (_, value) in Images.shared.coins {
             coinImages.append(value)
         }
-        
-        
-        
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       fillFollowings()
-        //navigationController?.setNavigationBarHidden(true, animated: true)
+        fillFollowings()
+        getCoins()
+        getUsers()
+        tradingHistory()
+    }
+    
+    func getCoins(){
+        
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let requestCoins = Service.shared.getCoins()
@@ -81,6 +85,14 @@ class MainScreenController: UIViewController {
                     }
                 }
                 
+            }
+        }
+    }
+    
+    func tradingHistory(){
+        
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let requestTrades = Service.shared.getTradingHistory()
                 
                 requestTrades.responseJSON { (response) in
@@ -95,8 +107,16 @@ class MainScreenController: UIViewController {
                         
                     }
                 }
-                
-                let requestUsers = Service.shared.getUsers()
+            }
+        }
+    }
+    
+    
+    
+    func getUsers(){
+        if Service.isConnectedToInternet {
+            if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
+            let requestUsers = Service.shared.getUsers()
                 requestUsers.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
                         let data = body["data"]! as! [[String:Any]]
@@ -107,15 +127,7 @@ class MainScreenController: UIViewController {
                         self.usersCollectionView.reloadData()
                     }
                 }
-                
-                
-                
             }
-        }else {//cuando no hay conexion: PlaceHolders
-            
-           
-            	
-            
         }
     }
     

@@ -39,27 +39,33 @@ class LogInController: UIViewController {
                 [apiBodyNames.username:usernameTF.text!,
                  apiBodyNames.password:passwordTF.text!]
             
-            if Service.isConnectedToInternet {
-                let request = Service.shared.login(parameters: parameters)
-                
-                request.responseJSON { (response) in
-                    if let body = response.value as? [String: Any]{
-                        if(response.response?.statusCode == StatusCodes.shared.OK){
-                            UserDefaults.standard.set(body["data"], forKey: self.identifiers.auth)
-                            self.navigationController?.setNavigationBarHidden(true, animated: true)
-                            UserDefaults.standard.set(0, forKey: "numberOfTransactions")
-                            UserDefaults.standard.set(0, forKey: "numberOfFollows")
-                            self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
-                        }else{
-                            Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")
-                        }
+            login(parameters: parameters, sender: sender)
+            
+        }
+    }
+    
+    func login(parameters:[String:String], sender:Any){
+        
+        if Service.isConnectedToInternet {
+            let request = Service.shared.login(parameters: parameters)
+            
+            request.responseJSON { (response) in
+                if let body = response.value as? [String: Any]{
+                    if(response.response?.statusCode == StatusCodes.shared.OK){
+                        UserDefaults.standard.set(body["data"], forKey: self.identifiers.auth)
+                        self.navigationController?.setNavigationBarHidden(true, animated: true)
+                        UserDefaults.standard.set(0, forKey: "numberOfTransactions")
+                        UserDefaults.standard.set(0, forKey: "numberOfFollows")
+                        self.performSegue(withIdentifier: self.identifiers.toMain, sender: sender)
                     }else{
-                        //Algo ha ocurrido ERROR
+                        Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Try again!")
                     }
+                }else{
+                    //Algo ha ocurrido ERROR
                 }
-            }else{
-                Banners.shared.noConnectionBanner()
             }
+        }else{
+            Banners.shared.noConnectionBanner()
         }
     }
     

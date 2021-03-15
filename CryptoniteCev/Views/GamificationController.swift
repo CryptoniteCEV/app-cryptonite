@@ -36,7 +36,6 @@ class GamificationController: UIViewController {
     @IBOutlet weak var mission1Image: UIImageView!
     @IBOutlet weak var mission1Label: UILabel!
     
-    
     @IBOutlet weak var mission2Image: UIImageView!
     @IBOutlet weak var mission2Label: UILabel!
     
@@ -54,6 +53,8 @@ class GamificationController: UIViewController {
     
     let experiencePerMission : Double = 200
     
+    let startingReward:Double = 250
+    
     var level : Int = 0
     
     var prevLevel : Int = 0
@@ -65,8 +66,8 @@ class GamificationController: UIViewController {
     @IBAction func mission1Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[0].id)])
         getExperience()
-        sendNewExp()
         level = levelManagement()
+        updateUser()
         checkHasLeveledUp()
         setProgressLabel()
     }
@@ -74,8 +75,8 @@ class GamificationController: UIViewController {
     @IBAction func mission2Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[1].id)])
         getExperience()
-        sendNewExp()
         level = levelManagement()
+        updateUser()
         checkHasLeveledUp()
         setProgressLabel()
     }
@@ -83,14 +84,17 @@ class GamificationController: UIViewController {
     @IBAction func mission3Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[2].id)])
         getExperience()
-        sendNewExp()
         level = levelManagement()
+        updateUser()
         checkHasLeveledUp()
         setProgressLabel()
     }
     
-    func sendNewExp() {
+    func updateUser() {
         updateExp(parameters: ["new_exp" : Int(experience)])
+        if level != prevLevel  {
+            deposit(parameters: ["quantity":calculateReward(level: level)])
+        }
     }
     
     @IBAction func toWalletButton(_ sender: Any) {
@@ -104,8 +108,6 @@ class GamificationController: UIViewController {
         self.dismiss(animated: true) {
             self.didLogout!()
         }
-        
-        
     }
     
     override func viewDidLoad() {
@@ -117,7 +119,6 @@ class GamificationController: UIViewController {
         roundButton(button: mission2Button)
         roundButton(button: mission3Button)
         
-        //level = levelManagement()!
         self.levelLabel.text = String(Int(level))
         
         self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
@@ -352,21 +353,24 @@ class GamificationController: UIViewController {
         }
     }
     
-    func deposit(parameters:[String:Int]){
+    func deposit(parameters:[String:Double]){
         
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.desposit(params: parameters)
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        
-                        if let message = body["message"] as? [String:Any]{
-                            
-                            print(message)
-                        }
+                        self.getCash()
+                        Banners.shared.successBanner(title: "You have just received some free Doges", subtitle: "To the mooooon!")
                     }
                 }
             }
         }
+    }
+    
+    func calculateReward(level:Int)-> Double{
+        
+        return startingReward + (Double(level) * startingReward/2)
+        
     }
 }

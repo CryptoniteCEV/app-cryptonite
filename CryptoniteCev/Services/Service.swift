@@ -192,7 +192,7 @@ class Service {
             return AF.request(Endpoints.domain + Endpoints.path + Endpoints.User.updateMission, method: .post,parameters: params, encoding: URLEncoding.default, headers: headers)
     }
     
-    func desposit(params:[String:Int])->DataRequest{
+    func desposit(params:[String:Double])->DataRequest{
             let headers:HTTPHeaders = [
                 ApiBodyNames.shared.apiToken : "Bearer " + UserDefaults.standard.string(forKey: Identifiers.shared.auth)!
             ]
