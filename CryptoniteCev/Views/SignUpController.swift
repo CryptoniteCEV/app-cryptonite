@@ -28,30 +28,9 @@ class SignUpController: UIViewController {
         
         if checkEmail(textFieldEmail: emailTF) && checkPassword(textFieldPass: passwordTF){
             if isAdultSW.isOn{
-                //isAdultErrorL.isHidden = true
-                //self.performSegue(withIdentifier: self.identifiers.toCompletion, sender: sender)
-                
                 let user = User(username: usernameTF.text!, email: emailTF.text!, name: nameTF.text!, password: passwordTF.text!, profilePic: Int.random(in: 0..<Images.shared.users.count))
                 
-                if Service.isConnectedToInternet {
-                    let request = Service.shared.register(user: user)
-                    
-                    request.responseJSON { (response) in
-                        if let body = response.value as? [String:Any]{
-                            if(response.response?.statusCode == StatusCodes.shared.created){
-                                self.showBanner(completion: { (success) in
-                                    if success {
-                                       self.goToLogInScreen()
-                                    }
-                                }, message: body["message"]! as! String)
-                            }else{
-                                let errorMessages = body["message"] as! [String:[String]]                                
-                                let firstKey = Array(errorMessages.keys).first
-                                Banners.shared.errorBanner(title: (errorMessages[firstKey!]?.first)!, subtitle: "Try again")
-                            }
-                        }
-                    }
-                }
+                register(user: user)
             }else {
                 Banners.shared.errorBanner(title: "You have to agree our Terms and conditions ", subtitle: "Try again")
             }
@@ -61,6 +40,29 @@ class SignUpController: UIViewController {
         Banners.shared.successBanner(title: message, subtitle: "Log in now!")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             completion(true)
+        }
+    }
+    
+    func register(user:User){
+        
+        if Service.isConnectedToInternet {
+            let request = Service.shared.register(user: user)
+            
+            request.responseJSON { (response) in
+                if let body = response.value as? [String:Any]{
+                    if(response.response?.statusCode == StatusCodes.shared.created){
+                        self.showBanner(completion: { (success) in
+                            if success {
+                               self.goToLogInScreen()
+                            }
+                        }, message: body["message"]! as! String)
+                    }else{
+                        let errorMessages = body["message"] as! [String:[String]]
+                        let firstKey = Array(errorMessages.keys).first
+                        Banners.shared.errorBanner(title: (errorMessages[firstKey!]?.first)!, subtitle: "Try again")
+                    }
+                }
+            }
         }
     }
     

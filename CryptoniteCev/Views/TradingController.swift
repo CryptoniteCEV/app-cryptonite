@@ -32,10 +32,11 @@ class TradingController: UIViewController {
     var isSell = 0
     var tradeType = "Buy "
     let anim = SkeletonableAnim()
+    
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
-            let quantityWithFee = applyFee(quantity: Double(amountValue.value))
+            let quantityWithFee = Double(amountValue.value)
             newTrade(is_sell: isSell, quantity: quantityWithFee, coin: coinsSC.titleForSegment(at: cryptoPos)!)
             amountValue.value = 0
             amountTextfield.text = "0"
@@ -330,11 +331,6 @@ class TradingController: UIViewController {
         return 0
     }
     
-    func applyFee(quantity: Double) -> Double {
-        
-        let quantityWithFee = quantity - (quantity/100)
-        return quantityWithFee
-    }
     
     func timestampToDate(date: Double) -> String {
         let tradeDate = Date(timeIntervalSince1970: date )

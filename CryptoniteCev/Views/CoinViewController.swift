@@ -43,6 +43,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         }
         
         getCoin()
+        
         if(coinName! == "Bitcoin"){
             isMissionFinished(parameters: ["id":"3"])
         }

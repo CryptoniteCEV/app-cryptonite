@@ -45,8 +45,6 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         fillFollowings()
         pieChart.drawEntryLabelsEnabled = false
         unfollowButton.layer.cornerRadius = 15
-        //unfollowButton.layer.borderColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
-        //unfollowButton.layer.borderWidth = 3
         
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2
        
