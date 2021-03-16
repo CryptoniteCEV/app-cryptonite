@@ -17,7 +17,7 @@ func isMissionFinished(parameters:[String:String]){
             request.responseJSON { (response) in
                 print(response.value)
                 if(response.response?.statusCode == StatusCodes.shared.OK){
-                    Banners.shared.successBanner(title: "Mission Accomplished", subtitle: "Claim Your Rewards")
+                    Banners.shared.missionCompletedBanner()
                     
                 }
             }

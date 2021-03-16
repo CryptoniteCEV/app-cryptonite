@@ -54,6 +54,18 @@ class Banners{
         banner.show()
     }
     
+     func missionCompletedBanner() {
+            let leftView = UIImageView(image: #imageLiteral(resourceName: "gift"))
+            let banner = NotificationBanner(title: "Mission completed, go claim your rewards", leftView: leftView, style: .info)
+            banner.haptic = .heavy
+            banner.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            banner.bannerHeight = self.normalHeight
+            banner.titleLabel?.textColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+            banner.duration = self.longDuration
+        
+           banner.show()
+       }
+    
     func noConnectionBanner() {
         let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
         banner.autoDismiss = false
