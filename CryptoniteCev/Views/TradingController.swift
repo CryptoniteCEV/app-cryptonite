@@ -36,8 +36,7 @@ class TradingController: UIViewController {
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
-            let quantityWithFee = Double(amountValue.value)
-            newTrade(is_sell: isSell, quantity: quantityWithFee, coin: coinsSC.titleForSegment(at: cryptoPos)!)
+            newTrade(is_sell: isSell, quantity: Double(amountValue.value), coin: coinsSC.titleForSegment(at: cryptoPos)!)
             amountValue.value = 0
             amountTextfield.text = "0"
             buyOrSellButton.isEnabled = false
@@ -285,6 +284,33 @@ class TradingController: UIViewController {
                         if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 3){
                             isMissionFinished(parameters: ["id":"10"])
                         }
+                        var dollar:Int? = nil
+                        var walletsWithCash:[String] = []
+                        
+                        for i in 0..<self.wallets.count{
+                            if self.wallets[i].quantity > 0{
+                                walletsWithCash.append(self.wallets[i].symbol)
+                            }
+                            if(self.wallets[i].quantity == 0){
+                                dollar = i
+                            }
+                        }
+                        if dollar != 0 {
+                            isMissionFinished(parameters: ["id":"11"])
+                        }
+                        
+                        if walletsWithCash.count == 1{
+                            if walletsWithCash[0] == "BTC" {
+                                isMissionFinished(parameters: ["id":"7"])
+                            }
+                        }
+                        if walletsWithCash.count == 1{
+                            if walletsWithCash[0] == "USDT" {
+                                isMissionFinished(parameters: ["id":"8"])
+                            }
+                        }
+                        print(walletsWithCash)
+                        
                         
                         self.tradeTableView.reloadData()
                     }
