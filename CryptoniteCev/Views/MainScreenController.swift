@@ -68,6 +68,7 @@ class MainScreenController: UIViewController {
         getCoins()
         getUsers()
         tradingHistory()
+        
     }
     
     func getCoins(){
