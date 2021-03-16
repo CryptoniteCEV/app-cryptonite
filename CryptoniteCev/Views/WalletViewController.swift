@@ -42,21 +42,20 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         tableView.estimatedRowHeight = 68
         
         anim.placeholder(view: totalCash)
-        anim.placeholder(view: tableView)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-       
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         isMissionFinished(parameters: ["id":"14"])
         balance = 0
+        
+        if(coinsQuantities.count == 0){
+            anim.placeholder(view: tableView)
+        }
         coinsQuantities = []
         getWallets()
-        
+       
     }
     
     func getWallets(){

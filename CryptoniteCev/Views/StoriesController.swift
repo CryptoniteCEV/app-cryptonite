@@ -140,8 +140,9 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
                                     self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
                                 }
                         }
-                    self.anim.hidePlaceholder(view: self.tableView)
-                    self.tableView.reloadData()
+                    
+                        self.tableView.reloadData()
+                        self.anim.hidePlaceholder(view: self.tableView)
                         
                     }
                 }

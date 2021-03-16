@@ -237,8 +237,9 @@ class TradingController: UIViewController {
                                 self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: self.timestampToDate(date: data[i]["Date"] as! Double), quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
                             }
                         }
-                        self.anim.hidePlaceholder(view: self.tradeTableView)
+                        
                         self.tradeTableView.reloadData()
+                        self.anim.hidePlaceholder(view: self.tradeTableView)
                     }
                 }
             }
@@ -311,8 +312,9 @@ class TradingController: UIViewController {
                         }
                         print(walletsWithCash)
                         
-                        
+                        //
                         self.tradeTableView.reloadData()
+                        self.anim.hidePlaceholder(view: self.tradeTableView)
                     }
                 }
             }
