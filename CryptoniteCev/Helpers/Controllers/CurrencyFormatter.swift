@@ -35,3 +35,15 @@ func setRounding(symbol:String) -> Double {
         return 100000
     }
 }
+
+func currencyFormatterFloat(numberToFormat: Float, decimalsQuantity:Int ) -> String {
+    let currencyFormatter = NumberFormatter()
+    currencyFormatter.usesGroupingSeparator = true
+    currencyFormatter.numberStyle = .currency
+    currencyFormatter.locale = Locale.current
+    currencyFormatter.currencySymbol = ""
+    currencyFormatter.maximumFractionDigits = decimalsQuantity
+    
+    return currencyFormatter.string(from: NSNumber(value: numberToFormat))!
+    
+}

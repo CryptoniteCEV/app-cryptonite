@@ -54,7 +54,18 @@ class TradingController: UIViewController {
     }
     
     @IBAction func amountSlider(_ sender: UISlider) {
-        amountTextfield.text = sender.value.description
+        var decimalQuantity = 0
+        if isSell == 0 || cryptoPos == 2{
+            decimalQuantity = 2
+        }else{
+            decimalQuantity = 7
+        }
+        
+        amountTextfield.text = currencyFormatterFloat(numberToFormat: sender.value, decimalsQuantity: decimalQuantity)
+        if(amountTextfield.text == "0.00" || amountTextfield.text == "0.0"){
+            amountTextfield.text = "0"
+        }
+        
         setProperButtonBuySellColor()
         
         if amountTextfield.text == "0.0"{
@@ -91,7 +102,7 @@ class TradingController: UIViewController {
     
    
     override func viewDidAppear(_ animated: Bool) {
-        setWallet()
+        setWallet(fromTrades: false)
         trades = getTrades()
         coins = getCoins()
         
@@ -122,6 +133,7 @@ class TradingController: UIViewController {
             amountValue.value = 0
         }else{
             amountValue.value = (sender.text! as NSString).floatValue
+            
             if (amountTextfield.text! as NSString).floatValue > amountValue.maximumValue{
                 amountTextfield.text = String(amountValue.maximumValue)
             }
@@ -268,7 +280,7 @@ class TradingController: UIViewController {
                         print(body["message"]!)
                         
                         Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
-                        self.setWallet()
+                        self.setWallet(fromTrades: true)
                         isMissionFinished(parameters: ["id":"4"])
                         self.trades = self.getTrades()
                         if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "DOGE"){
@@ -285,34 +297,7 @@ class TradingController: UIViewController {
                         if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 3){
                             isMissionFinished(parameters: ["id":"10"])
                         }
-                        var dollar:Int? = nil
-                        var walletsWithCash:[String] = []
                         
-                        for i in 0..<self.wallets.count{
-                            if self.wallets[i].quantity > 0{
-                                walletsWithCash.append(self.wallets[i].symbol)
-                            }
-                            if(self.wallets[i].quantity == 0){
-                                dollar = i
-                            }
-                        }
-                        if dollar != 0 {
-                            isMissionFinished(parameters: ["id":"11"])
-                        }
-                        
-                        if walletsWithCash.count == 1{
-                            if walletsWithCash[0] == "BTC" {
-                                isMissionFinished(parameters: ["id":"7"])
-                            }
-                        }
-                        if walletsWithCash.count == 1{
-                            if walletsWithCash[0] == "USDT" {
-                                isMissionFinished(parameters: ["id":"8"])
-                            }
-                        }
-                        print(walletsWithCash)
-                        
-                        //
                         self.tradeTableView.reloadData()
                         self.anim.hidePlaceholder(view: self.tradeTableView)
                     }
@@ -321,7 +306,7 @@ class TradingController: UIViewController {
         }
     }
     
-    func setWallet(){
+    func setWallet(fromTrades:Bool){
         wallets = []
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -339,6 +324,31 @@ class TradingController: UIViewController {
                                 self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
                             }else{
                                 self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].quantity)
+                            }
+                            
+                            var walletsWithCash:[String] = []
+                            
+                            for i in 0..<self.wallets.count{
+                                if self.wallets[i].quantity > 0{
+                                    walletsWithCash.append(self.wallets[i].symbol)
+                                }
+                            }
+                            
+                            if(fromTrades){
+                                if self.wallets[0].quantity == 0 && self.isSell == 0{
+                                    isMissionFinished(parameters: ["id":"11"])
+                                }
+                            }
+                            
+                            if walletsWithCash.count == 1{
+                                if walletsWithCash[0] == "BTC" {
+                                    isMissionFinished(parameters: ["id":"7"])
+                                }
+                            }
+                            if walletsWithCash.count == 1{
+                                if walletsWithCash[0] == "USDT" {
+                                    isMissionFinished(parameters: ["id":"8"])
+                                }
                             }
                         }
                     }
