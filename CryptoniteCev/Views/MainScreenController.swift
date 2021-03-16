@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import BLTNBoard
 
 class MainScreenController: UIViewController {
 

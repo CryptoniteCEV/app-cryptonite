@@ -10,6 +10,7 @@ import UIKit
 import SwiftConfettiView
 import CircleProgressBar
 import NotificationBannerSwift
+import BLTNBoard
 
 class GamificationController: UIViewController {
     
@@ -124,8 +125,8 @@ class GamificationController: UIViewController {
         self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
         self.viewConfetti?.tag = 200
         
-        missionsCard.layer.cornerRadius = 10
-        walletCard.layer.cornerRadius = 10
+        missionsCard.layer.cornerRadius = 7
+        walletCard.layer.cornerRadius = 7
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
@@ -135,15 +136,23 @@ class GamificationController: UIViewController {
         anim.placeholder(view: mission2Label)
         anim.placeholder(view: mission3Label)
         
+        
+        
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         getCash()
         getGamification()
+        bulletinManager.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        bulletinManager.backgroundViewStyle = .blurredDark
+        
+        bulletinManager.showBulletin(above: self)
         
     }
     
     func roundButton(button: UIButton) {
-        button.layer.cornerRadius = button.frame.width/2
+        button.layer.cornerRadius = 7
     }
     
     func startConfetti(view: SwiftConfettiView){
@@ -371,6 +380,32 @@ class GamificationController: UIViewController {
     func calculateReward(level:Int)-> Double{
         
         return startingReward + (Double(level) * startingReward/2)
+        
+    }
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let page = showClaimLevelBanner()
+        
+        return BLTNItemManager(rootItem: page)
+    }()
+    
+    func showClaimLevelBanner() -> BLTNPageItem  {
+        let page = BLTNPageItem(title: "Claim your level rewards")
+        page.image = #imageLiteral(resourceName: "dogecoin128")
+        page.appearance.titleTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+        page.appearance.descriptionTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+        page.appearance.actionButtonColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+        page.appearance.actionButtonCornerRadius = 7
+        page.requiresCloseButton = false
+
+        page.descriptionText = "By levelling up you have received 200 Dogecoins. Keep on going!"
+        page.actionButtonTitle = "Thanks, give me my money"
+        
+        page.actionHandler = { (item: BLTNActionItem) in
+            self.bulletinManager.dismissBulletin()
+        }
+        
+        return page
         
     }
 }

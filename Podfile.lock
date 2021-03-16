@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - BulletinBoard (5.0.0)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - BulletinBoard
   - Charts
   - CircleProgressBar (~> 0.32)
   - NotificationBannerSwift (~> 3.0.0)
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BulletinBoard
     - Charts
     - CircleProgressBar
     - MarqueeLabel
@@ -30,6 +33,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: c844cc37d7f4a67dc61b6c9657a2cdb5e5555e84
+PODFILE CHECKSUM: a31b6f0178f3297afb9f21bfd0592ed00fbb464e
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
