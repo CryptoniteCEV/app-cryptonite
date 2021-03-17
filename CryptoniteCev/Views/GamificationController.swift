@@ -400,7 +400,10 @@ class GamificationController: UIViewController {
     
     func showClaimLevelBanner() -> BLTNPageItem  {
         let page = BLTNPageItem(title: "To the moooon!!")
-        page.image = #imageLiteral(resourceName: "dogecoin128")
+        
+        let gif = UIImage.gif(name: "cardGif")
+        
+        page.image = gif
         page.appearance.titleTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
         page.appearance.descriptionTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
         page.appearance.actionButtonColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
