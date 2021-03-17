@@ -339,15 +339,18 @@ class TradingController: UIViewController {
                                     isMissionFinished(parameters: ["id":"11"])
                                 }
                             }
-                            
-                            if walletsWithCash.count == 1{
-                                if walletsWithCash[0] == "BTC" {
-                                    isMissionFinished(parameters: ["id":"7"])
+                            if(fromTrades){
+                                if walletsWithCash.count == 1{
+                                    if walletsWithCash[0] == "BTC" {
+                                        isMissionFinished(parameters: ["id":"8"])
+                                    }
                                 }
                             }
-                            if walletsWithCash.count == 1{
-                                if walletsWithCash[0] == "USDT" {
-                                    isMissionFinished(parameters: ["id":"8"])
+                            if(fromTrades){
+                                if walletsWithCash.count == 1{
+                                    if walletsWithCash[0] == "USDT" {
+                                        isMissionFinished(parameters: ["id":"7"])
+                                    }
                                 }
                             }
                         }
