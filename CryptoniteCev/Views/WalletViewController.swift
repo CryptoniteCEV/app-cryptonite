@@ -43,7 +43,9 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         
         anim.placeholder(view: totalCash)
         
+        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -56,6 +58,9 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         coinsQuantities = []
         getWallets()
        
+    }
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        
     }
     
     func getWallets(){

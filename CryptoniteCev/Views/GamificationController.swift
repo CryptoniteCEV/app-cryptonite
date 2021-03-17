@@ -66,6 +66,10 @@ class GamificationController: UIViewController {
     
     var prevLevel : Int = 0
     
+    var cash:Double = 0
+    
+    var prevBalance:Double = 0
+    
     var missions:[Mission] = []
     
     let anim = SkeletonableAnim()
@@ -154,7 +158,7 @@ class GamificationController: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        getCash()
+        getCash(fromMain: true)
         getGamification()
         bulletinManager.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         bulletinManager.backgroundViewStyle = .dimmed
@@ -318,16 +322,41 @@ class GamificationController: UIViewController {
         
     }
     
-    func getCash(){
+    func getCash(fromMain:Bool){
         if Service.isConnectedToInternet {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getCash()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
                         if let data = body["data"] as? String{
-                            let cash = round(100*(Double(data)!))/100
+                            
+                            if fromMain{
                                 
-                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: cash) + " $"
+                                self.cash = Double(data)!
+                                self.prevBalance = self.cash
+                                self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
+                                
+                            }else{
+                                
+                                self.prevBalance = self.cash
+                                self.cash = Double(data)!
+                                    
+                                for i in 1...Int(self.calculateReward(level: self.level)) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01 * Double(i) ) {
+                                        if self.cash > self.prevBalance {
+                                            self.prevBalance += 0.5
+                                            self.cashLabel.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.prevBalance)) + " $"
+                                        }else{
+                                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
+                                            self.cashLabel.textColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                            
+                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: self.cash) + " $"
                             self.anim.hidePlaceholder(view: self.cashLabel)
                         }
                     }
@@ -408,10 +437,10 @@ class GamificationController: UIViewController {
         page.requiresCloseButton = false
 
         page.descriptionText = "Congratulations you have just received some DOGES. Keep digging!"
-        page.actionButtonTitle = "Shut up and give me my money"
+        page.actionButtonTitle = "Shut up and give me my money!"
         
         page.actionHandler = { (item: BLTNActionItem) in
-            self.getCash()
+            self.getCash(fromMain: false)
             self.bulletinManager.dismissBulletin()
         }
         
