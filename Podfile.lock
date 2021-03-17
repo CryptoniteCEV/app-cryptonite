@@ -1,9 +1,11 @@
 PODS:
   - Alamofire (5.4.1)
+  - BulletinBoard (5.0.0)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - CircleProgressBar (0.32)
+  - lottie-ios (3.2.1)
   - MarqueeLabel (4.0.5)
   - NotificationBannerSwift (3.0.6):
     - MarqueeLabel (~> 4.0.5)
@@ -13,16 +15,20 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - BulletinBoard
   - Charts
   - CircleProgressBar (~> 0.32)
+  - lottie-ios
   - NotificationBannerSwift (~> 3.0.0)
   - SwiftConfettiView
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BulletinBoard
     - Charts
     - CircleProgressBar
+    - lottie-ios
     - MarqueeLabel
     - NotificationBannerSwift
     - SnapKit
@@ -30,13 +36,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftConfettiView: 1bdbc2e6913b6b1c76d8070802b212508ad5c352
 
-PODFILE CHECKSUM: c844cc37d7f4a67dc61b6c9657a2cdb5e5555e84
+PODFILE CHECKSUM: 828590e40883da1ce3c489de5b11cc74fd851293
 
 COCOAPODS: 1.9.3

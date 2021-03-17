@@ -10,6 +10,8 @@ import UIKit
 import SwiftConfettiView
 import CircleProgressBar
 import NotificationBannerSwift
+import BLTNBoard
+import Lottie
 
 class GamificationController: UIViewController {
     
@@ -41,6 +43,11 @@ class GamificationController: UIViewController {
     
     @IBOutlet weak var mission3Image: UIImageView!
     @IBOutlet weak var mission3Label: UILabel!
+    
+    
+    @IBOutlet var toWalletButton: UIButton!
+    
+    @IBOutlet var logoutButton: UIButton!
     
     @IBOutlet weak var welcomeLabel: UILabel!
     var onDoneBlock : (() -> Void)?
@@ -118,14 +125,16 @@ class GamificationController: UIViewController {
         roundButton(button: mission1Button)
         roundButton(button: mission2Button)
         roundButton(button: mission3Button)
+        roundButton(button: toWalletButton)
+        roundButton(button: logoutButton)
         
         self.levelLabel.text = String(Int(level))
         
         self.viewConfetti = SwiftConfettiView(frame: self.view.bounds)
         self.viewConfetti?.tag = 200
         
-        missionsCard.layer.cornerRadius = 10
-        walletCard.layer.cornerRadius = 10
+        missionsCard.layer.cornerRadius = 7
+        walletCard.layer.cornerRadius = 7
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 4
         profileImage.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
@@ -135,15 +144,24 @@ class GamificationController: UIViewController {
         anim.placeholder(view: mission2Label)
         anim.placeholder(view: mission3Label)
         
+        //var animation = lottieAnim()
+        
+        //view.addSubview(animation)
+        
+        //animation.play()
+        
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         getCash()
         getGamification()
-        
+        bulletinManager.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        bulletinManager.backgroundViewStyle = .dimmed
     }
     
     func roundButton(button: UIButton) {
-        button.layer.cornerRadius = button.frame.width/2
+        button.layer.cornerRadius = 7
     }
     
     func startConfetti(view: SwiftConfettiView){
@@ -208,6 +226,9 @@ class GamificationController: UIViewController {
             DispatchQueue.main.async {
                 self.circleProgressBar.setProgress(CGFloat(1), animated: true)
                 Banners.shared.levelUpBanner(title: "Congrats! You have just reached level " + String(Int(self.level)))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.bulletinManager.showBulletin(above: self)
+                }
             }            
         }
         self.levelLabel.text = String(Int(level))
@@ -361,7 +382,6 @@ class GamificationController: UIViewController {
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
                         self.getCash()
-                        Banners.shared.successBanner(title: "You have just received some free Doges", subtitle: "To the mooooon!")
                     }
                 }
             }
@@ -371,6 +391,31 @@ class GamificationController: UIViewController {
     func calculateReward(level:Int)-> Double{
         
         return startingReward + (Double(level) * startingReward/2)
+    }
+    
+    lazy var bulletinManager: BLTNItemManager = {
+        let page = showClaimLevelBanner()
+        return BLTNItemManager(rootItem: page)
+    }()
+    
+    func showClaimLevelBanner() -> BLTNPageItem  {
+        let page = BLTNPageItem(title: "To the moooon!!")
+        page.image = #imageLiteral(resourceName: "dogecoin128")
+        page.appearance.titleTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+        page.appearance.descriptionTextColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
+        page.appearance.actionButtonColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+        page.appearance.actionButtonCornerRadius = 7
+        page.requiresCloseButton = false
+
+        page.descriptionText = "Congratulations you have just received some DOGES. Keep digging!"
+        page.actionButtonTitle = "Shut up and give me my money"
+        
+        page.actionHandler = { (item: BLTNActionItem) in
+            self.bulletinManager.dismissBulletin()
+        }
+        
+        return page
         
     }
 }
+

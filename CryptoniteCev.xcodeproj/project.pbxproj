@@ -65,6 +65,7 @@
 		9310125BB7AF5E5751DA0CAB /* Pods_CryptoniteCev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */; };
 		F815E22625C233EF00D65B6A /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815E22525C233EF00D65B6A /* CoinCell.swift */; };
 		F83802AB25F9791500B30EFF /* Banners.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83802AA25F9791500B30EFF /* Banners.swift */; };
+		F886F5342601704B000B9519 /* gift.json in Resources */ = {isa = PBXBuildFile; fileRef = F886F5332601704B000B9519 /* gift.json */; };
 		F8C139C525B9E27C008F92B6 /* CircleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C139C425B9E27C008F92B6 /* CircleCell.swift */; };
 		F8CCB74425F013DD00F50F7F /* CoinRowWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */; };
 		F8D0847225BDFE7900287C60 /* StoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0847125BDFE7900287C60 /* StoriesController.swift */; };
@@ -153,6 +154,7 @@
 		8EA570CCE42FD0970A1367C3 /* Pods_CryptoniteCev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoniteCev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F815E22525C233EF00D65B6A /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		F83802AA25F9791500B30EFF /* Banners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banners.swift; sourceTree = "<group>"; };
+		F886F5332601704B000B9519 /* gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gift.json; sourceTree = "<group>"; };
 		F8C139C425B9E27C008F92B6 /* CircleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCell.swift; sourceTree = "<group>"; };
 		F8CCB74325F013DD00F50F7F /* CoinRowWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRowWalletController.swift; sourceTree = "<group>"; };
 		F8D0847125BDFE7900287C60 /* StoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesController.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				390DAF3925B707810056BFD5 /* AppDelegate.swift */,
 				390DAF3B25B707810056BFD5 /* SceneDelegate.swift */,
 				390DAF4225B707850056BFD5 /* Assets.xcassets */,
+				F886F5332601704B000B9519 /* gift.json */,
 				390DAF4425B707850056BFD5 /* LaunchScreen.storyboard */,
 				390DAF3F25B707810056BFD5 /* Main.storyboard */,
 			);
@@ -474,6 +477,7 @@
 				390DAF4325B707850056BFD5 /* Assets.xcassets in Resources */,
 				390DAF4125B707810056BFD5 /* Main.storyboard in Resources */,
 				F8D5B9B425F6F25900D82164 /* Roboto in Resources */,
+				F886F5342601704B000B9519 /* gift.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

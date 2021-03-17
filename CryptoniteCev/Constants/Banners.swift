@@ -54,8 +54,8 @@ class Banners{
         banner.show()
     }
     
-     func missionCompletedBanner() {
-            let leftView = UIImageView(image: #imageLiteral(resourceName: "gift"))
+    func missionCompletedBanner(view: UIView) {
+            let leftView = view
             let banner = NotificationBanner(title: "Mission completed, go claim your rewards", leftView: leftView, style: .info)
             banner.haptic = .heavy
             banner.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
