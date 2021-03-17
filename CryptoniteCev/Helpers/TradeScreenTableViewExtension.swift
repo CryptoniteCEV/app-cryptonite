@@ -27,13 +27,14 @@ extension TradingController: SkeletonTableViewDataSource, UITableViewDelegate {
         if trades.count > 0 {
             if trades[indexPath.row].isSell == 0 {
                 cell.buyOrSellImage.image = #imageLiteral(resourceName: "buy")
+                roundingQuantity = 100
             }else{
                 cell.buyOrSellImage.image = #imageLiteral(resourceName: "sell")
+                roundingQuantity = setRounding(symbol: trades[indexPath.row].coin)
             }
             cell.coinLabel.text = trades[indexPath.row].coin + "/USD"
             
             cell.tradeDateLabel.text = String(trades[indexPath.row].date)
-            roundingQuantity = setRounding(symbol: trades[indexPath.row].coin)
             cell.amountLabel.text = currencyFormatter(numberToFormat: round(roundingQuantity * trades[indexPath.row].quantity) / roundingQuantity)
             cell.priceLabel.text = currencyFormatter(numberToFormat: trades[indexPath.row].price)
         }
