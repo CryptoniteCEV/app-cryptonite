@@ -39,6 +39,7 @@
 		53C6C6BE25EC0D0300393C7A /* StatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */; };
 		53C6C6C025EC0DF900393C7A /* UserMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C6BF25EC0DF900393C7A /* UserMessages.swift */; };
 		53DD38BD26024AC3008DF7A2 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DD38BC26024AC3008DF7A2 /* NetworkCheck.swift */; };
+		53DD38BF260274F2008DF7A2 /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DD38BE260274F2008DF7A2 /* Monitor.swift */; };
 		53E9E27325BA071D00B78B17 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E9E27225BA071D00B78B17 /* MainController.swift */; };
 		53F194C625ED95200096055F /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C525ED95200096055F /* Images.swift */; };
 		53F194C825EEB3450096055F /* TradeHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F194C725EEB3450096055F /* TradeHistory.swift */; };
@@ -130,6 +131,7 @@
 		53C6C6BD25EC0D0300393C7A /* StatusCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodes.swift; sourceTree = "<group>"; };
 		53C6C6BF25EC0DF900393C7A /* UserMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessages.swift; sourceTree = "<group>"; };
 		53DD38BC26024AC3008DF7A2 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		53DD38BE260274F2008DF7A2 /* Monitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monitor.swift; sourceTree = "<group>"; };
 		53E9E27225BA071D00B78B17 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		53F194C525ED95200096055F /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		53F194C725EEB3450096055F /* TradeHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeHistory.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				5393E88825B8E94700C647FD /* Service.swift */,
 				53DD38BC26024AC3008DF7A2 /* NetworkCheck.swift */,
+				53DD38BE260274F2008DF7A2 /* Monitor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DD38BF260274F2008DF7A2 /* Monitor.swift in Sources */,
 				F8CCB74425F013DD00F50F7F /* CoinRowWalletController.swift in Sources */,
 				53C6C6B425EC08CD00393C7A /* FieldsController.swift in Sources */,
 				531657F225B797510040417F /* Wallet.swift in Sources */,

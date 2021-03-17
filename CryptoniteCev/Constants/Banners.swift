@@ -66,11 +66,9 @@ class Banners{
            banner.show()
        }
     
-    func noConnectionBanner() {
-        let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
-        banner.autoDismiss = false
-        banner.bannerHeight = self.smallHeight
-        banner.show()
+    func noConnectionBanner() -> StatusBarNotificationBanner{
+        return StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
+        
     }
     
     func creatorsBanner(){
