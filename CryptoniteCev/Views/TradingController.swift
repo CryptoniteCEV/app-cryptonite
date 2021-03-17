@@ -213,15 +213,17 @@ class TradingController: UIViewController {
                    let requestCoins = Service.shared.getCoins()
                    
                    requestCoins.responseJSON { (response) in
-                       
-                       if let body = response.value as? [String: Any]{
-                           let data = body["data"] as! [[String:Any]]
-                           
-                           for i in 1..<data.count {
-                               self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
-                           }
-                        self.curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
-                        self.anim.hidePlaceholder(view: self.curentPrice)
+                
+                    if let body = response.value as? [String: Any]{
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                               let data = body["data"] as! [[String:Any]]
+                               
+                               for i in 1..<data.count {
+                                   self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
+                               }
+                            self.curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
+                            self.anim.hidePlaceholder(view: self.curentPrice)
+                        }
                    }
                 }
             }
