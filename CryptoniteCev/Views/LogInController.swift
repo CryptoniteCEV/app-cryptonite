@@ -22,8 +22,6 @@ class LogInController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil {
-            UserDefaults.standard.set(0, forKey: "numberOfTransactions")
-            UserDefaults.standard.set(0, forKey: "numberOfFollows")
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.performSegue(withIdentifier: self.identifiers.toMain, sender: (Any).self)
 

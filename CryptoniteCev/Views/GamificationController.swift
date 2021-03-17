@@ -381,7 +381,7 @@ class GamificationController: UIViewController {
                 let request = Service.shared.desposit(params: parameters)
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        self.getCash()
+                        //self.getCash()
                     }
                 }
             }
@@ -411,6 +411,7 @@ class GamificationController: UIViewController {
         page.actionButtonTitle = "Shut up and give me my money"
         
         page.actionHandler = { (item: BLTNActionItem) in
+            self.getCash()
             self.bulletinManager.dismissBulletin()
         }
         
