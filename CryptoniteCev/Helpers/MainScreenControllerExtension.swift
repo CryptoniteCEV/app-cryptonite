@@ -20,8 +20,6 @@ var selectedCoin:String?
 var roundingQuantity: Double = 100000
 
 
-
-
 extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate,SkeletonTableViewDataSource , UITableViewDelegate {
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -64,11 +62,16 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             
             let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellMainController
             if coins.count>0{
+                
                 cell.iconImageView?.image = Images.shared.coins[coins[indexPath.row].name]
-                cell.coinNameLabel?.text = coins[indexPath.row].name
+                if(coins[indexPath.row].name != "DogeCoin"){
+                    cell.coinNameLabel?.text = coins[indexPath.row].name
+                }else{
+                    cell.coinNameLabel?.text = "Doge"
+                }
+                
                 cell.ammountLabel?.text = currencyFormatter(numberToFormat: coins[indexPath.row].price) + "$"
                 cell.percentageLabel?.text = currencyFormatterTwoDecimals(numberToFormat: coins[indexPath.row].change) + "%"
-                
                 
                  if(coins[indexPath.row].change < 0) {
                     cell.percentageLabel?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
@@ -77,6 +80,11 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 }
             }else{
                 cell.iconImageView?.image = coinImages[indexPath.row]
+                if(coinNames[indexPath.row] != "DogeCoin"){
+                    cell.coinNameLabel?.text = coinNames[indexPath.row]
+                }else{
+                    cell.coinNameLabel?.text = "Doge"
+                }
             }
             cell.layer.cornerRadius = cell.frame.height/8
                 
@@ -119,7 +127,12 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             if indexPath.row == 0 {
                 performSegue(withIdentifier: "gaming", sender: (Any).self)
             }else {
-                let selectedItem = followings[indexPath.row].username
+                var selectedItem:String
+                if isConnected && !attemptsMaxed{
+                    selectedItem = followings[indexPath.row].username
+                }else{
+                    selectedItem = "N/A"
+                }
                 performSegue(withIdentifier: "stories", sender: selectedItem)
             }
             
@@ -176,7 +189,9 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
                 
                 self.fillFollowings()
             }
-            storiesController.username = sender as? String
+            if isConnected{
+                storiesController.username = sender as? String
+            }
             
         }else if(segue.identifier == "coinViewID"){
             

@@ -115,7 +115,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
     
         trades = []
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let parameters = ["username":username!]
                 
@@ -124,25 +124,32 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
                 requestTrades.responseJSON { (response) in
                     
                     if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [String:Any]{
-                    
-                            let tradeHistory = data["Trades"] as! [[String:Any]]
-                            let user = data["User"] as! [String:Any]
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [String:Any]{
+                        
+                                let tradeHistory = data["Trades"] as! [[String:Any]]
+                                let user = data["User"] as! [String:Any]
 
-                            self.nameLabel.text = user["Name"] as? String
-                            self.usernameLabel.text = "@" + (user["Username"] as! String)
-                            self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
-                            self.anim.hidePlaceholder(view: self.usernameLabel)
-                            self.anim.hidePlaceholder(view: self.nameLabel)
-                                for i in 0..<tradeHistory.count {
-                                    
-                                    self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
-                                }
+                                self.nameLabel.text = user["Name"] as? String
+                                self.usernameLabel.text = "@" + (user["Username"] as! String)
+                                self.imageView.image = Images.shared.users[user["Profile_pic"] as! Int]
+                                self.anim.hidePlaceholder(view: self.usernameLabel)
+                                self.anim.hidePlaceholder(view: self.nameLabel)
+                                    for i in 0..<tradeHistory.count {
+                                        
+                                        self.trades.append(TradesProfile(coinFrom: (tradeHistory[i]["Coin_from"] as? String)!, coinTo: (tradeHistory[i]["Coin_to"] as? String)!, coinFromSymbol: (tradeHistory[i]["Coin_from_symbol"] as? String)!, coinToSymbol: (tradeHistory[i]["Coin_to_symbol"] as? String)!, quantity: (tradeHistory[i]["Quantity"] as? Double)!, converted: (tradeHistory[i]["Converted"] as? Double)!))
+                                    }
+                            }
+                        
+                            self.tableView.reloadData()
+                            self.anim.hidePlaceholder(view: self.tableView)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
-                    
-                        self.tableView.reloadData()
-                        self.anim.hidePlaceholder(view: self.tableView)
                         
                     }
                 }
@@ -153,21 +160,27 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
     
     func getPercentages(){
        
-           if Service.isConnectedToInternet {
+           if isConnected {
                if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let parameters = ["username":username!]
                    let request = Service.shared.getPercentages(parameters: parameters)
                    request.responseJSON { (response) in
-                    
                        if let body = response.value as? [String:Any] {
-                       
-                           if let data = body["data"] as? [String:Any]{
-                                let wallets = data["Wallets"] as! [[String:Any]]
-                                for i in 0..<wallets.count{
-                                    self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
+                           if(response.response?.statusCode == StatusCodes.shared.OK){
+                                attemptsMaxed = false
+                                if let data = body["data"] as? [String:Any]{
+                                    let wallets = data["Wallets"] as! [[String:Any]]
+                                    for i in 0..<wallets.count{
+                                        self.percentages[wallets[i]["Symbol"] as! String] = wallets[i]["Percentage"] as? Double
+                                    }
+                               }
+                           }else{
+                                attemptsMaxed = true
+                                if !unknownBanner.isDisplaying{
+                                    unknownBanner.show()
                                 }
-                           }
-                       }
+                            }
+                        }
                    }
                }
            }
@@ -179,26 +192,33 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         }
     func followSomeone(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
              let parameters = ["username":username!]
                 let request = Service.shared.followUser(params: parameters)
                 request.responseJSON { (response) in
                  
                     if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? String{
-                            self.following=true
-                            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-                            self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                            self.unfollowButton.setTitle("Unfollow", for: .normal)
-                            isMissionFinished(parameters: ["id":"5"])
-                            var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
-                            numberOfFollows += 1
-                            UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
-                            self.unfollowButton.isEnabled = true
-                            if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 2){
-                                isMissionFinished(parameters: ["id":"9"])
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? String{
+                                self.following=true
+                                self.unfollowButton.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                                self.unfollowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+                                self.unfollowButton.setTitle("Unfollow", for: .normal)
+                                isMissionFinished(parameters: ["id":"5"])
+                                var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
+                                numberOfFollows += 1
+                                UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
+                                self.unfollowButton.isEnabled = true
+                                if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 2){
+                                    isMissionFinished(parameters: ["id":"9"])
+                                }
+                            }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
                             }
                         }
                     }
@@ -211,19 +231,24 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
     func fillFollowings(){
         followings = []
 
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getFollowings()
                 request.responseJSON { (response) in
-                 
                     if let body = response.value as? [String:Any] {
-                        if let data = body["data"] as? [[String:Any]]{
-                            
-                             for i in 0..<data.count{
-                                self.followings.append(data[i]["username"] as! String)
-                               
-                             }
-                            self.setProperButton()
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [[String:Any]]{
+                                 for i in 0..<data.count{
+                                    self.followings.append(data[i]["username"] as! String)
+                                 }
+                                self.setProperButton()
+                            }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
@@ -249,22 +274,28 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
     
     func unfollowSomeone(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
              let parameters = ["username":username!]
                 let request = Service.shared.stopFollowing(params: parameters)
                 request.responseJSON { (response) in
                  
                     if let body = response.value as? [String:Any] {
-                    
-                        if let message = body["message"] as? String{
-                            print(message)
-                            self.following=false
-                            self.unfollowButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-                            self.unfollowButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
-                            self.unfollowButton.setTitle("Follow", for: .normal)
-                            self.unfollowButton.isEnabled = true
-                            
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let message = body["message"] as? String{
+                                self.following=false
+                                self.unfollowButton.backgroundColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                                self.unfollowButton.setTitleColor(#colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1), for: .normal)
+                                self.unfollowButton.setTitle("Follow", for: .normal)
+                                self.unfollowButton.isEnabled = true
+                                
+                            }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }

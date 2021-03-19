@@ -16,13 +16,15 @@ enum Connection {
     case cellular, loopback, wifi, wiredEthernet, other
 }
 
+
 class Monitor {
 
     private let monitor: NWPathMonitor =  NWPathMonitor()
-
+    
     init() {
         let queue = DispatchQueue.global(qos: .background)
         monitor.start(queue: queue)
+        
     }
 }
 
@@ -50,7 +52,9 @@ extension Monitor {
 }
 
 extension Monitor {
-    func cancel() {
+    public func cancel() {
         monitor.cancel()
     }
+    
 }
+

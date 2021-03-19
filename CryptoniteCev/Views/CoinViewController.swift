@@ -54,7 +54,6 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         getCoinHistory()
-        
     }
     
     
@@ -79,7 +78,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     
     func getCoin(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
                 let parameters = ["name":coinName!]
@@ -89,31 +88,39 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                 request.responseJSON { (response) in
                    
                     if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [String:Any]{
-                            
-                            self.currencyNameL.text = data["Name"]! as! String + "'s price"
-                            self.coinSymbol = data["Symbol"] as! String
-                            let coinValue = currencyFormatter(numberToFormat: (data["Price"] as? Double)!)
-                            self.coinValueL.text = coinValue + "$"
-                            self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
-                            self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
-                            self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
-                            let percentage = data["Change"]!
-                            self.coinPercentageL.text = String(round(100*(percentage as? Double)!)/100) + "%"
-                            
-                            var volume = String(((data["Volume"]! as? Double)!) / 1000000000)
-                            volume = self.removeDecimals(numberToRound: volume)
-                            self.volumeLabel.text = volume + "B $"
-                            
-                            var marketCap = String(((data["Cap"]! as? Double)!)/1000000000)
-                            marketCap = self.removeDecimals(numberToRound: marketCap)
-                            self.marketCapLabel.text = marketCap + "B $"
-                            
-                            if((data["Change"] as! Double) < 0) {
-                                self.coinPercentageL?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
-                            }else {
-                                self.coinPercentageL?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                        
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [String:Any]{
+                                
+                                self.currencyNameL.text = data["Name"]! as! String + "'s price"
+                                self.coinSymbol = data["Symbol"] as! String
+                                let coinValue = currencyFormatter(numberToFormat: (data["Price"] as? Double)!)
+                                self.coinValueL.text = coinValue + "$"
+                                self.aboutCoinLabel.text = AboutCoins.shared.coins[data["Name"]! as! String]
+                                self.aboutTitleLabel.text = "About " + (data["Name"]! as! String)
+                                self.coinIconIV.image = Images.shared.coins[data["Name"]! as! String]
+                                let percentage = data["Change"]!
+                                self.coinPercentageL.text = String(round(100*(percentage as? Double)!)/100) + "%"
+                                
+                                var volume = String(((data["Volume"]! as? Double)!) / 1000000000)
+                                volume = self.removeDecimals(numberToRound: volume)
+                                self.volumeLabel.text = volume + "B $"
+                                
+                                var marketCap = String(((data["Cap"]! as? Double)!)/1000000000)
+                                marketCap = self.removeDecimals(numberToRound: marketCap)
+                                self.marketCapLabel.text = marketCap + "B $"
+                                
+                                if((data["Change"] as! Double) < 0) {
+                                    self.coinPercentageL?.textColor = #colorLiteral(red: 0.9490196078, green: 0.2862745098, blue: 0.4509803922, alpha: 1)
+                                }else {
+                                    self.coinPercentageL?.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                                }
+                            }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
                             }
                         }
                     }
@@ -125,7 +132,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
 
     func getCoinHistory(){
     
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
                 let parameters = ["coin":coinName!]
@@ -136,17 +143,25 @@ class CoinViewController: UIViewController, ChartViewDelegate {
                    
                     if let body = response.value as? [String:Any] {
                         
-                        if let data = body["data"] as? [[Double]]{
-                            
-                            
-                            self.values = []
-                            
-                            for i in 0..<data.count{
-                               self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [[Double]]{
+                                
+                                
+                                self.values = []
+                                
+                                for i in 0..<data.count{
+                                   self.values.append(ChartDataEntry(x: Double(i+1), y: data[i][1]))
+                                }
+                                
+                                self.viewDidLayoutSubviews()
+                                
                             }
-                            
-                            self.viewDidLayoutSubviews()
-                            
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }

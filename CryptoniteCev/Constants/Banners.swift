@@ -13,8 +13,8 @@ import NotificationBannerSwift
 class Banners{
     
     static let shared = Banners()
-    
-    private init(){}
+    private init(){
+    }
     
     private var normalDuration : TimeInterval = 1
     private var longDuration : TimeInterval = 2
@@ -43,6 +43,16 @@ class Banners{
         banner.show()
     }
     
+    func unknownErrorBanner() -> NotificationBanner{
+        let leftView = UIImageView(image: #imageLiteral(resourceName: "error"))
+        let banner = NotificationBanner(title: "An unknown error is ocurring right now", subtitle: "Please do not touch your phone or it will autodestroy",leftView: leftView, style: .danger)
+        banner.haptic = .heavy
+        banner.bannerHeight = self.normalHeight
+        banner.duration = self.longDuration
+        
+        return banner
+    }
+    
     func successBanner(title: String, subtitle: String){
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
         banner.haptic = .heavy
@@ -62,13 +72,14 @@ class Banners{
             banner.bannerHeight = self.normalHeight
             banner.titleLabel?.textColor = #colorLiteral(red: 0.07058823529, green: 0.1215686275, blue: 0.2078431373, alpha: 1)
             banner.duration = self.longDuration
-        
            banner.show()
        }
     
     func noConnectionBanner() -> StatusBarNotificationBanner{
-        return StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
-        
+        let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
+        banner.autoDismiss = false
+        banner.bannerHeight = 80
+        return banner
     }
     
     func creatorsBanner(){

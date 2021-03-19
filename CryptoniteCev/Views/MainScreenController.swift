@@ -12,7 +12,6 @@ import BLTNBoard
 
 class MainScreenController: UIViewController {
 
-    //var stories : UICollectionView?
     var storiesCollection: UICollectionView?
     var coinsCollection : UICollectionView?
     var usersCollection : UICollectionView?
@@ -23,7 +22,6 @@ class MainScreenController: UIViewController {
     
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     
-    
     @IBOutlet weak var activityTableView: UITableView!
     
     var coins:[Coin] = []
@@ -31,9 +29,11 @@ class MainScreenController: UIViewController {
     var users:[UserMain] = []
     var followings:[UserStories] = [UserStories(profilePic: Images.shared.users[0], username: "")]
     var coinImages:[UIImage] = []
+    var coinNames:[String] = []
     
     let experiencePerMission : Double = 200
     let anim = SkeletonableAnim()
+    
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -55,10 +55,21 @@ class MainScreenController: UIViewController {
         activityTableView.rowHeight = 68
         activityTableView.estimatedRowHeight = 68
         anim.placeholder(view: activityTableView)
+        
         self.activityTableView.reloadData()
         
-        for (_, value) in Images.shared.coins {
+        /**
+         Rellena el tableview de monedas como placeholders cuando no haya conexión
+         */
+        for (key, value) in Images.shared.coins {
+            coinNames.append(key)
             coinImages.append(value)
+        }
+        
+        
+        if !Service.isConnectedToInternet{
+            isConnected = false
+            connectionBanner.show()
         }
     
     }
@@ -68,12 +79,11 @@ class MainScreenController: UIViewController {
         getCoins()
         getUsers()
         tradingHistory()
-        
     }
     
     func getCoins(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let requestCoins = Service.shared.getCoins()
                 
@@ -81,6 +91,7 @@ class MainScreenController: UIViewController {
                     
                     if let body = response.value as? [String: Any]{
                         if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
                             let data = body["data"] as! [[String:Any]]
                             self.coins = []
                             for i in 1..<data.count {
@@ -88,6 +99,11 @@ class MainScreenController: UIViewController {
                             }
                             
                             self.coinCollectionView.reloadData()
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
@@ -98,20 +114,28 @@ class MainScreenController: UIViewController {
     
     func tradingHistory(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let requestTrades = Service.shared.getTradingHistory()
                 
                 requestTrades.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
-                        let data = body["data"]! as! [[String:Any]]
-                        self.trades = []
-                        for i in 0..<data.count {
-                            self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            let data = body["data"]! as! [[String:Any]]
+                            self.trades = []
+                            for i in 0..<data.count {
+                                self.trades.append(TradeHistory(coinFrom: (data[i]["Coin_from"] as? String)!, coinTo: (data[i]["Coin_to"] as? String)!,coinFromSymbol: (data[i]["Coin_from_symbol"] as? String)! , coinToSymbol: (data[i]["Coin_to_symbol"] as? String)!, quantity: (data[i]["Quantity"] as? Double)!, username: (data[i]["Username"] as? String)!, converted: (data[i]["Converted"] as? Double)!, profilePic: (data[i]["Profile_pic"] as? Int)!))
+                            }
+                        
+                            self.activityTableView.reloadData()
+                            self.anim.hidePlaceholder(view: self.activityTableView)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
-                    
-                        self.activityTableView.reloadData()
-                        self.anim.hidePlaceholder(view: self.activityTableView)
                         
                     }
                 }
@@ -120,19 +144,27 @@ class MainScreenController: UIViewController {
     }
     
     
-    
     func getUsers(){
-        if Service.isConnectedToInternet {
+        
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-            let requestUsers = Service.shared.getUsers()
+                let requestUsers = Service.shared.getUsers()
                 requestUsers.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
-                        let data = body["data"]! as! [[String:Any]]
-                        self.users = []
-                        for i in 0..<data.count {
-                            self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Double)!))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            let data = body["data"]! as! [[String:Any]]
+                            self.users = []
+                            for i in 0..<data.count {
+                                self.users.append(UserMain(profilePic: Images.shared.users[(data[i]["ProfilePic"] as? Int)!], username: (data[i]["Username"] as? String)!, experience: (data[i]["Exp"] as? Double)!))
+                            }
+                            self.usersCollectionView.reloadData()
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
-                        self.usersCollectionView.reloadData()
                     }
                 }
             }
@@ -140,28 +172,34 @@ class MainScreenController: UIViewController {
     }
     
     func fillFollowings(){
+        
         followings = [UserStories(profilePic: Images.shared.users[0], username: "")]
 
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getFollowings()
                 request.responseJSON { (response) in
-                 
                     if let body = response.value as? [String:Any] {
-                        if let data = body["data"] as? [[String:Any]]{
-                            
-                             for i in 0..<data.count{
-                                self.followings.append(UserStories(profilePic: Images.shared.users[data[i]["profile_pic"] as! Int], username: data[i]["username"] as! String))
-                               
-                             }
-                            self.storiesCollectionView.reloadData()
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [[String:Any]]{
+                                 for i in 0..<data.count{
+                                    self.followings.append(UserStories(profilePic: Images.shared.users[data[i]["profile_pic"] as! Int], username: data[i]["username"] as! String))
+                                 }
+                                
+                                self.storiesCollectionView.reloadData()
+                            }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
             }
         }
     }
-    
     
 }
 

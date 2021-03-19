@@ -148,14 +148,6 @@ class GamificationController: UIViewController {
         anim.placeholder(view: mission2Label)
         anim.placeholder(view: mission3Label)
         
-        //var animation = lottieAnim()
-        
-        //view.addSubview(animation)
-        
-        //animation.play()
-        
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         getCash(fromMain: true)
@@ -245,7 +237,7 @@ class GamificationController: UIViewController {
     
     func getGamification(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
                 let request = Service.shared.gamification()
@@ -254,31 +246,39 @@ class GamificationController: UIViewController {
                    
                     if let body = response.value as? [String:Any] {
                         
-                        if let data = body["data"] as? [String:Any]{
-                            
-                            let missions = data["Missions"] as! [[String:Any]]
-                           
-                            let userInfo = data["User"] as! [String:Any]
-                            
-                            let user = UserMain(profilePic: Images.shared.users[(userInfo["ProfilePic"] as? Int)!], username: (userInfo["Username"] as? String)!, experience: (userInfo["Exp"] as? Double)!)
-                            
-                            self.missions = []
-                            
-                            for i in 0..<missions.count{
-                                self.missions.append(Mission(id: missions[i]["id"] as! Int, icon: Missions.shared.missions[missions[i]["icon"] as! Int], description: missions[i]["description"] as! String, isFinished: missions[i]["is_finished"] as! Int))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [String:Any]{
                                 
+                                let missions = data["Missions"] as! [[String:Any]]
+                               
+                                let userInfo = data["User"] as! [String:Any]
+                                
+                                let user = UserMain(profilePic: Images.shared.users[(userInfo["ProfilePic"] as? Int)!], username: (userInfo["Username"] as? String)!, experience: (userInfo["Exp"] as? Double)!)
+                                
+                                self.missions = []
+                                
+                                for i in 0..<missions.count{
+                                    self.missions.append(Mission(id: missions[i]["id"] as! Int, icon: Missions.shared.missions[missions[i]["icon"] as! Int], description: missions[i]["description"] as! String, isFinished: missions[i]["is_finished"] as! Int))
+                                    
+                                }
+                                
+                                self.setMissions()
+                                self.experience = user.experience
+                                self.level = self.getCurrentLvl(experience: user.experience)
+                                self.setProgressLabel()
+                                self.profileImage.image = user.profilePic
+                                self.welcomeLabel.text = "Good earnings @" + user.username
+                                self.levelLabel.text = String(self.level)
+                                self.anim.hidePlaceholder(view: self.mission1Label)
+                                self.anim.hidePlaceholder(view: self.mission2Label)
+                                self.anim.hidePlaceholder(view: self.mission3Label)
                             }
-                            
-                            self.setMissions()
-                            self.experience = user.experience
-                            self.level = self.getCurrentLvl(experience: user.experience)
-                            self.setProgressLabel()
-                            self.profileImage.image = user.profilePic
-                            self.welcomeLabel.text = "Good earnings @" + user.username
-                            self.levelLabel.text = String(self.level)
-                            self.anim.hidePlaceholder(view: self.mission1Label)
-                            self.anim.hidePlaceholder(view: self.mission2Label)
-                            self.anim.hidePlaceholder(view: self.mission3Label)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                         
                     }
@@ -323,41 +323,49 @@ class GamificationController: UIViewController {
     }
     
     func getCash(fromMain:Bool){
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getCash()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        if let data = body["data"] as? String{
-                            
-                            if fromMain{
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? String{
                                 
-                                self.cash = Double(data)!
-                                self.prevBalance = self.cash
-                                self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
-                                
-                            }else{
-                                
-                                self.prevBalance = self.cash
-                                self.cash = Double(data)!
+                                if fromMain{
                                     
-                                for i in 1...Int(self.calculateReward(level: self.level)) {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01 * Double(i) ) {
-                                        if self.cash > self.prevBalance {
-                                            self.prevBalance += 0.5
-                                            self.cashLabel.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
-                                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.prevBalance)) + " $"
-                                        }else{
-                                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
-                                            self.cashLabel.textColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+                                    self.cash = Double(data)!
+                                    self.prevBalance = self.cash
+                                    self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
+                                    
+                                }else{
+                                    
+                                    self.prevBalance = self.cash
+                                    self.cash = Double(data)!
+                                        
+                                    for i in 1...Int(self.calculateReward(level: self.level)) {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01 * Double(i) ) {
+                                            if self.cash > self.prevBalance {
+                                                self.prevBalance += 0.5
+                                                self.cashLabel.textColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
+                                                self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.prevBalance)) + " $"
+                                            }else{
+                                                self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: Double(self.cash)) + " $"
+                                                self.cashLabel.textColor = #colorLiteral(red: 0.2, green: 0.2235294118, blue: 0.2784313725, alpha: 1)
+                                            }
                                         }
+                                        
                                     }
-                                    
                                 }
+                                
+                                self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: self.cash) + " $"
+                                self.anim.hidePlaceholder(view: self.cashLabel)
                             }
-                            
-                            self.cashLabel.text = currencyFormatterTwoDecimals(numberToFormat: self.cash) + " $"
-                            self.anim.hidePlaceholder(view: self.cashLabel)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
@@ -367,17 +375,25 @@ class GamificationController: UIViewController {
     
     func assigNewMission(parameters:[String:String]){
         missions = []
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.assignNewMission(params: parameters)
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        if let data = body["data"] as? [[String:Any]]{
-                            
-                            for i in 0..<data.count{
-                                self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int], description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [[String:Any]]{
+                                
+                                for i in 0..<data.count{
+                                    self.missions.append(Mission(id: data[i]["id"] as! Int, icon: Missions.shared.missions[data[i]["icon"] as! Int], description: data[i]["description"] as! String, isFinished: data[i]["is_finished"] as! Int))
+                                }
+                                self.setMissions()
                             }
-                            self.setMissions()
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
@@ -387,15 +403,16 @@ class GamificationController: UIViewController {
     
     func updateExp(parameters:[String:Int]){
         missions = []
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.updateExp(params: parameters)
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        print(body)
-                        if let message = body["message"] as? [String:Any]{
-                            
-                            print(message)
+                        if(response.response?.statusCode != StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                     }
                 }
@@ -405,12 +422,17 @@ class GamificationController: UIViewController {
     
     func deposit(parameters:[String:Double]){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.desposit(params: parameters)
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                        //self.getCash()
+                        if(response.response?.statusCode != StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
+                        }
                     }
                 }
             }

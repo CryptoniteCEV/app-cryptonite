@@ -65,38 +65,44 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
     
     func getWallets(){
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [String:Any]{
-                            let wallets = data["Wallets"] as! [[String:Any]]
-                            let cash = data["Cash"]
-                       
-                            for i in 0..<wallets.count {
-                                self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
-                            }
-                            self.balance = cash as! Double
-                            self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
-                            
-                            self.percentages = self.getPercentages(myWallets: self.coinsQuantities)
-                            self.anim.hidePlaceholder(view: self.totalCash)
-                            self.anim.hidePlaceholder(view: self.tableView)
-                            self.viewDidLayoutSubviews()
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [String:Any]{
+                                let wallets = data["Wallets"] as! [[String:Any]]
+                                let cash = data["Cash"]
+                           
+                                for i in 0..<wallets.count {
+                                    self.coinsQuantities.append(CoinsQuantities(name: (wallets[i]["Name"] as? String)!, symbol: (wallets[i]["Symbol"]! as? String)!, quantity: (wallets[i]["Quantity"] as? Double)!, inDollars: (wallets[i]["inDollars"] as? Double)!))
+                                }
+                                self.balance = cash as! Double
+                                self.totalCash.text = currencyFormatter(numberToFormat: (round(100*(cash as? Double)!)/100)) + "$"
+                                
+                                self.percentages = self.getPercentages(myWallets: self.coinsQuantities)
+                                self.anim.hidePlaceholder(view: self.totalCash)
+                                self.anim.hidePlaceholder(view: self.tableView)
+                                self.viewDidLayoutSubviews()
 
+                            }else{
+                                if !unknownBanner.isDisplaying{
+                                    unknownBanner.show()
+                                }
+                            }
+                            self.tableView.reloadData()
                         }else{
-                            Banners.shared.errorBanner(title: body["message"] as! String, subtitle: "Sorry!")
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
-                        self.tableView.reloadData()
                     }
                 }
             }
-        }else{
-            Banners.shared.noConnectionBanner()
         }
-        
     }
     
     func getPercentages(myWallets:[CoinsQuantities]) -> [String:Double]{

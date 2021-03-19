@@ -208,21 +208,26 @@ class TradingController: UIViewController {
     
     func getCoins()->[Coin]{
         coins = []
-        if Service.isConnectedToInternet {
+        if isConnected {
                 if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                    let requestCoins = Service.shared.getCoins()
                    
                    requestCoins.responseJSON { (response) in
-                
                     if let body = response.value as? [String: Any]{
                         if(response.response?.statusCode == StatusCodes.shared.OK){
-                               let data = body["data"] as! [[String:Any]]
+                            attemptsMaxed = false
+                            let data = body["data"] as! [[String:Any]]
                                
-                               for i in 1..<data.count {
-                                   self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
-                               }
+                            for i in 1..<data.count {
+                               self.coins.append(Coin(name: (data[i]["Name"] as? String)!, symbol: (data[i]["Symbol"]! as? String)!, price: (data[i]["Price"] as? Double)!, change: (data[i]["Change"] as? Double)!))
+                            }
                             self.curentPrice.text = currencyFormatter(numberToFormat: self.coins[self.cryptoPos].price) + "$"
                             self.anim.hidePlaceholder(view: self.curentPrice)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
                    }
                 }
@@ -234,7 +239,7 @@ class TradingController: UIViewController {
     func getTrades() -> [Trade]{
         trades = []
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 
                 let requestTrades = Service.shared.getTradesInfo()
@@ -242,18 +247,23 @@ class TradingController: UIViewController {
                 requestTrades.responseJSON { (response) in
                     
                     if let body = response.value as? [String:Any] {
-                    
-                        if let data = body["data"] as? [[String:Any]]{
-        
-                            for i in 0..<data.count {
-                                
-                                
-                                self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: self.timestampToDate(date: data[i]["Date"] as! Double), quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"] as? [[String:Any]]{
+            
+                                for i in 0..<data.count {
+                                    self.trades.append(Trade(coin: (data[i]["Coin"] as? String)!, date: self.timestampToDate(date: data[i]["Date"] as! Double), quantity: (data[i]["Quantity"] as? Double)!, price: (data[i]["Price"] as? Double)!, isSell: (data[i]["Is_sell"] as? Int)!))
+                                }
+                            }
+                            
+                            self.tradeTableView.reloadData()
+                            self.anim.hidePlaceholder(view: self.tradeTableView)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
                             }
                         }
-                        
-                        self.tradeTableView.reloadData()
-                        self.anim.hidePlaceholder(view: self.tradeTableView)
                     }
                 }
             }
@@ -264,10 +274,9 @@ class TradingController: UIViewController {
     
     func newTrade(is_sell:Int, quantity: Double, coin:String) {
         
-        if Service.isConnectedToInternet {
+        if isConnected {
             
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
-                
                 
                 let parameters:[String:String] = [
                     "is_sell":String(is_sell),
@@ -279,29 +288,37 @@ class TradingController: UIViewController {
             
                 requestTrades.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
-                        print(body["message"]!)
-                        
-                        Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
-                        self.setWallet(fromTrades: true)
-                        isMissionFinished(parameters: ["id":"4"])
-                        self.trades = self.getTrades()
-                        if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "DOGE"){
-                            isMissionFinished(parameters: ["id":"1"])
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            Banners.shared.successBanner(title: body["message"]! as! String, subtitle: "")
+                            self.setWallet(fromTrades: true)
+                            isMissionFinished(parameters: ["id":"4"])
+                            self.trades = self.getTrades()
+                            
+                            if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "DOGE"){
+                                isMissionFinished(parameters: ["id":"1"])
+                            }
+                            
+                            if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "LTC" && self.isSell==1){
+                                isMissionFinished(parameters: ["id":"6"])
+                            }
+                            
+                            var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
+                            numberOfFollows += 1
+                            UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
+                            
+                            if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 3){
+                                isMissionFinished(parameters: ["id":"10"])
+                            }
+                            
+                            self.tradeTableView.reloadData()
+                            self.anim.hidePlaceholder(view: self.tradeTableView)
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
+                            }
                         }
-                        if(self.coinsSC.titleForSegment(at: self.cryptoPos) == "LTC" && self.isSell==1){
-                            isMissionFinished(parameters: ["id":"6"])
-                        }
-                        
-                        var numberOfFollows = UserDefaults.standard.integer(forKey: "numberOfFollows")
-                        numberOfFollows += 1
-                        UserDefaults.standard.set(numberOfFollows, forKey: "numberOfFollows")
-                        
-                        if (UserDefaults.standard.integer(forKey: "numberOfFollows") >= 3){
-                            isMissionFinished(parameters: ["id":"10"])
-                        }
-                        
-                        self.tradeTableView.reloadData()
-                        self.anim.hidePlaceholder(view: self.tradeTableView)
                     }
                 }
             }
@@ -310,50 +327,58 @@ class TradingController: UIViewController {
     
     func setWallet(fromTrades:Bool){
         wallets = []
-        if Service.isConnectedToInternet {
+        if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
                 let request = Service.shared.getWallets()
                 request.responseJSON { (response) in
                     if let body = response.value as? [String: Any]{
-                        if let data = body["data"]! as? [String:Any]{
-                            let walletsReceived = data["Wallets"] as! [[String:Any]]
-                   
-                            for i in 0..<walletsReceived.count {
-                                self.wallets.append(CoinsQuantities(name: (walletsReceived[i]["Name"] as? String)!, symbol: (walletsReceived[i]["Symbol"]! as? String)!, quantity: (walletsReceived[i]["Quantity"] as? Double)!, inDollars: (walletsReceived[i]["inDollars"] as? Double)!))
-                            }
-                            
-                            if self.isSell == 0{
-                                self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
-                            }else{
-                                self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].quantity)
-                            }
-                            
-                            var walletsWithCash:[String] = []
-                            
-                            for i in 0..<self.wallets.count{
-                                if self.wallets[i].quantity > 0{
-                                    walletsWithCash.append(self.wallets[i].symbol)
+                        if(response.response?.statusCode == StatusCodes.shared.OK){
+                            attemptsMaxed = false
+                            if let data = body["data"]! as? [String:Any]{
+                                let walletsReceived = data["Wallets"] as! [[String:Any]]
+                       
+                                for i in 0..<walletsReceived.count {
+                                    self.wallets.append(CoinsQuantities(name: (walletsReceived[i]["Name"] as? String)!, symbol: (walletsReceived[i]["Symbol"]! as? String)!, quantity: (walletsReceived[i]["Quantity"] as? Double)!, inDollars: (walletsReceived[i]["inDollars"] as? Double)!))
                                 }
-                            }
-                            
-                            if(fromTrades){
-                                if self.wallets[0].quantity == 0 && self.isSell == 0{
-                                    isMissionFinished(parameters: ["id":"11"])
+                                
+                                if self.isSell == 0{
+                                    self.amountValue.maximumValue = Float(self.wallets[0].inDollars)
+                                }else{
+                                    self.amountValue.maximumValue = Float(self.wallets[self.cryptoPos+1].quantity)
                                 }
-                            }
-                            if(fromTrades){
-                                if walletsWithCash.count == 1{
-                                    if walletsWithCash[0] == "BTC" {
-                                        isMissionFinished(parameters: ["id":"8"])
+                                
+                                var walletsWithCash:[String] = []
+                                
+                                for i in 0..<self.wallets.count{
+                                    if self.wallets[i].quantity > 0{
+                                        walletsWithCash.append(self.wallets[i].symbol)
+                                    }
+                                }
+                                
+                                if(fromTrades){
+                                    if self.wallets[0].quantity == 0 && self.isSell == 0{
+                                        isMissionFinished(parameters: ["id":"11"])
+                                    }
+                                }
+                                if(fromTrades){
+                                    if walletsWithCash.count == 1{
+                                        if walletsWithCash[0] == "BTC" {
+                                            isMissionFinished(parameters: ["id":"8"])
+                                        }
+                                    }
+                                }
+                                if(fromTrades){
+                                    if walletsWithCash.count == 1{
+                                        if walletsWithCash[0] == "USDT" {
+                                            isMissionFinished(parameters: ["id":"7"])
+                                        }
                                     }
                                 }
                             }
-                            if(fromTrades){
-                                if walletsWithCash.count == 1{
-                                    if walletsWithCash[0] == "USDT" {
-                                        isMissionFinished(parameters: ["id":"7"])
-                                    }
-                                }
+                        }else{
+                            attemptsMaxed = true
+                            if !unknownBanner.isDisplaying{
+                                unknownBanner.show()
                             }
                         }
                     }
