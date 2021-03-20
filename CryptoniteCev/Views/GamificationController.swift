@@ -74,6 +74,8 @@ class GamificationController: UIViewController {
     
     let anim = SkeletonableAnim()
     
+    
+    //Al pulsar el boton de completar mision se realiza la peticion de asignar nueva mision, se recibe la nueva experiencia, se comprueba el nivel, realiza la peticion de actualizar la experiencia del usuario, comprueba el nivel y coloca la barra de progreso
     @IBAction func mission1Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[0].id)])
         getExperience()
@@ -83,6 +85,7 @@ class GamificationController: UIViewController {
         setProgressLabel()
     }
     
+    //Al pulsar el boton de completar mision se realiza la peticion de asignar nueva mision, se recibe la nueva experiencia, se comprueba el nivel, realiza la peticion de actualizar la experiencia del usuario, comprueba el nivel y coloca la barra de progreso
     @IBAction func mission2Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[1].id)])
         getExperience()
@@ -92,6 +95,7 @@ class GamificationController: UIViewController {
         setProgressLabel()
     }
     
+    //Al pulsar el boton de completar mision se realiza la peticion de asignar nueva mision, se recibe la nueva experiencia, se comprueba el nivel, realiza la peticion de actualizar la experiencia del usuario, comprueba el nivel y coloca la barra de progreso
     @IBAction func mission3Cleared(_ sender: UIButton) {
         assigNewMission(parameters: ["id":String(missions[2].id)])
         getExperience()
@@ -101,6 +105,7 @@ class GamificationController: UIViewController {
         setProgressLabel()
     }
     
+    //actualiza la experiencia del user y realiza la peticion de depositar doges si se ha subido de nivel
     func updateUser() {
         updateExp(parameters: ["new_exp" : Int(experience)])
         if level != prevLevel  {
@@ -108,12 +113,14 @@ class GamificationController: UIViewController {
         }
     }
     
+    //Boton que te conduce hacia la pantalla de wallet
     @IBAction func toWalletButton(_ sender: Any) {
         self.dismiss(animated: true) {
             self.onDoneBlock!()
         }
     }
     
+    //este boton te redirige a la pantalla de login
     @IBAction func logout(_ sender: UIButton) {       
         UserDefaults.standard.removeObject(forKey: Identifiers.shared.auth)
         self.dismiss(animated: true) {
@@ -121,6 +128,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //AL iniciarse el view imprime la barra de progreso, redondea los botones, se colocan los textos en los labels y crea el view de confetti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Rewards"
@@ -149,6 +157,7 @@ class GamificationController: UIViewController {
         anim.placeholder(view: mission3Label)
         
     }
+    //Al aparecer el view se realizan las peticiones de cash y gamificacion que rellenaran los datos de los labels de usuario y misiones
     override func viewDidAppear(_ animated: Bool) {
         getCash(fromMain: true)
         getGamification()
@@ -156,16 +165,18 @@ class GamificationController: UIViewController {
         bulletinManager.backgroundViewStyle = .dimmed
     }
     
+    //redondea un boton
     func roundButton(button: UIButton) {
         button.layer.cornerRadius = 7
     }
     
+    //inicia el confetti
     func startConfetti(view: SwiftConfettiView){
         
         self.view.addSubview(self.viewConfetti!)
         view.startConfetti()
     }
-    
+    //apaga el confetti
     func stopConfetti(view: SwiftConfettiView){
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             view.stopConfetti()
@@ -175,11 +186,13 @@ class GamificationController: UIViewController {
         }
     }
     
+    //al reclamar el premio se ejecuta el confetti
     func claimRewards() {
         self.startConfetti(view: self.viewConfetti!)
         self.stopConfetti(view: self.viewConfetti!)
     }    
     
+    //experiencia necesaria para subir de nivel
     func neededExperience(level: Int) -> Double {
         if level != 0 {
             return neededExperience(level: level-1) + Double(level)  *  self.experiencePerMission
@@ -187,10 +200,12 @@ class GamificationController: UIViewController {
         return 0
     }
     
+    //nueva experiencia al subir de nivel
     func getExperience(){
         experience += experiencePerMission
     }
     
+    //devuelve nivel del user
     func levelManagement()->Int {
         prevLevel = level
         var n = 0
@@ -202,6 +217,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //devuelve nivel del user
     func getCurrentLvl(experience:Double)->Int{
         var n = 0
         var level:Int = 0
@@ -215,6 +231,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //si el usuario ha subido de nivel se modifica el progress bar con animacion y el label de nivel
     func checkHasLeveledUp(){
         if level != prevLevel  {
             self.claimRewards()
@@ -230,11 +247,13 @@ class GamificationController: UIViewController {
         self.levelLabel.text = String(Int(level))
     }
     
+    //se coloca la experiencia en el progress bar
     func setProgressLabel() {
         let progress = (experience - neededExperience(level: level-1)) / (neededExperience(level: level) - neededExperience(level: level - 1))
         self.circleProgressBar.setProgress(CGFloat(progress), animated: true)
     }
     
+    //funcion que realiza la peticion para recibir los datos de la pantalla de gamificacion, tanto missiones como user
     func getGamification(){
         
         if isConnected {
@@ -287,7 +306,7 @@ class GamificationController: UIViewController {
         }
         
     }
-    
+    //Coloca las misiones en los labels e imagenes
     func setMissions(){
         
         mission1Label.text = missions[0].description
@@ -321,7 +340,7 @@ class GamificationController: UIViewController {
         }
         
     }
-    
+    //peticion que recibe el cash del usuario logged
     func getCash(fromMain:Bool){
         if isConnected {
             if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
@@ -373,6 +392,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //asigna una nueva mision al hacer claim rewards
     func assigNewMission(parameters:[String:String]){
         missions = []
         if isConnected {
@@ -401,6 +421,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //peticion que actualiza la experiencia al terminar una mision
     func updateExp(parameters:[String:Int]){
         missions = []
         if isConnected {
@@ -420,6 +441,7 @@ class GamificationController: UIViewController {
         }
     }
     
+    //peticion que deposita doges en el wallet del usuario al subir de nivel
     func deposit(parameters:[String:Double]){
         
         if isConnected {
@@ -439,16 +461,18 @@ class GamificationController: UIViewController {
         }
     }
     
+    //calcula el premio recibido
     func calculateReward(level:Int)-> Double{
         
         return startingReward + (Double(level) * startingReward/2)
     }
-    
+    //muestra el bulletin de doge al subir de nivel
     lazy var bulletinManager: BLTNItemManager = {
         let page = showClaimLevelBanner()
         return BLTNItemManager(rootItem: page)
     }()
     
+    //muestra el banner de reclamar doges al subir de nivel, ademas de recibir el nuevo dinero actualizado
     func showClaimLevelBanner() -> BLTNPageItem  {
         let page = BLTNPageItem(title: "To the moooon!!")
         page.image = #imageLiteral(resourceName: "dogecoin128")

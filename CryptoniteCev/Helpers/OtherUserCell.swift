@@ -10,7 +10,10 @@ import UIKit
 
 class OtherUserCell: UITableViewCell{
     
+    //Referencias de outlets
+    
     @IBOutlet weak var profile: UIImageView!
+    
     @IBOutlet weak var username: UILabel!
    
     @IBOutlet weak var quantity: UILabel!

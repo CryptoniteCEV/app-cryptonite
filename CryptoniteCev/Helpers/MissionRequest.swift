@@ -10,13 +10,14 @@ import Foundation
 import Lottie
 
 func isMissionFinished(parameters:[String:String]){
-    if Service.isConnectedToInternet {
+    
+    //comprueba si una mission la posee el usuario y en caso de poseerla la pondrá como acabada
+    if isConnected {
         if (UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil) {
             
             let request = Service.shared.updateMission(params: parameters)
             
             request.responseJSON { (response) in
-                print(response.value)
                 if(response.response?.statusCode == StatusCodes.shared.OK){
                     Banners.shared.missionCompletedBanner(view: lottieAnim())
                 }
@@ -25,6 +26,7 @@ func isMissionFinished(parameters:[String:String]){
     }
 }
 
+//animacion de el regalo
 func lottieAnim() -> UIView {
     
     var animationView: AnimationView?

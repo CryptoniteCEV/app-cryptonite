@@ -13,6 +13,7 @@ class StatusCodes {
     static let shared = StatusCodes()
     private init(){}
 
+    //tipos de status codes
     let OK = 200
     let created = 201
 

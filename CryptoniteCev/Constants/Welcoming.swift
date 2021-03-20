@@ -7,6 +7,7 @@ class Welcomings{
     
     private init() {
         
+        //Frases que apareceran en login de forma aleatoria
         self.phrases = ["Jealous of Bruce Wayne? \n Let’s go to the mooooon!",
                         "Jeff Bezos? Who?",
                         "HOOOOOOODL!",

@@ -14,17 +14,27 @@ class SignUpController: UIViewController {
     let identifiers = Identifiers.shared
     @IBOutlet weak var isAdultSW: UISwitch!
     
+    /**
+     Al iniciarse el view por primera vez el botón de continuar se redondea y
+     se llama a la función que permitirá cerrar el teclado
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        continue_button.isEnabled = true
         self.hideKeyboardWhenTappedAround()
         continue_button.layer.cornerRadius = 5
         
     }
+    /**
+     Al aparecer el view el botón se habilita y el nav controller aparece
+     */
     override func viewDidAppear(_ animated: Bool) {
+        continue_button.isEnabled = true
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    /**
+     Al pulsar el botón de continuar, se comprueban los datos introducidos, si son correcto se llama a la petición de registrar, en caso de ser erróneos se mostrará el mensaje en forma de banner y se habilitará el botón de continuar
+     */
     @IBAction func ContinueButton(_ sender: Any) {
         
         if checkEmail(textFieldEmail: emailTF) && checkPassword(textFieldPass: passwordTF){
@@ -38,6 +48,9 @@ class SignUpController: UIViewController {
             }
         }
     }
+    /**
+     Función engargada de mostrar el banner una vez te registres correctamente
+     */
     func showBanner(completion: @escaping (_ success: Bool) -> Void, message: String) {
         Banners.shared.successBanner(title: message, subtitle: "Log in now!")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -45,6 +58,9 @@ class SignUpController: UIViewController {
         }
     }
     
+    /**
+     Función que se encargará de las peticiones de registro con las comprobaciones necesarias además de llevarte a login una vez esto ocurra correctamente, en caso de ocurrir cualquier error se mostrará un mensaje en forma de banner
+     */
     func register(user:User){
         
         if isConnected {
@@ -72,10 +88,16 @@ class SignUpController: UIViewController {
     }
     
     
+    /**
+     Ibaction que te llevará a la pantalla de login una vez se pulse el botón de "log in"
+     */
     @IBAction func goToLogIn(_ sender: Any) {
          navigationController?.popToRootViewController(animated: true)
     }
     
+    /**
+     Función que te devolverá a la pantalla de login
+     */
     func goToLogInScreen() {
         navigationController?.popToRootViewController(animated: true)
         

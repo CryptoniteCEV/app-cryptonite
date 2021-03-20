@@ -13,7 +13,7 @@ class Identifiers {
     private init() {}
 
     static let shared = Identifiers()
-    
+    //identificadores que se usaran a lo largo de la app
     let coinID = "coinID"
     let toDetail = "toDetail"
     let toMain = "toMain"

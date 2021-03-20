@@ -16,7 +16,6 @@ enum Connection {
     case cellular, loopback, wifi, wiredEthernet, other
 }
 
-
 class Monitor {
 
     private let monitor: NWPathMonitor =  NWPathMonitor()
@@ -29,6 +28,7 @@ class Monitor {
 }
 
 extension Monitor {
+    //Funcion que se encarga de comenzar a monitorizar la conexion
     func startMonitoring( callBack: @escaping (_ connection: Connection, _ rechable: Reachable) -> Void ) -> Void {
         monitor.pathUpdateHandler = { path in
 
@@ -52,6 +52,7 @@ extension Monitor {
 }
 
 extension Monitor {
+    //cancela monitoreo
     public func cancel() {
         monitor.cancel()
     }

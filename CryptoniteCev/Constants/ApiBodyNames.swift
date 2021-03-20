@@ -14,6 +14,7 @@ class ApiBodyNames {
 
     static let shared = ApiBodyNames()
     
+    //nombres pasados por el key en los parametros que recibira la api
     let email = "email"
     let username = "username"
     let password = "password"

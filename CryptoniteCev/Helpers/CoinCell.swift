@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CoinCellDelegate: class {
-    // Declare a delegate function holding a reference to `UICollectionViewCell` instance
+    // Funcion delegado que tendrá la refencia de la instancia `UICollectionViewCell`
     func collectionViewCell(_ cell: UICollectionViewCell, buttonTapped: UIButton)
 }
 
@@ -21,7 +21,7 @@ class CoinCell: UICollectionViewCell {
     let coinCardButton: UIButton = {
         
         let coinCardButton = UIButton()
-            
+        //Estética del boton
         coinCardButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
         coinCardButton.translatesAutoresizingMaskIntoConstraints = false
         coinCardButton.clipsToBounds = true
@@ -35,6 +35,7 @@ class CoinCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
+        //estética del view
         contentView.addSubview(coinCardButton)
         coinCardButton.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         coinCardButton.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true

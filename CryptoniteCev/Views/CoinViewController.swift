@@ -33,6 +33,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     var coinSymbol:String = "BTC"
     var coinName:String?
 
+    //Al iniciarse el view genera valores para la grafica con x e y en 0 como placeholder, recibe las monedas, comprueba la mission, y pone el boton de trade con redondeo
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,11 +53,12 @@ class CoinViewController: UIViewController, ChartViewDelegate {
 
     }
     
+    //antes de iniciarse el view recibe el historial de la moneda escogida
     override func viewWillAppear(_ animated: Bool) {
         getCoinHistory()
     }
     
-    
+    //Al pulsar el boton de trade hace dismis y ejecuta el closure que te redirigira a la pantalla de trade
     @IBAction func TradeViewButton(_ sender: Any) {
         
         self.dismiss(animated: true) {
@@ -65,6 +67,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
     }
     
     
+    //imprime la grafica con los valores correctos
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
         
@@ -76,6 +79,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         lineChart.reloadInputViews()
     }
     
+    //funcion que recoge la informacion de la moneda pulsada en la pantalla main
     func getCoin(){
         
         if isConnected {
@@ -130,6 +134,7 @@ class CoinViewController: UIViewController, ChartViewDelegate {
         
     }
 
+    //funcion que realiza la peticion de recoger el historial de la moneda
     func getCoinHistory(){
     
         if isConnected {
@@ -168,6 +173,8 @@ class CoinViewController: UIViewController, ChartViewDelegate {
             }
         }
     }
+    
+    //quita los decimales de ciertos valores
     func removeDecimals(numberToRound: String) -> String{
         let splitter = numberToRound.components(separatedBy: ".")
         var splitted: String = splitter[1]

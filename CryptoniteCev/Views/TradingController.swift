@@ -33,6 +33,7 @@ class TradingController: UIViewController {
     var tradeType = "Buy "
     let anim = SkeletonableAnim()
     
+    //ibaction de tradeos, generara un nuevo tradeo en base a ciertos parametros y reiniciara los valores además de apaga el boton para que no ocurran errores
     @IBAction func tradeButton(_ sender: UIButton) {
         
         if(amountValue.value > 0){
@@ -53,6 +54,7 @@ class TradingController: UIViewController {
         
     }
     
+    //ibaction del slider, dependiendo de si es compra o venta y la posicion elegira unos decimales u otros ademas de modificar a 0 cuando ponga 0.0 en el textfield. Tambien pondrá el boton del color debido
     @IBAction func amountSlider(_ sender: UISlider) {
         var decimalQuantity = 0
         if isSell == 0 || cryptoPos == 2{
@@ -73,6 +75,7 @@ class TradingController: UIViewController {
         }
     }
     
+    //funcion que se dedica a poner el color correcto del boton de buy/sell
     func setProperButtonBuySellColor(){
         if amountValue.value>0{
             buyOrSellButton.isEnabled = true
@@ -100,7 +103,11 @@ class TradingController: UIViewController {
         
     }
     
-   
+    /*
+      Al iniciarse el view se generan los wallets, la lista de tradeos y las monedas.
+     El sc pondrá la posicion adecuada en base al nombre además de colocar el titulo del botón dependiendo de la moneda seleccionada
+     */
+    
     override func viewDidAppear(_ animated: Bool) {
         setWallet(fromTrades: false)
         trades = getTrades()
@@ -119,6 +126,7 @@ class TradingController: UIViewController {
         
     }
     
+    //Al poner cantidad en el textfield pone la cantidad maxima si la cantidad introducida es mayor
     @IBAction func onSelectAmountField(_ sender: Any) {
         
         if (amountTextfield.text! as NSString).floatValue > amountValue.maximumValue{
@@ -127,6 +135,7 @@ class TradingController: UIViewController {
         setProperButtonBuySellColor()
     }
     
+    //Al modificarse el textfield se comprueba la cantidad introducida para poner la maxima posible
     @IBAction func onTextFieldValueChanged(_ sender: UITextField) {
         
         if(sender.text == ""){
@@ -143,7 +152,7 @@ class TradingController: UIViewController {
         
     }
     
-    
+    //Al seleccionar una moneda se modifica el label del precio, se guarda la posición y se modifica el max value del slider
     @IBAction func onSelectCoin(_ sender: Any) {
         cryptoPos = coinsSC.selectedSegmentIndex
         if(coins.count>0){
@@ -164,6 +173,7 @@ class TradingController: UIViewController {
         setProperButtonBuySellColor()
     }
     
+    //Cambia el color y texto del boton buy/sell al cambiar el sc
     @IBAction func onSelectBuySell(_ sender: Any) {
         amountValue.maximumValue = 0
         
@@ -189,6 +199,7 @@ class TradingController: UIViewController {
         
     }
     
+    //Al cargar el view coloca el placeholder, activa el toggle del teclado, coloca el nombre de la moneda y si es compra/venta en el boton además de poner los textos de los sc en color negro
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -206,6 +217,7 @@ class TradingController: UIViewController {
         
     }
     
+    //peticion que recoge las monedas y precios
     func getCoins()->[Coin]{
         coins = []
         if isConnected {
@@ -236,6 +248,7 @@ class TradingController: UIViewController {
         return coins
     }
     
+    //Peticion que recibe todos los tradeos
     func getTrades() -> [Trade]{
         trades = []
         
@@ -272,6 +285,7 @@ class TradingController: UIViewController {
         return trades;
     }
     
+    //genera nuevo trade en base a compra/venta, moneda y cantidad además de comprobar las misiones
     func newTrade(is_sell:Int, quantity: Double, coin:String) {
         
         if isConnected {
@@ -325,6 +339,7 @@ class TradingController: UIViewController {
         }
     }
     
+    //peticion que recibe los wallets ademas de comprobar las misiones correspondientes
     func setWallet(fromTrades:Bool){
         wallets = []
         if isConnected {
@@ -388,6 +403,7 @@ class TradingController: UIViewController {
         
     }
     
+    //Comprueba nombre y devuelve positicion en el segmented control
     func getPositionInSGFromName()->Int{
         
         for i in 0..<coinsSC.numberOfSegments{
@@ -399,7 +415,7 @@ class TradingController: UIViewController {
         return 0
     }
     
-    
+    //Recibe timestamp devuelve date
     func timestampToDate(date: Double) -> String {
         let tradeDate = Date(timeIntervalSince1970: date )
         let formatter1 = DateFormatter()

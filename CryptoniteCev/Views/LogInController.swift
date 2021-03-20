@@ -21,14 +21,19 @@ class LogInController: UIViewController {
     let identifiers = Identifiers.shared
     let monitor = Monitor()
     
+    /**
+     Al iniciarse el view activa el toggle de teclado, redondea el boton de login y genera una nueva frase random que pondrá en el label
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
         logInButton.layer.cornerRadius = 5
         introLabel.text = Welcomings.shared.phrases[Int.random(in: 0..<Welcomings.shared.phrases.count)]
     }
     
+    /*
+     Antes de iniciarse la vista comienza a monitorear los posibles cambios de internet ademas de habilitar el boton de login
+     */
     override func viewWillAppear(_ animated: Bool) {
         logInButton.isEnabled = true
         monitor.startMonitoring { [weak self] connection, reachable in
@@ -48,6 +53,7 @@ class LogInController: UIViewController {
             }
             
         }
+        //si hay internet y ya estas loggeado de antes irás directamente a la pantalla de main
         if isConnected{
             if UserDefaults.standard.string(forKey: Identifiers.shared.auth) != nil {
                 self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -57,6 +63,9 @@ class LogInController: UIViewController {
     }
 
 
+    /**
+     Al pulsar el boton de login se hara la peticion pasando los parametros de los fields, además de comprobar que estos campos sean correctos
+     */
     @IBAction func LogInButton(_ sender: Any) {
         
         if checkUsername(textFieldUsername: usernameTF) && checkPassword(textFieldPass: passwordTF){
@@ -70,6 +79,9 @@ class LogInController: UIViewController {
         }
     }
     
+    /**
+     Petición de loggeo con sus respectivas comprobaciones
+     */
     func login(parameters:[String:String], sender:Any){
         
         if isConnected {
@@ -98,11 +110,12 @@ class LogInController: UIViewController {
         }
     }
     
+    //Antes de iniciarse el view quitara el nav controller
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    
+    //AL pulsar el boton de signup habilitara el boton de login y nos llevara a la pantalla de signup
     @IBAction func signUpButton(_ sender: Any) {
         logInButton.isEnabled = true
         performSegue(withIdentifier: "signup", sender: sender)

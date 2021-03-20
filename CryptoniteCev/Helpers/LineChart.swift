@@ -11,7 +11,8 @@ class LineChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-           
+        
+        //estetica del linechart
         screen.addSubview(lineChart)
            
         lineChart.topAnchor.constraint(equalTo: screen.topAnchor, constant: screen.frame.height).isActive = true
@@ -22,27 +23,26 @@ class LineChart: UIViewController, ChartViewDelegate{
             
         let set =  LineChartDataSet(entries: values)
         set.drawValuesEnabled = false
-        //set.drawCircleHoleEnabled = true
         set.drawCirclesEnabled = false
         set.colors = [Colors.shared.graph[coinSymbol]!]
         set.highlightColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
         
-        //Remove grid lines
+        //quita las lineas del grid
         lineChart.rightAxis.drawAxisLineEnabled = false
         lineChart.rightAxis.drawGridLinesEnabled = false
         lineChart.leftAxis.drawGridLinesEnabled = false
         lineChart.xAxis.drawGridLinesEnabled = false
         
-        //Removed labels
+        //quita los labels
         lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         lineChart.rightAxis.drawLabelsEnabled = false
         
         
         lineChart.legend.enabled = false
-        
-    
-              
+
+        //crea el linechart con la estructura
         let data = LineChartData(dataSet: set)
+        //linechart recoge los datos que mostrará
         lineChart.data = data
         
     }

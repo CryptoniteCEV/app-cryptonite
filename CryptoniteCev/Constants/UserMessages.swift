@@ -14,6 +14,7 @@ class UserMessages {
     static let shared = UserMessages()
     private init(){}
  
+    //mensajes para mostrar al user
     let noMatchingPasswords = "Passwords do not match"
     let unknownUser = "This user does not exist"
     let passwordChanged = "Password succesfully changed"

@@ -11,6 +11,7 @@ import SkeletonView
 
 class SkeletonableAnim: UIViewController {
 
+    //estilo del placeholder
    public  func placeholder(view : UIView){
          
          view.isSkeletonable = true
@@ -19,6 +20,7 @@ class SkeletonableAnim: UIViewController {
          view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
          
      }
+    //apaga placehiolder
     public func hidePlaceholder(view : UIView){
         view.stopSkeletonAnimation()
         view.hideSkeleton()

@@ -27,6 +27,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return "cellActivity"
             
         }
+    //Devuelve la cantidad de items dependiendo del collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == storiesCollectionView {
             return followings.count
@@ -40,9 +41,12 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return users.count
         }
         
-    }    
+    }
+    
+    //Rellena labels e imagenes de los datos recibidos en las peticiones
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        //Rellena las imagenes de las stories
         if collectionView == storiesCollectionView {
             let cell = storiesCollectionView.dequeueReusableCell(withReuseIdentifier: "CellStories", for: indexPath) as! StoriesCell
             
@@ -57,7 +61,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             cell.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.8509803922, blue: 0.7411764706, alpha: 1)
             return cell
         }
-        
+        //Rellena labels e imagenes de las monedas
         if collectionView == coinCollectionView{
             
             let cell = coinCollectionView.dequeueReusableCell(withReuseIdentifier: "cellCoins", for: indexPath) as! CoinCellMainController
@@ -91,6 +95,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
             return cell
             
         }
+            //Rellena labels e imagenes de los usuarios
         else {
             let cellUser = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "cellUsers", for: indexPath) as! UserCellMainController
             if users.count > 0{
@@ -111,6 +116,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
+    //segues que te conduciran al item especifico
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if coins.count>0 && collectionView == coinCollectionView{
@@ -143,6 +149,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         return trades.count
     }
     
+    //Rellena los labels e imagenes de los tradeos
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellActivity") as! ActivityRow
         if(trades.count>0){
@@ -160,7 +167,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         return cell
     }
     
-    
+    //Devuelve el nivel actual en base a la experiencia
     func getCurrentLvl(experience:Double)->Int{
         var n = 0
         var level:Int = 0
@@ -173,6 +180,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
         }
     }
     
+    //Experiencia necesaria para subir de nivel
     func neededExperience(level: Double) -> Double {
         if level != 0 {
             return neededExperience(level: level-1) + level  *  self.experiencePerMission
@@ -181,6 +189,7 @@ extension MainScreenController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     
+    //envia datos en el segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
         if (segue.identifier == Identifiers.shared.stories) {

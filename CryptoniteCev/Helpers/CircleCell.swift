@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CircleCellDelegate: class {
-    // Declare a delegate function holding a reference to `UICollectionViewCell` instance
+    // Funcion delegado que tendrá la refencia de la instancia `UICollectionViewCell`
     func collectionViewCell(_ cell: UICollectionViewCell, buttonTapped: UIButton)
 }
 
@@ -21,7 +21,8 @@ class CircleCell: UICollectionViewCell {
     let bg: UIButton = {
         
         let circularButton = UIButton()
-            
+        
+        //estetica de los botones
         circularButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
         circularButton.translatesAutoresizingMaskIntoConstraints = false
         circularButton.clipsToBounds = true
@@ -37,6 +38,7 @@ class CircleCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)      
         
+        //estetica de la vista
         contentView.addSubview(bg)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true

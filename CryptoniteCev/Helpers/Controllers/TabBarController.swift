@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
+
 class TabBarController:UITabBarController{
     
+    /**
+     Iniciará como primera pantalla el index 1 del tab bar que será la main screen
+     */
     override func viewDidLoad() {
         self.selectedIndex = 1
     }

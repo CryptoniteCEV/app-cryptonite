@@ -21,6 +21,7 @@ class Banners{
     private var normalHeight : CGFloat = 110
     private var smallHeight : CGFloat = 80
     
+    //Banner de subir de nivel
     func levelUpBanner(title: String){
         let leftView = UIImageView(image: #imageLiteral(resourceName: "logoNoText"))
         let banner = NotificationBanner(title: title, leftView: leftView, style: .info)
@@ -33,6 +34,7 @@ class Banners{
         banner.show()
     }
     
+    //Banner de mostrar error
     func errorBanner(title: String, subtitle: String){
         let leftView = UIImageView(image: #imageLiteral(resourceName: "error"))
         let banner = NotificationBanner(title: title, subtitle: subtitle,leftView: leftView, style: .danger)
@@ -43,6 +45,7 @@ class Banners{
         banner.show()
     }
     
+    //Banner de error desconocido, normalmente too many attempts
     func unknownErrorBanner() -> NotificationBanner{
         let leftView = UIImageView(image: #imageLiteral(resourceName: "error"))
         let banner = NotificationBanner(title: "An unknown error is ocurring right now", subtitle: "Please do not touch your phone or it will autodestroy",leftView: leftView, style: .danger)
@@ -53,6 +56,7 @@ class Banners{
         return banner
     }
     
+    //Banner de que ha salido todo bien
     func successBanner(title: String, subtitle: String){
         let banner = NotificationBanner(title: title, subtitle: subtitle, style: .success)
         banner.haptic = .heavy
@@ -64,6 +68,7 @@ class Banners{
         banner.show()
     }
     
+    //Banner que se mostrara al completar una mision
     func missionCompletedBanner(view: UIView) {
             let leftView = view
             let banner = NotificationBanner(title: "Mission completed, go claim your rewards", leftView: leftView, style: .info)
@@ -75,6 +80,7 @@ class Banners{
            banner.show()
        }
     
+    //Banner de no conexion
     func noConnectionBanner() -> StatusBarNotificationBanner{
         let banner = StatusBarNotificationBanner(title: "No Internet Connection", style: .danger)
         banner.autoDismiss = false
@@ -82,9 +88,10 @@ class Banners{
         return banner
     }
     
+    //Banner easter egg que se mostrará en wallet
     func creatorsBanner(){
            let leftView = UIImageView(image: #imageLiteral(resourceName: "logoNoText"))
-           let banner = NotificationBanner(title: "Created by Alex Sergio Jesus and Jose", leftView: leftView, style: .info)
+           let banner = NotificationBanner(title: "Created by Marxtodon, Cyrexx, Yerus and Sharkteeth", leftView: leftView, style: .info)
            banner.haptic = .heavy
            banner.dismissOnTap = false
            banner.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

@@ -1,6 +1,9 @@
 
 import Foundation
 
+/**
+ Funcion que formateará número double y lo devolverá en forma de string
+ */
 func currencyFormatter(numberToFormat: Double) -> String {
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true
@@ -13,6 +16,9 @@ func currencyFormatter(numberToFormat: Double) -> String {
     
 }
 
+/**
+ Funcion que formateará número double y lo devolverá en forma de string con solo 2 decimales
+*/
 func currencyFormatterTwoDecimals(numberToFormat: Double) -> String {
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true
@@ -25,9 +31,11 @@ func currencyFormatterTwoDecimals(numberToFormat: Double) -> String {
     
 }
 
+/**
+Funcion que decidirá el tipo de redondeo según la moneda
+*/
 func setRounding(symbol:String) -> Double {
     let roundingPair = ["DogeCoin", "Tether", "DOGE", "USDT"]
-    
     
     if(roundingPair.contains(symbol)){
         return 100
@@ -36,6 +44,9 @@ func setRounding(symbol:String) -> Double {
     }
 }
 
+/**
+ Funcion que formateará número float y lo devolverá en forma de string
+*/
 func currencyFormatterFloat(numberToFormat: Float, decimalsQuantity:Int ) -> String {
     let currencyFormatter = NumberFormatter()
     currencyFormatter.usesGroupingSeparator = true

@@ -34,6 +34,9 @@ class MainScreenController: UIViewController {
     let experiencePerMission : Double = 200
     let anim = SkeletonableAnim()
     
+    /**
+     Al iniciarse el view comprueba las misiones de register y login pone el estilo oscuro, modifica los delegdos de los collection y tableviews y actualiza el feed de tradeos
+     */
     override func viewDidLoad() {
         
         view.overrideUserInterfaceStyle = .dark
@@ -66,7 +69,7 @@ class MainScreenController: UIViewController {
             coinImages.append(value)
         }
         
-        
+        //muestra banner de no conexion si no hay conexion
         if !Service.isConnectedToInternet{
             isConnected = false
             connectionBanner.show()
@@ -74,6 +77,7 @@ class MainScreenController: UIViewController {
     
     }
     
+    //al aparecer el view realiza las peticiones de followings, monedas, usuarios y trades
     override func viewDidAppear(_ animated: Bool) {
         fillFollowings()
         getCoins()
@@ -81,6 +85,7 @@ class MainScreenController: UIViewController {
         tradingHistory()
     }
     
+    //Peticion de recibir monedas
     func getCoins(){
         
         if isConnected {
@@ -112,6 +117,7 @@ class MainScreenController: UIViewController {
         }
     }
     
+    //Petición de recibir todos los trades
     func tradingHistory(){
         
         if isConnected {
@@ -143,7 +149,7 @@ class MainScreenController: UIViewController {
         }
     }
     
-    
+    //Recibe todos los usuarios
     func getUsers(){
         
         if isConnected {
@@ -171,6 +177,7 @@ class MainScreenController: UIViewController {
         }
     }
     
+    //Peticion de rellenar los followings
     func fillFollowings(){
         
         followings = [UserStories(profilePic: Images.shared.users[0], username: "")]

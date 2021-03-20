@@ -24,6 +24,10 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
     var roundingQuantity: Double = 100000
     let anim = SkeletonableAnim()
     
+    
+    /**
+     Al iniciarse el view  crea el gesto easter egg, coloca la estetica del tableview e inicia el placeholder
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +50,9 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         
     }
     
-    
+    /**
+     Apaga el nav controller, comprueba mission de checkear wallet, reinicia el balance, comprueba los wallets para que en caso de que esten vacios coloca el placeholder y despues recoge los wallets
+     */
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
         isMissionFinished(parameters: ["id":"14"])
@@ -59,10 +65,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         getWallets()
        
     }
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        
-    }
-    
+    //petición que recoge los wallets del user
     func getWallets(){
         
         if isConnected {
@@ -105,6 +108,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         }
     }
     
+    //Calcula los porcentages que apareceran en el piechart en base a los wallets del user
     func getPercentages(myWallets:[CoinsQuantities]) -> [String:Double]{
         var values:[String:Double] = [:];
         var percentage:Double = 0
@@ -120,12 +124,17 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         return values;
     }
     
-    
+    /**
+     cantidad de items en tableview
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
         return self.coinsQuantities.count
     }
     
+    /**
+     Coloca la información en los labels e imageviews que se recibe de la peticion de wallets
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.shared.coinID) as! CoinRowWalletController
@@ -144,6 +153,8 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
         return cell
         
        }
+    
+    //imprime piechart
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
@@ -157,6 +168,7 @@ class WalletViewController: UIViewController, SkeletonTableViewDataSource, UITab
             
         }
     
+    //Easter egg que muestra banner al mover el pestaña con dos dedos
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         Banners.shared.creatorsBanner()
     }

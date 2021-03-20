@@ -9,7 +9,7 @@ class Endpoints {
     static let domain = "http://52.90.76.43"
     static let path = "/api-cryptonite/public/api"
     
-    //User´s Petitions
+    //User´s endpoints
     enum User {
         static let register:String = "/users/register"
         static let login:String = "/users/login"
@@ -34,17 +34,17 @@ class Endpoints {
         static let getMissions:String = "/users/missions"
     }
     
-    //Score´s petitions
+    //Score´s endpoints
     enum Score {
         static let getScores:String = "/scores/list"
     }
 
-    //Trading´s petitions
+    //Trading´s endpoints
     enum Trading{
         static let getTradingHistory:String = "/trades/history"
     }
 
-    //Deposit´s petitions
+    //Deposit´s endpoints
     enum Wallet{
         static let getInfo:String = "/wallets/info"
         static let deposit:String = "/wallets/deposit/doge"
@@ -53,7 +53,7 @@ class Endpoints {
         static let percentagesOwn:String = "/wallets/percentages/own"
     }
         
-    //Currency´s petitions
+    //Currency´s endpoints
     enum Coin{
         static let getList:String = "/coins/list"
         static let getPrice:String = "/coins/get/price"

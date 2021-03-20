@@ -21,6 +21,7 @@ extension TradingController: SkeletonTableViewDataSource, UITableViewDelegate {
             return "trades"
             
         }
+    //Rellena los labels e imagenes de los tradeos con la info recibida de la petición
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "trades") as! TradesRow

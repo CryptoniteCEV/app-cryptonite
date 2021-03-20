@@ -39,6 +39,9 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
 
     var roundingQuantity: Double = 100000
     
+    /**
+     Al iniciarse el view realiza las peticiones de recoger porcentages, rellenar los followings para comprobar si el user logged sigue a este user, se pone la estetica del table view y del boton de unfollow
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         getPercentages()
@@ -64,6 +67,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         
     }
     
+    //antes de desaparecer la vista se llama al closure onDoneBlock para actulizar las stories al volver a main, esto se hace para comprobar si se ha followeado o unfolloweado a la persona
     override func viewWillDisappear(_ animated: Bool) {
         onDoneBlock!()
     }
@@ -72,6 +76,9 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         return trades.count
     }
     
+    /**
+     Coloca los labels e imagenes en base a lo recibido en la petición de trades
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "otherCell") as! OtherUserCell
         if trades.count > 0{
@@ -88,17 +95,19 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
        
     }
 
+    //imprime el piechart con los porcentages recogidos
     override func viewDidLayoutSubviews() {
      super.viewDidLayoutSubviews()
     
         graph.impirmirGrafica(pieChart: pieChart, screen: container, percentages: percentages)
             
     }
+    //al aparecer el view se llama a trades y se guarda en la variable
     override func viewDidAppear(_ animated: Bool) {
         trades = getTrades()
     }
     
-    
+    //Botón de follow llama a peticion follow o unfollow dependiendo del estado
     @IBAction func followUserButton(_ sender: Any) {
         
         if(!following){
@@ -111,6 +120,9 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         
     }
     
+    /**
+     Petición que recoge tradeos e información del user
+     */
     func getTrades() -> [TradesProfile]{
     
         trades = []
@@ -158,6 +170,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         return trades;
     }
     
+    //Petición que ecoge los porcentajes que se mostrarán en el piechart
     func getPercentages(){
        
            if isConnected {
@@ -185,11 +198,14 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
                }
            }
        }
+    
+    //devuelve identifier del collection view
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
             
             return "otherCell"
             
         }
+    //Petición de hacer follow
     func followSomeone(){
         
         if isConnected {
@@ -227,7 +243,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         }
         
     }
-    
+    //recoger las personas que sigue el user logged
     func fillFollowings(){
         followings = []
 
@@ -256,6 +272,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         }
     }
     
+    //Pondrá el boton de follow de la manera correcta dependiendo del estado
     func setProperButton(){
      
         if !self.followings.contains(self.username!){
@@ -272,6 +289,7 @@ class StoriesController: UIViewController, ChartViewDelegate, SkeletonTableViewD
         
     }
     
+    //Petición de hacer unfollow
     func unfollowSomeone(){
         
         if isConnected {

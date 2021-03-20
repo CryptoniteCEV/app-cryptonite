@@ -11,11 +11,9 @@ class PieChart: UIViewController, ChartViewDelegate{
             height: screen.frame.height
                    
                )
-        /*pieChart.rotationAngle = 0
-        pieChart.rotationEnabled = false*/
-        
+
+        //Estilo del piechart
         pieChart.drawHoleEnabled = false
-        //5print("está haciendo la funcion")
            
         screen.addSubview(pieChart)
            
@@ -27,6 +25,7 @@ class PieChart: UIViewController, ChartViewDelegate{
         var entries:[PieChartDataEntry] = []
         var colorsGraph:[NSUIColor] = []
         
+        //Coloca los colores y los entries de forma ordenada para luego ser mostrados correctamente
         for (name, value) in percentages {
             entries.append(PieChartDataEntry(value: value, label: name))
             colorsGraph.append(Colors.shared.graph[name]!)
@@ -34,8 +33,7 @@ class PieChart: UIViewController, ChartViewDelegate{
         
         let set =  PieChartDataSet(entries: entries)
         
-        
-        
+        //colores
         let valueColor = NSUIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.95)
         let labelEntryColor = NSUIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.95)
         
@@ -43,6 +41,7 @@ class PieChart: UIViewController, ChartViewDelegate{
         set.valueColors =  [valueColor]
         set.entryLabelColor = labelEntryColor
         
+        //labels con porcentajes
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 1

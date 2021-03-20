@@ -5,6 +5,8 @@ import Foundation
 
 class CoinRowWalletController: UITableViewCell{
 
+    //Referencias de outlets
+    
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var coin: UILabel!
     @IBOutlet weak var symbol: UILabel!
